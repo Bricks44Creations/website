@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agatha on the Witches' Road | Bricks Creations</title>
+    <link rel="icon" type="image/png" href="../img/logo_actuel.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!-- Google tag (gtag.js) optionnel: reprendre si nécessaire sur le site global -->
+</head>
+
+<body>
+    <!-- ===== HEADER (repris du style Marvel) ===== -->
+    <header class="header">
+        <button class="burger" id="burger-btn" aria-label="Ouvrir le menu">☰</button>
+        <div class="logo-text">
+            <a href="../index.html"><img src="../img/logo_actuel.png" alt="Logo" /></a>
+            <a href="../index.html">
+                <h1 data-key="site_title">Bricks Creations</h1>
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="has-submenu">
+                    <a href="../index.html"><span data-key="portfolio">Portfolio</span><span
+                            class="arrow-down">&#9662;</span></a>
+                    <ul class="submenu">
+                        <li><a href="../Portfolio/City.html" data-key="portfolio_city">City</a></li>
+                        <li><a href="../Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
+                        <li><a href="../Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
+                        <li><a href="../Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
+                        <li><a href="../Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
+                        <li><a href="../Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
+                        <li><a href="../Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                    </ul>
+                </li>
+                <li><a href="../Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="../Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                <li><a href="../Tips.html" data-key="tips">Tips</a></li>
+                <li class="has-submenu">
+                    <a href="../Conventions.html"><span data-key="conventions">Conventions</span><span
+                            class="arrow-down">&#9662;</span></a>
+                    <ul class="submenu">
+                        <li><a href="../Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
+                        <li><a href="../Conventions/Escaudoeuvres.html"
+                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="../Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-right-link">
+            <ul class="menu">
+                <li class="has-submenu">
+                    <a href="#" id="translate-btn-desktop">
+                        <i class="fa-solid fa-language"></i>
+                        <span id="current-lang" data-key="current_language">English</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" class="lang-option" data-lang="en">English</a></li>
+                        <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== SIDEBAR MOBILE ===== -->
+    <aside id="mobile-sidebar" class="mobile-sidebar hidden" role="dialog" aria-modal="true"
+        aria-labelledby="sidebar-title">
+        <button id="close-sidebar" aria-label="Fermer le menu">×</button>
+        <nav>
+            <ul class="menu-sidebar">
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false"><span data-key="portfolio">Portfolio</span>
+                        <span class="arrow-down">&#9662;</span></button>
+                    <ul class="mobile-submenu">
+                        <li><a href="../Portfolio/City.html" data-key="portfolio_city">City</a></li>
+                        <li><a href="../Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
+                        <li><a href="../Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
+                        <li><a href="../Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
+                        <li><a href="../Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
+                        <li><a href="../Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
+                        <li><a href="../Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                    </ul>
+                </li>
+                <li><a href="../Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="../Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                <li><a href="../Tips.html" data-key="tips">Tips</a></li>
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false"><span data-key="conventions">Conventions</span>
+                        <span class="arrow-down">&#9662;</span></button>
+                    <ul class="mobile-submenu">
+                        <li><a href="../Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
+                        <li><a href="../Conventions/Escaudoeuvres.html"
+                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="../Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="overlay" class="hidden"></div>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main-content project-page">
+        <div class="title">
+            <h1>Agatha on the Witches' Road</h1>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- HERO: image principale + encart références clés -->
+        <section class="project-hero" aria-label="Présentation du projet">
+            <figure class="hero-media">
+                <!-- Remplacez l'image ci-dessous par la plus belle vue globale de la création -->
+                <img src="../img/Portfolio/marvel/Witches road - Bricks Creations_2.png"
+                    alt="Vue principale de la création 'Agatha on the Witches' Road'" />
+            </figure>
+
+            <aside class="project-meta" aria-label="Informations principales">
+                <h3 class="meta-title">Références</h3>
+                <div class="ref-image">
+                    <!-- Image de référence de la scène (capture d'écran officielle, affiche, etc.) -->
+                    <img src="../img/Portfolio/marvel/Witches road - Bricks Creations_5.png"
+                        alt="Image de référence de la scène de la série" />
+                    <span class="ref-caption">Image de référence</span>
+                </div>
+                <div class="meta-grid">
+                    <div class="meta-row"><i class='bx bx-calendar'></i><span class="meta-key">Date
+                            :</span><span>09/10/2024</span></div>
+                    <div class="meta-row"><i class='bx bx-map'></i><span class="meta-key">Lieu(x) :</span><span>La route
+                            des sorcières</span></div>
+                    <div class="meta-row"><i class='bx bx-film'></i><span class="meta-key">Œuvre :</span><span>Agatha
+                            All Along (Marvel Studios)</span></div>
+                    <div class="meta-row"><i class='bx bx-user'></i><span class="meta-key">Personnages
+                            :</span><span>Agatha Harkness</span></div>
+                </div>
+            </aside>
+        </section>
+
+        <!-- GALERIE / CARROUSEL -->
+        <section class="project-gallery" aria-label="Galerie d'images">
+            <div class="carousel" aria-roledescription="carrousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Slides: dupliquez et remplacez les sources -->
+                    <div class="carousel-slide"><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_3.png"
+                            alt="Détail 1 - Witches' Road" /></div>
+                    <div class="carousel-slide"><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_4.png"
+                            alt="Détail 2 - Witches' Road" /></div>
+                    <div class="carousel-slide"><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_7.png"
+                            alt="Détail 3 - Witches' Road" /></div>
+                </div>
+                <button class="carousel-btn prev" aria-label="Image précédente" id="prevBtn"><i
+                        class='bx bx-chevron-left'></i></button>
+                <button class="carousel-btn next" aria-label="Image suivante" id="nextBtn"><i
+                        class='bx bx-chevron-right'></i></button>
+                <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
+            </div>
+
+            <!-- Miniatures (clic = aller à l'image) -->
+            <div class="thumbs" id="thumbs">
+                <button class="active" data-index="0"><img
+                        src="../img/Portfolio/marvel/Witches road - Bricks Creations_3.png"
+                        alt="Miniature 1" /></button>
+                <button data-index="1"><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_4.png"
+                        alt="Miniature 2" /></button>
+                <button data-index="2"><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_7.png"
+                        alt="Miniature 3" /></button>
+            </div>
+        </section>
+
+        <!-- DESCRIPTION -->
+        <section class="project-description">
+            <h2>Description</h2>
+            <p>
+                Court texte de présentation de la création : inspirations, techniques utilisées, dimensions,
+                nombre de pièces, anecdotes de construction, etc. (à compléter).
+            </p>
+        </section>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="footer-columns">
+            <div class="footer-column footer-useful-links">
+                <h3 data-key="quick_links">Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="../index.html" data-key="portfolio">Portfolio</a></li>
+                    <li><a href="../Instructions.html" data-key="instructions">Instructions</a></li>
+                    <li><a href="../Tips.html" data-key="tips">Tips</a></li>
+                    <li><a href="../Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                    <li><a href="../Conventions.html" data-key="conventions">Conventions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-info">
+                <h3 data-key="social_contacts">Social Medias | Contacts</h3>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://www.youtube.com/@BricksCreations" target="_blank" rel="noopener noreferrer">
+                            <span data-key="youtube">YouTube</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/bricks44creations" target="_blank">
+                            <span data-key="instagram">Instagram</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@brickscreations" target="_blank" rel="noopener noreferrer">
+                            <span data-key="tiktok">TikTok</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:stix.bricks@gmail.com" target="_blank" rel="noopener noreferrer">
+                            <span data-key="email">Email</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-useful-links">
+                <h3 data-key="more_from_me">More from me</h3>
+                <ul class="footer-links">
+                    <li><a href="../More_about_me.html" data-key="who_am_i">Who am I ?</a></li>
+                    <li><a href="../index.html" target="_blank" rel="noopener noreferrer" data-key="my_website">My
+                            Website</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="copyright" data-key="footer_disclaimer">
+            © 2024-2025 All rights reserved Bricks Creations <br>
+            I don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself. <br>
+            For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very
+            well like that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or
+            endorse this site.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // === Mini carrousel sans dépendance ===
+        (function () {
+            const track = document.getElementById('carouselTrack');
+            const prev = document.getElementById('prevBtn');
+            const next = document.getElementById('nextBtn');
+            const thumbs = document.getElementById('thumbs');
+            const dotsWrap = document.getElementById('carouselDots');
+            const slides = Array.from(track.children);
+            let index = 0;
+
+            // dots
+            slides.forEach((_, i) => {
+                const d = document.createElement('button');
+                d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                d.setAttribute('aria-label', 'Aller à l\'image ' + (i + 1));
+                d.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(d);
+            });
+
+            function update() {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                // dots
+                dotsWrap.querySelectorAll('.carousel-dot').forEach((b, i) => b.classList.toggle('active', i === index));
+                // thumbs
+                thumbs.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === index));
+            }
+            function goTo(i) { index = (i + slides.length) % slides.length; update(); }
+            prev.addEventListener('click', () => goTo(index - 1));
+            next.addEventListener('click', () => goTo(index + 1));
+
+            thumbs.addEventListener('click', (e) => {
+                const btn = e.target.closest('button[data-index]');
+                if (!btn) return;
+                goTo(parseInt(btn.dataset.index, 10));
+            });
+
+            // Swipe (mobile)
+            let startX = null;
+            track.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+            track.addEventListener('touchend', e => {
+                if (startX === null) return;
+                const dx = e.changedTouches[0].clientX - startX; startX = null;
+                if (Math.abs(dx) > 40) { dx > 0 ? goTo(index - 1) : goTo(index + 1); }
+            });
+        })();
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

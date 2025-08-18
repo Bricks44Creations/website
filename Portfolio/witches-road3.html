@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agatha on the Witches' Road — Template v2</title>
+    <link rel="icon" type="image/png" href="../img/logo_actuel.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles spécifiques au layout alternatif (aligné Marvel) -->
+    <style>
+        :root {
+            --brand-blue: #18305a;
+            /* header/nav */
+            --brand-accent: #F3BD99;
+            /* accents */
+            --brand-title: #003693;
+            /* titles */
+            --ink: #274661;
+            /* text */
+            --surface: #ffffff;
+            --muted: #f6f7fb;
+            --shadow: 0 10px 30px rgba(0, 0, 0, .12);
+            --radius: 16px;
+            --container: 1200px;
+        }
+
+        /* Conteneur global */
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            max-width: var(--container);
+            margin: 2rem 22rem 0rem;
+            padding: 0 2rem;
+        }
+
+        .page-header .breadcrumbs {
+            display: flex;
+            gap: .6rem;
+            font-size: .9rem;
+            color: var(--ink);
+            margin-bottom: 0rem;
+        }
+
+        .page-header .breadcrumbs a {
+            color: var(--brand-blue);
+            text-decoration: none;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: clamp(1.7rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--brand-title);
+            text-align: left;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            gap: .6rem;
+            font-size: .9rem;
+            opacity: .85;
+            align-items: center;
+        }
+
+        .breadcrumbs a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .breadcrumbs i {
+            opacity: .8;
+        }
+
+        .hero-title {
+            margin: .5rem 0 0;
+            font-size: clamp(1.7rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: .2px;
+        }
+
+        /* Section principale : aside sticky + contenu */
+        .main-split {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+
+        /* Aside Références (sticky) */
+        .refs {
+            position: sticky;
+            top: 90px;
+            align-self: start;
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .refs-header {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            padding: 1rem 1.1rem;
+            background: linear-gradient(180deg, #fff, #f9fafc);
+            border-bottom: 1px solid #eef1f6;
+        }
+
+        .refs-header i {
+            color: var(--brand-blue);
+        }
+
+        .refs h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--brand-blue);
+        }
+
+        .ref-shot {
+            position: relative;
+        }
+
+        .ref-shot img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .ref-shot span {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            background: rgba(24, 48, 90, .9);
+            color: #fff;
+            font-size: .78rem;
+            padding: .3rem .55rem;
+            border-radius: 8px;
+        }
+
+        .ref-list {
+            padding: 1rem 1.1rem;
+            display: grid;
+            gap: .65rem;
+            color: var(--ink);
+        }
+
+        .ref-item {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: .5rem;
+            align-items: start;
+        }
+
+        .ref-key {
+            font-weight: 700;
+            color: var(--brand-blue);
+        }
+
+        /* Carte description / stats */
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .card-body {
+            padding: 1.25rem 1.25rem 1.4rem;
+            color: var(--ink);
+        }
+
+        .card h2 {
+            color: var(--brand-title);
+            margin: .2rem 0 1rem;
+        }
+
+        /* Galerie type masonry avec lightbox */
+        .gallery {
+            column-count: 3;
+            column-gap: 1rem;
+        }
+
+        .gallery figure {
+            break-inside: avoid;
+            margin: 0 0 1rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+        }
+
+        .gallery img {
+            width: 100%;
+            display: block;
+            transition: transform .35s ease;
+        }
+
+        .gallery figure:hover img {
+            transform: scale(1.03);
+        }
+
+        .gallery figcaption {
+            position: absolute;
+            left: 8px;
+            bottom: 8px;
+            background: rgba(0, 0, 0, .55);
+            color: #fff;
+            font-size: .78rem;
+            padding: .25rem .5rem;
+            border-radius: 6px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, .85);
+            z-index: 60;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 92vw;
+            max-height: 82vh;
+            border-radius: 12px;
+        }
+
+        .lightbox .close,
+        .lightbox .nav {
+            position: absolute;
+            top: 20px;
+            color: #fff;
+            border: none;
+            background: transparent;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .lightbox .close {
+            right: 24px;
+        }
+
+        .lightbox .nav {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lightbox .prev {
+            left: 24px;
+        }
+
+        .lightbox .next {
+            right: 24px;
+        }
+
+        /* Bandeau crédits minimal */
+        .credits {
+            margin-top: 1.25rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            color: var(--ink);
+            font-size: .95rem;
+        }
+
+        .chip {
+            background: var(--muted);
+            border: 1px solid #eaeef6;
+            padding: .45rem .7rem;
+            border-radius: 999px;
+        }
+
+        /* Marges latérales responsives (sur le container) */
+        @media (max-width:1200px) {
+            .main-split {
+                grid-template-columns: 280px 1fr;
+            }
+        }
+
+        @media (max-width:1024px) {
+            .main-split {
+                grid-template-columns: 1fr;
+            }
+
+            .refs {
+                position: relative;
+                top: auto;
+            }
+
+            .gallery {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width:640px) {
+            .gallery {
+                column-count: 1;
+            }
+
+            .hero-banner img {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== HEADER (reprend Marvel) ===== -->
+    <header class="header">
+        <button class="burger" id="burger-btn" aria-label="Ouvrir le menu">☰</button>
+        <div class="logo-text">
+            <a href="../index.html"><img src="../img/logo_actuel.png" alt="Logo" /></a>
+            <a href="../index.html">
+                <h1 data-key="site_title">Bricks Creations</h1>
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="has-submenu">
+                    <a href="../index.html"><span data-key="portfolio">Portfolio</span><span
+                            class="arrow-down">&#9662;</span></a>
+                    <ul class="submenu">
+                        <li><a href="../Portfolio/City.html" data-key="portfolio_city">City</a></li>
+                        <li><a href="../Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
+                        <li><a href="../Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
+                        <li><a href="../Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
+                        <li><a href="../Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
+                        <li><a href="../Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
+                        <li><a href="../Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                    </ul>
+                </li>
+                <li><a href="../Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="../Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                <li><a href="../Tips.html" data-key="tips">Tips</a></li>
+                <li class="has-submenu">
+                    <a href="../Conventions.html"><span data-key="conventions">Conventions</span><span
+                            class="arrow-down">&#9662;</span></a>
+                    <ul class="submenu">
+                        <li><a href="../Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
+                        <li><a href="../Conventions/Escaudoeuvres.html"
+                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="../Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-right-link">
+            <ul class="menu">
+                <li class="has-submenu">
+                    <a href="#" id="translate-btn-desktop">
+                        <i class="fa-solid fa-language"></i>
+                        <span id="current-lang" data-key="current_language">English</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" class="lang-option" data-lang="en">English</a></li>
+                        <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== SIDEBAR MOBILE ===== -->
+    <aside id="mobile-sidebar" class="mobile-sidebar hidden" role="dialog" aria-modal="true"
+        aria-labelledby="sidebar-title">
+        <button id="close-sidebar" aria-label="Fermer le menu">×</button>
+        <nav>
+            <ul class="menu-sidebar">
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false"><span data-key="portfolio">Portfolio</span>
+                        <span class="arrow-down">&#9662;</span></button>
+                    <ul class="mobile-submenu">
+                        <li><a href="../Portfolio/City.html" data-key="portfolio_city">City</a></li>
+                        <li><a href="../Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
+                        <li><a href="../Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
+                        <li><a href="../Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
+                        <li><a href="../Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
+                        <li><a href="../Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
+                        <li><a href="../Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                    </ul>
+                </li>
+                <li><a href="../Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="../Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                <li><a href="../Tips.html" data-key="tips">Tips</a></li>
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false"><span data-key="conventions">Conventions</span>
+                        <span class="arrow-down">&#9662;</span></button>
+                    <ul class="mobile-submenu">
+                        <li><a href="../Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
+                        <li><a href="../Conventions/Escaudoeuvres.html"
+                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="../Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="overlay" class="hidden"></div>
+
+    <!-- ===== HERO ===== -->
+    <div class="page-header container">
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <a href="../index.html">Accueil</a>
+            <i class='bx bx-chevron-right'></i>
+            <a href="../Portfolio/Marvel.html">Marvel</a>
+            <i class='bx bx-chevron-right'></i>
+            <span>Agatha on the Witches' Road</span>
+        </nav>
+        <h1 class="page-title">Agatha on the Witches' Road</h1>
+    </div>
+
+    <!-- ===== CONTENU PRINCIPAL ===== -->
+    <main class="container" style="margin-top:2rem">
+        <div class="main-split">
+            <!-- ASIDE Références -->
+            <aside class="refs" aria-label="Références et crédits">
+                <div class="refs-header"><i class='bx bx-bookmark'></i>
+                    <h3>Références</h3>
+                </div>
+                <figure class="ref-shot">
+                    <img src="../img/Portfolio/marvel/Witches road - Bricks Creations_5.png"
+                        alt="Image de référence de la scène">
+                    <span>Image de référence</span>
+                </figure>
+                <div class="ref-list">
+                    <div class="ref-item">
+                        <div class="ref-key">Date</div>
+                        <div>09/10/2024</div>
+                    </div>
+                    <div class="ref-item">
+                        <div class="ref-key">Lieu(x)</div>
+                        <div>La route des sorcières</div>
+                    </div>
+                    <div class="ref-item">
+                        <div class="ref-key">Œuvre</div>
+                        <div>Agatha All Along (Marvel Studios)</div>
+                    </div>
+                    <div class="ref-item">
+                        <div class="ref-key">Personnages</div>
+                        <div>Agatha Harkness</div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Colonne contenu -->
+            <div class="content-col">
+                <article class="card">
+                    <div class="card-body">
+                        <h2>Description</h2>
+                        <p>
+                            Présentation de la création : contexte, choix de couleurs, techniques de SNOT, dimensions,
+                            nombre de pièces,
+                            mise en scène, et éventuels défis de construction.
+                        </p>
+                        <div class="credits">
+                            <span class="chip"><i class='bx bx-cube'></i> ~1200 pièces</span>
+                            <span class="chip"><i class='bx bx-ruler'></i> 42 × 32 × 28 cm</span>
+                            <span class="chip"><i class='bx bx-time'></i> 35 h de build</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Galerie masonry -->
+                <section class="card" style="margin-top:1.25rem">
+                    <div class="card-body">
+                        <h2>Galerie</h2>
+                        <div class="gallery" id="gallery">
+                            <figure><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_3.png"
+                                    alt="Détail 1">
+                                <figcaption>Détail 1</figcaption>
+                            </figure>
+                            <figure><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_2.png"
+                                    alt="Détail 2">
+                                <figcaption>Détail 2</figcaption>
+                            </figure>
+                            <figure><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_7.png"
+                                    alt="Détail 3">
+                                <figcaption>Détail 3</figcaption>
+                            </figure>
+                            <figure><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_3.png"
+                                    alt="Détail 4">
+                                <figcaption>Détail 4</figcaption>
+                            </figure>
+                            <figure><img src="../img/Portfolio/marvel/Witches road - Bricks Creations_4.png"
+                                    alt="Détail 5">
+                                <figcaption>Détail 5</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Agrandissement de l'image">
+        <button class="close" id="lbClose" aria-label="Fermer">&times;</button>
+        <button class="nav prev" id="lbPrev" aria-label="Précédente"><i class='bx bx-chevron-left'></i></button>
+        <img id="lbImage" src="" alt="Agrandissement">
+        <button class="nav next" id="lbNext" aria-label="Suivante"><i class='bx bx-chevron-right'></i></button>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+        <div class="footer-columns">
+            <div class="footer-column footer-useful-links">
+                <h3 data-key="quick_links">Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="../index.html" data-key="portfolio">Portfolio</a></li>
+                    <li><a href="../Instructions.html" data-key="instructions">Instructions</a></li>
+                    <li><a href="../Tips.html" data-key="tips">Tips</a></li>
+                    <li><a href="../Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                    <li><a href="../Conventions.html" data-key="conventions">Conventions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-info">
+                <h3 data-key="social_contacts">Social Medias | Contacts</h3>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://www.youtube.com/@BricksCreations" target="_blank" rel="noopener noreferrer">
+                            <span data-key="youtube">YouTube</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/bricks44creations" target="_blank">
+                            <span data-key="instagram">Instagram</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@brickscreations" target="_blank" rel="noopener noreferrer">
+                            <span data-key="tiktok">TikTok</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:stix.bricks@gmail.com" target="_blank" rel="noopener noreferrer">
+                            <span data-key="email">Email</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-useful-links">
+                <h3 data-key="more_from_me">More from me</h3>
+                <ul class="footer-links">
+                    <li><a href="../More_about_me.html" data-key="who_am_i">Who am I ?</a></li>
+                    <li><a href="../index.html" target="_blank" rel="noopener noreferrer" data-key="my_website">My
+                            Website</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="copyright" data-key="footer_disclaimer">
+            © 2024-2025 All rights reserved Bricks Creations <br>
+            I don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself. <br>
+            For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very
+            well like that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or
+            endorse this site.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // === Lightbox minimal ===
+        (function () {
+            const gallery = document.getElementById('gallery');
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lbImage');
+            const closeBtn = document.getElementById('lbClose');
+            const prevBtn = document.getElementById('lbPrev');
+            const nextBtn = document.getElementById('lbNext');
+            let images = []; let index = 0;
+
+            function open(i) { index = i; lbImg.src = images[index].src; lb.classList.add('open'); lbImg.alt = images[index].alt || 'Agrandissement'; }
+            function close() { lb.classList.remove('open'); lbImg.src = ''; }
+            function go(delta) { index = (index + delta + images.length) % images.length; lbImg.src = images[index].src; lbImg.alt = images[index].alt || 'Agrandissement'; }
+
+            // Collecte des images
+            images = Array.from(gallery.querySelectorAll('img'));
+            images.forEach((img, i) => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', () => open(i));
+            });
+
+            closeBtn.addEventListener('click', close);
+            lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+            prevBtn.addEventListener('click', () => go(-1));
+            nextBtn.addEventListener('click', () => go(1));
+            window.addEventListener('keydown', (e) => { if (!lb.classList.contains('open')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') go(-1); if (e.key === 'ArrowRight') go(1); });
+        })();
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
