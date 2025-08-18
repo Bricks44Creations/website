@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>À propos de moi | Bricks Creations</title>
+    <link rel="icon" type="image/png" href="img/logo_actuel.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- HEADER identique -->
+    <header class="header">
+        <button class="burger" id="burger-btn" aria-label="Ouvrir le menu">☰</button>
+        <div class="logo-text">
+            <a href="index.html"><img src="img/logo_actuel.png" alt="Logo" /></a>
+            <a href="index.html">
+                <h1 data-key="site_title">Bricks Creations</h1>
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <ul class="menu">
+                <li><a href="index.html" data-key="portfolio">Portfolio</a></li>
+                <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                <li><a href="A-propos.html" style="color:#F3BD99;">À propos</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right-link">
+            <ul class="menu">
+                <li class="has-submenu">
+                    <a href="#" id="translate-btn-desktop">
+                        <i class="fa-solid fa-language"></i>
+                        <span id="current-lang" data-key="current_language">English</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" class="lang-option" data-lang="en">English</a></li>
+                        <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- SIDEBAR MOBILE identique -->
+    <aside id="mobile-sidebar" class="mobile-sidebar hidden" role="dialog" aria-modal="true">
+        <button id="close-sidebar" aria-label="Fermer le menu">×</button>
+        <nav>
+            <ul class="menu-sidebar">
+                <li><a href="index.html" data-key="portfolio">Portfolio</a></li>
+                <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                <li><a href="A-propos.html">À propos</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="overlay" class="hidden"></div>
+
+    <!-- MAIN CONTENT -->
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="title">
+            <h1>À propos de Bricks Creations</h1>
+        </div>
+        <div class="separator"></div>
+
+        <section class="project-description">
+            <h2>Qui suis-je ?</h2>
+            <p><strong>Bricks Creations</strong> est né de ma passion pour les LEGO®.
+                J’adore imaginer, concevoir et partager des créations originales, qu’il s’agisse de scènes inspirées de
+                films, de constructions médiévales ou de projets totalement inédits.
+                Mon objectif : <em>raconter des histoires avec des briques</em> et inspirer la communauté.</p>
+        </section>
+
+        <section class="project-description">
+            <h2>Mon univers</h2>
+            <ul>
+                <li>Créations inspirées de <strong>franchises cultes</strong> (Marvel, Jurassic Park, Wizarding World…)
+                </li>
+                <li><strong>MOCs originaux</strong> (médiéval, city, châteaux, dioramas)</li>
+                <li><strong>Attention aux détails</strong> : rochers, décors naturels, mise en scène</li>
+                <li>Partage régulier sur mes plateformes (photos, vidéos, aftermovies d’expositions)</li>
+            </ul>
+        </section>
+
+        <section class="project-description">
+            <h2>Retrouve-moi</h2>
+            <ul class="footer-links">
+                <li><a href="https://www.youtube.com/@tonchaine" target="_blank"><i class="fab fa-youtube"></i>
+                        YouTube</a>
+                </li>
+                <li><a href="https://www.instagram.com/toncompte" target="_blank"><i class="fab fa-instagram"></i>
+                        Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@toncompte" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+                </li>
+                <li><a href="mailto:valentin.bacout@gmail.com"><i class="fas fa-envelope"></i>
+                        valentin.bacout@gmail.com</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- FOOTER identique -->
+    <footer class="footer">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3 data-key="quick_links">Liens rapides</h3>
+                <ul class="quick-links">
+                    <li><a href="index.html">Portfolio</a></li>
+                    <li><a href="Instructions.html">Instructions</a></li>
+                    <li><a href="Minifigs.html">Minifigs</a></li>
+                    <li><a href="Tips.html">Tips</a></li>
+                    <li><a href="A-propos.html">À propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 data-key="social_contacts">Réseaux sociaux | Contacts</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.youtube.com/@tonchaîne" target="_blank">YouTube</a></li>
+                    <li><a href="https://www.instagram.com/toncompte" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@toncompte" target="_blank">TikTok</a></li>
+                    <li><a href="mailto:valentin.bacout@gmail.com">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Bricks Creations - Tous droits réservés</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
