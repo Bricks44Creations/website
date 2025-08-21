@@ -512,7 +512,7 @@ resetfilterFiltersLink?.addEventListener("click", (e) => {
   clearAllfilter();              // réinitialise
 });
 
-// Enregistrer le service worker pour la PWA (GitHub Pages)
+// Enregistrer le service worker pour la PWA (GitHub Pages)//
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js')
