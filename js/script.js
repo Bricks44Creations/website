@@ -206,89 +206,6 @@ const translations = {
     filter_all: "All",
     action_clear_all: "Clear all",
     action_close: "Close",
-    //City//
-    project_park_avenue: "Park Avenue, New York",
-
-    //Jurassic park//
-    project_McDonald_Restaurant: "McDonald's Restaurant",
-    project_QQS_Restaurant: "QQS Restaurant",
-    project_Gift_Shop: "Gift Shop",
-    project_Aviary: "The Aviary",
-    project_The_Mosasaurus_2: "The Mosasaurus (2)",
-    project_Motorized_Monorail: "Motorized Monorail",
-    project_The_Bowling: "The Bowling",
-    project_Trex_enclosure: "T-rex enclosure",
-    project_Subway_Restaurant: "Subway Restaurant",
-    project_The_Coffee_Chain_Restaurant: "Coffee Chain Restaurant",
-    project_Headquarter_Restaurant: "Headquarter & Restaurant",
-    project_A_laboratory_in_the_jungle: "A laboratory in the jungle",
-    project_Archaeological_excavations: "Archaeological excavations",
-
-    //Marvel//
-    project_Agatha_on_the_Witches_road: "Agatha on the Witches' road",
-    project_Taweret_Boat: "Taweret's Boat",
-    project_Endgame_final_battle: "Endgame final battle",
-    project_Thor_VS_Surtur: "Thor VS Surtur",
-    project_Steve_Rogers_transformation_scene: "Steve Rogers transformation",
-    project_Loki_Mobius_in_Pompeii: "Loki & Mobius in Pompeii",
-    project_Black_Widow_death_scene: "Black Widow death scene",
-    project_Deadpool_3_opening_scene: "Deadpool 3 opening scene",
-    project_Iron_man_2_boxing_ring: "Iron man 2 boxing ring",
-    project_Hulk_VS_Leviathan: "Hulk VS Leviathan",
-    project_Loki_God_of_stories: "Loki, God of stories",
-    project_Shuri_meets_Killmonger: "Shuri meets Killmonger",
-    project_Tomb_of_Alexander_the_Great: "Tomb of Alexander the Great",
-    project_Loki_meets_Victor_Timely_2: "Loki meets Victor Timely (2)",
-    project_Ouroboros_meets_Loki: "Ouroboros meets Loki",
-    project_Citadel_of_He_Who_Remains: "Citadel of He Who Remains",
-    project_GOTG3_Final_fight: "GOTG3 Final fight",
-    project_Copying_human_identities: "Copying human identities",
-    project_Loki_meets_Victor_Timely_1: "Loki meets Victor Timely (1)",
-    project_Sanctum_Sanctorum: "Sanctum Sanctorum",
-    project_Shang_chi_VS_Wenwu: "Shang-chi VS Wenwu",
-    project_Iron_heart_reveal: "Iron heart reveal",
-    project_Tony_in_the_snow: "Tony in the snow",
-    project_Doctor_strange_meets_Mordo: "Doctor strange meets Mordo",
-    project_Steve_1st_fight: "Steve 1st fight",
-    project_Tony_discorvers_time_travel: "Tony discovers time travel",
-    project_Morgan_Stark: "Morgan Stark",
-    project_Red_Richards_turn_into_spaghetti: "Red Richards turn into spaghetti",
-    project_The_Illuminati: "The Illuminati",
-    project_Thor_with_GOTG: "Thor with GOTG",
-    project_Strange_at_mount_Everest: "Strange at mount Everest",
-    project_Spiderman_My_back_scene: "Spiderman My back scene",
-    project_Tony_build_Mark_I: "Tony build Mark I",
-    project_Spiderman_VS_Electro: "Spiderman VS Electro",
-    project_JJJ: "J. Jonah Jameson",
-    project_Eternals_opening_scene: "Eternals opening scene",
-    project_Microscale_Asgard: "Microscale Asgard",
-    project_Wandavision_ep2: "Wandavision ep2",
-    project_Capture_of_Loki_by_TVA: "Capture of Loki by TVA",
-    project_Loki_in_the_void: "Loki in the void",
-    project_Iron_man_VS_Ivan_Vanko: "Iron man VS Ivan Vanko",
-    project_Killmonger_death_scene: "Killmonger death scene",
-    project_Thor_arrives_in_Wakanda: "Thor arrives in Wakanda",
-    project_arc_reactor: "Arc reactor",
-    project_TASM2_ending_scene: "TASM2 ending scene",
-    project_Skrull_transformation: "Skrull transformation",
-    project_Ancestral_plane: "Ancestral plane",
-    project_Arnim_Zola: "Arnim Zola",
-
-    //Medieval//
-    project_Building_House: "Building House",
-
-    //Wizarding World//
-    project_Protego_Diabolica: "Protego Diabolica",
-
-    //Others//
-    project_Paris_2024_athletics_track: "Paris 2024 athletics track",
-    project_Alpine_A523_Ferrari_SF23: "Alpine A523 & Ferrari SF23",
-    project_Explorer_in_the_jungle: "Explorer in the jungle",
-    project_Gladiators: "Gladiators",
-    project_Percy_Jackson_and_the_Olympians: "Percy Jackson and the Olympians",
-    project_Microscale_Hogwarts: "Microscale Hogwarts",
-    project_A_pirates_fortness_under_attack: "A pirates fortness under attack",
-    project_A_submerged_greek_temple: "A submerged greek temple",
   },
 
   fr: {
@@ -341,90 +258,6 @@ const translations = {
     action_close: "Fermer",
     action_apply_filters: "Appliquer les filtres",
     action_reset_filters: "Réinitialiser les filtres",
-
-    //City//
-    project_park_avenue: "Park Avenue, New York",
-
-    //Marvel//
-    project_Agatha_on_the_Witches_road: "Agatha sur la route des sorcières",
-    project_Taweret_Boat: "Le bateau de Taweret",
-    project_Endgame_final_battle: "Bataille finale d'Endgame",
-    project_Thor_VS_Surtur: "Thor VS Surtur",
-    project_Steve_Rogers_transformation_scene: "Transformation de Steve Rogers ",
-    project_Loki_Mobius_in_Pompeii: "Loki & Mobius à Pompeii",
-    project_Black_Widow_death_scene: "La mort de Black Widow",
-    project_Deadpool_3_opening_scene: "Deadpool 3, scène d'ouverture",
-    project_Iron_man_2_boxing_ring: "Ring de boxe de Iron man 2",
-    project_Hulk_VS_Leviathan: "Hulk VS Leviathan",
-    project_Loki_God_of_stories: "Loki, Dieu des Histoires",
-    project_Shuri_meets_Killmonger: "Shuri rencontre Killmonger",
-    project_Tomb_of_Alexander_the_Great: "La tombe d'Alexandre le Grand",
-    project_Loki_meets_Victor_Timely_2: "Loki rencontre Victor Timely (2)",
-    project_Ouroboros_meets_Loki: "Ouroboros rencontre Loki",
-    project_Citadel_of_He_Who_Remains: "La citadelle de Celui qui demeure",
-    project_GOTG3_Final_fight: "Gardiens de la galaxie 3",
-    project_Copying_human_identities: "Copier l'identité des humains",
-    project_Loki_meets_Victor_Timely_1: "Loki rencontre Victor Timely (1)",
-    project_Sanctum_Sanctorum: "Saint des Saints",
-    project_Shang_chi_VS_Wenwu: "Shang-chi VS Wenwu",
-    project_Iron_heart_reveal: "Reveal d'Iron heart",
-    project_Tony_in_the_snow: "Tony dans la neige",
-    project_Doctor_strange_meets_Mordo: "Doctor strange rencontre Mordo",
-    project_Steve_1st_fight: "Steve 1er combat",
-    project_Tony_discorvers_time_travel: "Tony découvre le voyage dans le temps",
-    project_Morgan_Stark: "Morgan Stark",
-    project_Red_Richards_turn_into_spaghetti: "Red Richards transformé en spaghetti",
-    project_The_Illuminati: "Les Illuminati",
-    project_Thor_with_GOTG: "Thor avec les gardiens",
-    project_Strange_at_mount_Everest: "Strange au mont Everest",
-    project_Spiderman_My_back_scene: "Les 3 spidermans",
-    project_Tony_build_Mark_I: "Tony construit la Mark I",
-    project_Spiderman_VS_Electro: "Spiderman VS Electro",
-    project_JJJ: "J. Jonah Jameson",
-    project_Eternals_opening_scene: "Eternals scène d'ouverture",
-    project_Microscale_Asgard: "Asgard Miniature",
-    project_Wandavision_ep2: "Wandavision ep2",
-    project_Capture_of_Loki_by_TVA: "Capture de Loki par le TVA",
-    project_Loki_in_the_void: "Loki dans le néant",
-    project_Iron_man_VS_Ivan_Vanko: "Iron man VS Ivan Vanko",
-    project_Killmonger_death_scene: "Mort de Killmonger",
-    project_Thor_arrives_in_Wakanda: "Thor arrive au Wakanda",
-    project_arc_reactor: "Réacteur ARC",
-    project_TASM2_ending_scene: "Scène de fin de TASM2",
-    project_Skrull_transformation: "Transformation des Skrull",
-    project_Ancestral_plane: "Plan Ancestral",
-    project_Arnim_Zola: "Arnim Zola",
-
-    //Jurassic park//
-    project_McDonald_Restaurant: "Restaurant McDonald's ",
-    project_QQS_Restaurant: "Restaurant QQS",
-    project_Gift_Shop: "Magasin de souvenirs",
-    project_Aviary: "La volière",
-    project_The_Mosasaurus_2: "Le Mosasaure (2)",
-    project_Motorized_Monorail: "Monorail Motorisé",
-    project_The_Bowling: "Le Bowling",
-    project_Trex_enclosure: "Enclos du T-rex",
-    project_Subway_Restaurant: "Restaurant Subway",
-    project_The_Coffee_Chain_Restaurant: "Restaurant 'coffee chain'",
-    project_Headquarter_Restaurant: "Quartier général & Restaurant",
-    project_A_laboratory_in_the_jungle: "Un laboratoire dans la jungle",
-    project_Archaeological_excavations: "Fouilles archéologiques",
-
-    //Medieval//
-    project_Building_House: "Maison en construction",
-
-    //Wizarding World//
-    project_Protego_Diabolica: "Protego Diabolica",
-
-    //Others//
-    project_Paris_2024_athletics_track: "Paris 2024 Piste athélique",
-    project_Alpine_A523_Ferrari_SF23: "Alpine A523 & Ferrari SF23",
-    project_Explorer_in_the_jungle: "Explorateur dans la jungle",
-    project_Gladiators: "Gladiateurs",
-    project_Percy_Jackson_and_the_Olympians: "Percy Jackson et les Olympiens",
-    project_Microscale_Hogwarts: "Poudlard Miniature",
-    project_A_pirates_fortness_under_attack: "Attaque d'une forteresse pirate",
-    project_A_submerged_greek_temple: "Un temple grec submergé",
   }
 
 };
@@ -682,7 +515,8 @@ resetfilterFiltersLink?.addEventListener("click", (e) => {
 // Enregistrer le service worker pour la PWA (GitHub Pages)
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
+    navigator.serviceWorker.register('sw.js')
       .catch(console.error);
   });
 }
+
