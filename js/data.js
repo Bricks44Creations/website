@@ -880,7 +880,7 @@ const project = [
         date: "2024-09-27",
         relevance: 3,
         filter: "Building",
-        img: "../img/Miniatures/Mcdonalds.jpg",
+        img: "../img/Miniatures/McDonald's.jpg",
         alt: "McDonald's Restaurant",
         type: "MOC",
         theme: "jurassic-park",
