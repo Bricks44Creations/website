@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home | Bricks Creations</title>
+    <link rel="icon" type="image/png" href="img/logo_actuel.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGB36SQTVF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CGB36SQTVF');
+    </script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111827">
+    <link rel="apple-touch-icon" href="img/logo_actuel.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <!-- Burger bouton à gauche -->
+        <button class="burger" id="burger-btn" aria-label="Ouvrir le menu">☰</button>
+
+        <div class="logo-text">
+            <a href="index.html"><img src="img/logo_actuel.png" alt="Logo" /></a>
+            <a href="index.html">
+                <h1 data-key="site_title">Bricks Creations</h1>
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <!-- A remplir si besoin -->
+            <ul class="menu">
+                <li class="has-submenu">
+                    <a href="index.html">
+                        <span data-key="portfolio">Portfolio</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="./Portfolio/City.html" data-key="portfolio_city">City</a></li>
+                        <li><a href="./Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
+                        <li><a href="./Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
+                        <li><a href="./Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
+                        <li><a href="./Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
+                        <li><a href="./Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
+                        <li><a href="./Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                    </ul>
+                </li>
+                <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+
+                <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                <li class="has-submenu">
+                    <a href="Conventions.html">
+                        <span data-key="conventions">Conventions</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="./Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
+                        <li><a href="./Conventions/Escaudoeuvres.html"
+                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="./Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-right-link">
+            <ul class="menu">
+
+                <!-- Bouton Traduire -->
+                <li class="has-submenu">
+                    <a href="#" id="translate-btn-desktop">
+                        <i class="fa-solid fa-language"></i>
+                        <span id="current-lang" data-key="current_language">English</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" class="lang-option" data-lang="en">English</a></li>
+                        <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- SIDEBAR MOBILE -->
+    <aside id="mobile-sidebar" class="mobile-sidebar hidden" role="dialog" aria-modal="true"
+        aria-labelledby="sidebar-title">
+        <button id="close-sidebar" aria-label="Fermer le menu">×</button>
+        <nav>
+            <ul class="menu-sidebar">
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false">
+                        <span data-key="portfolio">Portfolio</span> <span class="arrow-down">&#9662;</span>
+                    </button>
+                    <ul class="mobile-submenu">
+                        <li><a href="./Portfolio/City.html" data-key="portfolio_city">City</a></li>
+                        <li><a href="./Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
+                        <li><a href="./Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
+                        <li><a href="./Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
+                        <li><a href="./Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
+                        <li><a href="./Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
+                        <li><a href="./Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                    </ul>
+                </li>
+                <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+
+                <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false">
+                        <span data-key="conventions">Conventions</span> <span class="arrow-down">&#9662;</span>
+                    </button>
+                    <ul class="mobile-submenu">
+                        <li><a href="./Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
+                        <li><a href="./Conventions/Escaudoeuvres.html"
+                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="./Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <hr class="sidebar-separator">
+            <ul class="menu-sidebar">
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false">
+                        <span data-key="languages">Langues</span> <span class="arrow-down">&#9662;</span>
+                    </button>
+                    <ul class="mobile-submenu">
+                        <li><a href="#" class="lang-option" data-lang="en">English</a></li>
+                        <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="overlay" class="hidden"></div>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="title">
+            <H1>MINIFIGS</H1>
+        </div>
+        <div class="separator"></div>
+
+        <div class="filter-minifigs" style="display:flex;justify-content:center;padding:1rem;">
+            <label for="film-filter" style="margin-right:.5rem;">Filtrer</label>
+            <select id="film-filter">
+                <option value="all">All</option>
+            </select>
+        </div>
+
+        <section id="figures-container"></section>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="footer-columns">
+            <div class="footer-column footer-useful-links">
+                <h3 data-key="quick_links">Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="index.html" data-key="portfolio">Portfolio</a></li>
+                    <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                    <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                    <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                    <li><a href="Conventions.html" data-key="conventions">Conventions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-info">
+                <h3 data-key="social_contacts">Social Medias | Contacts</h3>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://www.youtube.com/@BricksCreations" target="_blank" rel="noopener noreferrer">
+                            <span data-key="youtube">YouTube</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/bricks44creations" target="_blank">
+                            <span data-key="instagram">Instagram</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@brickscreations" target="_blank" rel="noopener noreferrer">
+                            <span data-key="tiktok">TikTok</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:stix.bricks@gmail.com" target="_blank" rel="noopener noreferrer">
+                            <span data-key="email">Email</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-useful-links">
+                <h3 data-key="more_from_me">More from me</h3>
+                <ul class="footer-links">
+                    <li><a href="More_about_me.html" data-key="who_am_i">Who am I ?</a></li>
+                    <li><a href="index.html" target="_blank" rel="noopener noreferrer" data-key="my_website">My
+                            Website</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="copyright" data-key="footer_disclaimer">
+            © 2024-2025 All rights reserved Bricks Creations <br>
+            I don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself. <br>
+            For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very
+            well like
+            that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this
+            site.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+
+    <!-- Générateurs communs (portfolio + minifigs) -->
+    <script src="js/cardGenerator.js"></script>
+
+    <!-- Spécifique Minifigs : filtrage par type + rendu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const src = window.PROJECTS || window.project || [];
+
+            // STRICT: ne garder que type "minifig" (insensible à la casse)
+            const figures = src.filter(p => (p.type || '').trim().toLowerCase() === 'minifig');
+
+            // Génère les cartes + remplit/branche le <select id="film-filter">
+            window.CardGenerator.generateMinifigs({
+                items: figures,
+                containerId: "figures-container",
+                filterSelectId: "film-filter",
+                lang: window.currentLang || "en"
+            });
+        });
+    </script>
+
+    <!-- Hook i18n: met à jour le nom/film affichés si la langue change -->
+    <script>
+        (function () {
+            const prev = window.setLanguage;
+            window.setLanguage = function (lang) {
+                prev?.(lang); // i18n existante
+                window.CardGenerator.updateMinifigTextsFromNames(lang);
+            };
+            // sync initiale (utile si la page démarre en FR)
+            window.CardGenerator.updateMinifigTextsFromNames(window.currentLang || "en");
+        })();
+    </script>
+
+        <!-- Script commun (menu, i18n, etc.) -->
+    <script src="js/script.js"></script>
+</body>
+
+
+</html>
+
