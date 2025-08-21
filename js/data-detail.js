@@ -13,10 +13,11 @@ const dataDetails = [
                 { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
             ] }, 
         stats: { 
-            pieces: "~1200 pièces", 
+            pieces: { en: "~1200 pieces", fr: "~1200 pièces" },
             dimensions: "42 × 32 × 28 cm", 
-            buildTime: "35 h de build" }, 
-        link: "mocs.html#avengers-tower", 
+            buildTime: "35 h"
+        },
+        link: "", 
         video: "", 
         instructions: "", 
         partsList: "", 
@@ -82,6 +83,13 @@ const dataDetails = [
     //City//
   { id: "moc-city-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
+   //Medieval//
+  { id: "moc-medieval-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+
+    //Wizarding World//
+  { id: "moc-wizarding-world-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-wizarding-world-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+
     //Others//
   { id: "moc-others-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-others-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
@@ -120,6 +128,7 @@ const dataDetails = [
 
 
  
+
 
 
 
