@@ -83,13 +83,16 @@ const dataDetails = [
     //City//
   { id: "moc-city-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
+    
    //Medieval//
   { id: "moc-medieval-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
+    
     //Wizarding World//
   { id: "moc-wizarding-world-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-wizarding-world-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
+    
     //Others//
   { id: "moc-others-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-others-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
@@ -99,6 +102,8 @@ const dataDetails = [
   { id: "moc-others-6", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
 
+
+    
     //Figurines//
   { id: "minifig-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "minifig-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
@@ -117,6 +122,9 @@ const dataDetails = [
   { id: "minifig-15", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "minifig-16", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
+
+
+    
         //Instructions//
   { id: "instruction-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "instruction-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
@@ -128,6 +136,7 @@ const dataDetails = [
 
 
  
+
 
 
 
