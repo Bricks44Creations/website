@@ -25,6 +25,6 @@ window.DETAILS = {
         }
     }
 
-    // tu pourras ajouter d’autres projets ici
 };
+
 window.DETAILS = details;
