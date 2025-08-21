@@ -24,6 +24,12 @@ body {
 
 
 
+
+
+
+
+
+
 /* ========== HEADER ========== */
 .header {
   display: flex;
@@ -66,6 +72,10 @@ body {
   text-decoration: none;
   color: #ffffff;
 }
+
+
+
+
 
 
 
@@ -257,6 +267,8 @@ body {
 
 
 
+
+
 /* ========== SIDEBAR MOBILE ========== */
 .mobile-sidebar {
   position: fixed;
@@ -372,6 +384,16 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
 /* SEPARATOR */
 
 .separator {
@@ -380,7 +402,6 @@ body {
   width: 100%;
   margin: 0rem 2rem 2rem 0rem;
 }
-
 
 .dropdown-tri {
   position: relative;
@@ -414,7 +435,6 @@ body {
   overflow: hidden;
   z-index: 99;
 }
-
 
 .dropdown-content-tri a {
   color: white;
@@ -456,6 +476,15 @@ body {
     transform: translateY(0);
   }
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -588,7 +617,6 @@ body {
     margin-top: 0.5rem;
   }
 }
-
 
 :root {
   --brand-blue: #18305a;
@@ -828,6 +856,23 @@ body {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===== Menu Marvel en grille responsive ===== */
 /* ===== Filtre Marvel ===== */
 #filter-options {
@@ -880,7 +925,6 @@ body {
   flex: 1;
 }
 
-
 /* petits boutons dans la modale */
 .sort-modal-content a.btn-clear,
 .sort-modal-content a.btn-close {
@@ -897,6 +941,23 @@ body {
   background: #F3BD99;
   color: #18305a;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ====== Marvel filter : items en style "lien" ====== */
 .dropdown-content-tri .checkbox-item,
@@ -975,7 +1036,23 @@ body {
 }
 
 
-/* Modale Filtre Marvel : items = comme les <a> de la modale tri */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modale Filtre : items = comme les <a> de la modale tri */
 .sort-modal-content .checkbox-item {
   display: flex;
   align-items: center;
