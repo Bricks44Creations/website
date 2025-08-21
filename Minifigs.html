@@ -1,264 +1,272 @@
+<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=0.9">
-        <meta name="description" content="Discover my unique and personalized LEGO creations on my portfolio.">
-        <meta name="keywords" content="LEGO, MOC, Bricks, Creations, Portfolio, Tips, Minifigs, mocs, incstructions">
 
-        <title>Bricks Creations - Minifigs</title>
-        
-        <link rel="stylesheet" href="css/style.css">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="icon" type="image/png" sizes="16x16" href="img/logo_actuel.png">
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGB36SQTVF"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-        
-            gtag('config', 'G-CGB36SQTVF');
-        </script>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home | Bricks Creations</title>
+    <link rel="icon" type="image/png" href="img/logo_actuel.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGB36SQTVF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CGB36SQTVF');
+    </script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111827">
+    <link rel="apple-touch-icon" href="img/logo_actuel.png">
+</head>
 
 <body>
-    <header>
-        <a href="index.html"><img src="img/logo_actuel.png" alt="logo"></a>
-        <p>Bricks Creations</p>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="index.html" class="dropbtn">Portfolio</a>
-                    <ul class="dropdown-content">
-                        <li><a href="Portfolio/City.html">City</a></li>
-                        <li><a href="Portfolio/Jurassic-Park.html">Jurassic Park</a></li>
-                        <li><a href="Portfolio/Marvel.html">Marvel</a></li>
-                        <li><a href="Portfolio/Medieval.html">Medieval</a></li>
-                        <li><a href="Portfolio/Wizarding-world.html">Wizarding World</a></li>
-                        <li><a href="Portfolio/Others.html">Others</a></li>
-                        <li><a href="Portfolio/Vignettes.html">Vignettes</a></li>
+    <!-- HEADER -->
+    <header class="header">
+        <!-- Burger bouton à gauche -->
+        <button class="burger" id="burger-btn" aria-label="Ouvrir le menu">☰</button>
+
+        <div class="logo-text">
+            <a href="index.html"><img src="img/logo_actuel.png" alt="Logo" /></a>
+            <a href="index.html">
+                <h1 data-key="site_title">Bricks Creations</h1>
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <!-- A remplir si besoin -->
+            <ul class="menu">
+                <li class="has-submenu">
+                    <a href="index.html">
+                        <span data-key="portfolio">Portfolio</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="./Portfolio/City.html" data-key="portfolio_city">City</a></li>
+                        <li><a href="./Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
+                        <li><a href="./Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
+                        <li><a href="./Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
+                        <li><a href="./Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
+                        <li><a href="./Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
+                        <li><a href="./Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
                     </ul>
                 </li>
-                <li><a href="Minifigs.html">Minifigs</a></li>
-                <li><a href="Tips.html">Tips</a></li>
-                <li><a href="Instructions.html">Instructions</a></li>
-                <li class="dropdown">
-                    <a href="Conventions.html" class="dropbtn">Conventions</a>
-                    <ul class="dropdown-content">
-                        <li><a href="Conventions/Bousies.html">Bousies</a></li>
-                        <li><a href="Conventions/Escaudoeuvres.html">Escaudoeuvres</a></li>
-                        <li><a href="Conventions/Divion.html">Divion</a></li>
+                <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+
+                <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                <li class="has-submenu">
+                    <a href="Conventions.html">
+                        <span data-key="conventions">Conventions</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="./Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
+                        <li><a href="./Conventions/Escaudoeuvres.html"
+                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="./Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
+
+        <div class="header-right-link">
+            <ul class="menu">
+
+                <!-- Bouton Traduire -->
+                <li class="has-submenu">
+                    <a href="#" id="translate-btn-desktop">
+                        <i class="fa-solid fa-language"></i>
+                        <span id="current-lang" data-key="current_language">English</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" class="lang-option" data-lang="en">English</a></li>
+                        <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
     </header>
 
+    <!-- SIDEBAR MOBILE -->
+    <aside id="mobile-sidebar" class="mobile-sidebar hidden" role="dialog" aria-modal="true"
+        aria-labelledby="sidebar-title">
+        <button id="close-sidebar" aria-label="Fermer le menu">×</button>
+        <nav>
+            <ul class="menu-sidebar">
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false">
+                        <span data-key="portfolio">Portfolio</span> <span class="arrow-down">&#9662;</span>
+                    </button>
+                    <ul class="mobile-submenu">
+                        <li><a href="./Portfolio/City.html" data-key="portfolio_city">City</a></li>
+                        <li><a href="./Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
+                        <li><a href="./Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
+                        <li><a href="./Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
+                        <li><a href="./Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
+                        <li><a href="./Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
+                        <li><a href="./Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                    </ul>
+                </li>
+                <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
 
-    <div class="sidebar", id="sidebar">
-        <div class="top">
-            <div class="name">
-                <p>BRICKS CREATIONS</p>
-            </div>
-            <i class="bx bx-menu" id="btn"></i>
-        </div>
-        <ul>
-            <li>
-                <a href="index.html">
-                    <i class="bx bx-images"></i>
-                    <span class="nav-item">Portfolio</span>
-                </a>
-            </li>
-            <li>
-                <a href="Minifigs.html">
-                    <i class='bx bx-male'></i>
-                    <span class="nav-item">Minifigs</span>
-                </a>
-            </li>
-            <li>
-                <a href="Tips.html">
-                    <i class="bx bxs-bulb"></i>
-                    <span class="nav-item">Tips</span>
-                </a>
-            </li>
-            <li>
-                <a href="Instructions.html">
-                    <i class='bx bx-file'></i>
-                    <span class="nav-item">Instructions</span>
-                </a>
-            </li>
-            <li>
-                <a href="Conventions.html">
-                    <i class="bx bx-share-alt"></i>
-                    <span class="nav-item">Conventions</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+                <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false">
+                        <span data-key="conventions">Conventions</span> <span class="arrow-down">&#9662;</span>
+                    </button>
+                    <ul class="mobile-submenu">
+                        <li><a href="./Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
+                        <li><a href="./Conventions/Escaudoeuvres.html"
+                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="./Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <hr class="sidebar-separator">
+            <ul class="menu-sidebar">
+                <li class="mobile-has-submenu">
+                    <button class="submenu-toggle" aria-expanded="false">
+                        <span data-key="languages">Langues</span> <span class="arrow-down">&#9662;</span>
+                    </button>
+                    <ul class="mobile-submenu">
+                        <li><a href="#" class="lang-option" data-lang="en">English</a></li>
+                        <li><a href="#" class="lang-option" data-lang="fr">Français</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="overlay" class="hidden"></div>
 
-    <div class="main-content">
-        <div class ="title">
-            <H1>PORTFOLIO</H1>
-        </div>
-        <div class="title2">
-            <H2>Custom Minifigures</H2>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="title">
+            <H1>MINIFIGS</H1>
         </div>
         <div class="separator"></div>
 
-        <div class="contenu_page">
-            <div class="container">
-                <div class="bloc_minifig" id="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/Baast.svg" alt="Baast" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3107c01&idColor=11#T=S&C=11&O={%22color%22:11,%22iconly%22:0}'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2893&idColor=88#T=S&C=88&O={%22color%22:88,%22iconly%22:0}'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0898&idColor=120&name=Dark%20Brown%20Hips%20and%20Legs%20with%20Molded%20Black%20Lower%20Legs%20/%20Boots%20and%20Printed%20Reddish%20Brown%20Belt%20and%20Strap%20with%20Silver%20Buckles,%20Boot%20Tongues%20with%20Laces,%20and%20Pouch%20on%20Right%20Side%20Pattern&category=%5BMinifigure,%20Legs,%20Decorated%5D#T=S&C=120&O={%22color%22:120,%22iconly%22:0}'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/Venom.svg" alt="Eddie Brock" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/Disguised thor.svg" alt="Disguised thor" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=34724&name=Minifigure%20Cape%20Cloth,%20Stepped%20Cutout%20On%20One%20Side&category=%5BMinifigure,%20Body%20Wear%5D#T=C&C=7'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=37046&idColor=48#T=C&C=7'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=30381&name=Minifigure,%20Headgear%20Hood&category=%5BMinifigure,%20Headgear%5D#T=C&C=63'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/love.svg" alt="love" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=15428&idColor=39#T=C&C=39'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=21777&name=Minifigure,%20Hair%20Female%20Ponytail%20with%20Tied%20Sections&category=%5BMinifigure,%20Hair%5D#T=C&C=120'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4418c01&idColor=89#T=I&C=89'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/gorr.svg" alt="gorr" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?M=sh812&name=Gorr&category=%5BSuper%20Heroes%5D%5BThor%20Love%20and%20Thunder%5D#T=I'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=74528&idColor=1#T=C&C=1'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=18200&idColor=1#T=C&C=1'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/black bolt.svg" alt="black bolt" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2417&idColor=11#T=C&C=11'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2954c01&idColor=11'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00&idColor=11'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/strange 838.svg" alt="stange 838" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2442c01&idColor=63#T=I&C=63'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=79974&idColor=7#T=C&C=7'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=64798pb01&idColor=11#T=C&C=11'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/mordo 838.svg" alt="mordo 838" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1393c01&name=Torso%20Asian%20Robe%20with%20Gold%20Stitchery%20and%20Round%20Silver%20Pendant%20Pattern%20/%20Dark%20Green%20Arms%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=I&C=80'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0238&idColor=155#T=C&C=155'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2907&idColor=88#T=C&C=88'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/M'Baku.svg" alt="M'Baku" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1643c01&idColor=11#T=I&C=11'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=26066&name=Minifigure%20Neck%20Collar%20Fur,%20Textured%20(Bird%20Nest)&category=%5BMinifigure,%20Body%20Wear%5D#T=C'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=981982pb241&idColor=88#T=I&C=88'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/queen ramonda.svg" alt="ramonda" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?M=loc018&name=Ewald%20-%20No%20Chi&category=%5BLEGENDS%20OF%20CHIMA%5D#T=I'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb1996&idColor=88&name=Reddish%20Brown%20Minifigure,%20Head%20Dual%20Sided%20Female,%20Black%20Eyebrows,%20Dark%20Brown%20Lips,%20Lopsided%20Smirk%20/%20Smile%20Pattern%20-%20Hollow%20Stud&category=%5BMinifigure,%20Head%5D#T=C&C=88'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=20595&name=Minifigure,%20Hair%20Female%20Long%20Tousled%20with%20Center%20Part&category=%5BMinifigure,%20Hair%5D#T=C&C=1'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/Arthur Harrow.svg" alt="Arthur Harrow" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4187c01&idColor=59#T=I&C=59'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=59&O={%22color%22:%2259%22,%22iconly%22:0}'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=88283&idColor=68#T=C&C=120'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/zuri.svg" alt="zuri" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2832&name=Minifigure,%20Head%20Dual%20Sided,%20Black%20Eyebrows%20and%20Beard%20with%20Light%20Bluish%20Gray%20Highlights,%20Neutral%20/%20Angry%20Pattern%20-%20Hollow%20Stud&category=%5BMinifigure,%20Head%5D#T=C&C=88'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4016c01&idColor=89'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=981982pb040&idColor=157#T=I&C=157'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/hercules.svg" alt="hercules" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1470c01&idColor=150#T=I&C=150'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0729#T=C&C=80'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=11438&name=Minifigure%20Armor%20Shoulder%20Pads%20with%20Ridges&category=%5BMinifigure,%20Body%20Wear%5D#T=C&C=80'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/zeus.svg" alt="zeus" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2210c01&idColor=115#T=I&C=115'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb1998&idColor=90#T=C&C=90'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0763&idColor=1#T=C&C=1'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/miek.svg" alt="miek" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb3005&idColor=157#T=C&C=157'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=2531&idColor=17#T=C&C=95'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb0321c01#T=I&C=11'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/james.svg" alt="james" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2124&name=Minifigure,%20Head%20Dual%20Sided%20Reddish%20Brown%20Eyebrows%20and%20Stubble,%20Medium%20Nougat%20Sideburns,%20Moustache,%20Cheek%20Lines,%20and%20Chin%20Dimple,%20Grin%20/%20Determined%20Pattern%20-%20Hollow%20Stud&category=%5BMinifigure,%20Head%5D#T=C&C=90'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=90386&idColor=11&name=Black%20Minifigure,%20Headgear%20Hat,%20Beret&category=%5BMinifigure,%20Headgear%5D#T=C&C=11'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3126c01&idColor=155#T=I&C=155'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/collector.svg" alt="collector" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2003&idColor=90#T=C&C=90'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1184c01&idColor=11#T=I&C=11'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=19951&idColor=1#T=C&C=1'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/dum dum dugan.svg" alt="dum dum dugan" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1776c01&idColor=69#T=I&C=69'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=15439&name=Minifigure%20Beard,%20Moustache&category=%5BMinifigure,%20Body%20Wear%5D#T=C'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=95674&idColor=11&name=Black%20Minifigure,%20Headgear%20Hat,%20Bowler&category=%5BMinifigure,%20Headgear%5D#T=C&C=11'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/WWII.svg" alt="Captain america WWII" class="image">
-                    <div class="clickable-area zone1-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1749c01&idColor=7#T=I&C=7'"></div>
-                    <div class="clickable-area zone2-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=30171&idColor=88#T=C&C=88'"></div>
-                    <div class="clickable-area zone3-d" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c120pb03&idColor=69#T=C&C=69'"></div>
-                </div>
-                <div class="bloc_minifig">
-                    <img src="img/Portfolio/minifigs/odin.svg" alt="odin" class="image">
-                    <div class="clickable-area zone1-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?id=133929&idColor=63&ccName=6110055#T=I&C=63'"></div>
-                    <div class="clickable-area zone2-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb1322&name=Minifigure,%20Head%20Glasses%20with%20Monocle,%20Raised%20Right%20Eyebrow,%20Wrinkles,%20Clenched%20Teeth%20Pattern%20(Baron%20Von%20Strucker)%20-%20Hollow%20Stud&category=%5BMinifigure,%20Head%5D#T=C&C=90'"></div>
-                    <div class="clickable-area zone3-g" onclick="location.href='https://www.bricklink.com/v2/catalog/catalogitem.page?P=5322&name=Minifigure%20Beard,%20Short&category=%5BMinifigure,%20Body%20Wear%5D#T=C&C=1'"></div>
-                </div>
+        <div class="filter-minifigs" style="display:flex;justify-content:center;padding:1rem;">
+            <label for="film-filter" style="margin-right:.5rem;">Filtrer</label>
+            <select id="film-filter">
+                <option value="all">All</option>
+            </select>
+        </div>
+
+        <section id="figures-container"></section>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="footer-columns">
+            <div class="footer-column footer-useful-links">
+                <h3 data-key="quick_links">Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="index.html" data-key="portfolio">Portfolio</a></li>
+                    <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                    <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                    <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                    <li><a href="Conventions.html" data-key="conventions">Conventions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-info">
+                <h3 data-key="social_contacts">Social Medias | Contacts</h3>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://www.youtube.com/@BricksCreations" target="_blank" rel="noopener noreferrer">
+                            <span data-key="youtube">YouTube</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/bricks44creations" target="_blank">
+                            <span data-key="instagram">Instagram</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@brickscreations" target="_blank" rel="noopener noreferrer">
+                            <span data-key="tiktok">TikTok</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:stix.bricks@gmail.com" target="_blank" rel="noopener noreferrer">
+                            <span data-key="email">Email</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-useful-links">
+                <h3 data-key="more_from_me">More from me</h3>
+                <ul class="footer-links">
+                    <li><a href="More_about_me.html" data-key="who_am_i">Who am I ?</a></li>
+                    <li><a href="index.html" target="_blank" rel="noopener noreferrer" data-key="my_website">My
+                            Website</a></li>
+                </ul>
             </div>
         </div>
 
-        <div class="voile"></div>
-    </div>
-
-    <footer>
-        <div class="lien">
-            <a href="https://www.instagram.com/bricks44creations/" target="_blank"><img src="img/logo_instagram.png" alt="Logo Instagram"></a>
-            <a href="https://www.instagram.com/bricks44creations/" target="_blank"> @bricks44creations</a>
-            <a href="https://www.youtube.com/channel/UCs2jd_HYAgd4Lc9llKp3J6Q" target="_blank"> <img src="img/logo_youtube.png" alt="Logo Youtube"></a>
-            <a href="https://www.youtube.com/channel/UCs2jd_HYAgd4Lc9llKp3J6Q" target="_blank"> Bricks Creations</a>
-            <a href="mailto:stix.bricks@gmail.com" target="_blank"> <img src="img/logo_mail.png" alt="Logo Mail"></a>
-            <a href="mailto:stix.bricks@gmail.com" target="_blank"> stix.bricks@gmail.com</a>
-            <a href="https://www.tiktok.com/@brickscreations?_t=8ljAw9taieG&_r=1" target="_blank"> <img src="img/logo_tiktok.png" alt="Logo Tiktok"></a>
-            <a href="https://www.tiktok.com/@brickscreations?_t=8ljAw9taieG&_r=1" target="_blank"> brickscreations</a>
-        </div>
-        <p>© 2024 All rights reserved Bricks Creations <br>
+        <p class="copyright" data-key="footer_disclaimer">
+            © 2024-2025 All rights reserved Bricks Creations <br>
             I don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself. <br>
-            For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that <br>
-            LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.</p>
+            For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very
+            well like
+            that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this
+            site.
+        </p>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+
+    <!-- Générateurs communs (portfolio + minifigs) -->
+    <script src="js/cardGenerator.js"></script>
+
+    <!-- Script commun (menu, i18n, etc.) -->
+    <script src="js/script.js"></script>
+
+    <!-- Spécifique Minifigs : filtrage par type + rendu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const src = window.PROJECTS || window.project || [];
+
+            // STRICT: ne garder que type "minifig" (insensible à la casse)
+            const figures = src.filter(p => (p.type || '').trim().toLowerCase() === 'minifig');
+
+            // Génère les cartes + remplit/branche le <select id="film-filter">
+            window.CardGenerator.generateMinifigs({
+                items: figures,
+                containerId: "figures-container",
+                filterSelectId: "film-filter",
+                lang: window.currentLang || "en"
+            });
+        });
+    </script>
+
+    <!-- Hook i18n: met à jour le nom/film affichés si la langue change -->
+    <script>
+        (function () {
+            const prev = window.setLanguage;
+            window.setLanguage = function (lang) {
+                prev?.(lang); // i18n existante
+                window.CardGenerator.updateMinifigTextsFromNames(lang);
+            };
+            // sync initiale (utile si la page démarre en FR)
+            window.CardGenerator.updateMinifigTextsFromNames(window.currentLang || "en");
+        })();
+    </script>
 </body>
-
-<script>
-    let btn = document.querySelector('#btn')
-    let sidebar = document.querySelector('.sidebar')
-
-    btn.onclick = function(){
-        sidebar.classList.toggle('active');
-    };
-</script>
-<script src="./js/img.js"></script>
 
 </html>
