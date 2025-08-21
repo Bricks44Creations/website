@@ -880,7 +880,7 @@ const project = [
         date: "2024-09-27",
         relevance: 3,
         filter: "Building",
-        img: "../img/Miniatures/Mcdonald's.jpg",
+        img: "../img/Miniatures/Mcdonalds.jpg",
         alt: "McDonald's Restaurant",
         type: "MOC",
         theme: "jurassic-park",
@@ -1364,7 +1364,6 @@ const project = [
         favoris: false,
     },
     {//Howard Stark//
-        id: "minifig-2",
         name: "Howard Stark",
         film: "Avengers : Endgame",
         image: "img/Minifig/Howard-face.png",
@@ -1389,7 +1388,6 @@ const project = [
         favoris: false,
     },
     {//Namora//
-        id: "minifig-3",
         name: "Namora",
         film: "Black Panther : Wakanda Forever",
         image: "img/Minifig/Namora-face.png",
@@ -1417,7 +1415,6 @@ const project = [
         favoris: false,
     },
     {//Shuri//
-        id: "minifig-4",
         name: "Shuri",
         film: "Black Panther : Wakanda Forever",
         image: "img/Minifig/Shuri-1-face.png",
@@ -1445,7 +1442,6 @@ const project = [
         favoris: false,
     },
     {//Defender Strange//
-        id: "minifig-5",
         name: "Defender Strange",
         film: "Doctor Strange 2",
         image: "img/Minifig/Defender-strange-face.png",
@@ -1473,7 +1469,6 @@ const project = [
         favoris: false,
     },
     {//Heracles//
-        id: "minifig-6",
         name: "Heracles",
         film: "Thor : Love and Thunder",
         image: "img/Minifig/Hercules-face.png",
@@ -1501,7 +1496,6 @@ const project = [
         favoris: false,
     },
     {//Thor//
-        id: "minifig-7",
         name: "Thor",
         film: "Thor : Love and Thunder",
         image: "img/Minifig/Thor-1-face.png",
@@ -1529,7 +1523,6 @@ const project = [
         favoris: false,
     },
     {//Baast//
-        id: "minifig-8",
         name: "Baast",
         film: "Thor : Love and Thunder",
         image: "img/Minifig/Baast-face.png",
@@ -1557,7 +1550,6 @@ const project = [
         favoris: false,
     },
     {//Zeus//
-        id: "minifig-9",
         name: "Zeus",
         film: "Thor : Love and Thunder",
         image: "img/Minifig/Zeus-face.png",
@@ -1585,7 +1577,6 @@ const project = [
         favoris: false,
     },
     {//Love//
-        id: "minifig-10",
         name: "Love",
         film: "Thor : Love and Thunder",
         image: "img/Minifig/Love-face.png",
@@ -1613,7 +1604,6 @@ const project = [
         favoris: false,
     },
     {//Billy Maximoff//
-        id: "minifig-11",
         name: "Billy Maximoff",
         film: "WandaVision",
         image: "img/Minifig/Billy-Maximoff-face.png",
@@ -1641,7 +1631,6 @@ const project = [
         favoris: false,
     },
     {//Ego//
-        id: "minifig-12",
         name: "Ego",
         film: "Guardians of the Galaxy",
         image: "img/Minifig/Ego-face.png",
@@ -1669,7 +1658,6 @@ const project = [
         favoris: false,
     },
     {//Malekith//
-        id: "minifig-13",
         name: "Malekith",
         film: "Thor : The dark world",
         image: "img/Minifig/Malekith-face.png",
@@ -1696,7 +1684,6 @@ const project = [
         favoris: false,
     },
     {//M'Baku//
-        id: "minifig-14",
         name: "M'Baku",
         film: "Black Panther",
         image: "img/Minifig/Mbaku-face.png",
@@ -1724,7 +1711,6 @@ const project = [
         favoris: false,
     },
     {//Eddie Brock//
-        id: "minifig-15",
         name: "Eddie Brock",
         film: "Spiderman : No way home",
         image: "img/Minifig/Venom-face.png",
@@ -1752,11 +1738,10 @@ const project = [
         favoris: false,
     },
     {//The collector//
-        id: "minifig-16",
         name: "The Collector",
         film: "Guardians of the Galaxy",
-        image: "img/Minifig/collector-face.png",
-        hoverImage: "img/Minifig/collector-34.png", // image au survol
+        image: "img/Minifig/Collector-face.png",
+        hoverImage: "img/Minifig/Collector-34.png", // image au survol
         parts: [
             {
                 name: "Torso",
@@ -1882,6 +1867,5 @@ const project = [
         favoris: false,
     },
 ]
-
 
 window.PROJECTS = project;
