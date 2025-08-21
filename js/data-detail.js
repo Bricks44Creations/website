@@ -1,54 +1,5 @@
-const dataDetails = {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
+const dataDetails = [
     {
-    id: "moc-marvel-2",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
     id: "moc-marvel-1",
     description: {
       en: "",
@@ -60,242 +11,67 @@ const dataDetails = {
                 { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
                 { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
                 { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
+            ] }, 
+        stats: { 
+            pieces: "~1200 pièces", 
+            dimensions: "42 × 32 × 28 cm", 
+            buildTime: "35 h de build" }, 
+        link: "mocs.html#avengers-tower", 
+        video: "", 
+        instructions: "", 
+        partsList: "", 
+        credits: "", 
   },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
-            {
-    id: "moc-marvel-1",
-    description: {
-      en: "",
-      fr: ""
-    },
-    images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ]
-        },
-        stats: {
-            pieces: "~1200 pièces",
-            dimensions: "42 × 32 × 28 cm",
-            buildTime: "35 h de build"
-        },
-    link: "mocs.html#avengers-tower",
-    video: "",
-    instructions: "",
-    partsList: "",
-    credits: "",
-  },
+  { id: "moc-marvel-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-3", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-4", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-5", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-6", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-7", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-8", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-9", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-10", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-11", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-12", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-13", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-14", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-15", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-16", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-17", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-18", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-19", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-20", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-21", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-22", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-23", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-24", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-25", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-26", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-27", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-28", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-29", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-30", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-31", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-32", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-33", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-34", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-35", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-36", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-37", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-38", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-39", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-40", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-41", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-42", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-43", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-44", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-45", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-46", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-47", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  { id: "moc-marvel-48", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" }
+]
+
+
+ 
+
 
