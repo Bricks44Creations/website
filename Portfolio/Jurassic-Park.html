@@ -266,83 +266,38 @@
     </footer>
 
     <!-- Scripts -->
-    !-- === Script inline spécifique à la page Jurassic Park === -->
+    <script src="../js/data.js"></script>
+    <script src="../js/cardGenerator.js"></script>
     <script>
-        /**
-         * Source de vérité des créations Jurassic Park.
-         * Pour ajouter un projet : ajoute un objet ici, c’est tout.
-         * Champs :
-         * - href, key (clé i18n), label (fallback visible), date (YYYY-MM-DD), relevance (nombre),
-         * - filter (catégorie), img (miniature), alt (texte alternatif).
-         */
-        const projectsJP = [
-            { href: "../Portfolio/Jurassic-Park/McDonald's.html", key: "project_McDonald_Restaurant", label: "McDonald's Restaurant", date: "2024-09-27", relevance: 3, filter: "Building", img: "../img/Miniatures/McDonald's.jpg", alt: "McDonald's Restaurant" },
-            { href: "../Portfolio/Jurassic-Park/QQS-restaurant.html", key: "project_QQS_Restaurant", label: "QQS Restaurant", date: "2024-09-05", relevance: 3, filter: "Building", img: "../img/Miniatures/QQS restaurant.jpg", alt: "QQS Restaurant" },
-            { href: "../Portfolio/Jurassic-Park/Gift-shop.html", key: "project_Gift_Shop", label: "Gift Shop", date: "2024-09-02", relevance: 3, filter: "Building", img: "../img/Miniatures/gift shop.jpg", alt: "Gift Shop" },
-            { href: "../Portfolio/Jurassic-Park/Aviary.html", key: "project_Aviary", label: "The Aviary", date: "2024-08-30", relevance: 4, filter: "Landscape", img: "../img/Miniatures/aviary.jpg", alt: "The Aviary" },
-            { href: "../Portfolio/Jurassic-Park/Mosasaurus.html", key: "project_The_Mosasaurus_2", label: "The Mosasaurus (2)", date: "2024-08-25", relevance: 5, filter: "Landscape", img: "../img/Miniatures/mosasaurus.jpg", alt: "The Mosasaurus (2)" },
-            { href: "../Portfolio/Jurassic-Park/Monorail.html", key: "project_Motorized_Monorail", label: "Motorized Monorail", date: "2022-05-15", relevance: 4, filter: "Landscape", img: "../img/Miniatures/monorail.jpg", alt: "Motorized Monorail" },
-            { href: "../Portfolio/Jurassic-Park/Bowling.html", key: "project_The_Bowling", label: "The Bowling", date: "2021-03-10", relevance: 3, filter: "Building", img: "../img/Miniatures/bowling.jpg", alt: "The Bowling" },
-            { href: "../Portfolio/Jurassic-Park/T-rex.html", key: "project_Trex_enclosure", label: "T-rex enclosure", date: "2021-03-07", relevance: 5, filter: "Landscape", img: "../img/Miniatures/t-rex.jpg", alt: "T-rex enclosure" },
-            { href: "../Portfolio/Jurassic-Park/Subway.html", key: "project_Subway_Restaurant", label: "Subway Restaurant", date: "2021-03-27", relevance: 3, filter: "Building", img: "../img/Miniatures/subway restaurant.png", alt: "Subway Restaurant" },
-            { href: "../Portfolio/Jurassic-Park/Coffee-chain-restaurant.html", key: "project_The_Coffee_Chain_Restaurant", label: "Coffee Chain Restaurant", date: "2020-12-25", relevance: 1, filter: "Building", img: "../img/Miniatures/coffee chain 1.jpg", alt: "Coffee Chain Restaurant" },
-            { href: "../Portfolio/Jurassic-Park/HQ-and-Restaurant.html", key: "project_Headquarter_Restaurant", label: "Headquarter & Restaurant", date: "2020-03-29", relevance: 2, filter: "Building", img: "../img/Miniatures/Restaurant.jpg", alt: "Headquarter & Restaurant" },
-            { href: "../Portfolio/Jurassic-Park/Laboratory.html", key: "project_A_laboratory_in_the_jungle", label: "A laboratory in the jungle", date: "2020-01-04", relevance: 1, filter: "Landscape", img: "../img/Miniatures/Laboratory.jpg", alt: "A laboratory in the jungle" },
-            { href: "../Portfolio/Jurassic-Park/Excavations.html", key: "project_Archaeological_excavations", label: "Archaeological excavations", date: "2020-01-03", relevance: 2, filter: "Landscape", img: "../img/Miniatures/Fouilles.jpg", alt: "Archaeological excavations" },
-        ];
-
-        /** Injecte dynamiquement les cartes dans la grille avant l'initialisation de script.js */
         document.addEventListener("DOMContentLoaded", () => {
-            const grid = document.querySelector(".portfolio-grid");
-            if (!grid) return;
+            const src = window.PROJECTS || window.project || [];
+            const marvelItems = src.filter(p => p.theme === "jurassic-park" && (p.type ? p.type === "MOC" : true));
 
-            // Nettoye la grille (au cas où)
-            grid.innerHTML = "";
-
-            const frag = document.createDocumentFragment();
-
-            projectsJP.forEach(p => {
-                // <a class="portfolio-card" ...>
-                const card = document.createElement("a");
-                card.className = "portfolio-card";
-                card.href = p.href;
-
-                // data-* pour tri/filtre existants
-                card.dataset.name = p.label || "";
-                card.dataset.date = p.date;                // format ISO YYYY-MM-DD
-                card.dataset.relevance = String(p.relevance || 0);
-                card.dataset.filter = p.filter || "";
-
-                // <img>
-                const img = document.createElement("img");
-                img.src = p.img;
-                img.alt = p.alt || p.label || "";
-
-                // <h3><span data-key="...">Label</span><span class="date">..</span></h3>
-                const h3 = document.createElement("h3");
-                const titleSpan = document.createElement("span");
-                titleSpan.setAttribute("data-key", p.key);
-                titleSpan.textContent = p.label || "";     // fallback avant i18n
-
-                const dateSpan = document.createElement("span");
-                dateSpan.className = "date";
-                const dateObj = new Date(p.date + "T00:00:00");
-                dateSpan.textContent = dateObj.toLocaleDateString("fr-FR");
-
-                h3.appendChild(titleSpan);
-                h3.appendChild(dateSpan);
-
-                // Assemble
-                card.appendChild(img);
-                card.appendChild(h3);
-                frag.appendChild(card);
+            // Génère avec la langue courante (currentLang défini dans script.js, défaut "en")
+            window.CardGenerator.generateCards({
+                items: marvelItems,
+                containerId: "portfolio-grid",
+                templateId: "card-template",
+                lang: window.currentLang || "en"
             });
-
-            grid.appendChild(frag);
         });
     </script>
 
     <script src="../js/script.js"></script>
+
+    <script>
+        (function () {
+            const prev = window.setLanguage;
+            window.setLanguage = function (lang) {
+                prev?.(lang);                                   // i18n existante pour le reste de l’UI
+                window.CardGenerator.updateCardTitlesFromNames(lang); // met à jour les titres des cards depuis name
+                if (typeof sortPortfolio === "function") sortPortfolio(); // re-trier si "Nom A-Z" est actif
+            };
+
+            // Sync initiale (au cas où la page démarre en FR)
+            window.CardGenerator.updateCardTitlesFromNames(window.currentLang || "en");
+        })();
+    </script>
 </body>
 
 </html>

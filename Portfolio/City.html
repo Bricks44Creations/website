@@ -256,74 +256,39 @@
     </footer>
 
     <!-- Scripts -->
-    !-- === Script inline spécifique à la page City === -->
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/cardGenerator.js"></script>
     <script>
-        /**
-         * Liste des créations City
-         */
-        const projectsCity = [
-            {
-                href: "../Portfolio/City/Park-Avenue.html",
-                key: "project_park_avenue",
-                label: "Park Avenue",
-                date: "2023-04-30",
-                relevance: 3,
-                filter: "City",
-                img: "../img/Miniatures/Park Avenue.jpg",
-                alt: "Park Avenue"
-            },
-            // 👉 Ajoute ici d'autres projets City au besoin
-        ];
-
-        /** Génère dynamiquement les cartes City */
         document.addEventListener("DOMContentLoaded", () => {
-            const grid = document.querySelector(".portfolio-grid");
-            if (!grid) return;
+            const src = window.PROJECTS || window.project || [];
+            const marvelItems = src.filter(p => p.theme === "city" && (p.type ? p.type === "MOC" : true));
 
-            // Nettoyage
-            grid.innerHTML = "";
-
-            const frag = document.createDocumentFragment();
-
-            projectsCity.forEach(p => {
-                const card = document.createElement("a");
-                card.className = "portfolio-card";
-                card.href = p.href;
-
-                // attributs utiles pour tri/filtre
-                card.dataset.name = p.label || "";
-                card.dataset.date = p.date;
-                card.dataset.relevance = String(p.relevance || 0);
-                card.dataset.filter = p.filter || "";
-
-                // image
-                const img = document.createElement("img");
-                img.src = p.img;
-                img.alt = p.alt || p.label || "";
-
-                // titre et date
-                const h3 = document.createElement("h3");
-                const titleSpan = document.createElement("span");
-                titleSpan.setAttribute("data-key", p.key);
-                titleSpan.textContent = p.label || "";
-
-                const dateSpan = document.createElement("span");
-                dateSpan.className = "date";
-                const dateObj = new Date(p.date + "T00:00:00");
-                dateSpan.textContent = dateObj.toLocaleDateString("fr-FR");
-
-                h3.appendChild(titleSpan);
-                h3.appendChild(dateSpan);
-
-                card.appendChild(img);
-                card.appendChild(h3);
-                frag.appendChild(card);
+            // Génère avec la langue courante (currentLang défini dans script.js, défaut "en")
+            window.CardGenerator.generateCards({
+                items: marvelItems,
+                containerId: "portfolio-grid",
+                templateId: "card-template",
+                lang: window.currentLang || "en"
             });
-
-            grid.appendChild(frag);
         });
     </script>
+
     <script src="../js/script.js"></script>
+
+    <script>
+        (function () {
+            const prev = window.setLanguage;
+            window.setLanguage = function (lang) {
+                prev?.(lang);                                   // i18n existante pour le reste de l’UI
+                window.CardGenerator.updateCardTitlesFromNames(lang); // met à jour les titres des cards depuis name
+                if (typeof sortPortfolio === "function") sortPortfolio(); // re-trier si "Nom A-Z" est actif
+            };
+
+            // Sync initiale (au cas où la page démarre en FR)
+            window.CardGenerator.updateCardTitlesFromNames(window.currentLang || "en");
+        })();
+    </script>
 </body>
 
 </html>

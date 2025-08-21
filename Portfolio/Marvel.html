@@ -285,102 +285,38 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/cardGenerator.js"></script>
     <script>
-        /** 1) Déclare la source de vérité (une ligne = une création)
-         *  - href: lien de la page projet
-         *  - key: clé i18n déjà existante dans 'translations' de script.js
-         *  - date: YYYY-MM-DD (utilisé pour le tri)
-         *  - relevance: nombre (utilisé pour "Pertinence")
-         *  - filter: famille/œuvre (utilisée pour le filtre)
-         *  - img: chemin miniature
-         *  - alt: texte alternatif image
-         */
-        const projects = [
-            { href: "../Portfolio/Marvel/Witches-road.html", key: "project_Agatha_on_the_Witches_road", date: "2024-10-09", relevance: 3, filter: "Agatha: All along", img: "../img/Miniatures/Witches road.jpg", alt: "Agatha on the Witches' road" },
-            { href: "../Portfolio/Marvel/Taweret's-boat.html", key: "project_Taweret_Boat", date: "2024-10-08", relevance: 3, filter: "Moon Knight", img: "../img/Miniatures/taweret's boat.jpg", alt: "Taweret's Boat" },
-            { href: "../Portfolio/Marvel/Endgame-final-battle.html", key: "project_Endgame_final_battle", date: "2024-08-09", relevance: 3, filter: "Avengers : Endgame", img: "../img/Miniatures/Endgame final battle.jpg", alt: "Endgame final battle" },
-            { href: "../Portfolio/Marvel/Thor-escapes-from-Muspelheim.html", key: "project_Thor_VS_Surtur", date: "2024-08-09", relevance: 3, filter: "Thor : Ragnarok", img: "../img/Miniatures/thor escapes.jpg", alt: "Thor VS Surtur" },
-            { href: "../Portfolio/Marvel/Steve-Rogers-transformation.html", key: "project_Steve_Rogers_transformation_scene", date: "2024-08-07", relevance: 3, filter: "Captain America : First Avenger", img: "../img/Miniatures/Steve Rogers transformation scene.jpg", alt: "Steve Rogers transformation scene" },
-            { href: "../Portfolio/Marvel/Pompeii.html", key: "project_Loki_Mobius_in_Pompeii", date: "2024-08-04", relevance: 3, filter: "Loki", img: "../img/Miniatures/pompeii.jpg", alt: "Loki & Mobius in Pompeii" },
-            { href: "../Portfolio/Marvel/Black-Widow-Death-Scene.html", key: "project_Black_Widow_death_scene", date: "2024-08-02", relevance: 3, filter: "Avengers : Endgame", img: "../img/Miniatures/Black widow death scene.jpg", alt: "Black Widow death scene" },
-            { href: "../Portfolio/Marvel/Deadpool-and-Wolverine-opening-scene.html", key: "project_Deadpool_3_opening_scene", date: "2024-07-31", relevance: 3, filter: "Deadpool & Wolverine", img: "../img/Miniatures/deadpool.jpg", alt: "Deadpool 3 opening scene" },
-            { href: "../Portfolio/Marvel/Natalie-Rushman.html", key: "project_Iron_man_2_boxing_ring", date: "2023-12-31", relevance: 3, filter: "Iron man 2", img: "../img/Miniatures/Natalie Rushman.jpg", alt: "Iron man 2 boxing ring" },
-            { href: "../Portfolio/Marvel/Hulk-VS-Leviathan.html", key: "project_Hulk_VS_Leviathan", date: "2023-12-31", relevance: 3, filter: "Avengers", img: "../img/Miniatures/hulk.jpg", alt: "Hulk VS Leviathan" },
-            { href: "../Portfolio/Marvel/Loki-God-of-Stories.html", key: "project_Loki_God_of_stories", date: "2023-12-30", relevance: 3, filter: "Loki", img: "../img/Miniatures/god of stories.jpg", alt: "Loki, God of stories" },
-            { href: "../Portfolio/Marvel/Wakanda-throne.html", key: "project_Shuri_meets_Killmonger", date: "2023-12-30", relevance: 3, filter: "Black Panther : Wakanda Forever", img: "../img/Miniatures/wakanda throne.jpg", alt: "Shuri meets Killmonger" },
-            { href: "../Portfolio/Marvel/Moon-Knight-discovers-a-Tomb.html", key: "project_Tomb_of_Alexander_the_Great", date: "2023-12-30", relevance: 3, filter: "Moon Knight", img: "../img/Miniatures/moon knight (2).jpg", alt: "Tomb of Alexander the Great" },
-            { href: "../Portfolio/Marvel/Victor-timely-2.html", key: "project_Loki_meets_Victor_Timely_2", date: "2023-11-15", relevance: 3, filter: "Loki", img: "../img/Miniatures/timely (2).jpg", alt: "Loki meets Victor Timely (2)" },
-            { href: "../Portfolio/Marvel/Ouroborus.html", key: "project_Ouroboros_meets_Loki", date: "2023-11-04", relevance: 3, filter: "Loki", img: "../img/Miniatures/Ouroboros.jpg", alt: "Ouroboros meets Loki" },
-            { href: "../Portfolio/Marvel/He-Who-Remains.html", key: "project_Citadel_of_He_Who_Remains", date: "2023-11-02", relevance: 3, filter: "Loki", img: "../img/Miniatures/He who remains.jpg", alt: "Citadel of He Who Remains" },
-            { href: "../Portfolio/Marvel/GOTG3-final-battle-scene.html", key: "project_GOTG3_Final_fight", date: "2023-07-07", relevance: 3, filter: "Guardians of the Galaxy vol.3", img: "../img/Miniatures/GOTG3.jpg", alt: "GOTG3 Final fight" },
-            { href: "../Portfolio/Marvel/Secret-Invasion.html", key: "project_Copying_human_identities", date: "2023-07-06", relevance: 3, filter: "Secret Invasion", img: "../img/Miniatures/secret invasion.jpg", alt: "Copying human identities" },
-            { href: "../Portfolio/Marvel/Victor-timely-1.html", key: "project_Loki_meets_Victor_Timely_1", date: "2023-03-19", relevance: 3, filter: "Loki", img: "../img/Miniatures/timely (1).jpg", alt: "Loki meets Victor Timely (1)" },
-            { href: "../Portfolio/Marvel/Sanctum-sanctorum-1.html", key: "project_Sanctum_Sanctorum", date: "2023-03-19", relevance: 3, filter: "Doctor Strange", img: "../img/Miniatures/Stairs.jpg", alt: "Sanctum Sanctorum" },
-            { href: "../Portfolio/Marvel/Shang-chi.html", key: "project_Shang_chi_VS_Wenwu", date: "2023-02-12", relevance: 3, filter: "Shang-chi", img: "../img/Miniatures/shangchi.jpg", alt: "Shang-chi VS Wenwu" },
-            { href: "../Portfolio/Marvel/Iron-Heart.html", key: "project_Iron_heart_reveal", date: "2022-12-30", relevance: 3, filter: "Iron Heart", img: "../img/Miniatures/iron heart.jpg", alt: "Iron heart reveal" },
-            { href: "../Portfolio/Marvel/Iron-man-3.html", key: "project_Tony_in_the_snow", date: "2022-08-10", relevance: 3, filter: "Iron man 3", img: "../img/Miniatures/snow.jpg", alt: "Tony in the snow" },
-            { href: "../Portfolio/Marvel/Shamballa.html", key: "project_Doctor_strange_meets_Mordo", date: "2022-08-08", relevance: 3, filter: "Doctor Strange", img: "../img/Miniatures/doctorstrange.jpg", alt: "Doctor strange meets Mordo" },
-            { href: "../Portfolio/Marvel/Captain-America-first-fight.html", key: "project_Steve_1st_fight", date: "2022-08-08", relevance: 3, filter: "Captain America : First Avenger", img: "../img/Miniatures/steve.jpg", alt: "Steve 1st fight" },
-            { href: "../Portfolio/Marvel/Time-Travel.html", key: "project_Tony_discorvers_time_travel", date: "2022-08-07", relevance: 3, filter: "Avengers : Endgame", img: "../img/Miniatures/timetravel.jpg", alt: "Tony discorvers time travel" },
-            { href: "../Portfolio/Marvel/Morgan-Stark.html", key: "project_Morgan_Stark", date: "2022-08-07", relevance: 3, filter: "Avengers : Endgame", img: "../img/Miniatures/morgan.jpg", alt: "Morgan Stark" },
-            { href: "../Portfolio/Marvel/Red-Richards-turn-into-spaghetti.html", key: "project_Red_Richards_turn_into_spaghetti", date: "2022-07-10", relevance: 3, filter: "Doctor Strange in the multiverse of madness", img: "../img/Miniatures/spaghettis.jpg", alt: "Red Richards turn into spaghetti" },
-            { href: "../Portfolio/Marvel/Illuminati.html", key: "project_The_Illuminati", date: "2022-07-10", relevance: 3, filter: "Doctor Strange in the multiverse of madness", img: "../img/Miniatures/illuminati.jpg", alt: "The Illuminati" },
-            { href: "../Portfolio/Marvel/Thor-with-GOTG.html", key: "project_Thor_with_GOTG", date: "2022-07-10", relevance: 3, filter: "Thor : Love and Thunder", img: "../img/Miniatures/thor with GOTG.jpg", alt: "Thor with GOTG" },
-            { href: "../Portfolio/Marvel/Doctor-Strange-on-Everest.html", key: "project_Strange_at_mount_Everest", date: "2022-06-05", relevance: 3, filter: "Doctor Strange", img: "../img/Miniatures/everest.jpg", alt: "Strange at mount Everest" },
-            { href: "../Portfolio/Marvel/My-back-Spiderman-3.html", key: "project_Spiderman_My_back_scene", date: "2022-06-05", relevance: 3, filter: "Spiderman : No way home", img: "../img/Miniatures/my back.jpg", alt: "Spiderman My back ! scene" },
-            { href: "../Portfolio/Marvel/Iron-man-Mark-I.html", key: "project_Tony_build_Mark_I", date: "2022-05-29", relevance: 3, filter: "Iron man", img: "../img/Miniatures/mark1.jpg", alt: "Tony build Mark I" },
-            { href: "../Portfolio/Marvel/Spiderman-VS-Electro.html", key: "project_Spiderman_VS_Electro", date: "2021-12-30", relevance: 3, filter: "Spiderman : No way home", img: "../img/Miniatures/Spiderman VS Electro.jpg", alt: "Spiderman VS Electro" },
-            { href: "../Portfolio/Marvel/J-Jonah-Jameson.html", key: "project_JJJ", date: "2021-12-19", relevance: 3, filter: "Spiderman : No way home", img: "../img/Miniatures/JJJ.jpg", alt: "J. Jonah Jameson" },
-            { href: "../Portfolio/Marvel/Eternals.html", key: "project_Eternals_opening_scene", date: "2021-11-27", relevance: 3, filter: "Eternals", img: "../img/Miniatures/eternals.jpg", alt: "Eternals opening scene" },
-            { href: "../Portfolio/Marvel/Microscale-Asgard.html", key: "project_Microscale_Asgard", date: "2021-10-10", relevance: 3, filter: "Thor", img: "../img/Miniatures/asgard.jpg", alt: "Microscale Asgard" },
-            { href: "../Portfolio/Marvel/Wandavision-ep2.html", key: "project_Wandavision_ep2", date: "2021-10-07", relevance: 3, filter: "Wandavision", img: "../img/Miniatures/Wandavision ep2.jpg", alt: "Wandavision ep2" },
-            { href: "../Portfolio/Marvel/Loki-captured.html", key: "project_Capture_of_Loki_by_TVA", date: "2021-09-25", relevance: 3, filter: "Loki", img: "../img/Miniatures/loki tva.jpg", alt: "Capture of Loki by TVA" },
-            { href: "../Portfolio/Marvel/Lokis-in-the-void.html", key: "project_Loki_in_the_void", date: "2021-09-18", relevance: 3, filter: "Loki", img: "../img/Miniatures/void.jpg", alt: "Loki in the void" },
-            { href: "../Portfolio/Marvel/Iron-man-in-Monaco.html", key: "project_Iron_man_VS_Ivan_Vanko", date: "2021-05-18", relevance: 3, filter: "Iron man 2", img: "../img/Miniatures/Iron man monaco.jpg", alt: "Iron man VS Ivan Vanko" },
-            { href: "../Portfolio/Marvel/Killmonger-death-scene.html", key: "project_Killmonger_death_scene", date: "2021-05-16", relevance: 3, filter: "Black Panther", img: "../img/Miniatures/Killmonger death.jpg", alt: "Killmonger death scene" },
-            { href: "../Portfolio/Marvel/Thor-arrives-in-Wakanda.html", key: "project_Thor_arrives_in_Wakanda", date: "2021-05-14", relevance: 3, filter: "Avengers : Infinity War", img: "../img/Miniatures/thor arrives in wakanda.jpg", alt: "Thor arrives in Wakanda" },
-            { href: "../Portfolio/Marvel/Arc-Reactor.html", key: "project_arc_reactor", date: "2021-05-01", relevance: 3, filter: "Iron man", img: "../img/Miniatures/arc reactor.jpg", alt: "arc reactor" },
-            { href: "../Portfolio/Marvel/TASM2.html", key: "project_TASM2_ending_scene", date: "2021-05-01", relevance: 3, filter: "The amazing Spiderman 2", img: "../img/Miniatures/TASM2.jpg", alt: "TASM2 ending scene" },
-            { href: "../Portfolio/Marvel/Skrull-transformation.Html", key: "project_Skrull_transformation", date: "2021-04-11", relevance: 3, filter: "Captain Marvel", img: "../img/Miniatures/skrull transformation.jpg", alt: "Skrull transformation" },
-            { href: "../Portfolio/Marvel/Ancestral-Plane.html", key: "project_Ancestral_plane", date: "2021-04-10", relevance: 3, filter: "Black Panther", img: "../img/Miniatures/Ancestral plane.jpg", alt: "Ancestral plane" },
-            { href: "../Portfolio/Marvel/Arnim-Zola.html", key: "project_Arnim_Zola", date: "2021-04-07", relevance: 3, filter: "Captain America : The Winter soldier", img: "../img/Miniatures/arnim zola.jpg", alt: "Arnim Zola" },
-        ];
-
-        /** 2) Génère/insère les cartes à partir du template */
         document.addEventListener("DOMContentLoaded", () => {
-            const grid = document.getElementById("portfolio-grid");
-            const tpl = document.getElementById("card-template");
-            if (!grid || !tpl) return;
+            const src = window.PROJECTS || window.project || [];
+            const marvelItems = src.filter(p => p.theme === "marvel" && (p.type ? p.type === "MOC" : true));
 
-            const frag = document.createDocumentFragment();
-
-            projects.forEach(p => {
-                const node = tpl.content.cloneNode(true);
-                const card = node.querySelector(".portfolio-card");
-                const img = node.querySelector("img");
-                const nameSpan = node.querySelector("h3 span[data-key]");
-                const dateSpan = node.querySelector(".date");
-
-                // hydrate
-                card.href = p.href;
-                card.dataset.name = "";              // sera rempli par i18n (script.js)
-                card.dataset.date = p.date;
-                card.dataset.relevance = String(p.relevance || 0);
-                card.dataset.filter = p.filter || "";
-
-                img.src = p.img;
-                img.alt = p.alt || "";
-
-                nameSpan.setAttribute("data-key", p.key);
-                dateSpan.textContent = new Date(p.date).toLocaleDateString("fr-FR");
-
-                frag.appendChild(node);
+            // Génère avec la langue courante (currentLang défini dans script.js, défaut "en")
+            window.CardGenerator.generateCards({
+                items: marvelItems,
+                containerId: "portfolio-grid",
+                templateId: "card-template",
+                lang: window.currentLang || "en"
             });
-
-            grid.appendChild(frag);
         });
     </script>
+
     <script src="../js/script.js"></script>
+
+    <script>
+        (function () {
+            const prev = window.setLanguage;
+            window.setLanguage = function (lang) {
+                prev?.(lang);                                   // i18n existante pour le reste de l’UI
+                window.CardGenerator.updateCardTitlesFromNames(lang); // met à jour les titres des cards depuis name
+                if (typeof sortPortfolio === "function") sortPortfolio(); // re-trier si "Nom A-Z" est actif
+            };
+
+            // Sync initiale (au cas où la page démarre en FR)
+            window.CardGenerator.updateCardTitlesFromNames(window.currentLang || "en");
+        })();
+    </script>
 </body>
 
 </html>
