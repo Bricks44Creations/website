@@ -147,21 +147,76 @@
 
 
     <!-- MAIN CONTENT -->
-    <main class="main-content">
-        <div class="title">
-            <H1>MINIFIGS</H1>
-        </div>
-        <div class="separator"></div>
+<main>
+  <section class="portfolio-section">
+    <h2 data-key="minifigs">Minifigurines</h2>
 
-        <div class="filter-minifigs" style="display:flex;justify-content:center;padding:1rem;">
-            <label for="film-filter" style="margin-right:.5rem;">Filtrer</label>
-            <select id="film-filter">
-                <option value="all">All</option>
-            </select>
+    <!-- BARRE D’OUTILS : TRI + FILTRE -->
+    <div class="filters-bar">
+      <!-- BOUTON TRI -->
+      <div class="dropdown-tri">
+        <button id="sort-btn" class="dropbtn-tri">
+          <span id="sort-label" data-key="sort_date_desc">
+            Trier par : Date (récent → ancien)
+          </span>
+          <span class="arrow-down">&#9662;</span>
+        </button>
+        <div id="sort-options" class="dropdown-content-tri">
+          <a href="#" data-sort="name-asc" data-key="sort_name_asc">Nom A-Z</a>
+          <a href="#" data-sort="name-desc" data-key="sort_name_desc">Nom Z-A</a>
+          <a href="#" data-sort="date-desc" data-key="sort_date_desc">Date (récent → ancien)</a>
+          <a href="#" data-sort="date-asc" data-key="sort_date_asc">Date (ancien → récent)</a>
+          <a href="#" data-sort="relevance" data-key="sort_relevance">Pertinence</a>
         </div>
+      </div>
 
-        <section id="figures-container"></section>
-    </main>
+      <!-- BOUTON FILTRE -->
+      <div class="dropdown-tri">
+        <button id="filter-btn" class="dropbtn-tri">
+          <span id="filter-label">Filtrer par : Tous</span>
+          <span class="arrow-down">&#9662;</span>
+        </button>
+        <div id="filter-options" class="dropdown-content-tri"></div>
+      </div>
+    </div>
+
+    <!-- CONTENEUR DES CARTES MINIFIGS -->
+    <section id="figures-container" class="portfolio-grid"></section>
+
+    <!-- TEMPLATE CARTE -->
+    <template id="minifig-template">
+      <a class="portfolio-card" data-filter="">
+        <img alt="">
+        <h3>
+          <span data-key=""></span>
+          <span class="date"></span>
+        </h3>
+      </a>
+    </template>
+  </section>
+</main>
+
+<!-- MODAL TRI (mobile) -->
+<div id="sort-modal" class="sort-modal">
+  <div class="sort-modal-content">
+    <button class="close-sort-modal" aria-label="Fermer">×</button>
+    <a href="#" data-sort="name-asc" data-key="sort_name_asc">Nom A-Z</a>
+    <a href="#" data-sort="name-desc" data-key="sort_name_desc">Nom Z-A</a>
+    <a href="#" data-sort="date-desc" data-key="sort_date_desc">Date (récent → ancien)</a>
+    <a href="#" data-sort="date-asc" data-key="sort_date_asc">Date (ancien → récent)</a>
+    <a href="#" data-sort="relevance" data-key="sort_relevance">Pertinence</a>
+  </div>
+</div>
+
+<!-- MODAL FILTRE (mobile) -->
+<div id="filter-modal" class="sort-modal">
+  <div class="sort-modal-content">
+    <button class="close-filter-modal" aria-label="Fermer">×</button>
+    <div id="filter-list" class="checkbox-list"></div>
+    <a href="#" id="reset-filters" data-key="action_reset_filters">Réinitialiser les filtres</a>
+    <a href="#" id="apply-filters" data-key="action_apply_filters">Appliquer les filtres</a>
+  </div>
+</div>
 
 
     <!-- FOOTER -->
@@ -234,6 +289,17 @@
     <!-- Générateurs communs (portfolio + minifigs) -->
     <script src="js/cardGenerator.js"></script>
 
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    window.CardGenerator.generateCards({
+      items: figures, // défini dans data.js
+      containerId: "figures-container",
+      templateId: "minifig-template",
+      lang: window.currentLang || "en"
+    });
+  });
+</script>
+
     <!-- Spécifique Minifigs : filtrage par type + rendu -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -271,4 +337,5 @@
 
 
 </html>
+
 
