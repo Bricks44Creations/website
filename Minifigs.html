@@ -234,6 +234,9 @@
     <!-- Générateurs communs (portfolio + minifigs) -->
     <script src="js/cardGenerator.js"></script>
 
+    <!-- Script commun (menu, i18n, etc.) -->
+    <script src="js/script.js"></script>
+
     <!-- Spécifique Minifigs : filtrage par type + rendu -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -264,11 +267,6 @@
             window.CardGenerator.updateMinifigTextsFromNames(window.currentLang || "en");
         })();
     </script>
-
-        <!-- Script commun (menu, i18n, etc.) -->
-    <script src="js/script.js"></script>
 </body>
 
-
 </html>
-
