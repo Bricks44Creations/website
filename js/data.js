@@ -1343,19 +1343,19 @@ const project = [
         hoverImage: "img/Minifig/Stark-1-34.png", // image au survol
         parts: [
             {
+                name: "Tesseract",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=19729&idColor=15#T=C&C=15",
+                image: "img/Minifig/parts/19729.png"
+            },
+            {
+                name: "Hair",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=98385#T=S&C=69&O={%22color%22:69,%22iconly%22:0}",
+                image: "img/Minifig/parts/98385.png"
+            },
+            {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3107c01&idColor=11#T=S&C=11&O={%22color%22:11,%22iconly%22:0}'",
-                image: "img/Portfolio/minifigs/973pb3107c01.png"
-            },
-            {
-                name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2893&idColor=88#T=S&C=88&O={%22color%22:88,%22iconly%22:0}'",
-                image: ""
-            },
-            {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0898&idColor=120&name=Dark%20Brown%20Hips%20and%20Legs%20with%20Molded%20Black%20Lower%20Legs%20/%20Boots%20and%20Printed%20Reddish%20Brown%20Belt%20and%20Strap%20with%20Silver%20Buckles,%20Boot%20Tongues%20with%20Laces,%20and%20Pouch%20on%20Right%20Side%20Pattern&category=%5BMinifigure,%20Legs,%20Decorated%5D#T=S&C=120&O={%22color%22:120,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00pb0898.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3239c01&idColor=85&name=Dark%20Bluish%20Gray%20Torso%20Jacket,%20White%20Shirt,%20Red%20Tie%20with%20White%20Spots,%20Sand%20Blue%20Vest%20Pattern%20/%20Dark%20Bluish%20Gray%20Arms%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=I&C=85",
+                image: "img/Minifig/parts/973pb3239c01.png"
             },
         ],
         type: "minifig",
@@ -1370,16 +1370,19 @@ const project = [
         hoverImage: "img/Minifig/Howard-34.png", // image au survol
         parts: [
             {
-                name: "Torso", link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                name: "Torso",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb0323c01&idColor=85#T=I&C=85",
+                image: "img/Minifig/parts/973pb0323c01.png"
             },
             {
-                name: "Head", link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                name: "Hair",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=99930#T=S&C=120&O={%22color%22:120,%22iconly%22:0}",
+                image: "img/Minifig/parts/99930.png"
             },
             {
-                name: "Legs", link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Head",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb1493&name=Minifigure,%20Head%20Moustache%20Brown%20Bushy%20Large,%20Brown%20Eyebrows,%20White%20Pupils%20Pattern%20(SW%20Trooper)&category=%5BMinifigure,%20Head%5D#T=C",
+                image: "img/Minifig/parts/3626pb1493.png"
             }
         ],
         type: "minifig",
@@ -1394,19 +1397,19 @@ const project = [
         hoverImage: "img/Minifig/Namora-34.png", // image au survol
         parts: [
             {
+                name: "Hat",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=69951pb01&idColor=39#T=C&C=39",
+                image: "img/Minifig/parts/69951pb01.png"
+            },
+            {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2770c01&name=Torso%20SW%20Aayla%20Secura%20Pattern%202%20/%20Dark%20Brown%20Arm%20Left%20/%20Dark%20Azure%20Arm%20Right%20/%20Dark%20Azure%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=I",
+                image: "img/Minifig/parts/973pb2770c01.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
-            },
-            {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb1858&idColor=153#T=C&C=153",
+                image: "img/Minifig/parts/3626pb1858.png"
             }
         ],
         type: "minifig",
@@ -1421,19 +1424,19 @@ const project = [
         hoverImage: "img/Minifig/Shuri-1-34.png", // image au survol
         parts: [
             {
-                name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                name: "Hood",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=74528&idColor=1#T=C&C=1",
+                image: "img/Minifig/parts/74528.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2893&idColor=88#T=C&C=88",
+                image: "img/Minifig/parts/3626pb2893.png"
             },
             {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Torso",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2533&idColor=1#T=C&C=1",
+                image: "img/Minifig/parts/973pb2533.png"
             }
         ],
         type: "minifig",
@@ -1448,19 +1451,19 @@ const project = [
         hoverImage: "img/Minifig/Defender-strange-34.png", // image au survol
         parts: [
             {
-                name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                name: "Hair",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=17630&name=Minifigure,%20Hair%20Straight%20Cut%20and%20Short%20Ponytail&category=%5BMinifigure,%20Hair%5D#T=C",
+                image: "img/Minifig/parts/17630.png"
             },
             {
-                name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                name: "Torso",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2498c01&idColor=11#T=I&C=11",
+                image: "img/Minifig/parts/973pb2498c01.png"
             },
             {
                 name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0579&idColor=11#T=C&C=11",
+                image: "img/Minifig/parts/970c00pb0579.png"
             }
         ],
         type: "minifig",
@@ -1476,18 +1479,18 @@ const project = [
         parts: [
             {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1470c01&idColor=150#T=I&C=150",
+                image: "img/Minifig/parts/973pb1470c01.png"
             },
             {
-                name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                name: "Armor",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=11438&name=Minifigure%20Armor%20Shoulder%20Pads%20with%20Ridges&category=%5BMinifigure,%20Body%20Wear%5D#T=S&C=80&O={%22color%22:80,%22iconly%22:0}",
+                image: "img/Minifig/parts/11438.png"
             },
             {
                 name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0729&idColor=80#T=C&C=80",
+                image: "img/Minifig/parts/970c00pb0729.png"
             }
         ],
         type: "minifig",
@@ -1502,19 +1505,19 @@ const project = [
         hoverImage: "img/Minifig/Thor-1-34.png", // image au survol
         parts: [
             {
-                name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                name: "Cape Cloth",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=34724&name=Minifigure%20Cape%20Cloth,%20Stepped%20Cutout%20On%20One%20Side&category=%5BMinifigure,%20Body%20Wear%5D#T=C&C=7",
+                image: "img/Minifig/parts/34724.png"
             },
             {
-                name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                name: "Cape Cloth",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=37046&idColor=48#T=S&C=7&O={%22color%22:7,%22iconly%22:0}",
+                image: "img/Minifig/parts/37046.png"
             },
             {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Hood",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=30381&name=Minifigure,%20Headgear%20Hood&category=%5BMinifigure,%20Headgear%5D#T=C&C=63",
+                image: "img/Minifig/parts/30381.png"
             }
         ],
         type: "minifig",
@@ -1530,18 +1533,18 @@ const project = [
         parts: [
             {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3107c01&idColor=11#T=S&C=11&O={%22color%22:11,%22iconly%22:0}",
+                image: "img/Minifig/parts/973pb3107c01.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2893&idColor=88#T=C&C=88",
+                image: "img/Minifig/parts/3626pb2893.png"
             },
             {
                 name: "Legs",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                image: "img/Minifig/parts/970c00pb0898.png"
             }
         ],
         type: "minifig",
@@ -1557,18 +1560,18 @@ const project = [
         parts: [
             {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2210&idColor=115#T=C&C=115",
+                image: "img/Minifig/parts/973pb2210.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb1998&name=Minifigure,%20Head%20Dual%20Sided%20Dark%20Tan%20Moustache%20and%20Beard%20with%20Gray%20Pattern,%20Sad%20/%20Angry%20Pattern%20(SW%20Luke%20Skywalker)&category=%5BMinifigure,%20Head%5D#T=C&C=90",
+                image: "img/Minifig/parts/3626pb1998.png"
             },
             {
                 name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0763&idColor=1#T=C&C=1",
+                image: "img/Minifig/parts/970c00pb0763.png"
             }
         ],
         type: "minifig",
@@ -1583,19 +1586,19 @@ const project = [
         hoverImage: "img/Minifig/Love-34.png", // image au survol
         parts: [
             {
+                name: "Hood",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=15428&idColor=39#T=C&C=39",
+                image: "img/Minifig/parts/15428.png"
+            },
+            {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4418c01&idColor=89#T=I&C=89",
+                image: "img/Minifig/parts/973pb4418c01.png"
             },
             {
-                name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
-            },
-            {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Hair",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=21777&name=Minifigure,%20Hair%20Female%20Ponytail%20with%20Tied%20Sections&category=%5BMinifigure,%20Hair%5D#T=C&C=120",
+                image: "img/Minifig/parts/21777.png"
             }
         ],
         type: "minifig",
@@ -1611,18 +1614,18 @@ const project = [
         parts: [
             {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3665c01&idColor=63#T=I&C=63",
+                image: "img/Minifig/parts/973pb3665c01.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2734&name=Minifigure,%20Head%20Dual%20Sided%20Child%20Dark%20Brown%20Eyebrows,%20Medium%20Nougat%20Chin%20Dimple,%20Neutral%20Open%20Mouth%20with%20Buck%20Teeth%20/%20Sleeping%20with%20Eyebrows%20Raised%20Pattern&category=%5BMinifigure,%20Head%5D#T=C&C=90",
+                image: "img/Minifig/parts/3626pb2734.png"
             },
             {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Hair",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=69558pb01&idColor=120#T=C&C=120",
+                image: "img/Minifig/parts/69558pb01.png"
             }
         ],
         type: "minifig",
@@ -1638,18 +1641,18 @@ const project = [
         parts: [
             {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1988c01&idColor=2#T=I&C=2",
+                image: "img/Minifig/parts/973pb1988c01.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2166&idColor=90#T=C&C=90",
+                image: "img/Minifig/parts/3626pb2166.png"
             },
             {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Cape Cloth",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=18202&name=Minifigure%20Cape%20Cloth,%20Tattered,%20Fur%20Effect%20(Hun%20Warrior%20Cape)&category=%5BMinifigure,%20Body%20Wear%5D#T=C&C=88",
+                image: "img/Minifig/parts/18202.png"
             }
         ],
         type: "minifig",
@@ -1665,17 +1668,18 @@ const project = [
         parts: [
             {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3060c01&idColor=11#T=I&C=11",
+                image: "img/Minifig/parts/973pb3060c01.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb0899&idColor=90#T=C&C=90",
+                image: "img/Minifig/parts/3626pb0899.png"
             },
             {
-                name: "Legs", link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Hair",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=93230pb04#T=C&C=11",
+                image: "img/Minifig/parts/93230pb04.png"
             }
         ],
         type: "minifig",
@@ -1690,19 +1694,19 @@ const project = [
         hoverImage: "img/Minifig/Mbaku-34.png", // image au survol
         parts: [
             {
-                name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                name: "Minifig",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=219238#T=I",
+                image: "img/Minifig/parts/sh0846.png"
             },
             {
-                name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                name: "Arms",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=981982pb241&idColor=88#T=I&C=88",
+                image: "img/Minifig/parts/981982pb241.png"
             },
             {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Skirt",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=24721&idColor=85#T=C&C=85",
+                image: "img/Minifig/parts/24721.png"
             }
         ],
         type: "minifig",
@@ -1719,17 +1723,17 @@ const project = [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                image: "img/Minifig/parts/973pb4482c01.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2869&name=Minifigure,%20Head%20Dual%20Sided%20Dark%20Brown%20Eyebrows,%20Black%20Stubble,%20Slight%20Grin%20/%20Scowl%20with%20Gritted%20Teeth%20Pattern&category=%5BMinifigure,%20Head%5D#T=C&C=90",
+                image: "img/Minifig/parts/3626pb2869.png"
             },
             {
                 name: "Legs",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                image: "img/Minifig/parts/970c00.png"
             }
         ],
         type: "minifig",
@@ -1745,18 +1749,18 @@ const project = [
         parts: [
             {
                 name: "Torso",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/973pb4482c01.png"
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1184c01&idColor=11#T=I&C=11",
+                image: "img/Minifig/parts/973pb1184c01.png"
             },
             {
                 name: "Head",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626cpb2869&idColor=90#T=C&C=90",
-                image: ""
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2003&idColor=90#T=C&C=90",
+                image: "img/Minifig/parts/3626pb2003.png"
             },
             {
-                name: "Legs",
-                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Portfolio/minifigs/970c00.png"
+                name: "Cape cloth",
+                link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=19951&idColor=1#T=C&C=1",
+                image: "img/Minifig/parts/19951.png"
             }
         ],
         type: "minifig",

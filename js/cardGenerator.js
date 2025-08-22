@@ -86,31 +86,7 @@
     global.CardGenerator = { generateCards, updateCardTitlesFromNames };
 })(window);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*---*/
 
 
 
@@ -144,7 +120,16 @@
         const set = new Set(items.map(f => pickLang(f.film, lang)).filter(Boolean));
         return Array.from(set).sort((a, b) => a.localeCompare(b));
     }
-    
+
+    /**
+     * Génère les cartes Minifigs (hover, lightbox, filtre par film).
+     * items: objets avec au minimum:
+     *   { type:"minifig", name:(string|{fr,en}), film:(string|{fr,en}),
+     *     image, hoverImage?, parts:[{name:(string|{fr,en}), link, image?}] }
+     * containerId:    "figures-container"
+     * filterSelectId: "film-filter" (optionnel)
+     * lang: "fr" | "en" (défaut = window.currentLang || "en")
+     */
     function generateMinifigs({ items = [], containerId, filterSelectId, lang }) {
         const curLang = lang || (global.currentLang || "en");
         const container = document.getElementById(containerId);
@@ -299,34 +284,6 @@
     });
 })(window);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ---------- INSTRUCTIONS GENERATOR ---------------------*/
 (function (global) {
     const norm = (s) => (s || "").trim().toLowerCase();
@@ -344,6 +301,13 @@
         });
     }
 
+    /**
+     * Génère les cartes d'instructions (nom traduisible + date locale)
+     * items: tableau global (ex: window.PROJECTS)
+     * containerId: "portfolio-grid"
+     * templateId:  "card-template"
+     * lang: "fr" | "en"
+     */
     function generateInstructions({ items = [], containerId, templateId, lang }) {
         const src = Array.isArray(items) ? items : [];
         const filtered = src.filter(
@@ -426,4 +390,3 @@
 
     global.DetailGenerator = { fillDetail };
 })(window);
-
