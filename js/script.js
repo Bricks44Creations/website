@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeSortModal = document.querySelector(".close-sort-modal");
 
   // Ouvrir la modale sur mobile
-  sortBtn.addEventListener("click", (e) => {
+  sortBtn?.addEventListener("click", (e) => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       sortModal.style.display = "flex";
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Fermer si clic à l’extérieur du contenu
-  sortModal.addEventListener("click", (e) => {
+  sortModal?.addEventListener("click", (e) => {
     if (e.target === sortModal) {
       sortModal.style.display = "none";
     }
@@ -262,9 +262,18 @@ const translations = {
 
 };
 
+/* ========= PERSISTENCE LANGUE (ajout) ========= */
+function saveLang(lang) {
+  try { localStorage.setItem("preferredLang", lang); } catch { /* ignore */ }
+}
+function loadLang() {
+  try { return localStorage.getItem("preferredLang"); } catch { return null; }
+}
+
 let currentLang = "en";
 let currentSortCriteria = "date-desc"; // mémorise le dernier tri choisi
 
+/* ====== setLanguage existante + sauvegarde (ajout) ====== */
 function setLanguage(lang) {
   currentLang = lang;
   document.querySelectorAll("[data-key]").forEach(el => {
@@ -291,8 +300,12 @@ function setLanguage(lang) {
 
   // Ré-appliquer le tri courant pour refléter la langue choisie
   sortPortfolio();
-}
 
+  // --- AJOUT : persister la langue
+  saveLang(lang);
+} /* ← c’est bien cette fonction que tu avais déjà, enrichie pour sauver la langue :contentReference[oaicite:0]{index=0} */
+
+/* ====== Initialisation langue : charger localStorage (ajout) ====== */
 document.addEventListener("DOMContentLoaded", () => {
   // Gestion clic sur options langue (desktop + mobile)
   document.querySelectorAll(".lang-option").forEach(option => {
@@ -303,9 +316,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Définir langue par défaut
+  // === AJOUT : définir la langue depuis localStorage si dispo
+  const saved = loadLang();
+  if (saved) currentLang = saved;
+
+  // Définir langue par défaut (ou sauvegardée)
   setLanguage(currentLang);
-});
+}); /* ← ce bloc existait déjà, on y ajoute juste la lecture du stockage :contentReference[oaicite:1]{index=1} */
 
 
 // ======== FILTRE  ========
@@ -480,7 +497,6 @@ function closeFilter() {
 }
 closeFilterBtn?.addEventListener("click", closeFilter);
 closeFilterLink?.addEventListener("click", (e) => { e.preventDefault(); closeFilter(); });
-filterfilterModal?.addEventListener("click", (e) => { if (e.target === filterfilterModal) closeFilter(); });
 clearfilterFilters?.addEventListener("click", (e) => {
   e.preventDefault();
   clearAllfilter();
@@ -491,12 +507,14 @@ document.addEventListener("DOMContentLoaded", () => {
   buildfilterFilterUI();
   applyfilterFilter();
 });
+
+/* --- Surcharge window.setLanguage pour filtre Marvel (existant) --- */
 const _setLanguage = window.setLanguage;
 window.setLanguage = function (lang) {
-  _setLanguage?.(lang);
+  _setLanguage?.(lang);         // garde l’existant (qui sauvegarde déjà la langue)
   buildfilterFilterUI();
   applyfilterFilter();
-};
+}; /* ← c’est la surcouche d’origine ; elle reste compatible avec la persistance :contentReference[oaicite:2]{index=2} */
 
 const applyfilterFiltersLink = document.getElementById("apply-filters");
 const resetfilterFiltersLink = document.getElementById("reset-filters");
@@ -512,11 +530,10 @@ resetfilterFiltersLink?.addEventListener("click", (e) => {
   clearAllfilter();              // réinitialise
 });
 
-// Enregistrer le service worker pour la PWA (GitHub Pages)//
+// Enregistrer le service worker pour la PWA (GitHub Pages)
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js')
       .catch(console.error);
   });
 }
-
