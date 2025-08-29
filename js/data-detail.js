@@ -1,27 +1,28 @@
 const dataDetails = [
-    {//Marvel//
+  {//Marvel//
     id: "moc-marvel-1",
     description: {
       en: "",
       fr: ""
     },
     images: {
-            main: "../img/Portfolio/marvel/Witches road - Bricks Creations_3.png",
-            gallery: [
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
-                { src: "../img/Portfolio/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
-            ] }, 
-        stats: { 
-            pieces: { en: "~1200 pieces", fr: "~1200 pièces" },
-            dimensions: "42 × 32 × 28 cm", 
-            buildTime: "35 h"
-        },
-        link: "", 
-        video: "", 
-        instructions: "", 
-        partsList: "", 
-        credits: "", 
+      main: "../img/MOC/marvel/Witches road - Bricks Creations_3.png",
+      gallery: [
+        { src: "../img/MOC/marvel/Witches road - Bricks Creations_2.png", caption: "Détail 1" },
+        { src: "../img/MOC/marvel/Witches road - Bricks Creations_7.png", caption: "Détail 2" },
+        { src: "../img/MOC/marvel/Witches road - Bricks Creations_4.png", caption: "Détail 3" }
+      ]
+    },
+    stats: {
+      pieces: { en: "~1200 pieces", fr: "~1200 pièces" },
+      dimensions: "42 × 32 × 28 cm",
+      buildTime: "35 h"
+    },
+    link: "",
+    video: "",
+    instructions: "",
+    partsList: "",
+    credits: "",
   },
   { id: "moc-marvel-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-marvel-3", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
@@ -71,7 +72,7 @@ const dataDetails = [
   { id: "moc-marvel-47", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-marvel-48", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
-    //Jurassic Park//
+  //Jurassic Park//
   { id: "moc-jurassic-park-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-jurassic-park-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-jurassic-park-3", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
@@ -80,31 +81,31 @@ const dataDetails = [
   { id: "moc-jurassic-park-6", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
 
-    //City//
+  //City//
   { id: "moc-city-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
-    
-   //Medieval//
+
+  //Medieval//
   { id: "moc-medieval-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
-    
-    //Wizarding World//
+
+  //Wizarding World//
   { id: "moc-wizarding-world-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-wizarding-world-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
-    
-    //Others//
+
+  //Others//
   { id: "moc-others-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-others-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-others-3", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-others-4", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" }, 
+  { id: "moc-others-4", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-others-5", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "moc-others-6", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
 
 
-    
-    //Figurines//
+
+  //Figurines//
   { id: "minifig-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "minifig-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "minifig-3", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
@@ -124,18 +125,18 @@ const dataDetails = [
 
 
 
-    
-        //Instructions//
+
+  //Instructions//
   { id: "instruction-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "instruction-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "instruction-3", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "instruction-4", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" }, 
+  { id: "instruction-4", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "instruction-5", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "instruction-6", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 ]
 
 
- 
+
 
 
 

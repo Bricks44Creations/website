@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// --- TRI PORTFOLIO ---
+
+
+// --- TRI MOC ---
 const sortBtn = document.getElementById("sort-btn");
 const sortLabel = document.getElementById("sort-label");
 const sortArrow = sortBtn?.querySelector(".arrow-down");
@@ -51,7 +53,12 @@ window.addEventListener("click", (e) => {
 
 function handleSortChoice(link, closeMenus = true) {
   const criteria = link.dataset.sort;
-  sortPortfolio(criteria);
+  const isMinifigs = !!document.getElementById("figures-container");
+  if (isMinifigs && typeof sortMinifig === "function") {
+    sortMinifig(criteria);
+  } else {
+    sortMOC(criteria);
+  }
 
   if (sortLabel) {
     const selectedKey = link.getAttribute("data-key");
@@ -92,13 +99,13 @@ function getTranslatedName(card) {
   return "";
 }
 
-function sortPortfolio(criteria) {
-  const grid = document.querySelector(".portfolio-grid");
+function sortMOC(criteria) {
+  const grid = document.querySelector(".MOC-grid");
   if (!grid) return;
 
   if (criteria) currentSortCriteria = criteria;
 
-  const items = Array.from(grid.querySelectorAll(".portfolio-card"));
+  const items = Array.from(grid.querySelectorAll(".MOC-card"));
   const collator = new Intl.Collator(currentLang, { sensitivity: "base", numeric: true });
 
   items.sort((a, b) => {
@@ -154,26 +161,52 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+function sortMinifig(criteria) {
+  const grid = document.querySelector("#figures-container");
+  if (!grid) return;
+
+  if (criteria) currentSortCriteria = criteria;
+  const items = Array.from(grid.querySelectorAll(".card-minifigs"));
+  const collator = new Intl.Collator(window.currentLang || "en", { sensitivity: "base", numeric: true });
+
+  items.sort((a, b) => {
+    const an = a.dataset.name || "", bn = b.dataset.name || "";
+    const ar = parseFloat(a.dataset.relevance) || 0, br = parseFloat(b.dataset.relevance) || 0;
+
+    switch (currentSortCriteria) {
+      case "name-asc": return collator.compare(an, bn);
+      case "name-desc": return collator.compare(bn, an);
+      case "relevance": return br - ar;
+      default: return 0;
+    }
+  });
+
+  items.forEach(el => grid.appendChild(el));
+}
+
+
 
 const translations = {
   en: {
     current_language: "English",
-    portfolio: "Portfolio",
-    portfolio_city: "City",
-    portfolio_jp: "Jurassic Park",
-    portfolio_marvel: "Marvel",
-    portfolio_medieval: "Medieval",
-    portfolio_ww: "Wizarding World",
-    portfolio_others: "Others",
-    portfolio_vignettes: "Vignettes",
+    MOC: "MOC",
+    MOC_city: "City",
+    MOC_jp: "Jurassic Park",
+    MOC_marvel: "Marvel",
+    MOC_medieval: "Medieval",
+    MOC_ww: "Wizarding World",
+    MOC_others: "Others",
+    MOC_vignettes: "Vignettes",
     instructions: "Instructions",
     tips: "Tips",
     minifigs: "Minifigs",
+    home: "Home",
     conventions: "Conventions",
     languages: "Languages",
     convention_bousies: "Bousies",
     convention_escaudoeuvres: "Escaudoeuvres",
     convention_divion: "Divion",
+    see_all: "See all",
     quick_links: "Quick links",
     social_contacts: "Social | Contacts",
     youtube: "YouTube",
@@ -181,7 +214,7 @@ const translations = {
     tiktok: "TikTok",
     email: "Email",
     more_from_me: "More from me",
-    who_am_i: "Who am I?",
+    who_am_i: "Who am I ?",
     op_city: "City",
     op_jp: "Jurassic Park",
     op_filter: "filter",
@@ -203,29 +236,32 @@ const translations = {
     filter_all_label: "Filter by: All",
     action_apply_filters: "Apply filters",
     action_reset_filters: "Reset filters",
-    filter_all: "All",
+    filter_all: "See all",
     action_clear_all: "Clear all",
     action_close: "Close",
+    footer_disclaimer: "© 2024-2025 All rights reserved Bricks Creations \nI don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself.\nFor the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that.\nLEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.",
   },
 
   fr: {
     current_language: "Français",
-    portfolio: "Portfolio",
-    portfolio_city: "Ville",
-    portfolio_jp: "Jurassic Park",
-    portfolio_marvel: "Marvel",
-    portfolio_medieval: "Médiéval",
-    portfolio_ww: "Monde des sorciers",
-    portfolio_others: "Autres",
-    portfolio_vignettes: "Vignettes",
+    MOC: "MOC",
+    MOC_city: "Ville",
+    MOC_jp: "Jurassic Park",
+    MOC_marvel: "Marvel",
+    MOC_medieval: "Médiéval",
+    MOC_ww: "Monde des sorciers",
+    MOC_others: "Autres",
+    MOC_vignettes: "Vignettes",
     instructions: "Instructions",
     tips: "Astuces",
     minifigs: "Minifigurines",
+    home: "Accueil",
     languages: "Langues",
     conventions: "Expositions",
     convention_bousies: "Bousies",
     convention_escaudoeuvres: "Escaudoeuvres",
     convention_divion: "Divion",
+    see_all: "Voir plus",
     quick_links: "Liens rapides",
     social_contacts: "Réseaux sociaux | Contacts",
     youtube: "YouTube",
@@ -253,11 +289,12 @@ const translations = {
     sort_relevance: "Pertinence",
     filter_by_prefix: "Filtrer par : ",
     filter_all_label: "Filtrer par : Tous",
-    filter_all: "Tous",
+    filter_all: "Voir tous",
     action_clear_all: "Effacer tout",
     action_close: "Fermer",
     action_apply_filters: "Appliquer les filtres",
     action_reset_filters: "Réinitialiser les filtres",
+    footer_disclaimer: "© 2024-2025 Tous droits réservés Bricks Creations \nJe ne travaille pas pour LEGO®, je ne suis pas corrompu par LEGO®, j’achète mes LEGO® moi-même.\nPour le reste, les propriétaires des marques mentionnées sur le site en restent les seuls propriétaires et c’est très bien ainsi.\nLEGO® est une marque déposée du groupe LEGO, qui ne sponsorise, n’autorise ni n’approuve ce site."
   }
 
 };
@@ -279,10 +316,14 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-key]").forEach(el => {
     const key = el.getAttribute("data-key");
     if (translations[currentLang][key]) {
-      el.innerHTML = translations[currentLang][key];
+      let text = translations[currentLang][key];
+      // Si c’est le footer, transformer \n en <br>
+      if (key === "footer_disclaimer") {
+        text = text.replace(/\n/g, "<br>");
+      }
+      el.innerHTML = text;
     }
   });
-
   // Mise à jour du label de tri avec préfixe + option traduite
   const sortLabel = document.getElementById("sort-label");
   if (sortLabel) {
@@ -293,13 +334,13 @@ function setLanguage(lang) {
   }
 
   // Synchroniser data-name avec le libellé traduit
-  document.querySelectorAll(".portfolio-card").forEach(card => {
+  document.querySelectorAll(".MOC-card").forEach(card => {
     const translated = getTranslatedName(card);
     if (translated) card.dataset.name = translated;
   });
 
   // Ré-appliquer le tri courant pour refléter la langue choisie
-  sortPortfolio();
+  sortMOC();
 
   // --- AJOUT : persister la langue
   saveLang(lang);
@@ -342,9 +383,26 @@ const clearfilterFilters = document.getElementById("clear-filters");
 
 // Récupère les valeurs uniques de data-filter (triées A→Z)
 function getfilterSources() {
-  const cards = Array.from(document.querySelectorAll(".portfolio-card[data-filter]"));
-  const set = new Set(cards.map(c => (c.dataset.filter || "").trim()).filter(Boolean));
-  const collator = new Intl.Collator(currentLang || "fr", { sensitivity: "base", numeric: true });
+  const isMinifigs = !!document.getElementById("figures-container");
+
+  if (!isMinifigs) {
+    // Cas MOC (inchangé)
+    const cards = Array.from(document.querySelectorAll(".MOC-card[data-filter]"));
+    const set = new Set(cards.map(c => (c.dataset.filter || "").trim()).filter(Boolean));
+    const collator = new Intl.Collator(currentLang || "fr", { sensitivity: "base", numeric: true });
+    return Array.from(set).sort((a, b) => collator.compare(a, b));
+  }
+
+  // Cas Minifigs : on lit le film localisé
+  const lang = window.currentLang || "en";
+  const cards = Array.from(document.querySelectorAll(".card-minifigs"));
+  const getFilm = (card) =>
+    lang === "fr"
+      ? (card.dataset.filmFr || card.dataset.film || "").trim()
+      : (card.dataset.filmEn || card.dataset.film || "").trim();
+
+  const set = new Set(cards.map(getFilm).filter(Boolean));
+  const collator = new Intl.Collator(lang, { sensitivity: "base", numeric: true });
   return Array.from(set).sort((a, b) => collator.compare(a, b));
 }
 
@@ -443,16 +501,31 @@ function buildfilterFilterUI() {
 
 function applyfilterFilter() {
   const selected = [...document.querySelectorAll('#filter-options input[type="checkbox"]:checked')].map(i => i.value);
-  const cards = document.querySelectorAll(".portfolio-card[data-filter]");
+  const isMinifigs = !!document.getElementById("figures-container");
 
-  cards.forEach(card => {
-    const show = selected.length === 0 || selected.includes(card.dataset.filter);
-    card.style.display = show ? "" : "none";
-  });
+  if (!isMinifigs) {
+    // MOC (inchangé)
+    const cards = document.querySelectorAll(".MOC-card[data-filter]");
+    cards.forEach(card => {
+      const show = selected.length === 0 || selected.includes(card.dataset.filter);
+      card.style.display = show ? "" : "none";
+    });
+  } else {
+    // Minifigs
+    const lang = window.currentLang || "en";
+    const cards = document.querySelectorAll(".card-minifigs");
+    cards.forEach(card => {
+      const film = (lang === "fr")
+        ? (card.dataset.filmFr || card.dataset.film || "")
+        : (card.dataset.filmEn || card.dataset.film || "");
+      const show = selected.length === 0 || selected.includes(film);
+      card.style.display = show ? "" : "none";
+    });
+  }
 
   const prefix = translations[currentLang]?.filter_by_prefix || "Filtrer par : ";
   if (filterLabel) {
-    filterLabel.textContent = prefix + formatfilterLabel(selected); // toujours compact
+    filterLabel.textContent = prefix + formatfilterLabel(selected);
   }
 }
 
