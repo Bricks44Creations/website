@@ -1,16 +1,14 @@
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <meta name="description" content="Discover my unique and personalized LEGO creations on my MOC.">
-    <meta name="keywords" content="LEGO, MOC, Bricks, Creations, MOC, Tips, Minifigs, mocs, incstructions">
-
-    <title>Bricks Creations - Template</title>
-
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home | Bricks Creations</title>
+    <link rel="icon" type="image/png" href="img/logo_actuel.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" type="image/png" sizes="16x16" href="img/logo_actuel.png">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGB36SQTVF"></script>
     <script>
@@ -20,9 +18,13 @@
 
         gtag('config', 'G-CGB36SQTVF');
     </script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111827">
+    <link rel="apple-touch-icon" href="img/logo_actuel.png">
 </head>
 
 <body>
+    <!-- HEADER -->
     <!-- HEADER -->
     <header class="header">
         <!-- Burger bouton à gauche -->
@@ -157,29 +159,55 @@
     </aside>
     <div id="overlay" class="hidden"></div>
 
-    <div class="main-content">
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
         <div class="title">
-            <H1>NAME</H1>
+            <H1>MOC</H1>
         </div>
-
         <div class="separator"></div>
 
-        <div class="title2">
-            <H2>Name 2</H2>
-        </div>
+        <section class="MOC-grid">
+            <a class="MOC-card" href="moc.html?theme=city">
+                <img src="img/Miniatures/city.jpg" alt="City">
+                <h3 data-key="MOC_city"><span>City</span></h3>
+            </a>
+            <a class="MOC-card" href="moc.html?theme=marvel">
+                <img src="img/Miniatures/marvel.jpg" alt="Marvel">
+                <h3 data-key="MOC_marvel"><span>Marvel</span></h3>
+            </a>
+            <a class="MOC-card" href="moc.html?theme=jurassic-park">
+                <img src="img/Miniatures/jurassicpark.jpg" alt="Jurassic Park">
+                <h3 data-key="MOC_jp"><span>Jurassic Park</span></h3>
+            </a>
 
-        <div class="separator"></div>
+            <a class="MOC-card" href="moc.html?theme=medieval">
+                <img src="img/Miniatures/medieval.jpg" alt="Médiéval">
+                <h3 data-key="MOC_medieval"><span>Médiéval</span></h3>
+            </a>
+            <a class="MOC-card" href="moc.html?theme=wizarding-world">
+                <img src="img/Miniatures/hogwarts.jpg" alt="Wizarding World">
+                <h3 data-key="MOC_ww"><span>Wizarding World</span></h3>
+            </a>
+            <a class="MOC-card" href="moc.html?theme=others">
+                <img src="img/Miniatures/explorer.jpg" alt="Others">
+                <h3 data-key="MOC_others"><span>Others</span></h3>
+            </a>
+            <a class="MOC-card" href="moc.html?theme=vignettes">
+                <img src="img/Miniatures/vignettes.jpg" alt="Vignettes">
+                <h3><span>Vignettes</span></h3>
+            </a>
+        </section>
+    </main>
 
-        <div class="voile"></div>
-    </div>
-
+    <!-- FOOTER -->
     <footer class="footer" id="footer">
         <div class="footer-columns">
             <div class="footer-column footer-useful-links">
                 <h3 data-key="quick_links">Quick Links</h3>
                 <ul class="quick-links">
                     <li><a href="index.html" data-key="home">Home</a></li>
-                    <li><a href="MOC.html" data-key="MOC">MOC</a></li>
+                    <li><a href="MOC-home.html" data-key="MOC">MOC</a></li>
                     <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
                     <li><a href="Tips.html" data-key="tips">Tips</a></li>
                     <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
@@ -232,22 +260,13 @@
             © 2024-2025 All rights reserved Bricks Creations <br>
             I don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself. <br>
             For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very
-            well
-            like
-            that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this
-            site.
+            well like that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or
+            endorse this site.
         </p>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
-
-<script>
-    let btn = document.querySelector('#btn')
-    let sidebar = document.querySelector('.sidebar')
-
-    btn.onclick = function () {
-        sidebar.classList.toggle('active');
-    };
-</script>
-<script src="./js/img.js"></script>
 
 </html>

@@ -25,6 +25,7 @@
 
 <body>
     <!-- HEADER -->
+    <!-- HEADER -->
     <header class="header">
         <!-- Burger bouton à gauche -->
         <button class="burger" id="burger-btn" aria-label="Ouvrir le menu">☰</button>
@@ -40,18 +41,22 @@
             <!-- A remplir si besoin -->
             <ul class="menu">
                 <li class="has-submenu">
-                    <a href="index.html">
-                        <span data-key="portfolio">Portfolio</span>
+                    <a href="MOC-home.html">
+                        <span data-key="MOC">MOC</span>
                         <span class="arrow-down">&#9662;</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="./Portfolio/City.html" data-key="portfolio_city">City</a></li>
-                        <li><a href="./Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
-                        <li><a href="./Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
-                        <li><a href="./Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
-                        <li><a href="./Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
-                        <li><a href="./Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
-                        <li><a href="./Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                        <li><a href="moc.html?theme=all" data-key="filter_all">Voir tous</a></li>
+                        <li class="separator"></li>
+                        <li><a href="moc.html?theme=city" data-key="MOC_city">City</a></li>
+                        <li><a href="moc.html?theme=jurassic-park" data-key="MOC_jp">Jurassic Park</a></li>
+                        <li><a href="moc.html?theme=marvel" data-key="MOC_marvel">Marvel</a></li>
+                        <li><a href="moc.html?theme=medieval" data-key="MOC_medieval">Medieval</a></li>
+                        <li><a href="moc.html?theme=wizarding-world" data-key="MOC_ww">Wizarding World</a></li>
+                        <li><a href="moc.html?theme=others" data-key="MOC_others">Others</a></li>
+                        <li class="separator"></li>
+
+                        <li><a href="moc.html?theme=vignettes" data-key="MOC_vignettes">Vignettes</a></li>
                     </ul>
                 </li>
                 <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
@@ -65,8 +70,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="./Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
-                        <li><a href="./Conventions/Escaudoeuvres.html"
-                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="./Conventions/Preseau.html" data-key="convention_Preseau">Preseau</a></li>
                         <li><a href="./Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
                     </ul>
                 </li>
@@ -93,44 +97,54 @@
         </div>
     </header>
 
+
     <!-- SIDEBAR MOBILE -->
     <aside id="mobile-sidebar" class="mobile-sidebar hidden" role="dialog" aria-modal="true"
         aria-labelledby="sidebar-title">
         <button id="close-sidebar" aria-label="Fermer le menu">×</button>
         <nav>
             <ul class="menu-sidebar">
+                <li><a href="index.html" data-key="home">Home</a></li>
+                <li class="big-separator"></li>
                 <li class="mobile-has-submenu">
                     <button class="submenu-toggle" aria-expanded="false">
-                        <span data-key="portfolio">Portfolio</span> <span class="arrow-down">&#9662;</span>
+                        <span data-key="MOC">MOC</span> <span class="arrow-down">&#9662;</span>
                     </button>
                     <ul class="mobile-submenu">
-                        <li><a href="./Portfolio/City.html" data-key="portfolio_city">City</a></li>
-                        <li><a href="./Portfolio/Jurassic-Park.html" data-key="portfolio_jp">Jurassic Park</a></li>
-                        <li><a href="./Portfolio/Marvel.html" data-key="portfolio_marvel">Marvel</a></li>
-                        <li><a href="./Portfolio/Medieval.html" data-key="portfolio_medieval">Medieval</a></li>
-                        <li><a href="./Portfolio/Wizarding-world.html" data-key="portfolio_ww">Wizarding World</a></li>
-                        <li><a href="./Portfolio/Others.html" data-key="portfolio_others">Others</a></li>
-                        <li><a href="./Portfolio/Vignettes.html" data-key="portfolio_vignettes">Vignettes</a></li>
+                        <li><a href="moc.html?theme=all" data-key="filter_all">Voir tous</a></li>
+                        <li class="big-separator"></li>
+                        <li><a href="moc.html?theme=city" data-key="MOC_city">City</a></li>
+                        <li><a href="moc.html?theme=jurassic-park" data-key="MOC_jp">Jurassic Park</a></li>
+                        <li><a href="moc.html?theme=marvel" data-key="MOC_marvel">Marvel</a></li>
+                        <li><a href="moc.html?theme=medieval" data-key="MOC_medieval">Medieval</a></li>
+                        <li><a href="moc.html?theme=wizarding-world" data-key="MOC_ww">Wizarding World</a></li>
+                        <li><a href="moc.html?theme=others" data-key="MOC_others">Others</a></li>
+                        <li><a href="moc.html?theme=vignettes" data-key="MOC_vignettes">Vignettes</a></li>
                     </ul>
                 </li>
+                <li class="separator"></li>
+
                 <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
+                <li class="separator"></li>
+
                 <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+                <li class="separator"></li>
 
                 <li><a href="Tips.html" data-key="tips">Tips</a></li>
+                <li class="separator"></li>
+
                 <li class="mobile-has-submenu">
                     <button class="submenu-toggle" aria-expanded="false">
                         <span data-key="conventions">Conventions</span> <span class="arrow-down">&#9662;</span>
                     </button>
                     <ul class="mobile-submenu">
                         <li><a href="./Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
-                        <li><a href="./Conventions/Escaudoeuvres.html"
-                                data-key="convention_escaudoeuvres">Escaudoeuvres</a></li>
+                        <li><a href="./Conventions/Preseau.html" data-key="convention_Preseau">Preseau</a></li>
                         <li><a href="./Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
                     </ul>
                 </li>
-            </ul>
-            <hr class="sidebar-separator">
-            <ul class="menu-sidebar">
+                <li class="big-separator"></li>
+
                 <li class="mobile-has-submenu">
                     <button class="submenu-toggle" aria-expanded="false">
                         <span data-key="languages">Langues</span> <span class="arrow-down">&#9662;</span>
@@ -153,10 +167,10 @@
 
         <div class="separator"></div>
 
-        <section class="portfolio-grid" id="portfolio-grid"></section>
+        <section class="MOC-grid" id="MOC-grid"></section>
 
         <template id="card-template">
-            <a class="portfolio-card">
+            <a class="MOC-card">
                 <img alt="">
                 <h3>
                     <span data-key=""></span>
@@ -172,7 +186,8 @@
             <div class="footer-column footer-useful-links">
                 <h3 data-key="quick_links">Quick Links</h3>
                 <ul class="quick-links">
-                    <li><a href="index.html" data-key="portfolio">Portfolio</a></li>
+                    <li><a href="index.html" data-key="home">Home</a></li>
+                    <li><a href="MOC.html" data-key="MOC">MOC</a></li>
                     <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
                     <li><a href="Tips.html" data-key="tips">Tips</a></li>
                     <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
@@ -227,8 +242,7 @@
             For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very
             well
             like
-            that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse
-            this
+            that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this
             site.
         </p>
     </footer>
@@ -237,8 +251,8 @@
     <!-- 1) Données -->
     <script src="js/data.js"></script>
 
-    <!-- 2) Générateurs communs (portfolio + minifigs + instructions) -->
-    <script src="js/cardGenerator.js"></script>
+    <!-- 2) Générateurs communs (MOC + minifigs + instructions) -->
+    <script src="js/Generator.js"></script>
 
     <!-- 3) Script commun (menu, i18n, tri, etc.) -->
     <script src="js/script.js"></script>
@@ -249,7 +263,7 @@
             const src = window.PROJECTS || window.project || [];
             window.CardGenerator.generateInstructions({
                 items: src,
-                containerId: "portfolio-grid",
+                containerId: "MOC-grid",
                 templateId: "card-template",
                 lang: window.currentLang || "en"
             });
@@ -261,7 +275,7 @@
             window.setLanguage = function (lang) {
                 prev?.(lang);
                 window.CardGenerator.updateInstructionTitlesFromNames(lang);
-                if (typeof sortPortfolio === "function") sortPortfolio();
+                if (typeof sortMOC === "function") sortMOC();
             };
 
             // Sync initiale (si la page démarre en FR)

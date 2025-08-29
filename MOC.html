@@ -1,28 +1,26 @@
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <meta name="description" content="Discover my unique and personalized LEGO creations on my MOC.">
-    <meta name="keywords" content="LEGO, MOC, Bricks, Creations, MOC, Tips, Minifigs, mocs, incstructions">
-
-    <title>Bricks Creations - Template</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" type="image/png" sizes="16x16" href="img/logo_actuel.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOCs | Bricks Creations</title>
+    <link rel="icon" type="image/png" href="img/logo_actuel.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGB36SQTVF"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-CGB36SQTVF');
     </script>
 </head>
 
 <body>
+    <!-- HEADER -->
     <!-- HEADER -->
     <header class="header">
         <!-- Burger bouton à gauche -->
@@ -157,29 +155,96 @@
     </aside>
     <div id="overlay" class="hidden"></div>
 
-    <div class="main-content">
+    <!-- MAIN -->
+    <main class="main-content">
         <div class="title">
-            <H1>NAME</H1>
+            <h1 id="page-title">MOC</h1>
         </div>
-
         <div class="separator"></div>
 
-        <div class="title2">
-            <H2>Name 2</H2>
+        <!-- TRI / FILTRE -->
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+            <!-- TRI -->
+            <div class="dropdown-tri" id="sort-dropdown">
+                <button class="dropbtn-tri" id="sort-btn">
+                    <span id="sort-label" data-key="sort_date_desc">Trier par : Date (récent → ancien)</span>
+                    <span class="arrow-down">&#9662;</span>
+                </button>
+                <div class="dropdown-content-tri" id="sort-options">
+                    <a href="#" data-sort="name-asc" data-key="sort_name_asc">Nom A-Z</a>
+                    <a href="#" data-sort="name-desc" data-key="sort_name_desc">Nom Z-A</a>
+                    <a href="#" data-sort="date-asc" data-key="sort_date_asc">Date (ancien → récent)</a>
+                    <a href="#" data-sort="date-desc" data-key="sort_date_desc">Date (récent → ancien)</a>
+                    <a href="#" data-sort="relevance" data-key="sort_relevance">Pertinence</a>
+                </div>
+            </div>
+
+            <!-- FILTRE -->
+            <div class="dropdown-tri" id="filter-dropdown">
+                <button id="filter-btn" class="dropbtn-tri">
+                    <span id="filter-label" data-key="filter_all_label">Filtrer par : Tous</span>
+                    <span class="arrow-down">&#9662;</span>
+                </button>
+                <div id="filter-options" class="dropdown-content-tri"></div>
+            </div>
         </div>
 
-        <div class="separator"></div>
+        <!-- Modal tri (mobile) -->
+        <div id="sort-modal" class="sort-modal">
+            <div class="sort-modal-content">
+                <button class="close-sort-modal" aria-label="Fermer">×</button>
+                <a href="#" data-sort="name-asc" data-key="sort_name_asc">Nom A-Z</a>
+                <a href="#" data-sort="name-desc" data-key="sort_name_desc">Nom Z-A</a>
+                <a href="#" data-sort="date-asc" data-key="sort_date_asc">Date (ancien → récent)</a>
+                <a href="#" data-sort="date-desc" data-key="sort_date_desc">Date (récent → ancien)</a>
+                <a href="#" data-sort="relevance" data-key="sort_relevance">Pertinence</a>
+            </div>
+        </div>
 
-        <div class="voile"></div>
-    </div>
+        <!-- Modal FILTRE (mobile) -->
+        <div id="filter-modal" class="sort-modal">
+            <div class="sort-modal-content">
+                <button class="close-sort-modal" aria-label="Fermer">×</button>
 
+                <!-- Liste des cases -->
+                <div id="filter-list" class="checkbox-list"></div>
+
+                <!-- Boutons (mêmes styles que la modale tri) -->
+                <a href="#" id="reset-filters" data-key="action_reset_filters">Réinitialiser les filtres</a>
+                <a href="#" id="apply-filters" data-key="action_apply_filters">Appliquer les filtres</a>
+
+
+            </div>
+        </div>
+
+        <!-- Grille -->
+        <section class="MOC-grid" id="MOC-grid"></section>
+
+        <!-- Template carte -->
+        <template id="card-template">
+            <a class="MOC-card">
+                <img alt="">
+                <h3>
+                    <span data-key=""></span>
+                    <span class="date"></span>
+                </h3>
+            </a>
+        </template>
+
+        <noscript>
+            <p style="margin-top:1rem;color:#777">Cette page est dynamique et nécessite JavaScript pour afficher les
+                MOCs.</p>
+        </noscript>
+    </main>
+
+    <!-- FOOTER -->
     <footer class="footer" id="footer">
         <div class="footer-columns">
             <div class="footer-column footer-useful-links">
                 <h3 data-key="quick_links">Quick Links</h3>
                 <ul class="quick-links">
                     <li><a href="index.html" data-key="home">Home</a></li>
-                    <li><a href="MOC.html" data-key="MOC">MOC</a></li>
+                    <li><a href="MOC-home.html" data-key="MOC">MOC</a></li>
                     <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
                     <li><a href="Tips.html" data-key="tips">Tips</a></li>
                     <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
@@ -232,22 +297,84 @@
             © 2024-2025 All rights reserved Bricks Creations <br>
             I don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself. <br>
             For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very
-            well
-            like
-            that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this
-            site.
+            well like that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or
+            endorse this site.
         </p>
     </footer>
+
+    <!-- Données & utilitaires -->
+    <script src="js/data.js"></script>
+    <script src="js/Generator.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Script spécifique moc.html -->
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const themeParam = (params.get('theme') || 'all').toLowerCase();
+
+            const THEME_LABELS = {
+                'all': { fr: 'Tous les MOCs', en: 'All MOCs' },
+                'marvel': { fr: 'Marvel', en: 'Marvel' },
+                'jurassic-park': { fr: 'Jurassic Park', en: 'Jurassic Park' },
+                'city': { fr: 'City', en: 'City' },
+                'medieval': { fr: 'Médiéval', en: 'Medieval' },
+                'wizarding-world': { fr: 'Wizarding World', en: 'Wizarding World' },
+                'others': { fr: 'Autres', en: 'Others' },
+                'vignettes': { fr: 'Vignettes', en: 'Vignettes' },
+            };
+
+            // Données
+            const src = window.PROJECTS || window.project || []; // défini dans data.js
+            const itemsAll = src.filter(p => (p.type || '').toLowerCase() === 'moc');
+            const items = (themeParam === 'all')
+                ? itemsAll
+                : itemsAll.filter(p => (p.theme || '').toLowerCase() === themeParam);
+
+            // Calcul des filtres disponibles
+            const filterValues = Array.from(new Set(items.map(p => (p.filter || '').trim()).filter(Boolean)));
+            const shouldHideFilter = (themeParam === 'all') || (filterValues.length === 0);
+
+            // Masquer UNIQUEMENT le filtre si nécessaire (garde le tri)
+            if (shouldHideFilter) {
+                const filterDropdown = document.getElementById('filter-dropdown')
+                    || document.getElementById('filter-btn')?.closest('.dropdown-tri');
+                filterDropdown?.remove();
+                document.getElementById('filter-modal')?.remove(); // si tu utilises la modale mobile
+            }
+
+            // Titre dynamique
+            const h1 = document.getElementById('page-title');
+            function updateTitleByLang() {
+                const lang = window.currentLang || 'en';
+                const lbl = (THEME_LABELS[themeParam] && (THEME_LABELS[themeParam][lang] || THEME_LABELS[themeParam].en)) || 'MOCs';
+                h1.textContent = lbl;
+            }
+
+            // Rendu initial
+            CardGenerator.generateCards({
+                items: items.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0)),
+                containerId: 'MOC-grid',
+                templateId: 'card-template',
+                lang: window.currentLang || 'en'
+            });
+            updateTitleByLang();
+
+            // Tri initial
+            if (typeof sortMOC === 'function') sortMOC('date-desc');
+
+            // i18n : synchroniser le titre et les noms de cartes
+            const origSetLanguage = window.setLanguage;
+            window.setLanguage = function (lang) {
+                if (typeof origSetLanguage === 'function') origSetLanguage(lang);
+                updateTitleByLang();
+                if (CardGenerator.updateCardTitlesFromNames) {
+                    CardGenerator.updateCardTitlesFromNames(lang);
+                }
+            };
+        })();
+    </script>
+
 </body>
-
-<script>
-    let btn = document.querySelector('#btn')
-    let sidebar = document.querySelector('.sidebar')
-
-    btn.onclick = function () {
-        sidebar.classList.toggle('active');
-    };
-</script>
-<script src="./js/img.js"></script>
 
 </html>
