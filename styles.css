@@ -2027,4 +2027,10 @@ video {
   .meta h3 {
     font-size: 1rem;
   }
+
+  .map-wrap {
+    position: relative;
+    top: 12px;
+    /* manquait: distance depuis le haut du viewport */
+  }
 }
