@@ -1872,6 +1872,57 @@ const project = [
         tag: "",
         favoris: false,
     },
+
+    {
+        id: "tip-1",
+        name: { en: "Build a border around your MOC", fr: "Construire une bordure autour de ton MOC" },
+        href: "Tips/Border.html",
+        date: "2024-10-22",
+        img: "img/Miniatures/border.jpg",
+        alt: "Build a border around your MOC",
+        type: "tips",
+        theme: "tips"
+    },
+    {
+        id: "tip-2",
+        name: { en: "Make a Column with LEGO", fr: "Construire une colonne avec des LEGO" },
+        href: "Tips/Column.html",
+        date: "2024-09-27",
+        img: "img/Miniatures/Column.png",
+        alt: "Make a Column with LEGO",
+        type: "tips",
+        theme: "tips"
+    },
+    {
+        id: "tip-3",
+        name: { en: "Make a Beach with LEGO", fr: "Construire une plage avec des LEGO" },
+        href: "Tips/Beach.html",
+        date: "2024-07-14",
+        img: "img/Miniatures/beach.png",
+        alt: "Make a Beach with LEGO",
+        type: "tips",
+        theme: "tips"
+    },
+
 ]
 
+
+/* === EXPO DATA (Conventions) === */
+window.EXPO = [
+    {
+        id: 'bousies-2018', city: 'Bousies', date: '03/02/2018', year: 2018, lat: 50.151, lon: 3.62,
+        poster: 'img/Expo/bousies_affiche.png',
+        link: './Conventions/Bousies.html'
+    },
+    {
+        id: 'preseau-2019', city: 'Préseau', date: '14/09/2019', year: 2019, lat: 50.283, lon: 3.58,
+        poster: 'img/Expo/preseau_affiche.png',
+        link: './Conventions/Preseau.html'
+    },
+    {
+        id: 'divion-2022', city: 'Divion', date: '26/02/2022', year: 2022, lat: 50.47, lon: 2.506,
+        poster: 'img/Expo/divion_affiche.png',
+        link: './Conventions/Divion.html'
+    }
+];
 window.PROJECTS = project;

@@ -458,3 +458,61 @@
         });
     };
 })();
+
+
+/* ---------- TIPS GENERATOR ---------------------*/
+(function (global) {
+    const norm = (s) => (s || "").trim().toLowerCase();
+    const isTipType = (t) => norm(t) === "tips";
+
+    // Localise la date selon la langue courante (comme pour Instructions)
+    function updateTipDates(lang) {
+        const locale = (lang === "fr") ? "fr-FR" : "en-GB";
+        document.querySelectorAll(".MOC-card").forEach(card => {
+            const dateISO = card.dataset.date;
+            const dateSpan = card.querySelector(".date");
+            if (!dateISO || !dateSpan) return;
+            const d = new Date(dateISO);
+            if (!isNaN(d)) dateSpan.textContent = d.toLocaleDateString(locale);
+        });
+    }
+
+    /**
+     * Génère les cartes de tips (nom traduisible + date locale).
+     * items: tableau source (ex: window.PROJECTS)
+     * containerId: "tips-grid"
+     * templateId:  "card-template"
+     * lang: "fr" | "en"
+     */
+    function generateTips({ items = [], containerId, templateId, lang }) {
+        const src = Array.isArray(items) ? items : [];
+        const filtered = src.filter(
+            p => isTipType(p.type) || (typeof p.id === "string" && p.id.startsWith("tips"))
+        );
+
+        // Réutilise le générateur de cartes générique (gère name.{fr|en}, href, img, data-*)
+        global.CardGenerator.generateCards({
+            items: filtered,
+            containerId,
+            templateId,
+            lang
+        }); /* s’appuie sur CardGenerator.generateCards:contentReference[oaicite:0]{index=0} */
+
+        // Localise la date après rendu initial (comme pour Instructions)
+        updateTipDates(lang || global.currentLang || "en");
+    }
+
+    // Pour la bascule de langue : met à jour le titre (name.{fr|en}) + la date localisée
+    function updateTipTitlesFromNames(lang) {
+        global.CardGenerator.updateCardTitlesFromNames(lang); /* même API que les Instructions:contentReference[oaicite:1]{index=1} */
+        updateTipDates(lang);
+    }
+
+    // Expose l’API
+    global.CardGenerator = Object.assign({}, global.CardGenerator, {
+        generateTips,
+        updateTipTitlesFromNames,
+        updateTipDates
+    });
+})(window);
+

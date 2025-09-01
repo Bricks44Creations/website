@@ -610,3 +610,247 @@ if ('serviceWorker' in navigator) {
       .catch(console.error);
   });
 }
+
+
+/* === EXPO PAGE (Conventions) === */
+(function () {
+  if (!document.getElementById('map')) return; // sécurité si pas sur la page
+
+  // 1) Map
+  const DEFAULT_CENTER = [50.366669, 3.01667];
+  const map = L.map('map', { scrollWheelZoom: true }).setView(DEFAULT_CENTER, 8);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // 2) Marqueurs + cards
+  const markers = new Map();
+  function addExpoMarker(e) {
+    const m = L.marker([e.lat, e.lon]).addTo(map).bindPopup(
+      `<b>${e.city}</b><br>${e.date}`
+    );
+    m.on('click', () => highlightCard(e.id));
+    markers.set(e.id, m);
+  }
+  const cardsEl = document.getElementById('cards');
+  function cardTemplate(e) {
+    const el = document.createElement('article');
+    el.className = 'card';
+    el.innerHTML = `
+    <div class="poster"><img src="${e.poster}" alt="Affiche ${e.city}"></div>
+    <div class="meta">
+      <h3>${e.city}</h3>
+      <div class="sub">${e.date}</div>
+      <div class="actions">
+        <a class="btn" href="${e.link}" target="_blank" rel="noopener">Voir la page</a>
+        <button class="btn" data-goto="${e.id}">Voir sur la carte</button>
+      </div>
+    </div>`;
+    return el;
+  }
+  function renderCards(list) {
+    cardsEl.innerHTML = '';
+    list.forEach(e => cardsEl.appendChild(cardTemplate(e)));
+    cardsEl.querySelectorAll('[data-goto]').forEach(btn => {
+      btn.addEventListener('click', ev => {
+        const id = ev.currentTarget.getAttribute('data-goto');
+        gotoOnMap(id);
+      });
+    });
+  }
+  function gotoOnMap(id) {
+    const e = (window.EXPO || []).find(x => x.id === id); if (!e) return;
+    map.flyTo([e.lat, e.lon], 11, { duration: .8 });
+    const m = markers.get(id); if (m) { setTimeout(() => m.openPopup(), 850); }
+    highlightCard(id);
+  }
+  function highlightCard(id) {
+    cardsEl.querySelectorAll('.card').forEach(c => c.style.outline = 'none');
+    const idx = (window.EXPO || []).findIndex(x => x.id === id);
+    if (idx >= 0) {
+      const card = cardsEl.children[idx];
+      card.style.outline = '2px solid #F3BD99';
+
+      // scroll centré dans le conteneur scrollable (la colonne de droite)
+      const cardRect = card.getBoundingClientRect();
+      const listRect = cardsEl.getBoundingClientRect();
+      const offset = (cardRect.top - listRect.top) - (listRect.height / 2 - cardRect.height / 2);
+      cardsEl.scrollBy({ top: offset, behavior: 'smooth' });
+    }
+  }
+
+  // 3) Filtres (années + recherche)
+  // 3) Filtres (années + villes + recherche)
+  const EXPO = (window.EXPO || []).slice(); // copie
+  EXPO.forEach(addExpoMarker);
+  renderCards(EXPO);
+
+  const q = document.getElementById('q');
+  const doSearch = document.getElementById('doSearch');
+
+  // --- états sélectionnés
+  let selectedYears = new Set();
+  let selectedCities = new Set();
+
+  // --- utilitaires UI checkboxes
+  function makeCheckbox(idBase, label) {
+    const id = `${idBase}-${String(label).replace(/\W+/g, "_")}`;
+    const wrap = document.createElement('label');
+    wrap.className = 'checkbox-item';
+    wrap.setAttribute('data-value', label);
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.id = id;
+    input.value = label;
+    const txt = document.createElement('span');
+    txt.textContent = label;
+    wrap.appendChild(input);
+    wrap.appendChild(txt);
+    return wrap;
+  }
+  function compactLabel(list, emptyText) {
+    if (!list.length) return emptyText;
+    if (list.length === 1) return list[0];
+    return `${list[0]}, +${list.length - 1}`;
+  }
+  function syncLabel(el, prefix, values) {
+    el.textContent = `${prefix}${compactLabel(values, 'Toutes')}`;
+  }
+
+  // --- sources uniques
+  const years = [...new Set(EXPO.map(e => e.year))].sort((a, b) => b - a);
+  const cities = [...new Set(EXPO.map(e => e.city))].sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
+
+  // --- éléments Années
+  const yearBtn = document.getElementById('year-filter-btn');
+  const yearArrow = yearBtn?.querySelector('.arrow-down');
+  const yearMenu = document.getElementById('year-filter-options');
+  const yearLabel = document.getElementById('year-filter-label');
+  const yearModal = document.getElementById('year-filter-modal');
+  const yearList = document.getElementById('year-filter-list');
+  const yearApply = document.getElementById('year-apply');
+  const yearReset = document.getElementById('year-reset');
+
+  // --- éléments Villes
+  const cityBtn = document.getElementById('city-filter-btn');
+  const cityArrow = cityBtn?.querySelector('.arrow-down');
+  const cityMenu = document.getElementById('city-filter-options');
+  const cityLabel = document.getElementById('city-filter-label');
+  const cityModal = document.getElementById('city-filter-modal');
+  const cityList = document.getElementById('city-filter-list');
+  const cityApply = document.getElementById('city-apply');
+  const cityReset = document.getElementById('city-reset');
+
+  // --- build dropdowns + modales
+  function buildFilter(menuEl, listEl, values, idBase, onChange) {
+    if (menuEl) {
+      menuEl.innerHTML = '';
+      values.forEach(v => {
+        const cb = makeCheckbox(idBase, v);
+        menuEl.appendChild(cb);
+      });
+      // actions sticky
+      const actions = document.createElement('div');
+      actions.className = 'dropdown-actions';
+      const btnReset = Object.assign(document.createElement('a'), { href: '#', className: 'btn-reset', textContent: 'Réinitialiser' });
+      const btnApply = Object.assign(document.createElement('a'), { href: '#', className: 'btn-apply', textContent: 'Appliquer' });
+      actions.appendChild(btnReset); actions.appendChild(btnApply);
+      menuEl.appendChild(actions);
+      // listeners
+      menuEl.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener('change', onChange));
+      btnApply.addEventListener('click', (e) => { e.preventDefault(); menuEl.classList.remove('show'); yearArrow?.classList.remove('rotate'); cityArrow?.classList.remove('rotate'); applyFilters(); });
+      btnReset.addEventListener('click', (e) => { e.preventDefault(); menuEl.querySelectorAll('input[type="checkbox"]').forEach(i => i.checked = false); onChange(); });
+    }
+    if (listEl) {
+      listEl.innerHTML = '';
+      values.forEach(v => listEl.appendChild(makeCheckbox(`${idBase}-modal`, v)));
+      listEl.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener('change', onChange));
+    }
+  }
+
+  // --- handlers mise à jour des sélections
+  function updateSelectedFrom(menuEl, set, labelEl, prefix) {
+    set.clear();
+    menuEl?.querySelectorAll('input[type="checkbox"]:checked').forEach(i => set.add(i.value));
+    labelEl && syncLabel(labelEl, prefix, [...set]);
+  }
+  function onYearChange() {
+    updateSelectedFrom(yearMenu, selectedYears, yearLabel, 'Années : ');
+    applyFilters(); // tri direct
+  }
+  function onCityChange() {
+    updateSelectedFrom(cityMenu, selectedCities, cityLabel, 'Villes : ');
+    applyFilters(); // tri direct
+  }
+
+  // --- construction
+  buildFilter(yearMenu, yearList, years, 'year', onYearChange);
+  buildFilter(cityMenu, cityList, cities, 'city', onCityChange);
+
+  // --- open/close dropdowns + modales (mobile ≤768px)
+  function toggleDropdown(btn, menu, arrow) {
+    if (window.innerWidth <= 768 && (btn.id.includes('year') ? yearModal : cityModal)) {
+      (btn.id.includes('year') ? yearModal : cityModal).style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+    menu?.classList.toggle('show');
+    arrow?.classList.toggle('rotate', menu?.classList.contains('show'));
+  }
+  yearBtn?.addEventListener('click', (e) => { e.stopPropagation(); toggleDropdown(yearBtn, yearMenu, yearArrow); });
+  cityBtn?.addEventListener('click', (e) => { e.stopPropagation(); toggleDropdown(cityBtn, cityMenu, cityArrow); });
+  window.addEventListener('click', (e) => {
+    const inAny = e.target.closest('#year-filter-btn,#year-filter-options,#city-filter-btn,#city-filter-options');
+    if (!inAny) {
+      yearMenu?.classList.remove('show'); yearArrow?.classList.remove('rotate');
+      cityMenu?.classList.remove('show'); cityArrow?.classList.remove('rotate');
+    }
+  });
+  // modales mobile : appliquer / réinitialiser / fermer (×)
+  function closeModal(modal) { modal.style.display = 'none'; document.body.style.overflow = ''; }
+  yearApply?.addEventListener('click', (e) => {
+    e.preventDefault(); // sync depuis la modale vers le dropdown
+    yearMenu?.querySelectorAll('input[type="checkbox"]').forEach(i => {
+      const twin = [...yearList.querySelectorAll('input')].find(j => j.value === i.value); if (twin) i.checked = twin.checked;
+    });
+    onYearChange(); closeModal(yearModal); applyFilters();
+  });
+  yearReset?.addEventListener('click', (e) => { e.preventDefault(); yearList?.querySelectorAll('input').forEach(i => i.checked = false); });
+  cityApply?.addEventListener('click', (e) => {
+    e.preventDefault();
+    cityMenu?.querySelectorAll('input[type="checkbox"]').forEach(i => {
+      const twin = [...cityList.querySelectorAll('input')].find(j => j.value === i.value); if (twin) i.checked = twin.checked;
+    });
+    onCityChange(); closeModal(cityModal); applyFilters();
+  });
+  cityReset?.addEventListener('click', (e) => { e.preventDefault(); cityList?.querySelectorAll('input').forEach(i => i.checked = false); });
+  yearModal?.querySelector('.close-sort-modal')?.addEventListener('click', () => closeModal(yearModal));
+  cityModal?.querySelector('.close-sort-modal')?.addEventListener('click', () => closeModal(cityModal));
+
+  // --- recherche
+  doSearch?.addEventListener('click', applyFilters);
+  q?.addEventListener('keydown', (e) => { if (e.key === 'Enter') applyFilters(); });
+
+  // --- filtrage principal
+  function applyFilters() {
+    const text = (q?.value || '').trim().toLowerCase();
+    const yrs = [...selectedYears];
+    const cts = [...selectedCities];
+
+    const filtered = EXPO.filter(e => {
+      const okYear = yrs.length ? yrs.includes(String(e.year)) || yrs.includes(e.year) : true;
+      const okCity = cts.length ? cts.includes(e.city) : true;
+      const okText = text ? (e.title?.toLowerCase().includes(text) || e.city.toLowerCase().includes(text)) : true;
+      return okYear && okCity && okText;
+    });
+
+    renderCards(filtered);
+
+    // maj marqueurs
+    markers.forEach((m, id) => {
+      const has = filtered.some(e => e.id === id);
+      if (has) { m.addTo(map); } else { m.remove(); }
+    });
+  }
+
+})();
