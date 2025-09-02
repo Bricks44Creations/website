@@ -635,8 +635,8 @@
           <li><a href="index.html" data-key="home">Home</a></li>
           <li><a href="MOC-home.html" data-key="MOC">MOC</a></li>
           <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
-          <li><a href="Tips-home.html" data-key="tips">Tips</a></li>
           <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
+          <li><a href="Tips-home.html" data-key="tips">Tips</a></li>
           <li><a href="Conventions.html" data-key="conventions">Conventions</a></li>
         </ul>
       </div>
