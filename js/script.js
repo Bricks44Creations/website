@@ -1,3 +1,9 @@
+
+// === Utils dropdown tri/filtre ===
+function closeAllDropdowns() {
+  document.querySelectorAll('.dropdown-content-tri').forEach(dd => dd.classList.remove('show'));
+  document.querySelectorAll('.dropbtn-tri .arrow-down').forEach(arrow => arrow.classList.remove('rotate'));
+}
 document.addEventListener('DOMContentLoaded', function () {
   const burgerBtn = document.getElementById('burger-btn');
   const sidebar = document.getElementById('mobile-sidebar');
@@ -38,7 +44,7 @@ const sortLabel = document.getElementById("sort-label");
 const sortArrow = sortBtn?.querySelector(".arrow-down");
 const sortOptions = document.getElementById("sort-options");
 
-sortBtn?.addEventListener("click", (e) => {
+sortBtn?.addEventListener("mousehover", (e) => {
   e.stopPropagation();
   sortOptions?.classList.toggle("show");
   if (sortArrow) sortArrow.classList.toggle("rotate", sortOptions?.classList.contains("show"));
@@ -546,11 +552,14 @@ filterBtn?.addEventListener("click", (e) => {
     return;
   }
 
-  filterMenu?.classList.toggle("show");
-  if (filterArrow) filterArrow.classList.toggle("rotate", filterMenu?.classList.contains("show"));
+  const wasOpen = filterMenu?.classList.contains("show");
+  closeAllDropdowns(); // ferme tous les autres dropdowns (global)
+  if (!wasOpen) {
+    filterMenu?.classList.add("show");
+    filterArrow?.classList.add("rotate");
+  }
   applyfilterFilter(); // libellé compact même ouvert
 });
-
 // Ferme si clic ailleurs
 window.addEventListener("click", (e) => {
   const infilter = e.target.closest("#filter-btn") || e.target.closest("#filter-options");
@@ -797,13 +806,25 @@ if ('serviceWorker' in navigator) {
     menu?.classList.toggle('show');
     arrow?.classList.toggle('rotate', menu?.classList.contains('show'));
   }
-  yearBtn?.addEventListener('click', (e) => { e.stopPropagation(); toggleDropdown(yearBtn, yearMenu, yearArrow); });
-  cityBtn?.addEventListener('click', (e) => { e.stopPropagation(); toggleDropdown(cityBtn, cityMenu, cityArrow); });
+  yearBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasOpen = yearMenu?.classList.contains('show');
+    closeAllDropdowns(); // ferme tout
+    if (!wasOpen) {
+      toggleDropdown(yearBtn, yearMenu, yearArrow);
+    }
+  });
+  cityBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasOpen = cityMenu?.classList.contains('show');
+    closeAllDropdowns(); // ferme tout
+    if (!wasOpen) {
+      toggleDropdown(cityBtn, cityMenu, cityArrow);
+    }
+  });
   window.addEventListener('click', (e) => {
-    const inAny = e.target.closest('#year-filter-btn,#year-filter-options,#city-filter-btn,#city-filter-options');
-    if (!inAny) {
-      yearMenu?.classList.remove('show'); yearArrow?.classList.remove('rotate');
-      cityMenu?.classList.remove('show'); cityArrow?.classList.remove('rotate');
+    if (!e.target.closest('.dropdown-tri')) {
+      closeAllDropdowns();
     }
   });
   // modales mobile : appliquer / réinitialiser / fermer (×)
@@ -854,3 +875,22 @@ if ('serviceWorker' in navigator) {
   }
 
 })();
+function highlightCard(id) {
+  cardsEl.querySelectorAll('.card').forEach(c => c.style.outline = 'none');
+  const idx = (window.EXPO || []).findIndex(x => x.id === id);
+  if (idx >= 0) {
+    const card = cardsEl.children[idx];
+    card.style.outline = '2px solid #F3BD99';
+
+    if (window.innerWidth > 768) {
+      // Desktop : comportement d’origine (scroll dans la colonne)
+      const cardRect = card.getBoundingClientRect();
+      const listRect = cardsEl.getBoundingClientRect();
+      const offset = (cardRect.top - listRect.top) - (listRect.height / 2 - cardRect.height / 2);
+      cardsEl.scrollBy({ top: offset, behavior: 'smooth' });
+    } else {
+      // Mobile : pas de scroll interne ; on fait défiler la page
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
