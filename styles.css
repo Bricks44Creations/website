@@ -2046,3 +2046,43 @@ video {
     /* valeur raisonnable pour laptop */
   }
 }
+
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  /* espace avec la carte */
+}
+
+/* Conventions — mobile: carte visible + cards dans le flux */
+@media (max-width: 768px) {
+
+  /* Empêche tout scroll interne côté cards/panels */
+  .panel {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #cards {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* La carte reste visible en haut pendant le scroll */
+  .map-wrap {
+    top: 0;
+    z-index: 1;
+  }
+
+  /* Donne une hauteur confortable à la carte sur mobile */
+  #map {
+    height: 40vh !important;
+  }
+
+  /* Quand on fait scrollIntoView sur une card, 
+     on évite qu’elle passe sous la carte sticky */
+  #cards .card {
+    scroll-margin-top: 44vh;
+  }
+}

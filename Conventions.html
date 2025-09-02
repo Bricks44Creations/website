@@ -40,26 +40,26 @@
 
         <div class="left-right">
             <!-- Contrôles -->
-            <section class="controls">
-                <div class="ctrls" style="gap:1rem;flex-wrap:wrap">
-                    <!-- Filtre ANNÉES -->
-                    <div class="dropdown-tri" id="year-filter-dropdown">
-                        <button id="year-filter-btn" class="dropbtn-tri">
-                            <span id="year-filter-label">Années : Toutes</span>
-                            <span class="arrow-down">&#9662;</span>
-                        </button>
-                        <div id="year-filter-options" class="dropdown-content-tri"></div>
-                    </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap; margin-bottom:1.5rem;">
+                <!-- TRI (si besoin) -->
+                <!-- FILTRE ANNÉES -->
+                <div class="dropdown-tri" id="year-filter-dropdown">
+                    <button id="year-filter-btn" class="dropbtn-tri">
+                        <span id="year-filter-label">Années : Toutes</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </button>
+                    <div id="year-filter-options" class="dropdown-content-tri"></div>
+                </div>
 
-                    <!-- Filtre VILLES -->
-                    <div class="dropdown-tri" id="city-filter-dropdown">
-                        <button id="city-filter-btn" class="dropbtn-tri">
-                            <span id="city-filter-label">Villes : Toutes</span>
-                            <span class="arrow-down">&#9662;</span>
-                        </button>
-                        <div id="city-filter-options" class="dropdown-content-tri"></div>
-                    </div>
-            </section>
+                <!-- FILTRE VILLES -->
+                <div class="dropdown-tri" id="city-filter-dropdown">
+                    <button id="city-filter-btn" class="dropbtn-tri">
+                        <span id="city-filter-label">Villes : Toutes</span>
+                        <span class="arrow-down">&#9662;</span>
+                    </button>
+                    <div id="city-filter-options" class="dropdown-content-tri"></div>
+                </div>
+            </div>
             <!-- Modales mobile (une par filtre) -->
             <div id="year-filter-modal" class="sort-modal">
                 <div class="sort-modal-content">
@@ -83,7 +83,6 @@
             <main class="layout">
                 <div class="panel map-wrap">
                     <div id="map"></div>
-                    <div class="legend">Clique un marqueur ⟶ détails</div>
                 </div>
 
                 <div class="panel" style="padding:12px">
