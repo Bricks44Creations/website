@@ -2034,3 +2034,15 @@ video {
     /* manquait: distance depuis le haut du viewport */
   }
 }
+
+@media (max-width: 1400px) {
+  .layout {
+    height: auto;
+    /* plus de hauteur forcée */
+  }
+
+  #map {
+    height: 100%;
+    /* valeur raisonnable pour laptop */
+  }
+}
