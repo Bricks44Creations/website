@@ -1906,6 +1906,52 @@ const project = [
 
 ]
 
+// --- Utils dropdown tri/filtre (commun à Années / Villes) ---
+function closeAllDropdowns() {
+    // Ferme tous les panneaux
+    document.querySelectorAll('.dropdown-content-tri').forEach(dd => {
+        dd.classList.remove('show');
+    });
+    // Remet les flèches à l’état normal
+    document.querySelectorAll('.dropbtn-tri .arrow-down').forEach(arrow => {
+        arrow.classList.remove('rotate');
+    });
+}
+
+// Ouvrir/fermer le dropdown cliqué, en fermant d’abord tous les autres
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.dropbtn-tri');
+    if (!btn) return; // pas un clic sur un bouton de dropdown tri/filtre
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Le panneau correspondant = juste après le bouton (structure HTML de Conventions.html)
+    const panel = btn.parentElement.querySelector('.dropdown-content-tri');
+    const arrow = btn.querySelector('.arrow-down');
+    const wasOpen = panel?.classList.contains('show');
+
+    // Ferme tout
+    closeAllDropdowns();
+
+    // Si celui-ci était fermé, on l’ouvre
+    if (panel && !wasOpen) {
+        panel.classList.add('show');
+        arrow?.classList.add('rotate');
+    }
+});
+
+// Ferme tout si clic en dehors de n’importe quel dropdown-tri
+window.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown-tri')) {
+        closeAllDropdowns();
+    }
+});
+
+// (Optionnel) Fermer avec Échap
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllDropdowns();
+});
 
 /* === EXPO DATA (Conventions) === */
 window.EXPO = [
