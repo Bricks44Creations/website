@@ -2086,3 +2086,51 @@ video {
     scroll-margin-top: 44vh;
   }
 }
+
+/* --- Leaflet : fond, contrôles, popup, marqueurs --- */
+#map,
+#map .leaflet-container {
+  background: var(--muted);
+  border-radius: inherit;
+}
+
+/* Contrôles (zoom, layer, etc.) */
+.leaflet-control {
+  border: 1px solid rgba(0, 0, 0, .06) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow) !important;
+  overflow: hidden;
+  background: var(--surface) !important;
+}
+
+.leaflet-control a {
+  background: var(--surface) !important;
+  color: var(--brand-blue) !important;
+  line-height: 30px !important;
+  height: 32px !important;
+  width: 32px !important;
+  text-align: center;
+}
+
+.leaflet-control a:hover {
+  background: var(--brand-blue) !important;
+  color: #fff !important;
+}
+
+
+
+/* Bouton/legend interne carte si tu en ajoutes */
+.legend {
+  background: rgba(24, 48, 90, .92);
+  /* ~ var(--brand-blue) */
+  border-radius: 12px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+
+/* Harmonise la bordure du panneau carte avec ta charte */
+.map-wrap {
+  border: 2px solid var(--brand-blue);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
