@@ -1972,3 +1972,4 @@ window.EXPO = [
     }
 ];
 window.PROJECTS = project;
+window.PROJECTS = (typeof project !== 'undefined') ? project : window.PROJECTS;
