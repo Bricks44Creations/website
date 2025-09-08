@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home | Bricks Creations</title>
+    <title>Instructions | Bricks Creations</title>
     <link rel="icon" type="image/png" href="img/logo_actuel.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css" />
@@ -65,16 +65,52 @@
     <!-- 4) Spécifique à la page Instructions -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // 1) Source des données
             const src = window.PROJECTS || window.project || [];
+
+            // 2) Filtre: uniquement les "instruction"
+            const items = src.filter(p =>
+                (p.type || "").toLowerCase() === "instruction" ||
+                (typeof p.id === "string" && p.id.startsWith("instruction"))
+            );
+
+            // 3) Génération des cartes (titre, image, date, etc.)
+            //    -> s'appuie sur Generator.js, comme aujourd'hui
             window.CardGenerator.generateInstructions({
                 items: src,
                 containerId: "MOC-grid",
                 templateId: "card-template",
                 lang: window.currentLang || "en"
             });
+
+            // 4) Recâbler chaque carte vers le PDF provenant de data.js (champ href)
+            try {
+                const grid = document.getElementById("MOC-grid");
+                if (!grid) return;
+
+                const byId = new Map(items.map(p => [p.id, p])); // accès rapide par id
+
+                grid.querySelectorAll(".MOC-card").forEach(a => {
+                    // Le href mis par défaut pointe vers detail-moc.html?id=...
+                    // On lit l'id et on le remplace par le PDF de data.js
+                    const url = new URL(a.href, location.href);
+                    const id = url.searchParams.get("id") || "";
+                    const it = byId.get(id);
+
+                    // IMPORTANT: dans ton data.js, le PDF est dans "href"
+                    const pdf = it?.href;
+                    if (pdf) {
+                        a.href = pdf;
+                        a.target = "_blank";
+                        a.rel = "noopener noreferrer";
+                    }
+                });
+            } catch (e) {
+                console.warn("Instruction PDF linking failed:", e);
+            }
         });
 
-        // Bascule de langue : met à jour titres + dates
+        // Bascule de langue (on conserve ton comportement existant)
         (function () {
             const prev = window.setLanguage;
             window.setLanguage = function (lang) {
@@ -82,11 +118,12 @@
                 window.CardGenerator.updateInstructionTitlesFromNames(lang);
                 if (typeof sortMOC === "function") sortMOC();
             };
-
-            // Sync initiale (si la page démarre en FR)
             window.CardGenerator.updateInstructionTitlesFromNames(window.currentLang || "en");
         })();
     </script>
+
+
+
 </body>
 
 </html>

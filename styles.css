@@ -669,9 +669,19 @@ body {
 }
 
 .hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 90%;
+  /* image plus petite */
+  max-height: 400px;
+  /* limite en hauteur */
+  margin: 1rem auto;
+  /* centrée avec marges */
+  display: block;
+  border-radius: 10px;
+  /* arrondis optionnels */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* petit effet visuel */
+  object-fit: contain;
+  /* conserve le ratio avec des bords */
 }
 
 .project-meta {
@@ -711,6 +721,33 @@ body {
 .meta-key {
   font-weight: 700;
   min-width: 110px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* ratio 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.project-gallery,
+.project-video {
+  background: var(--surface);
+  /* blanc */
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
 }
 
 .ref-image {
