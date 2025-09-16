@@ -646,8 +646,15 @@ body {
 }
 
 .project-page {
-  margin-left: 20rem;
-  margin-right: 20rem;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+@media (min-width : 784px) {
+  .project-page {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 
 .project-page .title h1 {
@@ -1158,7 +1165,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1064px) {
   .project-hero {
     grid-template-columns: 1fr;
   }
@@ -2724,4 +2731,15 @@ video {
 .cta-row a:hover {
   background: var(--brand-accent);
   color: var(--brand-blue);
+}
+
+/* Écrans < 1400px (laptops larges) */
+@media screen and (max-width: 1400px) {
+
+  .detail-page,
+  .detail-container {
+    margin-left: 2vw;
+    margin-right: 2vw;
+    max-width: 96vw;
+  }
 }
