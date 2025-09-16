@@ -181,7 +181,75 @@
       CardGenerator.updateCardTitlesFromNames?.(window.currentLang || 'fr');
       CardGenerator.updateMinifigTextsFromNames?.(window.currentLang || 'fr');
     })();
+
+
   </script>
+
+  <script>
+    (function () {
+      const ALL = (window.PROJECTS || window.project || []);
+      const norm = s => (s || "").trim().toLowerCase();
+      const byDateDesc = (a, b) => new Date(b.date || 0) - new Date(a.date || 0);
+      const pickLatest = (predicate, limit = 3) =>
+        ALL.filter(predicate).sort(byDateDesc).slice(0, limit);
+
+      function renderSection(gridId, predicate, isMinifig = false) {
+        const section = document.getElementById(gridId)?.closest('section');
+        if (!section) return;
+        const limit = parseInt(section.dataset.limit, 10) || 3;
+        const items = pickLatest(predicate, limit);
+
+        if (!items.length) { section.remove(); return; }
+
+        if (isMinifig) {
+          CardGenerator.generateMinifigs({ items, containerId: gridId, lang: window.currentLang || 'fr' });
+        } else {
+          CardGenerator.generateCards({ items, containerId: gridId, templateId: 'card-template', lang: window.currentLang || 'fr' });
+        }
+
+        /* === PATCH: recâbler les cartes Instructions vers le PDF === */
+        if (gridId === 'grid-latest-instructions') {
+          try {
+            const grid = document.getElementById(gridId);
+            const instrItems = ALL.filter(p =>
+              norm(p.type) === 'instruction' || (typeof p.id === 'string' && p.id.startsWith('instruction'))
+            );
+            const byId = new Map(instrItems.map(p => [p.id, p]));
+            grid.querySelectorAll('.MOC-card').forEach(a => {
+              const url = new URL(a.href, location.href);
+              const id = url.searchParams.get('id') || '';
+              const pdf = byId.get(id)?.href;   // le PDF vient de data.js (champ href)
+              if (pdf) {
+                a.href = pdf;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+              }
+            });
+          } catch (e) { console.warn('Instruction PDF relink failed:', e); }
+        }
+        /* === fin PATCH === */
+      }
+
+      // Sections
+      renderSection('grid-latest-all', p => norm(p.type) === 'moc');
+      renderSection('grid-latest-minifigs', p => norm(p.type) === 'minifig', true);
+      renderSection('grid-latest-instructions', p => norm(p.type) === 'instruction' || (typeof p.id === 'string' && p.id.startsWith('instruction')));
+      renderSection('grid-latest-tips', p => norm(p.type) === 'tips');
+      renderSection('grid-latest-jp', p => norm(p.type) === 'moc' && norm(p.theme) === 'jurassic-park');
+      renderSection('grid-latest-marvel', p => norm(p.type) === 'moc' && norm(p.theme) === 'marvel');
+
+      // i18n (inchangé)
+      const prev = window.setLanguage;
+      window.setLanguage = function (lang) {
+        prev?.(lang);
+        CardGenerator.updateCardTitlesFromNames?.(lang);
+        CardGenerator.updateMinifigTextsFromNames?.(lang);
+      };
+      CardGenerator.updateCardTitlesFromNames?.(window.currentLang || 'fr');
+      CardGenerator.updateMinifigTextsFromNames?.(window.currentLang || 'fr');
+    })();
+  </script>
+
 
 
 </body>

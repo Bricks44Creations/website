@@ -689,10 +689,180 @@ body {
   border-radius: 14px;
   box-shadow: var(--shadow);
   padding: 1.25rem;
+  padding-bottom: 0.05rem;
   color: var(--ink);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.project-video .meta-title {
+  margin-bottom: 1rem;
+  /* espace entre le titre et la vidéo */
+}
+
+/* mêmes styles de carte que galerie/vidéo */
+.project-gallery,
+.project-video,
+.project-notice {
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+/* bloc Notice */
+.project-notice .notice-wrapper {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-notice #notice-img {
+  width: 100%;
+  height: auto;
+  display: none;
+  /* masqué par défaut (JS l’affiche si présent) */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+}
+
+/* petit bouton primaire réutilisable */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+  background: var(--brand-blue);
+  color: #fff;
+  padding: .6rem .9rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .12);
+}
+
+/* Forcer l’empilement vertical : une seule colonne, tout le temps */
+.section-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* <- plus 1fr 1fr */
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Ordre : d’abord Instructions, ensuite Vidéo */
+.project-notice {
+  order: 1;
+}
+
+.project-video {
+  order: 2;
+}
+
+/* Bannière "notice" compacte sur 1 seule ligne, pleine largeur */
+.notice-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  min-height: 64px;
+  /* compact */
+  align-items: center;
+  /* centre verticalement tout */
+}
+
+/* Vignette petite */
+.notice-banner .thumb {
+  width: 72px;
+  /* petite image */
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex: 0 0 auto;
+}
+
+/* Texte */
+.notice-banner .label {
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin-right: auto;
+  /* pousse le bouton à droite */
+}
+
+/* Lecteur PDF intégré sous la bannière Notice */
+.pdf-viewer {
+  margin-top: 0.75rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  /* arrondis effectifs */
+  width: 100%;
+}
+
+.pdf-viewer iframe {
+  display: block;
+  width: 100%;
+  /* réactif à la hauteur de l'écran */
+  border: 0;
+  aspect-ratio: 1 / 1;
+}
+
+/* Petits écrans : un peu plus bas pour le confort */
+@media (max-width: 1024px) {
+  .pdf-viewer iframe {
+    height: 70vh;
+  }
+}
+
+/* Vidéo */
+.project-video .video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.project-video iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* Notice */
+.project-notice .notice-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.project-notice .notice-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  /* fond blanc autour de l’image */
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.project-notice img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* conserve le ratio avec bandes blanches */
+  aspect-ratio: 3 / 2;
+  /* force le ratio 3:2 */
+}
+
+.btn-primary:hover {
+  background: var(--brand-accent);
+  color: var(--brand-blue);
 }
 
 .meta-title {
@@ -741,6 +911,8 @@ body {
   height: 100%;
 }
 
+
+
 .project-gallery,
 .project-video {
   background: var(--surface);
@@ -750,11 +922,18 @@ body {
   padding: 1.5rem;
 }
 
+
+.project-gallery {
+  padding-bottom: 0;
+}
+
 .ref-image {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .ref-image img {
@@ -774,10 +953,6 @@ body {
   font-size: .8rem;
 }
 
-/* Galerie / Carrousel */
-.project-gallery {
-  margin-top: 2rem;
-}
 
 .carousel {
   position: relative;
@@ -794,7 +969,7 @@ body {
 
 .carousel-slide {
   min-width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 3/2;
   background: #000;
   display: flex;
   align-items: center;
@@ -827,13 +1002,6 @@ body {
   opacity: .9;
 }
 
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
-}
 
 .carousel-dots {
   position: absolute;
@@ -854,17 +1022,30 @@ body {
 }
 
 .carousel-dot.active {
-  background: var(--brand-accent);
+  background: #18305a;
 }
 
+/* Galerie : une seule ligne, scroll horizontal */
+/* Miniatures : slider horizontal sur une seule ligne */
 .thumbs {
   display: flex;
   gap: .65rem;
   margin-top: .75rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  /* ⟵ plus de retour à la ligne */
+  overflow-x: auto;
+  /* ⟵ scroll horizontal */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  /* ⟵ défilement doux */
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: .25rem;
+  /* un peu d’air pour la scrollbar */
 }
 
 .thumbs button {
+  flex: 0 0 auto;
+  /* ← reste sur une ligne */
   background: transparent;
   border: 2px solid transparent;
   border-radius: 10px;
@@ -872,6 +1053,8 @@ body {
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  scroll-snap-align: start;
+  /* optionnel: snap */
 }
 
 .thumbs img {
@@ -882,7 +1065,7 @@ body {
 }
 
 .thumbs button.active {
-  border-color: var(--brand-accent);
+  border-color: #18305a;
 }
 
 .project-description {
@@ -897,6 +1080,81 @@ body {
 .project-description h2 {
   color: var(--brand-blue);
   margin-top: 0;
+}
+
+
+/* ===== Aside en onglets ===== */
+.project-aside {
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 0;
+  /* l’espace est géré par les panneaux */
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* barre d’onglets */
+.tabs {
+  display: flex;
+  gap: .25rem;
+  padding-top: .5rem;
+  padding-bottom: .8rem;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  /* reste visible si l’aside est long */
+  z-index: 1;
+  border-bottom: solid 0.5px #516a96;
+}
+
+.tabs button {
+  appearance: none;
+  border: 1px solid #e5eaf2;
+  background: #fff;
+  padding: .45rem .7rem;
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  cursor: pointer;
+}
+
+.tabs button[aria-selected="true"] {
+  background: var(--brand-blue);
+  color: #fff;
+  border-color: var(--brand-blue);
+}
+
+.project-aside {
+  padding: 1rem 1.1rem 1.25rem;
+}
+
+.tabpanel {
+  display: block;
+}
+
+.tabpanel[hidden] {
+  display: none;
+}
+
+/* iframe 3D cohérent avec la vidéo */
+.threeD-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.threeD-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Responsive */
@@ -1176,11 +1434,7 @@ body {
   gap: .5rem;
 }
 
-/* Disposition côte à côte sur desktop */
-.section-row {
-  display: grid;
-  gap: 2rem;
-}
+
 
 @media (min-width: 1024px) {
   .section-row {
@@ -1584,9 +1838,6 @@ video {
   font-size: 0.9rem;
   color: #ccc;
 }
-
-
-
 
 
 
@@ -2170,4 +2421,307 @@ video {
   border: 2px solid var(--brand-blue);
   border-radius: 14px;
   box-shadow: var(--shadow);
+}
+
+
+/* Ajustements locaux (on s'appuie au max sur styles.css) */
+.page-header {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  padding: 0 1rem;
+}
+
+.breadcrumbs {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  color: #6b7280;
+  font-size: .95rem;
+}
+
+.breadcrumbs a {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.hero-title {
+  margin: .4rem 0 0;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--brand-title);
+  font-weight: 800;
+}
+
+.main-split {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 1.25rem auto 3rem;
+  padding: 0 1rem;
+}
+
+@media (max-width: 1024px) {
+  .main-split {
+    grid-template-columns: 1fr;
+  }
+
+  .refs {
+    position: relative;
+    top: auto;
+  }
+}
+
+.refs {
+  position: sticky;
+  top: 90px;
+  align-self: start;
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.refs-header {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(180deg, #fff, #f9fafc);
+  border-bottom: 1px solid #eef1f6;
+}
+
+.refs h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--brand-blue);
+}
+
+.ref-list {
+  padding: 1rem 1.1rem;
+  display: grid;
+  gap: .65rem;
+  color: var(--ink);
+}
+
+.ref-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: .5rem;
+}
+
+.ref-key {
+  font-weight: 700;
+  color: var(--brand-blue);
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.card+.card {
+  margin-top: 1rem;
+}
+
+.card-body {
+  padding: 1rem 1.1rem 1.25rem;
+  color: var(--ink);
+}
+
+.card h2 {
+  color: var(--brand-title);
+  margin: .2rem 0 1rem;
+}
+
+.hero-media {
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  background: var(--surface);
+}
+
+.hero-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Galerie masonry + lightbox (styles.css fournit déjà .gallery mais on spécialise le détail) */
+.gallery.grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.gallery.grid figure {
+  break-inside: avoid;
+  margin: 0 0 1rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+}
+
+.gallery.grid img {
+  width: 100%;
+  display: block;
+  transition: transform .3s ease;
+  cursor: zoom-in;
+}
+
+.gallery.grid figure:hover img {
+  transform: scale(1.03);
+}
+
+.gallery.grid figcaption {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  font-size: .78rem;
+  padding: .25rem .5rem;
+  border-radius: 6px;
+}
+
+@media (max-width:1024px) {
+  .gallery.grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width:640px) {
+  .gallery.grid {
+    column-count: 1;
+  }
+}
+
+/* Quand il n'y a PAS de référence */
+.project-hero.no-meta {
+  grid-template-columns: 1fr;
+  /* passe en une seule colonne */
+}
+
+.project-hero.no-meta .project-meta {
+  display: none;
+  /* par sécurité si l'aside n'est pas supprimé */
+}
+
+.project-hero.no-meta .project-gallery {
+  grid-column: 1 / -1;
+  /* la galerie occupe toute la largeur */
+  max-width: 980px;
+  /* largeur contenue */
+  margin: 0 auto;
+  /* centrage */
+}
+
+/* Garde une hauteur cohérente et évite un carrousel “trop haut” */
+.project-hero.no-meta .carousel-slide {
+  aspect-ratio: 3 / 2;
+  max-height: 520px;
+}
+
+/* Assure que galerie et références aient la même hauteur dans le hero */
+.project-hero {
+  align-items: stretch;
+  /* force les colonnes à s'étirer */
+}
+
+.project-gallery,
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  /* contenu empilé verticalement */
+  height: 100%;
+  /* occupe toute la hauteur disponible */
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .85);
+  z-index: 9999;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 82vh;
+  border-radius: 12px;
+}
+
+.lightbox .close,
+.lightbox .nav {
+  position: absolute;
+  top: 20px;
+  color: #fff;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.lightbox .close {
+  right: 24px;
+}
+
+.lightbox .nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox .prev {
+  left: 24px;
+}
+
+.lightbox .next {
+  right: 24px;
+}
+
+.credits-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .75rem;
+}
+
+.chip {
+  background: var(--muted);
+  border: 1px solid #eaeef6;
+  padding: .4rem .65rem;
+  border-radius: 999px;
+  font-size: .95rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .5rem;
+}
+
+.cta-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  text-decoration: none;
+  background: var(--brand-blue);
+  color: #fff;
+  padding: .55rem .75rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .12);
+}
+
+.cta-row a:hover {
+  background: var(--brand-accent);
+  color: var(--brand-blue);
 }

@@ -9,274 +9,13 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Ajustements locaux (on s'appuie au max sur styles.css) */
-        .page-header {
-            max-width: 1200px;
-            margin: 1.5rem auto 0;
-            padding: 0 1rem;
-        }
-
-        .breadcrumbs {
-            display: flex;
-            gap: .5rem;
-            align-items: center;
-            color: #6b7280;
-            font-size: .95rem;
-        }
-
-        .breadcrumbs a {
-            color: var(--brand-blue);
-            text-decoration: none;
-        }
-
-        .hero-title {
-            margin: .4rem 0 0;
-            font-size: clamp(1.6rem, 4vw, 2.4rem);
-            color: var(--brand-title);
-            font-weight: 800;
-        }
-
-        .main-split {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 1.25rem auto 3rem;
-            padding: 0 1rem;
-        }
-
-        @media (max-width: 1024px) {
-            .main-split {
-                grid-template-columns: 1fr;
-            }
-
-            .refs {
-                position: relative;
-                top: auto;
-            }
-        }
-
-        .refs {
-            position: sticky;
-            top: 90px;
-            align-self: start;
-            background: var(--surface);
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .refs-header {
-            display: flex;
-            align-items: center;
-            gap: .6rem;
-            padding: 1rem 1.1rem;
-            background: linear-gradient(180deg, #fff, #f9fafc);
-            border-bottom: 1px solid #eef1f6;
-        }
-
-        .refs h3 {
-            margin: 0;
-            font-size: 1.1rem;
-            color: var(--brand-blue);
-        }
-
-        .ref-list {
-            padding: 1rem 1.1rem;
-            display: grid;
-            gap: .65rem;
-            color: var(--ink);
-        }
-
-        .ref-item {
-            display: grid;
-            grid-template-columns: 110px 1fr;
-            gap: .5rem;
-        }
-
-        .ref-key {
-            font-weight: 700;
-            color: var(--brand-blue);
-        }
-
-        .card {
-            background: var(--surface);
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-        }
-
-        .card+.card {
-            margin-top: 1rem;
-        }
-
-        .card-body {
-            padding: 1rem 1.1rem 1.25rem;
-            color: var(--ink);
-        }
-
-        .card h2 {
-            color: var(--brand-title);
-            margin: .2rem 0 1rem;
-        }
-
-        .hero-media {
-            overflow: hidden;
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-            background: var(--surface);
-        }
-
-        .hero-media img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* Galerie masonry + lightbox (styles.css fournit déjà .gallery mais on spécialise le détail) */
-        .gallery.grid {
-            column-count: 3;
-            column-gap: 1rem;
-        }
-
-        .gallery.grid figure {
-            break-inside: avoid;
-            margin: 0 0 1rem;
-            position: relative;
-            overflow: hidden;
-            border-radius: 14px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
-        }
-
-        .gallery.grid img {
-            width: 100%;
-            display: block;
-            transition: transform .3s ease;
-            cursor: zoom-in;
-        }
-
-        .gallery.grid figure:hover img {
-            transform: scale(1.03);
-        }
-
-        .gallery.grid figcaption {
-            position: absolute;
-            left: 8px;
-            bottom: 8px;
-            background: rgba(0, 0, 0, .55);
-            color: #fff;
-            font-size: .78rem;
-            padding: .25rem .5rem;
-            border-radius: 6px;
-        }
-
-        @media (max-width:1024px) {
-            .gallery.grid {
-                column-count: 2;
-            }
-        }
-
-        @media (max-width:640px) {
-            .gallery.grid {
-                column-count: 1;
-            }
-        }
-
-        /* Lightbox */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, .85);
-            z-index: 9999;
-        }
-
-        .lightbox.open {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 92vw;
-            max-height: 82vh;
-            border-radius: 12px;
-        }
-
-        .lightbox .close,
-        .lightbox .nav {
-            position: absolute;
-            top: 20px;
-            color: #fff;
-            border: none;
-            background: transparent;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        .lightbox .close {
-            right: 24px;
-        }
-
-        .lightbox .nav {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .lightbox .prev {
-            left: 24px;
-        }
-
-        .lightbox .next {
-            right: 24px;
-        }
-
-        .credits-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .5rem;
-            margin-top: .75rem;
-        }
-
-        .chip {
-            background: var(--muted);
-            border: 1px solid #eaeef6;
-            padding: .4rem .65rem;
-            border-radius: 999px;
-            font-size: .95rem;
-        }
-
-        .cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .5rem;
-            margin-top: .5rem;
-        }
-
-        .cta-row a {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            text-decoration: none;
-            background: var(--brand-blue);
-            color: #fff;
-            padding: .55rem .75rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, .12);
-        }
-
-        .cta-row a:hover {
-            background: var(--brand-accent);
-            color: var(--brand-blue);
-        }
-    </style>
 </head>
 
+
 <body>
-
-
     <!-- PAGE HEADER -->
+
+
     <!-- ===== MAIN (même structure que witches-road.html) ===== -->
     <div class="main-content project-page">
         <div class="title">
@@ -290,36 +29,53 @@
             <section class="project-gallery" aria-label="Galerie d'images">
                 <div class="carousel" aria-roledescription="carrousel">
                     <div class="carousel-track" id="carouselTrack"></div>
-                    <button class="carousel-btn prev" aria-label="Image précédente" id="prevBtn"><i
-                            class='bx bx-chevron-left'></i></button>
-                    <button class="carousel-btn next" aria-label="Image suivante" id="nextBtn"><i
-                            class='bx bx-chevron-right'></i></button>
                     <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
                 </div>
                 <div class="thumbs" id="thumbs"></div>
             </section>
 
-            <aside class="project-meta" aria-label="Informations principales">
-                <h3 class="meta-title">Références</h3>
-                <div class="ref-image">
-                    <img id="ref-img" alt="Image de référence">
-                    <span class="ref-caption">Image de référence</span>
-                </div>
-                <div class="meta-grid" id="meta-grid"></div>
+            <!-- ASIDE TABS -->
+            <aside class="project-aside" aria-label="Infos & médias">
+
+                <!-- panneaux (remplis dynamiquement selon la data) -->
+                <!-- entête des onglets -->
+                <div class="tabs" id="asideTabs" role="tablist" aria-label="Onglets détails"></div>
+                <!-- Référence -->
+                <section id="tab-ref" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-ref" hidden>
+                    <h3 class="meta-title">Références</h3>
+                    <div class="ref-image">
+                        <img id="ref-img" alt="Image de référence">
+                    </div>
+                    <div class="meta-grid" id="meta-grid"></div>
+                </section>
+
+                <!-- 3D -->
+                <section id="tab-3d" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-3d" hidden>
+                    <!-- Si tu utilises Sketchfab, mets l’URL dans dataDetails comme 'model3d' -->
+                    <div class="threeD-wrapper">
+                        <iframe id="iframe-3d" src="" title="Modèle 3D" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+
+                <!-- Vidéo -->
+                <section id="tab-video" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-video" hidden>
+                    <div class="video-wrapper">
+                        <iframe id="video-iframe" src="" title="Vidéo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+
+                <!-- Notice -->
+                <section id="tab-notice" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-notice" hidden>
+
+                    <!-- 👇 Visualiseur PDF intégré -->
+                    <div class="pdf-viewer" id="notice-viewer" hidden>
+                        <iframe id="notice-iframe" title="Notice PDF" loading="lazy"></iframe>
+                    </div>
+                </section>
             </aside>
+
         </section>
 
-        <!-- GALERIE / CARROUSEL -->
-
-
-        <section class="project-video" aria-label="Vidéo du projet">
-            <h2>Vidéo</h2>
-            <div class="video-wrapper">
-                <iframe id="video-frame" frameborder="0" allowfullscreen loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
-                </iframe>
-            </div>
-        </section>
 
         <!-- DESCRIPTION -->
         <section class="project-description">
@@ -337,143 +93,411 @@
 
     <script>
         (function () {
-            // --- helpers ---
             const $ = (s) => document.querySelector(s);
             const curLang = (window.currentLang || 'fr');
-            const fmtDate = (iso) => {
-                if (!iso) return '';
-                const d = new Date(iso);
-                return isNaN(d) ? '' : d.toLocaleDateString(curLang === 'fr' ? 'fr-FR' : 'en-GB');
-            };
-            const getName = (p) => {
-                if (!p) return '';
-                if (p.name && typeof p.name === 'object') return p.name[curLang] || p.name.en || p.name.fr || '';
-                return p.label || p.alt || p.id || '';
-            };
-
-            // --- lire l'id dans l'URL ---
             const params = new URLSearchParams(location.search);
             const mocId = params.get('id');
 
-            // --- données ---
+            // Données (fusion p + d)
             const PROJECTS = (window.PROJECTS || window.project || []);
             const DETAILS = (window.dataDetails || []);
-            const p = (Array.isArray(PROJECTS) ? PROJECTS : []).find(x => x.id === mocId) || {};
-            const d = (Array.isArray(DETAILS) ? DETAILS : []).find(x => x.id === mocId) || {};
+            const p = PROJECTS.find(x => x.id === mocId) || {};
+            const d = DETAILS.find(x => x.id === mocId) || {};
+            const data = Object.assign({}, p, d); // fusion
 
-            // --- remplir titre + description ---
-            const title = getName(p) || (d.title && (d.title[curLang] || d.title.en || d.title.fr)) || (mocId || '');
+            // ----- TITRE + DESCRIPTION -----
+            const title =
+                (p.name && (p.name[curLang] || p.name.en || p.name.fr)) ||
+                (d.title && (d.title[curLang] || d.title.en || d.title.fr)) ||
+                (mocId || '');
             $('#page-title').textContent = title;
 
             const desc = (d.description && (d.description[curLang] || d.description.en || d.description.fr)) || '';
             $('#desc').textContent = desc;
+            const descSection = document.querySelector('.project-description');
+            if (!desc.trim() && descSection) descSection.style.display = 'none';
 
-            // --- images principale & référence ---
-            const mainImg = (d.images && d.images.main) || p.img || '';
-            const refImg = (d.images && (d.images.reference || d.images.main)) ||
-                (Array.isArray(d.images && d.images.gallery) && d.images.gallery[0] ? d.images.gallery[0].src : '');
-
-            const hero = $('#hero-img'); if (hero) { hero.src = mainImg; hero.alt = title; }
-            const ref = $('#ref-img'); if (ref) { ref.src = refImg || ''; ref.alt = title + ' — référence'; }
-
-            // --- aside "Références" (même esprit que witches-road) ---
-            const rows = [];
-            if (d.locations) rows.push({ icon: 'bx bx-map', key: 'Location :', val: d.locations });
-            if (p.filter) rows.push({ icon: 'bx bx-film', key: 'Movie :', val: p.filter });
-            if (d.characters) rows.push({ icon: 'bx bx-user', key: 'Characters :', val: d.characters });
-
-            $('#meta-grid').innerHTML = rows.map(r => `
-    <div class="meta-row"><i class='${r.icon}'></i><span class="meta-key">${r.key}</span><span>${r.val || '-'}</span></div>
-  `).join('');
-
-            // --- galerie/carrousel (dyn) ---
+            // ----- GALERIE / CARROUSEL -----
             const gallery = (d.images && Array.isArray(d.images.gallery)) ? d.images.gallery : [];
             const track = $('#carouselTrack');
             const dots = $('#carouselDots');
             const thumbs = $('#thumbs');
 
-            // slides
-            track.innerHTML = gallery.map(g => `
-    <div class="carousel-slide"><img src="${g.src}" alt="${title} - ${g.caption || ''}"/></div>
-  `).join('');
-
-            // thumbs
-            thumbs.innerHTML = gallery.map((g, i) => `
-    <button ${i === 0 ? 'class="active"' : ''} data-index="${i}">
-      <img src="${g.src}" alt="Miniature ${i + 1}"/>
-    </button>
-  `).join('');
-
-            // dots
-            dots.innerHTML = gallery.map((_, i) => `
-    <button class="carousel-dot ${i === 0 ? 'active' : ''}" aria-label="Aller à l'image ${i + 1}"></button>
-  `).join('');
-
-            // interactions (copiées/simplifiées depuis witches-road)
-            let index = 0;
-            function update() {
-                track.style.transform = `translateX(-${index * 100}%)`;
-                // dots
-                dots.querySelectorAll('.carousel-dot').forEach((b, i) => b.classList.toggle('active', i === index));
-                // thumbs
-                thumbs.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === index));
+            if (track) {
+                track.innerHTML = gallery.map(g => `
+      <div class="carousel-slide"><img src="${g.src}" alt="${title} - ${g.caption || ''}"/></div>
+    `).join('');
             }
-            function goTo(i) { index = (i + gallery.length) % gallery.length; update(); }
 
-            $('#prevBtn')?.addEventListener('click', () => goTo(index - 1));
-            $('#nextBtn')?.addEventListener('click', () => goTo(index + 1));
-            dots.addEventListener('click', (e) => {
+            if (thumbs) {
+                thumbs.innerHTML = gallery.map((g, i) => `
+      <button ${i === 0 ? 'class="active"' : ''} data-index="${i}">
+        <img src="${g.src}" alt="Miniature ${i + 1}"/>
+      </button>
+    `).join('');
+            }
+
+            if (dots) {
+                dots.innerHTML = gallery.map((_, i) => `
+      <button class="carousel-dot ${i === 0 ? 'active' : ''}" aria-label="Aller à l'image ${i + 1}"></button>
+    `).join('');
+            }
+
+            let index = 0;
+            function keepActiveThumbVisible() {
+                const container = thumbs;
+                const active = container?.querySelector('button.active');
+                if (!container || !active) return;
+                const cRect = container.getBoundingClientRect();
+                const bRect = active.getBoundingClientRect();
+                const pad = 8;
+                if (bRect.left < cRect.left) {
+                    container.scrollBy({ left: bRect.left - cRect.left - pad, behavior: 'smooth' });
+                } else if (bRect.right > cRect.right) {
+                    container.scrollBy({ left: bRect.right - cRect.right + pad, behavior: 'smooth' });
+                }
+            }
+            function updateCarousel() {
+                if (track) track.style.transform = `translateX(-${index * 100}%)`;
+                dots?.querySelectorAll('.carousel-dot').forEach((b, i) => b.classList.toggle('active', i === index));
+                thumbs?.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === index));
+                keepActiveThumbVisible();
+            }
+            function goTo(i) { index = (i + gallery.length) % gallery.length; updateCarousel(); }
+
+            dots?.addEventListener('click', (e) => {
                 const i = [...dots.children].indexOf(e.target.closest('.carousel-dot'));
                 if (i >= 0) goTo(i);
             });
-            thumbs.addEventListener('click', (e) => {
+            thumbs?.addEventListener('click', (e) => {
                 const btn = e.target.closest('button[data-index]');
                 if (btn) goTo(parseInt(btn.dataset.index, 10));
             });
+            updateCarousel();
 
-            // Swipe mobile
-            let startX = null;
-            track.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
-            track.addEventListener('touchend', e => {
-                if (startX === null) return;
-                const dx = e.changedTouches[0].clientX - startX; startX = null;
-                if (Math.abs(dx) > 40) { dx > 0 ? goTo(index - 1) : goTo(index + 1); }
-            });
+            // ========== ASIDE EN ONGLETS ==========
+            const tabsBar = document.getElementById('asideTabs');
+            const mkBtn = (id, label) => {
+                const b = document.createElement('button');
+                b.id = `tabbtn-${id}`;
+                b.setAttribute('role', 'tab');
+                b.setAttribute('aria-controls', `tab-${id}`);
+                b.textContent = label;
+                return b;
+            };
+            const showTab = (idToShow) => {
+                document.querySelectorAll('.tabs [role="tab"]').forEach(btn => {
+                    const on = btn.id === `tabbtn-${idToShow}`;
+                    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+                    btn.tabIndex = on ? 0 : -1;
+                });
+                document.querySelectorAll('.tabpanel').forEach(p => {
+                    p.hidden = (p.id !== `tab-${idToShow}`);
+                });
+            };
 
-            // init
-            update();
+            // Quelles sections existent ?
+            const hasRef = Boolean(d?.images?.reference);
+            const hasVideo = typeof d?.video === 'string' && d.video.trim() !== '';
+            const has3D = typeof d?.model3d === 'string' && d.model3d.trim() !== '';
+            const hasNotice = Boolean(d?.images?.notice || d?.instructions);
+
+            // Onglets à créer dynamiquement
+            const wanted = [];
+            if (hasRef) wanted.push({ id: 'ref', label: 'Référence' });
+            if (has3D) wanted.push({ id: '3d', label: '3D' });
+            if (hasVideo) wanted.push({ id: 'video', label: 'Vidéo' });
+            if (hasNotice) wanted.push({ id: 'notice', label: 'Notice' });
+
+            if (wanted.length === 0) {
+                const aside = document.querySelector('.project-aside');
+                const hero = document.querySelector('.project-hero');
+                aside?.remove();
+                hero?.classList.add('no-meta');
+                return; // rien à hydrater
+            }
+
+            if (wanted.length === 1) {
+                document.querySelector('.tabs').style.display = 'none';
+                showTab(wanted[0].id);
+            } else {
+                tabsBar.innerHTML = '';
+                wanted.forEach((w, i) => {
+                    const btn = mkBtn(w.id, w.label);
+                    btn.addEventListener('click', () => showTab(w.id));
+                    if (i === 0) { btn.setAttribute('aria-selected', 'true'); btn.tabIndex = 0; }
+                    else { btn.setAttribute('aria-selected', 'false'); btn.tabIndex = -1; }
+                    tabsBar.appendChild(btn);
+                });
+                showTab(wanted[0].id);
+            }
+
+            // ----- RÉFÉRENCE -----
+            if (hasRef) {
+                const refImgEl = document.getElementById('ref-img');
+                const metaGrid = document.getElementById('meta-grid');
+                if (refImgEl) {
+                    refImgEl.src = d.images.reference;
+                    refImgEl.alt = `${title} — référence`;
+                }
+                const rows = [];
+                if (d.locations) rows.push({ icon: 'bx bx-map', key: 'Location :', val: d.locations });
+                if (p.filter) rows.push({ icon: 'bx bx-film', key: 'Movie :', val: p.filter });
+                if (d.characters) rows.push({ icon: 'bx bx-user', key: 'Characters :', val: d.characters });
+                if (metaGrid) {
+                    metaGrid.innerHTML = rows.map(r => `
+        <div class="meta-row">
+          <i class="${r.icon}"></i>
+          <span class="meta-key">${r.key}</span>
+          <span>${r.val || '-'}</span>
+        </div>`).join('');
+                }
+                document.getElementById('tab-ref').hidden = false;
+            }
+
+            // ----- 3D -----
+            if (has3D) {
+                const iframe3d = document.getElementById('iframe-3d');
+                if (iframe3d) {
+                    iframe3d.src = d.model3d; // URL d’embed (ex: Sketchfab)
+                    document.getElementById('tab-3d').hidden = false;
+                }
+            }
+
+            // ----- VIDÉO -----
+            if (hasVideo) {
+                const v = document.getElementById('video-iframe');
+                if (v) {
+                    v.src = d.video;
+                    document.getElementById('tab-video').hidden = false;
+                }
+            }
+
+            // ----- NOTICE + LECTEUR PDF -----
+            if (hasNotice) {
+                const nThumb = document.getElementById('notice-thumb');
+                const nLink = document.getElementById('notice-download');
+
+                // Miniature: priorité notice -> référence -> image principale
+                const noticeThumb = d.images?.notice || d.images?.reference || p.img || '';
+                if (nThumb && noticeThumb) nThumb.src = noticeThumb;
+
+                // Lien de téléchargement: priorité au PDF d'instructions
+                const noticePdf = d.instructions || data.instructions || d.link || data.link || '';
+                if (nLink) {
+                    if (noticePdf) nLink.href = noticePdf;
+                    else if (d?.images?.notice) nLink.href = d.images.notice;
+                    else nLink.removeAttribute('href');
+                }
+
+                // Lecteur PDF intégré, injecté si non présent dans le HTML
+                const noticeTab = document.getElementById('tab-notice');
+                let viewer = document.getElementById('notice-viewer');
+                let frame = document.getElementById('notice-iframe');
+
+                if (!viewer && noticeTab) {
+                    viewer = document.createElement('div');
+                    viewer.id = 'notice-viewer';
+                    viewer.className = 'pdf-viewer';
+                    viewer.hidden = true;
+                    frame = document.createElement('iframe');
+                    frame.id = 'notice-iframe';
+                    frame.title = 'Notice PDF';
+                    frame.setAttribute('loading', 'lazy');
+                    viewer.appendChild(frame);
+                    noticeTab.appendChild(viewer);
+                }
+
+                if (noticePdf && frame && viewer) {
+                    // charge le PDF directement, ajusté en largeur
+                    frame.src = `${noticePdf}#view=FitH`;
+                    viewer.hidden = false;
+                }
+
+                document.getElementById('tab-notice').hidden = false;
+            }
         })();
-
     </script>
+
 
     <script>
         (function () {
-            // Lire l'id dans l'URL
+            const $ = (s) => document.querySelector(s);
+            const curLang = (window.currentLang || 'fr');
             const params = new URLSearchParams(location.search);
             const mocId = params.get('id');
 
             // Données
             const PROJECTS = (window.PROJECTS || window.project || []);
             const DETAILS = (window.dataDetails || []);
+            const p = PROJECTS.find(x => x.id === mocId) || {};
+            const d = DETAILS.find(x => x.id === mocId) || {};
+            const data = Object.assign({}, p, d); // fusion
 
-            const p = (Array.isArray(PROJECTS) ? PROJECTS : []).find(x => x.id === mocId) || {};
-            const d = (Array.isArray(DETAILS) ? DETAILS : []).find(x => x.id === mocId) || {};
+            // -- Titre + description (inchangé)
+            const title =
+                (p.name && (p.name[curLang] || p.name.en || p.name.fr)) ||
+                (d.title && (d.title[curLang] || d.title.en || d.title.fr)) ||
+                (mocId || '');
+            $('#page-title').textContent = title;
 
-            // --- LOGIQUE VIDÉO ---
-            const video = d.video || p.video || "";
-            const vf = document.getElementById("video-frame");
-            const sectionVideo = document.querySelector(".project-video");
+            const desc = (d.description && (d.description[curLang] || d.description.en || d.description.fr)) || '';
+            $('#desc').textContent = desc;
+            const descSection = document.querySelector('.project-description');
+            if (!desc.trim() && descSection) descSection.style.display = 'none';
 
-            if (video && vf) {
-                vf.src = video;                 // <- on alimente l’iframe
-            } else if (sectionVideo) {
-                sectionVideo.style.display = "none";  // <- on masque si pas de vidéo
+            // -- Galerie / carrousel (laisse ton code existant ici)
+            // (… ton code carrousel / thumbs / dots reste tel quel …)
+
+            // ========== ASIDE EN ONGLETS ==========
+            const tabsBar = document.getElementById('asideTabs');
+            const mkBtn = (id, label) => {
+                const b = document.createElement('button');
+                b.id = `tabbtn-${id}`;
+                b.setAttribute('role', 'tab');
+                b.setAttribute('aria-controls', `tab-${id}`);
+                b.textContent = label;
+                return b;
+            };
+            const showTab = (idToShow) => {
+                document.querySelectorAll('.tabs [role="tab"]').forEach(btn => {
+                    const on = btn.id === `tabbtn-${idToShow}`;
+                    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+                    btn.tabIndex = on ? 0 : -1;
+                });
+                document.querySelectorAll('.tabpanel').forEach(p => {
+                    p.hidden = (p.id !== `tab-${idToShow}`);
+                });
+            };
+
+            // Quelles sections existent ?
+            const hasRef = Boolean(d?.images?.reference);
+            const hasVideo = typeof d?.video === 'string' && d.video.trim() !== '';
+            const has3D = typeof d?.model3d === 'string' && d.model3d.trim() !== '';     // <— optionnel si tu ajoutes model3d
+            const hasNotice = Boolean(d?.images?.notice || d?.instructions);
+
+            // Onglets à créer dynamiquement
+            const wanted = [];
+            if (hasRef) wanted.push({ id: 'ref', label: 'Référence' });
+            if (has3D) wanted.push({ id: '3d', label: '3D' });
+            if (hasVideo) wanted.push({ id: 'video', label: 'Vidéo' });
+            if (hasNotice) wanted.push({ id: 'notice', label: 'Notice' });
+
+            // Si aucune data côté meta
+            if (wanted.length === 0) {
+                const aside = document.querySelector('.project-aside');
+                const hero = document.querySelector('.project-hero');
+                if (aside) aside.remove();
+                if (hero) hero.classList.add('no-meta');
+            }
+            // S’il n’y a qu’UNE seule section -> on la montre sans boutons
+            else if (wanted.length === 1) {
+                document.querySelector('.tabs').style.display = 'none';
+                showTab(wanted[0].id); // affiche directement la seule section
+            }
+            // Cas normal : 2+ onglets -> navigation
+            else {
+                tabsBar.innerHTML = '';
+                wanted.forEach((w, i) => {
+                    const btn = mkBtn(w.id, w.label);
+                    btn.addEventListener('click', () => showTab(w.id));
+                    if (i === 0) { btn.setAttribute('aria-selected', 'true'); btn.tabIndex = 0; }
+                    else { btn.setAttribute('aria-selected', 'false'); btn.tabIndex = -1; }
+                    tabsBar.appendChild(btn);
+                });
+                showTab(wanted[0].id);
+            }
+
+            // Si aucune data côté meta (cas rare), enlève l’aside et étends la galerie
+            if (wanted.length === 0) {
+                const aside = document.querySelector('.project-aside');
+                const hero = document.querySelector('.project-hero');
+                if (aside) aside.remove();
+                if (hero) hero.classList.add('no-meta');  // déjà stylé dans ton CSS
+            } else {
+                // Boutons
+                tabsBar.innerHTML = '';
+                wanted.forEach((w, i) => {
+                    const btn = mkBtn(w.id, w.label);
+                    btn.addEventListener('click', () => showTab(w.id));
+                    if (i === 0) { btn.setAttribute('aria-selected', 'true'); btn.tabIndex = 0; }
+                    else { btn.setAttribute('aria-selected', 'false'); btn.tabIndex = -1; }
+                    tabsBar.appendChild(btn);
+                });
+
+                // Panneaux - hydrate chacun seulement s’il existe
+                if (hasRef) {
+                    const refImgEl = document.getElementById('ref-img');
+                    const metaGrid = document.getElementById('meta-grid');
+                    if (refImgEl) {
+                        refImgEl.src = d.images.reference;
+                        refImgEl.alt = `${title} — référence`;
+                    }
+                    const rows = [];
+                    if (d.locations) rows.push({ icon: 'bx bx-map', key: 'Location :', val: d.locations });
+                    if (p.filter) rows.push({ icon: 'bx bx-film', key: 'Movie :', val: p.filter });
+                    if (d.characters) rows.push({ icon: 'bx bx-user', key: 'Characters :', val: d.characters });
+                    if (metaGrid) {
+                        metaGrid.innerHTML = rows.map(r => `
+          <div class="meta-row">
+            <i class="${r.icon}"></i>
+            <span class="meta-key">${r.key}</span>
+            <span>${r.val || '-'}</span>
+          </div>`).join('');
+                    }
+                    document.getElementById('tab-ref').hidden = false; // sera visible si onglet actif
+                }
+
+                if (has3D) {
+                    const iframe3d = document.getElementById('iframe-3d');
+                    iframe3d.src = d.model3d; // ex: URL Sketchfab en embed
+                    document.getElementById('tab-3d').hidden = false;
+                }
+
+                if (hasVideo) {
+                    const v = document.getElementById('video-iframe');
+                    v.src = d.video;
+                    document.getElementById('tab-video').hidden = false;
+                }
+
+                if (hasNotice) {
+                    const nThumb = document.getElementById('notice-thumb');
+                    const nLink = document.getElementById('notice-download');
+                    if (d?.images?.notice) nThumb.src = d.images.notice;
+                    // Priorité à un vrai PDF d’instructions si présent
+                    if (d.instructions) {
+                        nLink.href = d.instructions;
+                    } else if (d?.images?.notice) {
+                        nLink.href = d.images.notice;
+                    } else {
+                        nLink.removeAttribute('href');
+                    }
+                    document.getElementById('tab-notice').hidden = false;
+                }
+
+                // onglet initial = 1er existant
+                showTab(wanted[0].id);
             }
         })();
     </script>
 
+    <script>
+        function equalizeTabHeights() {
+            const tabs = document.querySelectorAll('.tabpanel');
+            let maxHeight = 0;
+            tabs.forEach(tab => {
+                tab.style.height = 'auto'; // reset
+                if (!tab.hasAttribute('hidden')) {
+                    const h = tab.offsetHeight;
+                    if (h > maxHeight) maxHeight = h;
+                }
+            });
+            tabs.forEach(tab => tab.style.minHeight = maxHeight + 'px');
+        }
 
-
+        window.addEventListener('load', equalizeTabHeights);
+        window.addEventListener('resize', equalizeTabHeights);
+    </script>
 </body>
 
 </html>
