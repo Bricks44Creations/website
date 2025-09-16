@@ -605,11 +605,7 @@ body {
   transform: scale(1.05);
 }
 
-@media (max-width: 1200px) {
-  .main-content {
-    padding: 2rem 1rem;
-    /* réduit les marges latérales */
-  }
+@media (min-width: 1024px) {
 
   .dropbtn-tri {
     width: 100%;
