@@ -650,7 +650,7 @@ body {
   margin-right: 0%;
 }
 
-@media (min-width : 784px) {
+@media (min-width : 1300px) {
   .project-page {
     margin-left: 10%;
     margin-right: 10%;
