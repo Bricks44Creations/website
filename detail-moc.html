@@ -9,8 +9,19 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
+<style>
+    model-viewer {
+        width: 100%;
+        height: 100%;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+</style>
+</head>
 
 <body>
     <!-- PAGE HEADER -->
@@ -51,10 +62,9 @@
 
                 <!-- 3D -->
                 <section id="tab-3d" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-3d" hidden>
-                    <!-- Si tu utilises Sketchfab, mets l’URL dans dataDetails comme 'model3d' -->
-                    <div class="threeD-wrapper">
-                        <iframe id="iframe-3d" src="" title="Modèle 3D" frameborder="0" allowfullscreen></iframe>
-                    </div>
+                    <model-viewer src="" alt="" shadow-intensity="1" shadow-softness="0.5" camera-controls
+                        exposure="1.2">
+                    </model-viewer>
                 </section>
 
                 <!-- Vidéo -->
@@ -257,11 +267,16 @@
 
             // ----- 3D -----
             if (has3D) {
-                const iframe3d = document.getElementById('iframe-3d');
-                if (iframe3d) {
-                    iframe3d.src = d.model3d; // URL d’embed (ex: Sketchfab)
-                    document.getElementById('tab-3d').hidden = false;
+                const panel = document.getElementById('tab-3d');
+                const mv = panel?.querySelector('model-viewer');
+                if (mv) {
+                    mv.src = d.model3d;          // <-- vient de data-detail.js
+                    mv.alt = title || 'Model 3D';
+                    // options utiles (facultatives) :
+                    // mv.setAttribute('shadow-intensity', '0.8');
+                    // mv.setAttribute('ar', ''); // active AR sur mobile compatible
                 }
+                panel.hidden = false;
             }
 
             // ----- VIDÉO -----
@@ -498,6 +513,10 @@
         window.addEventListener('load', equalizeTabHeights);
         window.addEventListener('resize', equalizeTabHeights);
     </script>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 </body>
 
 </html>
