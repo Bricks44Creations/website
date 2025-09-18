@@ -290,6 +290,7 @@
   });
 })(window);
 
+
 /* ---------- INSTRUCTIONS GENERATOR ---------------------*/
 (function (global) {
   const norm = (s) => (s || "").trim().toLowerCase();

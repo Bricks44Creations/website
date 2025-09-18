@@ -227,7 +227,6 @@ const dataDetails = [
         { src: "img/MOC/moc-marvel-37-3.webp", caption: "Détail 3" },
       ],
       reference: "img/MOC/moc-marvel-37-ref.webp",
-      notice: "img/MOC/moc-marvel-37-notice.webp",
     },
     stats: {
       pieces: { en: "", fr: "" },
@@ -235,6 +234,7 @@ const dataDetails = [
       buildTime: ""
     },
     instructions: "img/instructions/Wakanda Throne Instructions - Bricks Creations.pdf",
+    model3d: "img/3d/wakanda-throne2.glb",
   },
   {
     id: "moc-marvel-36",
@@ -830,7 +830,6 @@ const dataDetails = [
       buildTime: ""
     },
     video: "https://www.youtube.com/embed/FqaTvcWxTGY",
-
   },
   {
     id: "moc-marvel-5",
@@ -928,37 +927,495 @@ const dataDetails = [
     },
     video: "https://www.youtube.com/embed/apD28YdP4kI?si=uMCoyB7TUYGYvrgV",
   },
-  //Jurassic Park//
-  { id: "moc-jurassic-park-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-jurassic-park-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-jurassic-park-3", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-jurassic-park-4", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-jurassic-park-5", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-jurassic-park-6", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
 
+
+  //Jurassic Park//
+  {
+    id: "moc-jurassic-park-13",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-13-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-13-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-13-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-13-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-13-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-13-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-13-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-jurassic-park-13-8.webp", caption: "Détail 8" },
+        { src: "img/MOC/moc-jurassic-park-13-9.webp", caption: "Détail 9" },
+        { src: "img/MOC/moc-jurassic-park-13-10.webp", caption: "Détail 10" },
+        { src: "img/MOC/moc-jurassic-park-13-11.webp", caption: "Détail 11" },
+        { src: "img/MOC/moc-jurassic-park-13-12.webp", caption: "Détail 12" },
+        { src: "img/MOC/moc-jurassic-park-13-13.webp", caption: "Détail 13" },
+        { src: "img/MOC/moc-jurassic-park-13-14.webp", caption: "Détail 14" },
+        { src: "img/MOC/moc-jurassic-park-13-15.webp", caption: "Détail 15" },
+      ],
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+    instructions: "img/instructions/McDonald’s Logo Instructions - Bricks Creations.pdf",
+
+  },
+  {
+    id: "moc-jurassic-park-12",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-12-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-12-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-12-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-12-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-12-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-12-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-12-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-jurassic-park-12-8.webp", caption: "Détail 8" },
+      ],
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-11",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-11-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-11-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-11-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-11-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-11-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-11-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-11-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-jurassic-park-11-8.webp", caption: "Détail 8" },
+      ],
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-10",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-10-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-10-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-10-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-10-4.webp", caption: "Détail 4" },
+      ],
+      reference: "img/MOC/moc-jurassic-park-10-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-9",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-9-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-9-2.webp", caption: "Détail 2" },
+      ],
+      reference: "img/MOC/moc-jurassic-park-9-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-8",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-8-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-8-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-8-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-8-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-8-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-8-6.webp", caption: "Détail 6" },
+      ],
+      reference: "img/MOC/moc-jurassic-park-8-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-7",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-7-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-7-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-7-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-7-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-7-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-7-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-7-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-jurassic-park-7-8.webp", caption: "Détail 8" },
+      ],
+      reference: "img/MOC/moc-jurassic-park-7-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-6",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-6-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-6-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-6-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-6-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-6-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-6-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-6-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-jurassic-park-6-8.webp", caption: "Détail 8" },
+      ],
+      reference: "img/MOC/moc-jurassic-park-6-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-5",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-5-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-5-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-5-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-5-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-5-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-5-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-5-7.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-5-8.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-5-9.webp", caption: "Détail 6" },
+      ],
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+    instructions: "img/instructions/Subway Logo Instructions - Bricks Creations.pdf",
+  },
+  {
+    id: "moc-jurassic-park-4",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-4-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-4-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-4-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-4-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-4-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-4-6.webp", caption: "Détail 6" },
+      ],
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-3",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-3-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-3-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-3-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-3-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-3-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-3-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-3-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-jurassic-park-3-8.webp", caption: "Détail 8" },
+        { src: "img/MOC/moc-jurassic-park-3-9.webp", caption: "Détail 9" },
+        { src: "img/MOC/moc-jurassic-park-3-10.webp", caption: "Détail 10" },
+        { src: "img/MOC/moc-jurassic-park-3-11.webp", caption: "Détail 11" },
+        { src: "img/MOC/moc-jurassic-park-3-12.webp", caption: "Détail 12" },
+        { src: "img/MOC/moc-jurassic-park-3-13.webp", caption: "Détail 13" },
+        { src: "img/MOC/moc-jurassic-park-3-14.webp", caption: "Détail 14" },
+        { src: "img/MOC/moc-jurassic-park-3-15.webp", caption: "Détail 15" },
+      ],
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-2",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-2-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-2-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-2-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-2-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-2-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-2-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-2-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-jurassic-park-2-8.webp", caption: "Détail 8" },
+      ],
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-jurassic-park-1",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-jurassic-park-1-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-jurassic-park-1-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-jurassic-park-1-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-jurassic-park-1-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-jurassic-park-1-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-jurassic-park-1-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-jurassic-park-1-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-jurassic-park-1-8.webp", caption: "Détail 8" },
+        { src: "img/MOC/moc-jurassic-park-1-9.webp", caption: "Détail 9" },
+      ],
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
 
   //City//
-  { id: "moc-city-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-
+  {
+    id: "moc-city-1",
+    locations: "Park Avenue, New York",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-city-1-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-city-1-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-city-1-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-city-1-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-city-1-5.webp", caption: "Détail 5" },
+      ],
+      reference: "img/MOC/moc-city-1-ref.webp",
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
 
   //Medieval//
-  { id: "moc-medieval-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  {
+    id: "moc-medieval-1",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-medieval-1-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-medieval-1-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-medieval-1-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-medieval-1-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-medieval-1-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-medieval-1-6.webp", caption: "Détail 6" },
 
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
 
   //Wizarding World//
-  { id: "moc-wizarding-world-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-wizarding-world-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+  {
+    id: "moc-wizarding-world-1",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-ww-1-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-ww-1-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-ww-1-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-ww-1-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-ww-1-5.webp", caption: "Détail 5" },
+      ],
+      reference: "img/MOC/moc-ww-1-ref.webp",
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-wizarding-world-2",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-ww-2-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-ww-2-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-ww-2-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-ww-2-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-ww-2-5.webp", caption: "Détail 5" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
 
 
   //Others//
-  { id: "moc-others-1", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-others-2", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-others-3", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-others-4", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-others-5", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-  { id: "moc-others-6", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
-
-
+  {
+    id: "moc-others-1",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-1-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-1-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-1-3.webp", caption: "Détail 3" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-others-2",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-2-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-2-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-2-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-2-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-2-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-others-2-6.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-2-7.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-2-8.webp", caption: "Détail 5" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-others-3",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-3-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-3-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-3-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-3-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-3-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-others-3-6.webp", caption: "Détail 3" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-others-4",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-4-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-4-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-4-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-4-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-4-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-others-4-6.webp", caption: "Détail 3" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-others-5",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-5-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-5-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-5-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-5-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-5-5.webp", caption: "Détail 5" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-others-6",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-6-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-6-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-6-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-6-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-6-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-others-6-6.webp", caption: "Détail 3" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-others-7",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-7-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-7-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-7-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-7-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-7-5.webp", caption: "Détail 5" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
 
 
   //Figurines//

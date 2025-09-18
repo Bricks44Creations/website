@@ -868,7 +868,7 @@ const project = [
 
     // Liste des MOC Jurassic Park //
     {//McDonald's Restaurant//
-        id: "moc-jurassic-park-1",
+        id: "moc-jurassic-park-13",
         name: {
             fr: "Restaurant McDonald's",
             en: "McDonald's Restaurant",
@@ -887,7 +887,7 @@ const project = [
         favoris: false,
     },
     {//QQS Restaurant//
-        id: "moc-jurassic-park-2",
+        id: "moc-jurassic-park-12",
         name: {
             fr: "Restaurant QQS",
             en: "QQS Restaurant",
@@ -906,7 +906,7 @@ const project = [
         favoris: false,
     },
     {//Gift Shop//
-        id: "moc-jurassic-park-3",
+        id: "moc-jurassic-park-11",
         name: {
             fr: "Magasin de souvenirs",
             en: "Gift Shop",
@@ -925,7 +925,7 @@ const project = [
         favoris: false,
     },
     {//The Aviary//
-        id: "moc-jurassic-park-4",
+        id: "moc-jurassic-park-10",
         name: {
             fr: "La volière",
             en: "The Aviary",
@@ -944,7 +944,7 @@ const project = [
         favoris: false,
     },
     {//The Mosasaurus (2)//
-        id: "moc-jurassic-park-5",
+        id: "moc-jurassic-park-9",
         name: {
             fr: "Le Mosasaure (2)",
             en: "The Mosasaurus (2)",
@@ -963,7 +963,7 @@ const project = [
         favoris: false,
     },
     {//Motorized Monorail//
-        id: "moc-jurassic-park-6",
+        id: "moc-jurassic-park-8",
         name: {
             fr: "Monorail motorisé",
             en: "Motorized Monorail",
@@ -1001,7 +1001,7 @@ const project = [
         favoris: false,
     },
     {//T-rex enclosure//
-        id: "moc-jurassic-park-8",
+        id: "moc-jurassic-park-6",
         name: {
             fr: "L'enclos du T-rex",
             en: "T-rex enclosure",
@@ -1020,7 +1020,7 @@ const project = [
         favoris: false,
     },
     {//Subway Restaurant//
-        id: "moc-jurassic-park-9",
+        id: "moc-jurassic-park-5",
         name: {
             fr: "Restaurant Subway",
             en: "Subway Restaurant",
@@ -1039,7 +1039,7 @@ const project = [
         favoris: false,
     },
     {//Coffee Chain Restaurant//
-        id: "moc-jurassic-park-10",
+        id: "moc-jurassic-park-4",
         name: {
             fr: "Restaurant 'Coffee Chain'",
             en: "Coffee Chain Restaurant",
@@ -1058,7 +1058,7 @@ const project = [
         favoris: false,
     },
     {//Headquarter & Restaurant//
-        id: "moc-jurassic-park-11",
+        id: "moc-jurassic-park-3",
         name: {
             fr: "Quartier général & Restaurant",
             en: "Headquarter & Restaurant",
@@ -1077,7 +1077,7 @@ const project = [
         favoris: false,
     },
     {//A laboratory in the jungle//
-        id: "moc-jurassic-park-12",
+        id: "moc-jurassic-park-2",
         name: {
             fr: "Un laboratoire dans la jungle",
             en: "A laboratory in the jungle",
@@ -1096,7 +1096,7 @@ const project = [
         favoris: false,
     },
     {//Archaeological excavations//
-        id: "moc-jurassic-park-13",
+        id: "moc-jurassic-park-1",
         name: {
             fr: "Fouilles archéologiques",
             en: "Archaeological excavations",
@@ -1972,3 +1972,4 @@ window.EXPO = [
 ];
 window.PROJECTS = project;
 window.PROJECTS = (typeof project !== 'undefined') ? project : window.PROJECTS;
+window.PROJECTS = (typeof project !== "undefined") ? project : (window.PROJECTS || []);
