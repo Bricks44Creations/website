@@ -1412,16 +1412,6 @@ model-viewer {
   margin-top: .75rem;
 }
 
-/* Mode sombre (optionnel si tu en as un) */
-@media (prefers-color-scheme: dark) {
-  .section-card {
-    background: #0f172a;
-    /* slate-900 */
-    border-color: rgba(255, 255, 255, .06);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
-  }
-}
-
 .section-head {
   color: #ffffff;
   display: flex;
