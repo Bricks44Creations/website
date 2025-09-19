@@ -12,17 +12,6 @@
 
 </head>
 
-<style>
-    model-viewer {
-        width: 100%;
-        height: 100%;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-</style>
-</head>
-
 <body>
     <!-- PAGE HEADER -->
 
@@ -85,8 +74,6 @@
             </aside>
 
         </section>
-
-
         <!-- DESCRIPTION -->
         <section class="project-description">
             <h2>Description</h2>
@@ -94,28 +81,33 @@
         </section>
     </div>
 
-    <!-- DATA -->
+    <!-- FOOTER -->
+
+
+    <!-- SCRIPT -->
     <script src="js/data-detail.js"></script>
     <script src="js/data.js"></script>
-    <!-- UTILS (langue, menus, tri, etc.) -->
     <script src="js/Generator.js"></script>
     <script src="js/script.js"></script>
-
+    <!-- =========================================================
+     SCRIPT PRINCIPAL — Hydratation contrôlée (un seul onglet visible)
+     ========================================================= -->
     <script>
         (function () {
+            // ----- [A] Utilitaires & contexte -----
             const $ = (s) => document.querySelector(s);
             const curLang = (window.currentLang || 'fr');
             const params = new URLSearchParams(location.search);
             const mocId = params.get('id');
 
-            // Données (fusion p + d)
+            // ----- [B] Données -----
             const PROJECTS = (window.PROJECTS || window.project || []);
             const DETAILS = (window.dataDetails || []);
             const p = PROJECTS.find(x => x.id === mocId) || {};
             const d = DETAILS.find(x => x.id === mocId) || {};
-            const data = Object.assign({}, p, d); // fusion
+            const data = Object.assign({}, p, d);
 
-            // ----- TITRE + DESCRIPTION -----
+            // ----- [C] Titre & description -----
             const title =
                 (p.name && (p.name[curLang] || p.name.en || p.name.fr)) ||
                 (d.title && (d.title[curLang] || d.title.en || d.title.fr)) ||
@@ -124,10 +116,10 @@
 
             const desc = (d.description && (d.description[curLang] || d.description.en || d.description.fr)) || '';
             $('#desc').textContent = desc;
-            const descSection = document.querySelector('.project-description');
+            const descSection = $('.project-description');
             if (!desc.trim() && descSection) descSection.style.display = 'none';
 
-            // ----- GALERIE / CARROUSEL -----
+            // ----- [D] Galerie / carrousel -----
             const gallery = (d.images && Array.isArray(d.images.gallery)) ? d.images.gallery : [];
             const track = $('#carouselTrack');
             const dots = $('#carouselDots');
@@ -135,22 +127,22 @@
 
             if (track) {
                 track.innerHTML = gallery.map(g => `
-      <div class="carousel-slide"><img src="${g.src}" alt="${title} - ${g.caption || ''}"/></div>
-    `).join('');
+        <div class="carousel-slide">
+          <img src="${g.src}" alt="${title} - ${g.caption || ''}"/>
+        </div>
+      `).join('');
             }
-
             if (thumbs) {
                 thumbs.innerHTML = gallery.map((g, i) => `
-      <button ${i === 0 ? 'class="active"' : ''} data-index="${i}">
-        <img src="${g.src}" alt="Miniature ${i + 1}"/>
-      </button>
-    `).join('');
+        <button ${i === 0 ? 'class="active"' : ''} data-index="${i}">
+          <img src="${g.src}" alt="Miniature ${i + 1}"/>
+        </button>
+      `).join('');
             }
-
             if (dots) {
                 dots.innerHTML = gallery.map((_, i) => `
-      <button class="carousel-dot ${i === 0 ? 'active' : ''}" aria-label="Aller à l'image ${i + 1}"></button>
-    `).join('');
+        <button class="carousel-dot ${i === 0 ? 'active' : ''}" aria-label="Aller à l'image ${i + 1}"></button>
+      `).join('');
             }
 
             let index = 0;
@@ -161,11 +153,8 @@
                 const cRect = container.getBoundingClientRect();
                 const bRect = active.getBoundingClientRect();
                 const pad = 8;
-                if (bRect.left < cRect.left) {
-                    container.scrollBy({ left: bRect.left - cRect.left - pad, behavior: 'smooth' });
-                } else if (bRect.right > cRect.right) {
-                    container.scrollBy({ left: bRect.right - cRect.right + pad, behavior: 'smooth' });
-                }
+                if (bRect.left < cRect.left) container.scrollBy({ left: bRect.left - cRect.left - pad, behavior: 'smooth' });
+                else if (bRect.right > cRect.right) container.scrollBy({ left: bRect.right - cRect.right + pad, behavior: 'smooth' });
             }
             function updateCarousel() {
                 if (track) track.style.transform = `translateX(-${index * 100}%)`;
@@ -174,7 +163,6 @@
                 keepActiveThumbVisible();
             }
             function goTo(i) { index = (i + gallery.length) % gallery.length; updateCarousel(); }
-
             dots?.addEventListener('click', (e) => {
                 const i = [...dots.children].indexOf(e.target.closest('.carousel-dot'));
                 if (i >= 0) goTo(i);
@@ -185,8 +173,10 @@
             });
             updateCarousel();
 
-            // ========== ASIDE EN ONGLETS ==========
+            // ----- [E] Système d’onglets (lazy-hydrate, un seul visible) -----
             const tabsBar = document.getElementById('asideTabs');
+
+            // Création bouton d’onglet
             const mkBtn = (id, label) => {
                 const b = document.createElement('button');
                 b.id = `tabbtn-${id}`;
@@ -195,253 +185,11 @@
                 b.textContent = label;
                 return b;
             };
-            const showTab = (idToShow) => {
-                document.querySelectorAll('.tabs [role="tab"]').forEach(btn => {
-                    const on = btn.id === `tabbtn-${idToShow}`;
-                    btn.setAttribute('aria-selected', on ? 'true' : 'false');
-                    btn.tabIndex = on ? 0 : -1;
-                });
-                document.querySelectorAll('.tabpanel').forEach(p => {
-                    p.hidden = (p.id !== `tab-${idToShow}`);
-                });
-            };
 
-            // Quelles sections existent ?
-            const hasRef = Boolean(d?.images?.reference);
-            const hasVideo = typeof d?.video === 'string' && d.video.trim() !== '';
-            const has3D = typeof d?.model3d === 'string' && d.model3d.trim() !== '';
-            const hasNotice = Boolean(d?.images?.notice || d?.instructions);
-
-            // Onglets à créer dynamiquement
-            const wanted = [];
-            if (hasRef) wanted.push({ id: 'ref', label: 'Référence' });
-            if (has3D) wanted.push({ id: '3d', label: '3D' });
-            if (hasVideo) wanted.push({ id: 'video', label: 'Vidéo' });
-            if (hasNotice) wanted.push({ id: 'notice', label: 'Notice' });
-
-            if (wanted.length === 0) {
-                const aside = document.querySelector('.project-aside');
-                const hero = document.querySelector('.project-hero');
-                aside?.remove();
-                hero?.classList.add('no-meta');
-                return; // rien à hydrater
-            }
-
-            if (wanted.length === 1) {
-                document.querySelector('.tabs').style.display = 'none';
-                showTab(wanted[0].id);
-            } else {
-                tabsBar.innerHTML = '';
-                wanted.forEach((w, i) => {
-                    const btn = mkBtn(w.id, w.label);
-                    btn.addEventListener('click', () => showTab(w.id));
-                    if (i === 0) { btn.setAttribute('aria-selected', 'true'); btn.tabIndex = 0; }
-                    else { btn.setAttribute('aria-selected', 'false'); btn.tabIndex = -1; }
-                    tabsBar.appendChild(btn);
-                });
-                showTab(wanted[0].id);
-            }
-
-            // ----- RÉFÉRENCE -----
-            if (hasRef) {
-                const refImgEl = document.getElementById('ref-img');
-                const metaGrid = document.getElementById('meta-grid');
-                if (refImgEl) {
-                    refImgEl.src = d.images.reference;
-                    refImgEl.alt = `${title} — référence`;
-                }
-                const rows = [];
-                if (d.locations) rows.push({ icon: 'bx bx-map', key: 'Location :', val: d.locations });
-                if (p.filter) rows.push({ icon: 'bx bx-film', key: 'Movie :', val: p.filter });
-                if (d.characters) rows.push({ icon: 'bx bx-user', key: 'Characters :', val: d.characters });
-                if (metaGrid) {
-                    metaGrid.innerHTML = rows.map(r => `
-        <div class="meta-row">
-          <i class="${r.icon}"></i>
-          <span class="meta-key">${r.key}</span>
-          <span>${r.val || '-'}</span>
-        </div>`).join('');
-                }
-                document.getElementById('tab-ref').hidden = false;
-            }
-
-            // ----- 3D -----
-            if (has3D) {
-                const panel = document.getElementById('tab-3d');
-                const mv = panel?.querySelector('model-viewer');
-                if (mv) {
-                    mv.src = d.model3d;          // <-- vient de data-detail.js
-                    mv.alt = title || 'Model 3D';
-                    // options utiles (facultatives) :
-                    // mv.setAttribute('shadow-intensity', '0.8');
-                    // mv.setAttribute('ar', ''); // active AR sur mobile compatible
-                }
-                panel.hidden = false;
-            }
-
-            // ----- VIDÉO -----
-            if (hasVideo) {
-                const v = document.getElementById('video-iframe');
-                if (v) {
-                    v.src = d.video;
-                    document.getElementById('tab-video').hidden = false;
-                }
-            }
-
-            // ----- NOTICE + LECTEUR PDF -----
-            if (hasNotice) {
-                const nThumb = document.getElementById('notice-thumb');
-                const nLink = document.getElementById('notice-download');
-
-                // Miniature: priorité notice -> référence -> image principale
-                const noticeThumb = d.images?.notice || d.images?.reference || p.img || '';
-                if (nThumb && noticeThumb) nThumb.src = noticeThumb;
-
-                // Lien de téléchargement: priorité au PDF d'instructions
-                const noticePdf = d.instructions || data.instructions || d.link || data.link || '';
-                if (nLink) {
-                    if (noticePdf) nLink.href = noticePdf;
-                    else if (d?.images?.notice) nLink.href = d.images.notice;
-                    else nLink.removeAttribute('href');
-                }
-
-                // Lecteur PDF intégré, injecté si non présent dans le HTML
-                const noticeTab = document.getElementById('tab-notice');
-                let viewer = document.getElementById('notice-viewer');
-                let frame = document.getElementById('notice-iframe');
-
-                if (!viewer && noticeTab) {
-                    viewer = document.createElement('div');
-                    viewer.id = 'notice-viewer';
-                    viewer.className = 'pdf-viewer';
-                    viewer.hidden = true;
-                    frame = document.createElement('iframe');
-                    frame.id = 'notice-iframe';
-                    frame.title = 'Notice PDF';
-                    frame.setAttribute('loading', 'lazy');
-                    viewer.appendChild(frame);
-                    noticeTab.appendChild(viewer);
-                }
-
-                if (noticePdf && frame && viewer) {
-                    // charge le PDF directement, ajusté en largeur
-                    frame.src = `${noticePdf}#view=FitH`;
-                    viewer.hidden = false;
-                }
-
-                document.getElementById('tab-notice').hidden = false;
-            }
-        })();
-    </script>
-
-
-    <script>
-        (function () {
-            const $ = (s) => document.querySelector(s);
-            const curLang = (window.currentLang || 'fr');
-            const params = new URLSearchParams(location.search);
-            const mocId = params.get('id');
-
-            // Données
-            const PROJECTS = (window.PROJECTS || window.project || []);
-            const DETAILS = (window.dataDetails || []);
-            const p = PROJECTS.find(x => x.id === mocId) || {};
-            const d = DETAILS.find(x => x.id === mocId) || {};
-            const data = Object.assign({}, p, d); // fusion
-
-            // -- Titre + description (inchangé)
-            const title =
-                (p.name && (p.name[curLang] || p.name.en || p.name.fr)) ||
-                (d.title && (d.title[curLang] || d.title.en || d.title.fr)) ||
-                (mocId || '');
-            $('#page-title').textContent = title;
-
-            const desc = (d.description && (d.description[curLang] || d.description.en || d.description.fr)) || '';
-            $('#desc').textContent = desc;
-            const descSection = document.querySelector('.project-description');
-            if (!desc.trim() && descSection) descSection.style.display = 'none';
-
-            // -- Galerie / carrousel (laisse ton code existant ici)
-            // (… ton code carrousel / thumbs / dots reste tel quel …)
-
-            // ========== ASIDE EN ONGLETS ==========
-            const tabsBar = document.getElementById('asideTabs');
-            const mkBtn = (id, label) => {
-                const b = document.createElement('button');
-                b.id = `tabbtn-${id}`;
-                b.setAttribute('role', 'tab');
-                b.setAttribute('aria-controls', `tab-${id}`);
-                b.textContent = label;
-                return b;
-            };
-            const showTab = (idToShow) => {
-                document.querySelectorAll('.tabs [role="tab"]').forEach(btn => {
-                    const on = btn.id === `tabbtn-${idToShow}`;
-                    btn.setAttribute('aria-selected', on ? 'true' : 'false');
-                    btn.tabIndex = on ? 0 : -1;
-                });
-                document.querySelectorAll('.tabpanel').forEach(p => {
-                    p.hidden = (p.id !== `tab-${idToShow}`);
-                });
-            };
-
-            // Quelles sections existent ?
-            const hasRef = Boolean(d?.images?.reference);
-            const hasVideo = typeof d?.video === 'string' && d.video.trim() !== '';
-            const has3D = typeof d?.model3d === 'string' && d.model3d.trim() !== '';     // <— optionnel si tu ajoutes model3d
-            const hasNotice = Boolean(d?.images?.notice || d?.instructions);
-
-            // Onglets à créer dynamiquement
-            const wanted = [];
-            if (hasRef) wanted.push({ id: 'ref', label: 'Référence' });
-            if (has3D) wanted.push({ id: '3d', label: '3D' });
-            if (hasVideo) wanted.push({ id: 'video', label: 'Vidéo' });
-            if (hasNotice) wanted.push({ id: 'notice', label: 'Notice' });
-
-            // Si aucune data côté meta
-            if (wanted.length === 0) {
-                const aside = document.querySelector('.project-aside');
-                const hero = document.querySelector('.project-hero');
-                if (aside) aside.remove();
-                if (hero) hero.classList.add('no-meta');
-            }
-            // S’il n’y a qu’UNE seule section -> on la montre sans boutons
-            else if (wanted.length === 1) {
-                document.querySelector('.tabs').style.display = 'none';
-                showTab(wanted[0].id); // affiche directement la seule section
-            }
-            // Cas normal : 2+ onglets -> navigation
-            else {
-                tabsBar.innerHTML = '';
-                wanted.forEach((w, i) => {
-                    const btn = mkBtn(w.id, w.label);
-                    btn.addEventListener('click', () => showTab(w.id));
-                    if (i === 0) { btn.setAttribute('aria-selected', 'true'); btn.tabIndex = 0; }
-                    else { btn.setAttribute('aria-selected', 'false'); btn.tabIndex = -1; }
-                    tabsBar.appendChild(btn);
-                });
-                showTab(wanted[0].id);
-            }
-
-            // Si aucune data côté meta (cas rare), enlève l’aside et étends la galerie
-            if (wanted.length === 0) {
-                const aside = document.querySelector('.project-aside');
-                const hero = document.querySelector('.project-hero');
-                if (aside) aside.remove();
-                if (hero) hero.classList.add('no-meta');  // déjà stylé dans ton CSS
-            } else {
-                // Boutons
-                tabsBar.innerHTML = '';
-                wanted.forEach((w, i) => {
-                    const btn = mkBtn(w.id, w.label);
-                    btn.addEventListener('click', () => showTab(w.id));
-                    if (i === 0) { btn.setAttribute('aria-selected', 'true'); btn.tabIndex = 0; }
-                    else { btn.setAttribute('aria-selected', 'false'); btn.tabIndex = -1; }
-                    tabsBar.appendChild(btn);
-                });
-
-                // Panneaux - hydrate chacun seulement s’il existe
-                if (hasRef) {
+            // Enregistreurs d’hydratation (une fois par panneau)
+            const hydrated = new Set();
+            const hydrators = {
+                ref: () => {
                     const refImgEl = document.getElementById('ref-img');
                     const metaGrid = document.getElementById('meta-grid');
                     if (refImgEl) {
@@ -450,72 +198,147 @@
                     }
                     const rows = [];
                     if (d.locations) rows.push({ icon: 'bx bx-map', key: 'Location :', val: d.locations });
-                    if (p.filter) rows.push({ icon: 'bx bx-film', key: 'Movie :', val: p.filter });
+                    if (p.movie) rows.push({ icon: 'bx bx-film', key: 'Movie :', val: p.movie });
                     if (d.characters) rows.push({ icon: 'bx bx-user', key: 'Characters :', val: d.characters });
                     if (metaGrid) {
                         metaGrid.innerHTML = rows.map(r => `
-          <div class="meta-row">
-            <i class="${r.icon}"></i>
-            <span class="meta-key">${r.key}</span>
-            <span>${r.val || '-'}</span>
-          </div>`).join('');
+            <div class="meta-row">
+              <i class="${r.icon}"></i>
+              <span class="meta-key">${r.key}</span>
+              <span>${r.val || '-'}</span>
+            </div>
+          `).join('');
                     }
-                    document.getElementById('tab-ref').hidden = false; // sera visible si onglet actif
-                }
-
-                if (has3D) {
-                    const iframe3d = document.getElementById('iframe-3d');
-                    iframe3d.src = d.model3d; // ex: URL Sketchfab en embed
-                    document.getElementById('tab-3d').hidden = false;
-                }
-
-                if (hasVideo) {
+                },
+                "3d": () => {
+                    const panel = document.getElementById('tab-3d');
+                    const mv = panel?.querySelector('model-viewer');
+                    if (mv) {
+                        mv.src = d.model3d;
+                        mv.alt = title || 'Model 3D';
+                    }
+                },
+                video: () => {
                     const v = document.getElementById('video-iframe');
-                    v.src = d.video;
-                    document.getElementById('tab-video').hidden = false;
-                }
-
-                if (hasNotice) {
-                    const nThumb = document.getElementById('notice-thumb');
-                    const nLink = document.getElementById('notice-download');
-                    if (d?.images?.notice) nThumb.src = d.images.notice;
-                    // Priorité à un vrai PDF d’instructions si présent
-                    if (d.instructions) {
-                        nLink.href = d.instructions;
-                    } else if (d?.images?.notice) {
-                        nLink.href = d.images.notice;
-                    } else {
-                        nLink.removeAttribute('href');
+                    if (v) v.src = d.video;
+                },
+                notice: () => {
+                    const noticePdf = d.instructions || data.instructions || d.link || data.link || '';
+                    const noticeTab = document.getElementById('tab-notice');
+                    let viewer = document.getElementById('notice-viewer');
+                    let frame = document.getElementById('notice-iframe');
+                    if (!viewer && noticeTab) {
+                        viewer = document.createElement('div');
+                        viewer.id = 'notice-viewer';
+                        viewer.className = 'pdf-viewer';
+                        viewer.hidden = true;
+                        frame = document.createElement('iframe');
+                        frame.id = 'notice-iframe';
+                        frame.title = 'Notice PDF';
+                        frame.setAttribute('loading', 'lazy');
+                        viewer.appendChild(frame);
+                        noticeTab.appendChild(viewer);
                     }
-                    document.getElementById('tab-notice').hidden = false;
+                    if (noticePdf && frame && viewer) {
+                        frame.src = `${noticePdf}#view=FitH`;
+                        viewer.hidden = false;
+                    }
                 }
+            };
 
-                // onglet initial = 1er existant
+            // Affiche un seul panneau, hydrate si nécessaire
+            const showTab = (idToShow) => {
+                // Cache tous les panneaux
+                document.querySelectorAll('.tabpanel').forEach(p => { p.hidden = true; });
+                // Active le bouton sélectionné
+                document.querySelectorAll('.tabs [role="tab"]').forEach(btn => {
+                    const on = btn.id === `tabbtn-${idToShow}`;
+                    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+                    btn.tabIndex = on ? 0 : -1;
+                });
+                // Hydrate au premier affichage
+                if (!hydrated.has(idToShow)) {
+                    hydrators[idToShow]?.();
+                    hydrated.add(idToShow);
+                }
+                // Affiche uniquement le panneau demandé
+                const panel = document.getElementById(`tab-${idToShow}`);
+                if (panel) panel.hidden = false;
+            };
+
+            // Détection des panneaux disponibles
+            const hasRef = Boolean(d?.images?.reference);
+            const hasVideo = typeof d?.video === 'string' && d.video.trim() !== '';
+            const has3D = typeof d?.model3d === 'string' && d.model3d.trim() !== '';
+            const hasNotice = Boolean(d?.images?.notice || d?.instructions || data?.instructions || data?.link || d?.link);
+
+            const wanted = [];
+            if (hasRef) wanted.push({ id: 'ref', label: 'Référence' });
+            if (has3D) wanted.push({ id: '3d', label: '3D' });
+            if (hasVideo) wanted.push({ id: 'video', label: 'Vidéo' });
+            if (hasNotice) wanted.push({ id: 'notice', label: 'Notice' });
+
+            // Si aucun panneau : on retire l’aside et on étend la galerie
+            if (wanted.length === 0) {
+                const aside = document.querySelector('.project-aside');
+                const hero = document.querySelector('.project-hero');
+                aside?.remove();
+                hero?.classList.add('no-meta');
+                return;
+            }
+
+            // Prépare l’état initial (tous cachés par défaut via hidden dans le HTML)
+            document.querySelectorAll('.tabpanel').forEach(p => p.hidden = true);
+
+            // Barre d’onglets (un seul visible à la fois)
+            if (wanted.length === 1) {
+                document.querySelector('.tabs').style.display = 'none';
                 showTab(wanted[0].id);
+            } else {
+                tabsBar.innerHTML = '';
+                wanted.forEach((w, i) => {
+                    const btn = mkBtn(w.id, w.label);
+                    btn.addEventListener('click', () => showTab(w.id));
+                    btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+                    btn.tabIndex = i === 0 ? 0 : -1;
+                    tabsBar.appendChild(btn);
+                });
+                showTab(wanted[0].id); // ← n’affiche que le premier
             }
         })();
     </script>
 
+    <!-- =========================================================
+     SCRIPT UTILITAIRE — Hauteur uniforme des panneaux
+     ========================================================= -->
     <script>
         function equalizeTabHeights() {
             const tabs = document.querySelectorAll('.tabpanel');
             let maxHeight = 0;
             tabs.forEach(tab => {
-                tab.style.height = 'auto'; // reset
+                tab.style.height = 'auto';
                 if (!tab.hasAttribute('hidden')) {
                     const h = tab.offsetHeight;
                     if (h > maxHeight) maxHeight = h;
                 }
             });
-            tabs.forEach(tab => tab.style.minHeight = maxHeight + 'px');
+            tabs.forEach(tab => tab.style.minHeight = (maxHeight || 0) + 'px');
         }
-
         window.addEventListener('load', equalizeTabHeights);
         window.addEventListener('resize', equalizeTabHeights);
+        // Optionnel : ré-égaliser quand on change d’onglet
+        document.addEventListener('click', (e) => {
+            if (e.target?.getAttribute?.('role') === 'tab') {
+                setTimeout(equalizeTabHeights, 0);
+            }
+        });
     </script>
 
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- =========================================================
+     DÉPENDANCE 3D — Import unique de model-viewer
+     ========================================================= -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js">
+    </script>
 
 </body>
 

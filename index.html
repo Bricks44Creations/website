@@ -41,12 +41,12 @@
       <!-- MOCs (ALL) -->
       <section aria-labelledby="sec-latest-all" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
-          <h2 id="sec-latest-all">MOCs</h2>
+          <h2 id="sec-latest-all">MOC</h2>
         </div>
+        <div class="MOC-grid" id="grid-latest-all"></div>
         <div class="section-actions">
           <a class="btn-ghost" href="MOC.html?theme=all" data-key="see_all">Voir plus</a>
         </div>
-        <div class="MOC-grid" id="grid-latest-all"></div>
       </section>
 
       <!-- Instructions -->
@@ -54,23 +54,23 @@
         <div class="section-head">
           <h2 id="sec-latest-instructions">Instructions</h2>
         </div>
+        <div class="MOC-grid" id="grid-latest-instructions"></div>
         <div class="section-actions">
           <a class="btn-ghost" href="Instructions.html" data-key="see_all">Voir plus</a>
         </div>
-        <div class="MOC-grid" id="grid-latest-instructions"></div>
       </section>
     </div>
 
     <!-- Minifigs -->
 
-    <section aria-labelledby="sec-latest-minifigs" class="grid-3 section-card" data-limit="4">
+    <section aria-labelledby="sec-latest-minifigs" class="grid-3 section-card" data-limit="5">
       <div class="section-head">
         <h2 id="sec-latest-minifigs" data-key="minifigs">Minifigs</h2>
       </div>
+      <div class="MOC-grid" id="grid-latest-minifigs"></div>
       <div class="section-actions">
         <a class="btn-ghost" href="Minifigs.html" data-key="see_all">Voir plus</a>
       </div>
-      <div class="MOC-grid" id="grid-latest-minifigs"></div>
     </section>
 
 
@@ -79,24 +79,24 @@
       <!-- MOCs Jurassic Park -->
       <section aria-labelledby="sec-latest-jp" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
-          <h2 id="sec-latest-jp">MOCs Jurassic Park</h2>
+          <h2 id="sec-latest-jp">MOC Jurassic Park</h2>
         </div>
+        <div class="MOC-grid" id="grid-latest-jp"></div>
         <div class="section-actions">
           <a class="btn-ghost" href="MOC.html?theme=jurassic-park" data-key="see_all">Voir plus</a>
         </div>
-        <div class="MOC-grid" id="grid-latest-jp"></div>
       </section>
 
 
       <!-- MOCs Marvel -->
       <section aria-labelledby="sec-latest-marvel" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
-          <h2 id="sec-latest-marvel">MOCs Marvel</h2>
+          <h2 id="sec-latest-marvel">MOC Marvel</h2>
         </div>
+        <div class="MOC-grid" id="grid-latest-marvel"></div>
         <div class="section-actions">
           <a class="btn-ghost" href="MOC.html?theme=marvel" data-key="see_all">Voir plus</a>
         </div>
-        <div class="MOC-grid" id="grid-latest-marvel"></div>
       </section>
     </div>
 
@@ -105,10 +105,11 @@
       <div class="section-head">
         <h2 id="sec-latest-tips">Tips</h2>
       </div>
-      <div class="section-actions">
-        <a class="btn-ghost" href="Tips-home.html" data-key="see_all">Voir tous les Tips</a>
-      </div>
+
       <div class="MOC-grid" id="grid-latest-tips"></div>
+      <div class="section-actions">
+        <a class="btn-ghost" href="Tips-home.html" data-key="see_all">Voir plus</a>
+      </div>
     </section>
     </div>
 
@@ -126,7 +127,6 @@
   </main>
 
   <!-- FOOTER -->
-
 
   <!-- Scripts existants -->
   <script src="js/data.js"></script>
@@ -181,8 +181,6 @@
       CardGenerator.updateCardTitlesFromNames?.(window.currentLang || 'fr');
       CardGenerator.updateMinifigTextsFromNames?.(window.currentLang || 'fr');
     })();
-
-
   </script>
 
   <script>
@@ -249,9 +247,6 @@
       CardGenerator.updateMinifigTextsFromNames?.(window.currentLang || 'fr');
     })();
   </script>
-
-
-
 </body>
 
 </html>

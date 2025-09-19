@@ -485,8 +485,31 @@ body {
   }
 }
 
+/* --- Override: menus tri/filtre toujours en overlay, même sur desktop --- */
+@media (min-width: 1024px) {
+  .dropdown-tri {
+    position: relative;
+  }
 
+  .dropdown-content-tri {
+    position: absolute !important;
+    /* plus dans le flux */
+    left: 0;
+    top: calc(100% + 8px);
+    min-width: 230px;
+    /* comme sur mobile/defaut */
+    z-index: 1000;
+    /* au-dessus des cards */
+  }
+}
 
+model-viewer {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
 
 
@@ -1366,12 +1389,12 @@ body {
 
 /* Carte de section (box avec ombre) */
 .section-card {
-  background: #ffffff;
+  background: #f1f1f1;
   /* fond clair */
   border-radius: 14px;
   /* angles arrondis */
   box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
-  padding: 1.25rem;
+  padding: 1rem;
   /* respiration interne */
   border: 1px solid rgba(0, 0, 0, .06);
   /* léger contour */
@@ -1389,13 +1412,6 @@ body {
   margin-top: .75rem;
 }
 
-/* Effet au survol (subtil) */
-.section-card:hover {
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
-  transform: translateY(-2px);
-  transition: box-shadow .2s ease, transform .2s ease;
-}
-
 /* Mode sombre (optionnel si tu en as un) */
 @media (prefers-color-scheme: dark) {
   .section-card {
@@ -1411,7 +1427,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.25rem 0 .5rem 0;
+  margin: 0rem 0 1.5rem 0;
   text-align: center;
 }
 
@@ -1424,11 +1440,12 @@ body {
   display: flex;
   justify-content: center;
   gap: .75rem;
-  margin: .5rem 0 1rem 0;
+  margin: 1rem 0 0.5rem 0;
 }
 
 .btn-ghost {
-  border: 1px solid #d1d5db;
+  background-color: #18305a;
+  color: white;
   padding: .4rem .75rem;
   border-radius: .5rem;
   text-decoration: none;
@@ -1436,8 +1453,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
+  transition: transform 0.3s ease, opacity 0.5s ease;
 }
 
+.btn-ghost:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 
 
 @media (min-width: 1024px) {
@@ -1447,24 +1469,6 @@ body {
   }
 }
 
-/* Box de section (ombre) */
-.section-card {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
-  padding: 1.25rem;
-  border: 1px solid rgba(0, 0, 0, .06);
-}
-
-.section-card .MOC-grid {
-  margin-top: .75rem;
-}
-
-.section-card:hover {
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
-  transform: translateY(-2px);
-  transition: box-shadow .2s ease, transform .2s ease;
-}
 
 
 
