@@ -1001,6 +1001,7 @@ const dataDetails = [
   },
   {
     id: "moc-jurassic-park-10",
+    locations: "The aviary",
     images: {
       gallery: [
         { src: "img/MOC/moc-jurassic-park-10-1.webp", caption: "Détail 1" },
@@ -1018,6 +1019,7 @@ const dataDetails = [
   },
   {
     id: "moc-jurassic-park-9",
+    locations: "Mosasaurus lagoon",
     images: {
       gallery: [
         { src: "img/MOC/moc-jurassic-park-9-1.webp", caption: "Détail 1" },
@@ -1052,6 +1054,7 @@ const dataDetails = [
   },
   {
     id: "moc-jurassic-park-7",
+    locations: "Main street",
     images: {
       gallery: [
         { src: "img/MOC/moc-jurassic-park-7-1.webp", caption: "Détail 1" },

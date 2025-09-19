@@ -370,7 +370,7 @@
     const refs = [
       ["Date", data.date],
       ["Lieu(x)", data.locations],
-      ["Œuvre", data.filter],
+      ["Œuvre", data.movie],
       ["Personnages", data.characters]
     ];
     $("refs").innerHTML = refs.map(([k, v]) =>
@@ -546,8 +546,6 @@
             <li><a href="MOC.html?theme=medieval" data-key="MOC_medieval">Medieval</a></li>
             <li><a href="MOC.html?theme=wizarding-world" data-key="MOC_ww">Wizarding World</a></li>
             <li><a href="MOC.html?theme=others" data-key="MOC_others">Others</a></li>
-            <li class="separator"></li>
-            <li><a href="MOC.html?theme=vignettes" data-key="MOC_vignettes">Vignettes</a></li>
           </ul>
         </li>
         <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
@@ -598,7 +596,6 @@
             <li><a href="MOC.html?theme=medieval" data-key="MOC_medieval">Medieval</a></li>
             <li><a href="MOC.html?theme=wizarding-world" data-key="MOC_ww">Wizarding World</a></li>
             <li><a href="MOC.html?theme=others" data-key="MOC_others">Others</a></li>
-            <li><a href="MOC.html?theme=vignettes" data-key="MOC_vignettes">Vignettes</a></li>
           </ul>
         </li>
         <li class="separator"></li>
