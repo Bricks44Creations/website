@@ -36,9 +36,9 @@
 
     <div class="separator"></div>
 
-    <!-- ===== Rangée 1 : MOCs (ALL) + Minifigs (côte à côte sur PC) ===== -->
+    <!-- ===== Rangée 1 : MOC (ALL) + Minifigs (côte à côte sur PC) ===== -->
     <div class="section-row">
-      <!-- MOCs (ALL) -->
+      <!-- MOC (ALL) -->
       <section aria-labelledby="sec-latest-all" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
           <h2 id="sec-latest-all">MOC</h2>
@@ -76,7 +76,7 @@
 
     <div class="section-row">
 
-      <!-- MOCs Jurassic Park -->
+      <!-- MOC Jurassic Park -->
       <section aria-labelledby="sec-latest-jp" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
           <h2 id="sec-latest-jp">MOC Jurassic Park</h2>
@@ -88,7 +88,7 @@
       </section>
 
 
-      <!-- MOCs Marvel -->
+      <!-- MOC Marvel -->
       <section aria-labelledby="sec-latest-marvel" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
           <h2 id="sec-latest-marvel">MOC Marvel</h2>
@@ -158,7 +158,7 @@
         }
       }
 
-      // Sections : ALL MOCs + Minifigs (côte à côte)
+      // Sections : ALL MOC + Minifigs (côte à côte)
       renderSection('grid-latest-all', p => norm(p.type) === 'moc');
       renderSection('grid-latest-minifigs', p => norm(p.type) === 'minifig', true);
 
@@ -190,6 +190,10 @@
       const byDateDesc = (a, b) => new Date(b.date || 0) - new Date(a.date || 0);
       const pickLatest = (predicate, limit = 3) =>
         ALL.filter(predicate).sort(byDateDesc).slice(0, limit);
+      const byRelevanceDesc = (a, b) =>
+        (parseFloat(b.relevance ?? 0) - parseFloat(a.relevance ?? 0)) || byDateDesc(a, b);
+      const pickTopRelevant = (predicate, limit = 3) =>
+        ALL.filter(predicate).sort(byRelevanceDesc).slice(0, limit);
 
       function renderSection(gridId, predicate, isMinifig = false) {
         const section = document.getElementById(gridId)?.closest('section');
@@ -228,13 +232,30 @@
         /* === fin PATCH === */
       }
 
+      function renderSectionRelevant(gridId, predicate, isMinifig = false) {
+        const section = document.getElementById(gridId)?.closest('section');
+        if (!section) return;
+        const limit = parseInt(section.dataset.limit, 10) || 3;
+        const items = pickTopRelevant(predicate, limit);   // ⟵ différence ici
+
+        if (!items.length) { section.remove(); return; }
+
+        if (isMinifig) {
+          CardGenerator.generateMinifigs({ items, containerId: gridId, lang: window.currentLang || 'fr' });
+        } else {
+          CardGenerator.generateCards({ items, containerId: gridId, templateId: 'card-template', lang: window.currentLang || 'fr' });
+        }
+
+        // (la partie “PATCH PDF instructions” reste inchangée si elle est dans cette fonction)
+      }
+
       // Sections
       renderSection('grid-latest-all', p => norm(p.type) === 'moc');
       renderSection('grid-latest-minifigs', p => norm(p.type) === 'minifig', true);
       renderSection('grid-latest-instructions', p => norm(p.type) === 'instruction' || (typeof p.id === 'string' && p.id.startsWith('instruction')));
       renderSection('grid-latest-tips', p => norm(p.type) === 'tips');
-      renderSection('grid-latest-jp', p => norm(p.type) === 'moc' && norm(p.theme) === 'jurassic-park');
-      renderSection('grid-latest-marvel', p => norm(p.type) === 'moc' && norm(p.theme) === 'marvel');
+      renderSectionRelevant('grid-latest-jp', p => norm(p.type) === 'moc' && norm(p.theme) === 'jurassic-park');
+      renderSectionRelevant('grid-latest-marvel', p => norm(p.type) === 'moc' && norm(p.theme) === 'marvel');
 
       // i18n (inchangé)
       const prev = window.setLanguage;
