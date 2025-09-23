@@ -1482,9 +1482,6 @@ model-viewer {
 
 
 
-
-
-
 img,
 picture,
 svg,
@@ -2732,4 +2729,61 @@ video {
     margin-right: 2vw;
     max-width: 96vw;
   }
+}
+
+
+/* Lightbox Minifig */
+.lightbox-minifig {
+  position: fixed;
+  inset: 0;
+  display: none;
+  /* affichée en JS (display:flex) */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: min(90vw, 900px);
+  max-height: 90vh;
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  height: auto;
+  width: auto;
+  display: block;
+  border-radius: 10px;
+  background: #fff;
+  /* pour que la croix noire reste lisible en bord clair */
+}
+
+/* Croix de fermeture (noire), posée sur l'image en haut à droite */
+.lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
+  /* croix noire */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #000;
+  /* liseré noir */
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lightbox-close:hover {
+  background: #fff;
 }
