@@ -114,13 +114,39 @@
     if (!lb) {
       lb = document.createElement("div");
       lb.className = "lightbox-minifig";
+
+      // conteneur relatif pour pouvoir positionner la croix sur l'image
+      const content = document.createElement("div");
+      content.className = "lightbox-content";
+
       const img = document.createElement("img");
-      lb.appendChild(img);
+
+      // bouton de fermeture (croix noire)
+      const closeBtn = document.createElement("button");
+      closeBtn.className = "lightbox-close";
+      closeBtn.setAttribute("aria-label", "Fermer");
+      closeBtn.textContent = "×";
+
+      // événements
+      closeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        lb.style.display = "none";
+      });
+
+      // clic sur l'overlay ferme aussi
       lb.addEventListener("click", () => { lb.style.display = "none"; });
+
+      // empêcher le clic sur l'image de remonter si tu veux garder la croix comme action principale
+      content.addEventListener("click", (e) => e.stopPropagation());
+
+      content.appendChild(img);
+      content.appendChild(closeBtn);
+      lb.appendChild(content);
       document.body.appendChild(lb);
     }
     return lb;
   }
+
 
   function uniqueFilms(items, lang) {
     const set = new Set(items.map(f => pickLang(f.film, lang)).filter(Boolean));
