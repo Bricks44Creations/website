@@ -25,37 +25,6 @@
   <link rel="apple-touch-icon" href="img/logo_actuel.png">
 </head>
 
-<style>
-  /* ===== Cards à ~66% sur laptop (1024–1366px) ===== */
-  @media screen and (min-width: 1024px) and (max-width: 1366px) {
-
-    /* Échelle globale des cards */
-    :root {
-      --card-scale: .8;
-    }
-
-    .MOC-grid {
-      gap: calc(1.5rem * var(--card-scale));
-      /* évite les “trous” visuels */
-    }
-
-    .MOC-card {
-      /* 280px (base) → 280 * .66 ≃ 185px */
-      flex: 0 1 calc(280px * var(--card-scale));
-    }
-
-    .MOC-card img {
-      /* 160px (base) → 160 * .66 ≃ 106px */
-      height: calc(160px * var(--card-scale));
-    }
-
-    .MOC-card h3 {
-      font-size: calc(1rem * var(--card-scale));
-      padding: calc(.8rem * var(--card-scale));
-    }
-  }
-</style>
-
 <body>
   <!-- HEADER -->
 
