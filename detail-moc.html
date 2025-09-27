@@ -25,59 +25,56 @@
         <div class="separator"></div>
 
         <!-- HERO: image principale + encart références -->
-        <div class="hero-scale-wrap">
-
-            <section class="project-hero" aria-label="Présentation du projet">
-                <section class="project-gallery" aria-label="Galerie d'images">
-                    <div class="carousel" aria-roledescription="carrousel">
-                        <div class="carousel-track" id="carouselTrack"></div>
-                        <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
-                    </div>
-                    <div class="thumbs" id="thumbs"></div>
-                </section>
-
-                <!-- ASIDE TABS -->
-                <aside class="project-aside" aria-label="Infos & médias">
-
-                    <!-- panneaux (remplis dynamiquement selon la data) -->
-                    <!-- entête des onglets -->
-                    <div class="tabs" id="asideTabs" role="tablist" aria-label="Onglets détails"></div>
-                    <!-- Référence -->
-                    <section id="tab-ref" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-ref" hidden>
-                        <h3 class="meta-title" data-key="tab_ref"></h3>
-                        <div class="ref-image">
-                            <img id="ref-img" alt="Image de référence">
-                        </div>
-                        <div class="meta-grid" id="meta-grid"></div>
-                    </section>
-
-                    <!-- 3D -->
-                    <section id="tab-3d" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-3d" hidden>
-                        <model-viewer src="" alt="" shadow-intensity="1" shadow-softness="0.5" camera-controls
-                            exposure="1.2">
-                        </model-viewer>
-                    </section>
-
-                    <!-- Vidéo -->
-                    <section id="tab-video" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-video" hidden>
-                        <div class="video-wrapper">
-                            <iframe id="video-iframe" src="" title="Vidéo" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </section>
-
-                    <!-- Notice -->
-                    <section id="tab-notice" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-notice" hidden>
-
-                        <!-- 👇 Visualiseur PDF intégré -->
-                        <div class="pdf-viewer" id="notice-viewer" hidden>
-                            <iframe id="notice-iframe" title="Notice PDF" loading="lazy"></iframe>
-                        </div>
-                    </section>
-                </aside>
-
+        <section class="project-hero" aria-label="Présentation du projet">
+            <section class="project-gallery" aria-label="Galerie d'images">
+                <div class="carousel" aria-roledescription="carrousel">
+                    <div class="carousel-track" id="carouselTrack"></div>
+                    <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
+                </div>
+                <div class="thumbs" id="thumbs"></div>
             </section>
 
-        </div>
+            <!-- ASIDE TABS -->
+            <aside class="project-aside" aria-label="Infos & médias">
+
+                <!-- panneaux (remplis dynamiquement selon la data) -->
+                <!-- entête des onglets -->
+                <div class="tabs" id="asideTabs" role="tablist" aria-label="Onglets détails"></div>
+                <!-- Référence -->
+                <section id="tab-ref" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-ref" hidden>
+                    <h3 class="meta-title" data-key="tab_ref"></h3>
+                    <div class="ref-image">
+                        <img id="ref-img" alt="Image de référence">
+                    </div>
+                    <div class="meta-grid" id="meta-grid"></div>
+                </section>
+
+                <!-- 3D -->
+                <section id="tab-3d" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-3d" hidden>
+                    <model-viewer src="" alt="" shadow-intensity="1" shadow-softness="0.5" camera-controls
+                        exposure="1.2">
+                    </model-viewer>
+                </section>
+
+                <!-- Vidéo -->
+                <section id="tab-video" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-video" hidden>
+                    <div class="video-wrapper">
+                        <iframe id="video-iframe" src="" title="Vidéo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </section>
+
+                <!-- Notice -->
+                <section id="tab-notice" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-notice" hidden>
+
+                    <!-- 👇 Visualiseur PDF intégré -->
+                    <div class="pdf-viewer" id="notice-viewer" hidden>
+                        <iframe id="notice-iframe" title="Notice PDF" loading="lazy"></iframe>
+                    </div>
+                </section>
+            </aside>
+
+        </section>
+
         <!-- DESCRIPTION -->
         <section class="project-description">
             <h2>Description</h2>
@@ -398,7 +395,7 @@
                 if (s < 1) {
                     hero.style.transform = `scale(${s})`;
                     // Réserver la bonne hauteur dans le flux pour que ce soit cliquable partout
-                    wrap.style.height = `${naturalH * s}px`;
+                    wrap.style.height = `${availH}px`; // au lieu de naturalH * s
                     wrap.classList.add('fit');
                 } else {
                     hero.style.transform = '';
