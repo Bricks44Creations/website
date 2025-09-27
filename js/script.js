@@ -229,6 +229,10 @@ const translations = {
     op_others: "Others",
     op_vignettes: "Vignettes",
     search: "Search",
+    tab_ref: "References",
+    tab_3d: "3D",
+    tab_video: "Video",
+    tab_notice: "Instructions",
     search_placeholder: "Type to search...",
     filter: "Filter",
     sort_by: "Sort by",
@@ -245,6 +249,9 @@ const translations = {
     filter_all: "See all",
     action_clear_all: "Clear all",
     action_close: "Close",
+    ref_location: "Location",
+    ref_movie: "Movie / Show",
+    ref_characters: "Characters",
     footer_disclaimer: "© 2024-2025 All rights reserved Bricks Creations \nI don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself.\nFor the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that.\nLEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.",
   },
 
@@ -284,6 +291,10 @@ const translations = {
     op_others: "Autres",
     op_vignettes: "Vignettes",
     search: "Rechercher",
+    tab_ref: "Références",
+    tab_3d: "3D",
+    tab_video: "Vidéo",
+    tab_notice: "Notice",
     search_placeholder: "Tapez pour rechercher...",
     filter: "Filtrer",
     sort_by: "Trier par",
@@ -300,9 +311,11 @@ const translations = {
     action_close: "Fermer",
     action_apply_filters: "Appliquer les filtres",
     action_reset_filters: "Réinitialiser les filtres",
+    ref_location: "Lieu",
+    ref_movie: "Film / Série",
+    ref_characters: "Personnages",
     footer_disclaimer: "© 2024-2025 Tous droits réservés Bricks Creations \nJe ne travaille pas pour LEGO®, je ne suis pas corrompu par LEGO®, j’achète mes LEGO® moi-même.\nPour le reste, les propriétaires des marques mentionnées sur le site en restent les seuls propriétaires et c’est très bien ainsi.\nLEGO® est une marque déposée du groupe LEGO, qui ne sponsorise, n’autorise ni n’approuve ce site."
   }
-
 };
 
 /* ========= PERSISTENCE LANGUE (ajout) ========= */
@@ -350,7 +363,37 @@ function setLanguage(lang) {
 
   // --- AJOUT : persister la langue
   saveLang(lang);
+  updateDetailTexts(lang); // <<< ajoute cette ligne
 } /* ← c’est bien cette fonction que tu avais déjà, enrichie pour sauver la langue :contentReference[oaicite:0]{index=0} */
+
+// ------- MAJ des textes de detail-moc quand on change de langue -------
+function updateDetailTexts(lang) {
+  // Ne fait rien si on n'est pas sur la page détail
+  const h1 = document.getElementById('page-title');
+  if (!h1) return;
+
+  const params = new URLSearchParams(location.search);
+  const mocId = params.get('id');
+  if (!mocId) return;
+
+  const PROJECTS = (window.PROJECTS || window.project || []);
+  const DETAILS = (window.dataDetails || []);
+  const p = PROJECTS.find(x => x.id === mocId) || {};
+  const d = DETAILS.find(x => x.id === mocId) || {};
+
+  const title =
+    (p.name && (p.name[lang] || p.name.en || p.name.fr)) ||
+    (d.title && (d.title[lang] || d.title.en || d.title.fr)) ||
+    (mocId || '');
+  h1.textContent = title;
+
+  const descEl = document.getElementById('desc');
+  if (descEl) {
+    const desc =
+      (d.description && (d.description[lang] || d.description.en || d.description.fr)) || '';
+    descEl.textContent = desc;
+  }
+}
 
 /* ====== Initialisation langue : charger localStorage (ajout) ====== */
 document.addEventListener("DOMContentLoaded", () => {
@@ -894,5 +937,23 @@ function highlightCard(id) {
     }
   }
 }
+
+function resizeCardTitles() {
+  document.querySelectorAll(".MOC-card h3 span").forEach(span => {
+    let parentWidth = span.parentElement.offsetWidth - 20; // marge de sécurité
+    let fontSize = 16; // taille max de base (en px)
+
+    span.style.fontSize = fontSize + "px";
+
+    while (span.scrollWidth > parentWidth && fontSize > 10) {
+      fontSize--;
+      span.style.fontSize = fontSize + "px";
+    }
+  });
+}
+
+// Exécuter au chargement et au redimensionnement
+window.addEventListener("load", resizeCardTitles);
+window.addEventListener("resize", resizeCardTitles);
 
 
