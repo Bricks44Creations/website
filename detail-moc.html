@@ -25,55 +25,59 @@
         <div class="separator"></div>
 
         <!-- HERO: image principale + encart références -->
-        <section class="project-hero" aria-label="Présentation du projet">
-            <section class="project-gallery" aria-label="Galerie d'images">
-                <div class="carousel" aria-roledescription="carrousel">
-                    <div class="carousel-track" id="carouselTrack"></div>
-                    <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
-                </div>
-                <div class="thumbs" id="thumbs"></div>
+        <div class="hero-scale-wrap">
+
+            <section class="project-hero" aria-label="Présentation du projet">
+                <section class="project-gallery" aria-label="Galerie d'images">
+                    <div class="carousel" aria-roledescription="carrousel">
+                        <div class="carousel-track" id="carouselTrack"></div>
+                        <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
+                    </div>
+                    <div class="thumbs" id="thumbs"></div>
+                </section>
+
+                <!-- ASIDE TABS -->
+                <aside class="project-aside" aria-label="Infos & médias">
+
+                    <!-- panneaux (remplis dynamiquement selon la data) -->
+                    <!-- entête des onglets -->
+                    <div class="tabs" id="asideTabs" role="tablist" aria-label="Onglets détails"></div>
+                    <!-- Référence -->
+                    <section id="tab-ref" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-ref" hidden>
+                        <h3 class="meta-title" data-key="tab_ref"></h3>
+                        <div class="ref-image">
+                            <img id="ref-img" alt="Image de référence">
+                        </div>
+                        <div class="meta-grid" id="meta-grid"></div>
+                    </section>
+
+                    <!-- 3D -->
+                    <section id="tab-3d" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-3d" hidden>
+                        <model-viewer src="" alt="" shadow-intensity="1" shadow-softness="0.5" camera-controls
+                            exposure="1.2">
+                        </model-viewer>
+                    </section>
+
+                    <!-- Vidéo -->
+                    <section id="tab-video" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-video" hidden>
+                        <div class="video-wrapper">
+                            <iframe id="video-iframe" src="" title="Vidéo" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </section>
+
+                    <!-- Notice -->
+                    <section id="tab-notice" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-notice" hidden>
+
+                        <!-- 👇 Visualiseur PDF intégré -->
+                        <div class="pdf-viewer" id="notice-viewer" hidden>
+                            <iframe id="notice-iframe" title="Notice PDF" loading="lazy"></iframe>
+                        </div>
+                    </section>
+                </aside>
+
             </section>
 
-            <!-- ASIDE TABS -->
-            <aside class="project-aside" aria-label="Infos & médias">
-
-                <!-- panneaux (remplis dynamiquement selon la data) -->
-                <!-- entête des onglets -->
-                <div class="tabs" id="asideTabs" role="tablist" aria-label="Onglets détails"></div>
-                <!-- Référence -->
-                <section id="tab-ref" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-ref" hidden>
-                    <h3 class="meta-title">Références</h3>
-                    <div class="ref-image">
-                        <img id="ref-img" alt="Image de référence">
-                    </div>
-                    <div class="meta-grid" id="meta-grid"></div>
-                </section>
-
-                <!-- 3D -->
-                <section id="tab-3d" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-3d" hidden>
-                    <model-viewer src="" alt="" shadow-intensity="1" shadow-softness="0.5" camera-controls
-                        exposure="1.2">
-                    </model-viewer>
-                </section>
-
-                <!-- Vidéo -->
-                <section id="tab-video" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-video" hidden>
-                    <div class="video-wrapper">
-                        <iframe id="video-iframe" src="" title="Vidéo" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </section>
-
-                <!-- Notice -->
-                <section id="tab-notice" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-notice" hidden>
-
-                    <!-- 👇 Visualiseur PDF intégré -->
-                    <div class="pdf-viewer" id="notice-viewer" hidden>
-                        <iframe id="notice-iframe" title="Notice PDF" loading="lazy"></iframe>
-                    </div>
-                </section>
-            </aside>
-
-        </section>
+        </div>
         <!-- DESCRIPTION -->
         <section class="project-description">
             <h2>Description</h2>
@@ -175,14 +179,16 @@
 
             // ----- [E] Système d’onglets (lazy-hydrate, un seul visible) -----
             const tabsBar = document.getElementById('asideTabs');
+            const t = (k) => (window.translations?.[window.currentLang || 'en']?.[k] || k);
+
 
             // Création bouton d’onglet
-            const mkBtn = (id, label) => {
+            const mkBtn = (id, key) => {
                 const b = document.createElement('button');
                 b.id = `tabbtn-${id}`;
                 b.setAttribute('role', 'tab');
                 b.setAttribute('aria-controls', `tab-${id}`);
-                b.textContent = label;
+                b.setAttribute('data-key', key); // important pour la traduction
                 return b;
             };
 
@@ -197,17 +203,17 @@
                         refImgEl.alt = `${title} — référence`;
                     }
                     const rows = [];
-                    if (d.locations) rows.push({ icon: 'bx bx-map', key: 'Location :', val: d.locations });
-                    if (p.movie) rows.push({ icon: 'bx bx-film', key: 'Movie :', val: p.movie });
-                    if (d.characters) rows.push({ icon: 'bx bx-user', key: 'Characters :', val: d.characters });
+                    if (d.locations) rows.push({ icon: 'bx bx-map', key: 'ref_location', val: d.locations });
+                    if (p.movie) rows.push({ icon: 'bx bx-film', key: 'ref_movie', val: p.movie });
+                    if (d.characters) rows.push({ icon: 'bx bx-user', key: 'ref_characters', val: d.characters });
                     if (metaGrid) {
                         metaGrid.innerHTML = rows.map(r => `
-            <div class="meta-row">
-              <i class="${r.icon}"></i>
-              <span class="meta-key">${r.key}</span>
-              <span>${r.val || '-'}</span>
-            </div>
-          `).join('');
+  <div class="meta-row">
+    <i class="${r.icon}"></i>
+    <span class="meta-key" data-key="${r.key}"></span>
+    <span>${r.val || '-'}</span>
+  </div>
+`).join('');
                     }
                 },
                 "3d": () => {
@@ -273,10 +279,11 @@
             const hasNotice = Boolean(d?.images?.notice || d?.instructions || data?.instructions || data?.link || d?.link);
 
             const wanted = [];
-            if (hasRef) wanted.push({ id: 'ref', label: 'Référence' });
-            if (has3D) wanted.push({ id: '3d', label: '3D' });
-            if (hasVideo) wanted.push({ id: 'video', label: 'Vidéo' });
-            if (hasNotice) wanted.push({ id: 'notice', label: 'Notice' });
+            if (hasRef) wanted.push({ id: 'ref', key: 'tab_ref' });
+            if (has3D) wanted.push({ id: '3d', key: 'tab_3d' });
+            if (hasVideo) wanted.push({ id: 'video', key: 'tab_video' });
+            if (hasNotice) wanted.push({ id: 'notice', key: 'tab_notice' });
+
 
             // Si aucun panneau : on retire l’aside et on étend la galerie
             if (wanted.length === 0) {
@@ -297,7 +304,7 @@
             } else {
                 tabsBar.innerHTML = '';
                 wanted.forEach((w, i) => {
-                    const btn = mkBtn(w.id, w.label);
+                    const btn = mkBtn(w.id, w.key);
                     btn.addEventListener('click', () => showTab(w.id));
                     btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
                     btn.tabIndex = i === 0 ? 0 : -1;
@@ -339,6 +346,72 @@
      ========================================================= -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js">
     </script>
+
+    <script>
+        (function () {
+            const sel = {
+                header: '.header',                                   // adapte si besoin
+                title: '.main-content .title',
+                sep: '.main-content .separator',
+                wrap: '.hero-scale-wrap',
+                hero: '.hero-scale-wrap .project-hero'
+            };
+
+            function measureOffset() {
+                const h = document.querySelector(sel.header)?.offsetHeight || 0;
+                const t = document.querySelector(sel.title)?.offsetHeight || 0;
+                const s = document.querySelector(sel.sep)?.offsetHeight || 0;
+                return h + t + s + 12;   // petite marge de confort
+            }
+
+            function fitHero() {
+                const wrap = document.querySelector(sel.wrap);
+                const hero = document.querySelector(sel.hero);
+                if (!wrap || !hero) return;
+
+                // Désactiver l’échelle si on est déjà en 1 colonne (CSS @media)
+                const twoCols = window.matchMedia('(min-width:1064px)').matches;
+                if (!twoCols) {
+                    hero.style.transform = '';
+                    wrap.style.height = '';
+                    wrap.classList.remove('fit');
+                    return;
+                }
+
+                // tailles naturelles (non-scalées)
+                hero.style.transform = 'none';
+                wrap.style.height = 'auto';
+
+                const offsetTop = measureOffset();
+                const availH = Math.max(0, window.innerHeight - offsetTop);
+                const availW = document.documentElement.clientWidth; // largeur viewport
+
+                const naturalH = hero.offsetHeight;
+                const naturalW = hero.offsetWidth;
+
+                // marges latérales déjà gérées par .project-page (5–10%) :contentReference[oaicite:3]{index=3}
+                const scaleH = availH > 0 ? (availH / naturalH) : 1;
+                const scaleW = availW > 0 ? (availW / naturalW) : 1;
+
+                const s = Math.min(scaleH, scaleW, 1);  // ≤ 1, jamais d’agrandissement
+
+                if (s < 1) {
+                    hero.style.transform = `scale(${s})`;
+                    // Réserver la bonne hauteur dans le flux pour que ce soit cliquable partout
+                    wrap.style.height = `${naturalH * s}px`;
+                    wrap.classList.add('fit');
+                } else {
+                    hero.style.transform = '';
+                    wrap.style.height = '';
+                    wrap.classList.remove('fit');
+                }
+            }
+
+            window.addEventListener('load', fitHero, { once: true });
+            window.addEventListener('resize', fitHero);
+        })();
+    </script>
+
 
 </body>
 

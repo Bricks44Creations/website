@@ -643,6 +643,8 @@ model-viewer {
 }
 
 
+
+
 @media (min-width: 1024px) {
 
   .dropbtn-tri {
@@ -664,6 +666,21 @@ model-viewer {
   }
 }
 
+/* Mise à l’échelle proportionnelle du hero quand la hauteur est limitée */
+.hero-scale-wrap {
+  position: relative;
+  width: max-content;
+  /* la largeur suit le contenu non-scalé */
+  max-width: 100%;
+  /* ne dépasse jamais l’écran */
+  margin-inline: auto;
+  /* centré */
+}
+
+.hero-scale-wrap>.project-hero {
+  transform-origin: top center;
+  /* on “colle” au titre */
+}
 
 :root {
   --brand-blue: #18305a;
