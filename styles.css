@@ -543,6 +543,7 @@ model-viewer {
 .section-row {
   display: grid;
   gap: 2rem;
+
 }
 
 @media (min-width: 1024px) {
@@ -616,6 +617,12 @@ model-viewer {
   background: #f8f8f8;
   margin: 0;
   line-height: 1.4;
+}
+
+.MOC-card h3 span {
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .MOC-card h3 .date {
