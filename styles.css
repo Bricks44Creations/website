@@ -701,9 +701,22 @@ model-viewer {
 
 .project-hero {
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
   gap: 1.5rem;
   align-items: stretch;
+}
+
+
+/* Autorise les colonnes à rétrécir malgré le contenu interne */
+.hero-media,
+.project-meta {
+  min-width: 0;
+}
+
+/* Optionnel mais utile : s’assure que la rangée de thumbs ne “pousse” pas */
+.thumbs {
+  min-width: 0;
+  width: 100%;
 }
 
 .hero-media {
@@ -1049,21 +1062,38 @@ model-viewer {
 
 
 .carousel-dots {
+  --dot-size: 10px;
+  --dot-gap: 8px;
+  --dots-visible: 7;
+  /* <= règle ici le nombre de dots visibles */
+
   position: absolute;
   left: 50%;
   bottom: 10px;
   transform: translateX(-50%);
+
+  /* viewport */
+  overflow: hidden;
+  width: calc(var(--dots-visible) * var(--dot-size) + (var(--dots-visible) - 1) * var(--dot-gap));
+  max-width: 90%;
+}
+
+.carousel-dots-track {
   display: flex;
-  gap: 8px;
+  gap: var(--dot-gap);
+  transition: transform .35s ease;
+  /* <= l’animation “slide” des dots */
+  will-change: transform;
 }
 
 .carousel-dot {
-  width: 10px;
-  height: 10px;
+  width: var(--dot-size);
+  height: var(--dot-size);
   border-radius: 50%;
   background: rgba(255, 255, 255, .7);
   border: 1px solid rgba(0, 0, 0, .15);
   cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .carousel-dot.active {

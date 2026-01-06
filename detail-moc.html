@@ -140,28 +140,104 @@
         </button>
       `).join('');
             }
-            if (dots) {
-                dots.innerHTML = gallery.map((_, i) => `
-        <button class="carousel-dot ${i === 0 ? 'active' : ''}" aria-label="Aller à l'image ${i + 1}"></button>
-      `).join('');
+            // ----- Dots (fenêtre + track animé) -----
+            let dotsTrack = null;
+
+            function mountDots() {
+                if (!dots) return;
+
+                // crée un track interne si pas déjà présent
+                dotsTrack = dots.querySelector('.carousel-dots-track');
+                if (!dotsTrack) {
+                    dotsTrack = document.createElement('div');
+                    dotsTrack.className = 'carousel-dots-track';
+                    dots.appendChild(dotsTrack);
+                }
+
+                // génère les dots dans le track (avec data-index)
+                dotsTrack.innerHTML = gallery.map((_, i) => `
+    <button
+      class="carousel-dot ${i === 0 ? 'active' : ''}"
+      data-index="${i}"
+      aria-label="Aller à l'image ${i + 1}"
+      type="button"
+    ></button>
+  `).join('');
             }
+
+            function updateDotsWindow() {
+                if (!dots || !dotsTrack) return;
+
+                const total = gallery.length;
+                if (total <= 1) {
+                    dots.style.display = 'none';
+                    return;
+                } else {
+                    dots.style.display = '';
+                }
+
+                // visible depuis CSS (fallback 7)
+                const visible = parseInt(getComputedStyle(dots).getPropertyValue('--dots-visible'), 10) || 7;
+                const half = Math.floor(visible / 2);
+
+                const firstDot = dotsTrack.querySelector('.carousel-dot');
+                if (!firstDot) return;
+
+                // step = largeur dot + gap (calcul robuste)
+                const trackStyle = getComputedStyle(dotsTrack);
+                const gap =
+                    parseFloat(trackStyle.columnGap) ||
+                    parseFloat(trackStyle.gap) ||
+                    0;
+
+                const step = firstDot.offsetWidth + gap;
+
+                // offset "cible" pour que index soit au centre
+                const rawOffset = (index - half) * step;
+
+                // clamp pour éviter d'aller trop loin
+                const maxOffset = Math.max(0, (total - visible) * step);
+                const clamped = Math.max(0, Math.min(rawOffset, maxOffset));
+
+                dotsTrack.style.transform = `translateX(${-clamped}px)`;
+            }
+
+            // click sur un dot => goTo(index)
+            dots?.addEventListener('click', (e) => {
+                const btn = e.target.closest('.carousel-dot');
+                if (!btn || !dots.contains(btn)) return;
+                const i = parseInt(btn.dataset.index, 10);
+                if (!Number.isNaN(i)) goTo(i);
+            });
+
+            // après avoir défini gallery + track + thumbs :
+            mountDots();
+
 
             let index = 0;
             function keepActiveThumbVisible() {
                 const container = thumbs;
                 const active = container?.querySelector('button.active');
                 if (!container || !active) return;
-                const cRect = container.getBoundingClientRect();
-                const bRect = active.getBoundingClientRect();
-                const pad = 8;
-                if (bRect.left < cRect.left) container.scrollBy({ left: bRect.left - cRect.left - pad, behavior: 'smooth' });
-                else if (bRect.right > cRect.right) container.scrollBy({ left: bRect.right - cRect.right + pad, behavior: 'smooth' });
+
+                // centre la miniature active dans le viewport
+                const containerRect = container.getBoundingClientRect();
+                const activeRect = active.getBoundingClientRect();
+
+                // distance entre le centre du bouton et le centre du container (en px)
+                const delta = (activeRect.left + activeRect.width / 2) - (containerRect.left + containerRect.width / 2);
+
+                // on scroll de cette distance (smooth déjà dans ton CSS, mais on le force ici aussi)
+                container.scrollBy({ left: delta, behavior: 'smooth' });
             }
             function updateCarousel() {
                 if (track) track.style.transform = `translateX(-${index * 100}%)`;
                 dots?.querySelectorAll('.carousel-dot').forEach((b, i) => b.classList.toggle('active', i === index));
                 thumbs?.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === index));
                 keepActiveThumbVisible();
+                updateDotsWindow(); // <= AJOUT : slide + centrage du dot actif
+                window.addEventListener('resize', () => updateDotsWindow());
+
             }
             function goTo(i) { index = (i + gallery.length) % gallery.length; updateCarousel(); }
             dots?.addEventListener('click', (e) => {

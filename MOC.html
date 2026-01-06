@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MOCs | Bricks Creations</title>
+    <title>MOC | Bricks Creations</title>
     <link rel="icon" type="image/png" href="img/logo_actuel.png">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
@@ -102,7 +102,7 @@
 
         <noscript>
             <p style="margin-top:1rem;color:#777">Cette page est dynamique et nécessite JavaScript pour afficher les
-                MOCs.</p>
+                MOC.</p>
         </noscript>
     </main>
 
@@ -122,12 +122,12 @@
             const themeParam = (params.get('theme') || 'all').toLowerCase();
 
             const THEME_LABELS = {
-                'all': { fr: 'Tous les MOCs', en: 'All MOCs' },
+                'all': { fr: 'Tous les MOC', en: 'All MOC' },
                 'marvel': { fr: 'Marvel', en: 'Marvel' },
                 'jurassic-park': { fr: 'Jurassic Park', en: 'Jurassic Park' },
                 'city': { fr: 'City', en: 'City' },
                 'medieval': { fr: 'Médiéval', en: 'Medieval' },
-                'wizarding-world': { fr: 'Wizarding World', en: 'Wizarding World' },
+                'wizarding-world': { fr: 'Monde des soricers', en: 'Wizarding World' },
                 'others': { fr: 'Autres', en: 'Others' },
                 'vignettes': { fr: 'Vignettes', en: 'Vignettes' },
             };
@@ -155,8 +155,13 @@
             const h1 = document.getElementById('page-title');
             function updateTitleByLang() {
                 const lang = window.currentLang || 'en';
-                const lbl = (THEME_LABELS[themeParam] && (THEME_LABELS[themeParam][lang] || THEME_LABELS[themeParam].en)) || 'MOCs';
+                const lbl = (THEME_LABELS[themeParam] && (THEME_LABELS[themeParam][lang] || THEME_LABELS[themeParam].en)) || 'MOC';
+
+                // H1
                 h1.textContent = lbl;
+
+                // <title> de l’onglet (nouvelle ligne)
+                document.title = `${lbl} | Bricks Creations`;
             }
 
             // Rendu initial
