@@ -952,6 +952,7 @@ function resizeCardTitles() {
   });
 }
 
+
 // Exécuter au chargement et au redimensionnement
 window.addEventListener("load", resizeCardTitles);
 window.addEventListener("resize", resizeCardTitles);

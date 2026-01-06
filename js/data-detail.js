@@ -1,5 +1,590 @@
 const dataDetails = [
   {//Marvel//
+    id: "moc-marvel-75",
+    locations: "Sanctum Sanctorum",
+    characters: "Doctor Strange, Wong, Kaecilius, The ancient one",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-75-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-75-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-75-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-75-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-75-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-marvel-75-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-marvel-75-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-marvel-75-8.webp", caption: "Détail 8" },
+        { src: "img/MOC/moc-marvel-75-9.webp", caption: "Détail 9" },
+        { src: "img/MOC/moc-marvel-75-10.webp", caption: "Détail 10" },
+        { src: "img/MOC/moc-marvel-75-11.webp", caption: "Détail 11" },
+        { src: "img/MOC/moc-marvel-75-12.webp", caption: "Détail 12" },
+        { src: "img/MOC/moc-marvel-75-13.webp", caption: "Détail 13" },
+        { src: "img/MOC/moc-marvel-75-14.webp", caption: "Détail 14" },
+        { src: "img/MOC/moc-marvel-75-15.webp", caption: "Détail 15" },
+        { src: "img/MOC/moc-marvel-75-16.webp", caption: "Détail 16" },
+        { src: "img/MOC/moc-marvel-75-17.webp", caption: "Détail 17" },
+        { src: "img/MOC/moc-marvel-75-18.webp", caption: "Détail 18" },
+        { src: "img/MOC/moc-marvel-75-19.webp", caption: "Détail 19" },
+        { src: "img/MOC/moc-marvel-75-20.webp", caption: "Détail 20" },
+        { src: "img/MOC/moc-marvel-75-21.webp", caption: "Détail 21" },
+        { src: "img/MOC/moc-marvel-75-22.webp", caption: "Détail 22" },
+        { src: "img/MOC/moc-marvel-75-23.webp", caption: "Détail 23" },
+        { src: "img/MOC/moc-marvel-75-24.webp", caption: "Détail 24" },
+        { src: "img/MOC/moc-marvel-75-25.webp", caption: "Détail 25" },
+        { src: "img/MOC/moc-marvel-75-26.webp", caption: "Détail 26" },
+        { src: "img/MOC/moc-marvel-75-27.webp", caption: "Détail 27" },
+        { src: "img/MOC/moc-marvel-75-28.webp", caption: "Détail 28" },
+        { src: "img/MOC/moc-marvel-75-29.webp", caption: "Détail 29" },
+        { src: "img/MOC/moc-marvel-75-30.webp", caption: "Détail 30" },
+        { src: "img/MOC/moc-marvel-75-31.webp", caption: "Détail 31" },
+        { src: "img/MOC/moc-marvel-75-32.webp", caption: "Détail 32" },
+        { src: "img/MOC/moc-marvel-75-33.webp", caption: "Détail 33" },
+        { src: "img/MOC/moc-marvel-75-34.webp", caption: "Détail 34" },
+        { src: "img/MOC/moc-marvel-75-35.webp", caption: "Détail 35" },
+        { src: "img/MOC/moc-marvel-75-36.webp", caption: "Détail 36" },
+        { src: "img/MOC/moc-marvel-75-37.webp", caption: "Détail 37" },
+        { src: "img/MOC/moc-marvel-75-38.webp", caption: "Détail 38" },
+        { src: "img/MOC/moc-marvel-75-39.webp", caption: "Détail 39" },
+        { src: "img/MOC/moc-marvel-75-40.webp", caption: "Détail 40" },
+        { src: "img/MOC/moc-marvel-75-41.webp", caption: "Détail 41" },
+        { src: "img/MOC/moc-marvel-75-42.webp", caption: "Détail 42" },
+        { src: "img/MOC/moc-marvel-75-43.webp", caption: "Détail 43" },
+        { src: "img/MOC/moc-marvel-75-44.webp", caption: "Détail 44" },
+        { src: "img/MOC/moc-marvel-75-45.webp", caption: "Détail 45" },
+        { src: "img/MOC/moc-marvel-75-46.webp", caption: "Détail 46" },
+        { src: "img/MOC/moc-marvel-75-47.webp", caption: "Détail 47" },
+        { src: "img/MOC/moc-marvel-75-48.webp", caption: "Détail 48" },
+        { src: "img/MOC/moc-marvel-75-49.webp", caption: "Détail 49" },
+        { src: "img/MOC/moc-marvel-75-50.webp", caption: "Détail 50" },
+        { src: "img/MOC/moc-marvel-75-51.webp", caption: "Détail 51" },
+        { src: "img/MOC/moc-marvel-75-52.webp", caption: "Détail 52" },
+        { src: "img/MOC/moc-marvel-75-53.webp", caption: "Détail 53" },
+        { src: "img/MOC/moc-marvel-75-54.webp", caption: "Détail 54" },
+        { src: "img/MOC/moc-marvel-75-55.webp", caption: "Détail 55" },
+        { src: "img/MOC/moc-marvel-75-56.webp", caption: "Détail 56" },
+        { src: "img/MOC/moc-marvel-75-57.webp", caption: "Détail 57" },
+        { src: "img/MOC/moc-marvel-75-58.webp", caption: "Détail 58" },
+        { src: "img/MOC/moc-marvel-75-59.webp", caption: "Détail 59" },
+        { src: "img/MOC/moc-marvel-75-60.webp", caption: "Détail 60" },
+      ],
+      reference: "img/MOC/moc-marvel-75-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-74",
+    locations: "Malibu Mansion",
+    characters: "Tony Stark, Pepper Potts",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-74-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-74-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-74-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-74-4.webp", caption: "Détail 4" },
+
+
+      ],
+      reference: "img/MOC/moc-marvel-74-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-73",
+    locations: "Munich",
+    characters: "Flag Smashers, Sam Wilson, Bucky Barnes, US Agent, Lemar Hoskins",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-73-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-73-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-73-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-73-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-73-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-marvel-73-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-marvel-73-7.webp", caption: "Détail 7" },
+
+
+      ],
+      reference: "img/MOC/moc-marvel-73-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-72",
+    locations: "John walker's home",
+    characters: "John Walker",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-72-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-72-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-72-3.webp", caption: "Détail 3" },
+
+      ],
+      reference: "img/MOC/moc-marvel-72-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-71",
+    locations: "Buccaneer Bay, Madripoor",
+    characters: "Sam Wilson, Bucky Barnes, Zemo, Sharon Carter",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-71-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-71-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-71-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-71-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-71-5.webp", caption: "Détail 5" },
+      ],
+      reference: "img/MOC/moc-marvel-71-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-70",
+    locations: "Avengers HQ",
+    characters: "The Avengers",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-70-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-70-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-70-3.webp", caption: "Détail 3" },
+      ],
+      reference: "img/MOC/moc-marvel-70-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-69",
+    locations: "Avengers Tower",
+    characters: "Captain America (2023), Captain America (2012)",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-69-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-69-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-69-3.webp", caption: "Détail 3" },
+      ],
+      reference: "img/MOC/moc-marvel-69-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-68",
+    locations: "Avengers HQ",
+    characters: "Steve Rogers, Bucky Barnes",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-68-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-68-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-68-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-68-4.webp", caption: "Détail 4" },
+      ],
+      reference: "img/MOC/moc-marvel-68-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-67",
+    locations: "New Asgard",
+    characters: "Thor, Valkyrie",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-67-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-67-2.webp", caption: "Détail 2" },
+
+      ],
+      reference: "img/MOC/moc-marvel-67-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-66",
+    locations: "Avengers HQ",
+    characters: "Steve Rogers, Sam Wilson",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-66-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-66-2.webp", caption: "Détail 2" },
+
+      ],
+      reference: "img/MOC/moc-marvel-66-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-65",
+    locations: "Avengers HQ",
+    characters: "Thor, Captain America",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-65-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-65-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-65-3.webp", caption: "Détail 3" },
+
+      ],
+      reference: "img/MOC/moc-marvel-65-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-64",
+    locations: "Washington DC",
+    characters: "Iron patriot, Matthew Ellis",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-64-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-64-2.webp", caption: "Détail 2" },
+
+      ],
+      reference: "img/MOC/moc-marvel-64-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-63",
+    locations: "Damage Control Warehouse",
+    characters: "Spiderman",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-63-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-63-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-63-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-63-4.webp", caption: "Détail 4" },
+
+      ],
+      reference: "img/MOC/moc-marvel-63-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-62",
+    locations: "Shady Acres Care Home, NYC",
+    characters: "Loki, Thor",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-62-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-62-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-62-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-62-5.webp", caption: "Détail 5" },
+
+      ],
+      reference: "img/MOC/moc-marvel-62-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-61",
+    locations: "Museum",
+    characters: "Erik Killmonger, Ulysses Klaue",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-61-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-61-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-61-3.webp", caption: "Détail 3" },
+
+      ],
+      reference: "img/MOC/moc-marvel-61-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-60",
+    locations: "Westview",
+    characters: "Wanda , Billy, Tommy, Agatha",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-60-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-60-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-60-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-60-4.webp", caption: "Détail 4" },
+
+      ],
+      reference: "img/MOC/moc-marvel-60-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-59",
+    locations: "Westview",
+    characters: "Wanda Maximoff, Monica Rambeau",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-59-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-59-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-59-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-59-4.webp", caption: "Détail 4" },
+
+      ],
+      reference: "img/MOC/moc-marvel-59-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-58",
+    locations: "The lighthouse, Earth",
+    characters: "Daisy Johnson, Krees",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-58-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-58-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-58-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-58-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-58-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-marvel-58-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-marvel-58-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-marvel-58-8.webp", caption: "Détail 8" },
+      ],
+      reference: "img/MOC/moc-marvel-58-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-57",
+    locations: "Macau, China",
+    characters: "Shang-Chi, Katy, Xialing, Death Dealer, Razor Fist",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-57-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-57-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-57-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-57-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-57-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-marvel-57-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-marvel-57-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-marvel-57-8.webp", caption: "Détail 8" },
+      ],
+      reference: "img/MOC/moc-marvel-57-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-56",
+    locations: "Thanos' Farm",
+    characters: "Thanos",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-56-1.webp", caption: "Détail 1" },
+      ],
+      reference: "img/MOC/moc-marvel-56-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-55",
+    locations: "TVA",
+    characters: "Loki, Casey",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-55-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-55-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-55-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-55-4.webp", caption: "Détail 4" },
+      ],
+      reference: "img/MOC/moc-marvel-55-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-54",
+    locations: "Moira Brandon's Apartment",
+    characters: "Clint Barton, Kate Bishop, the dog",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-54-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-54-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-54-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-54-4.webp", caption: "Détail 4" },
+      ],
+      reference: "img/MOC/moc-marvel-54-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-53",
+    locations: "Former Sokovian territory",
+    characters: "Bucky Barnes, Zemo, Dora Milaje",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-53-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-53-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-53-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-53-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-53-5.webp", caption: "Détail 5" },
+      ],
+      reference: "img/MOC/moc-marvel-53-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-52",
+    locations: "Louisiana",
+    characters: "Sam Wilson (Captain America)",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-52-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-52-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-52-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-52-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-52-5.webp", caption: "Détail 5" },
+      ],
+      reference: "img/MOC/moc-marvel-52-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-51",
+    locations: "Tulip field, Holland",
+    characters: "Spiderman, Happy Hogan",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-51-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-51-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-51-3.webp", caption: "Détail 3" },
+      ],
+      reference: "img/MOC/moc-marvel-51-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
+    id: "moc-marvel-50",
+    locations: "Tower Bridge",
+    characters: "Spiderman, Quentin Beck",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-50-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-50-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-50-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-50-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-50-5.webp", caption: "Détail 5" },
+      ],
+      reference: "img/MOC/moc-marvel-50-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+    instructions: "img/instructions/Drone Far From Home - Bricks Creations.pdf",
+  },
+  {
+    id: "moc-marvel-49",
+    locations: "Sanctum Sanctorum",
+    characters: "Wanda Maximoff",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-49-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-49-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-49-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-49-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-49-5.webp", caption: "Détail 5" },
+      ],
+      reference: "img/MOC/moc-marvel-49-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
     id: "moc-marvel-48",
     locations: "Witches road",
     characters: "Agatha",
@@ -105,11 +690,12 @@ const dataDetails = [
     characters: "Loki, Mobius, Horn Friends",
     images: {
       gallery: [
-        { src: "img/MOC/moc-marvel-43-1.webp", caption: "Détail 1" },
-        { src: "img/MOC/moc-marvel-43-2.webp", caption: "Détail 2" },
-        { src: "img/MOC/moc-marvel-43-3.webp", caption: "Détail 3" },
-        { src: "img/MOC/moc-marvel-43-4.webp", caption: "Détail 4" },
-        { src: "img/MOC/moc-marvel-43-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-marvel-43-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-marvel-43-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-marvel-43-8.webp", caption: "Détail 8" },
+        { src: "img/MOC/moc-marvel-43-9.webp", caption: "Détail 9" },
+        { src: "img/MOC/moc-marvel-43-10.webp", caption: "Détail 10" },
+        { src: "img/MOC/moc-marvel-43-11.webp", caption: "Détail 11" },
       ],
       reference: "img/MOC/moc-marvel-43-ref.webp",
     },
@@ -118,6 +704,7 @@ const dataDetails = [
       dimensions: "",
       buildTime: ""
     },
+    instructions: "img/instructions/Wooden table Instructions - Bricks Creations.pdf",
   },
   {
     id: "moc-marvel-42",
@@ -759,10 +1346,11 @@ const dataDetails = [
     characters: "Loki, alligator Loki, Classic Loki, Kid Loki, Boatsful Loki",
     images: {
       gallery: [
-        { src: "img/MOC/moc-marvel-9-1.webp", caption: "Détail 1" },
-        { src: "img/MOC/moc-marvel-9-2.webp", caption: "Détail 2" },
-        { src: "img/MOC/moc-marvel-9-3.webp", caption: "Détail 3" },
-        { src: "img/MOC/moc-marvel-9-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-9-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-marvel-9-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-marvel-9-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-marvel-9-8.webp", caption: "Détail 8" },
+        { src: "img/MOC/moc-marvel-9-9.webp", caption: "Détail 9" },
       ],
       reference: "img/MOC/moc-marvel-9-ref.webp",
     },
