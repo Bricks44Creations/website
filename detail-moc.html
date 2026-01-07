@@ -236,9 +236,10 @@
                 thumbs?.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === index));
                 keepActiveThumbVisible();
                 updateDotsWindow(); // <= AJOUT : slide + centrage du dot actif
-                window.addEventListener('resize', () => updateDotsWindow());
 
             }
+            window.addEventListener('resize', () => updateDotsWindow());
+
             function goTo(i) { index = (i + gallery.length) % gallery.length; updateCarousel(); }
             dots?.addEventListener('click', (e) => {
                 const i = [...dots.children].indexOf(e.target.closest('.carousel-dot'));
