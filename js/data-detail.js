@@ -1,5 +1,33 @@
 const dataDetails = [
   {//Marvel//
+    id: "moc-marvel-76",
+    locations: "Wakanda",
+    characters: "Avengers, Thanos' Army",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-marvel-76-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-marvel-76-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-marvel-76-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-marvel-76-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-marvel-76-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-marvel-76-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-marvel-76-7.webp", caption: "Détail 7" },
+        { src: "img/MOC/moc-marvel-76-8.webp", caption: "Détail 8" },
+        { src: "img/MOC/moc-marvel-76-9.webp", caption: "Détail 9" },
+        { src: "img/MOC/moc-marvel-76-10.webp", caption: "Détail 10" },
+        { src: "img/MOC/moc-marvel-76-11.webp", caption: "Détail 11" },
+        { src: "img/MOC/moc-marvel-76-12.webp", caption: "Détail 12" },
+        { src: "img/MOC/moc-marvel-76-13.webp", caption: "Détail 13" },
+      ],
+      reference: "img/MOC/moc-marvel-76-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
     id: "moc-marvel-75",
     locations: "Sanctum Sanctorum",
     characters: "Doctor Strange, Wong, Kaecilius, The ancient one",

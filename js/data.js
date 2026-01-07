@@ -1,5 +1,24 @@
 const project = [
     // Liste des MOC Marvel //
+    {//Wakanda battle//
+        id: "moc-marvel-76",
+        name: {
+            fr: "La bataille du Wakanda",
+            en: "Wakanda battle",
+        },
+        href: "../Portfolio/Marvel/Wakanda_battle.html",
+        key: "project_Wakanda_battle",
+        date: "2021-04-24",
+        relevance: 5,
+        filter: "Avengers : Infinity War",
+        movie: "Avengers : Infinity War",
+        img: "img/Miniatures/Wakanda_battle.jpg",
+        alt: "Wakanda battle",
+        type: "MOC",
+        theme: "marvel",
+        tag: "",
+        favoris: false,
+    },
     {//Sanctum Sanctorm//
         id: "moc-marvel-75",
         name: {
