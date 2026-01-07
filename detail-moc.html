@@ -29,7 +29,6 @@
             <section class="project-gallery" aria-label="Galerie d'images">
                 <div class="carousel" aria-roledescription="carrousel">
                     <div class="carousel-track" id="carouselTrack"></div>
-                    <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
                 </div>
                 <div class="thumbs" id="thumbs"></div>
             </section>
@@ -250,6 +249,108 @@
                 if (btn) goTo(parseInt(btn.dataset.index, 10));
             });
             updateCarousel();
+
+            // =========================
+            // MOBILE: ouvrir un "carousel sheet" (pas une lightbox) au clic sur image
+            // =========================
+            function isMobile() {
+                return window.matchMedia("(max-width: 768px)").matches;
+            }
+
+            function ensureCarouselSheet() {
+                let overlay = document.querySelector(".carousel-sheet-overlay");
+                if (overlay) return overlay;
+
+                overlay = document.createElement("div");
+                overlay.className = "carousel-sheet-overlay";
+                overlay.innerHTML = `
+    <div class="carousel-sheet" role="dialog" aria-modal="true" aria-label="Galerie">
+      <div class="carousel-sheet-header">
+        <button class="carousel-sheet-close" type="button" aria-label="Fermer">×</button>
+      </div>
+      <div class="carousel-sheet-body"></div>
+    </div>
+  `;
+
+                // fermeture si clic sur le voile (mais pas dans la sheet)
+                overlay.addEventListener("click", (e) => {
+                    if (e.target === overlay) closeCarouselSheet();
+                });
+
+                // bouton close
+                overlay.querySelector(".carousel-sheet-close").addEventListener("click", closeCarouselSheet);
+
+                document.body.appendChild(overlay);
+                return overlay;
+            }
+
+            function buildSheetContent(overlay, startIndex = 0) {
+                const body = overlay.querySelector(".carousel-sheet-body");
+                if (!body) return;
+
+                // on réordonne pour commencer par l’image cliquée (optionnel mais souvent agréable)
+                const ordered = gallery.length
+                    ? gallery.slice(startIndex).concat(gallery.slice(0, startIndex))
+                    : [];
+
+                // lignes alternées: 1 image, puis 2 images, puis 1, puis 2...
+                const rows = [];
+                let i = 0;
+                let one = true;
+                while (i < ordered.length) {
+                    if (one) {
+                        rows.push({ type: "one", imgs: [ordered[i]] });
+                        i += 1;
+                    } else {
+                        rows.push({ type: "two", imgs: [ordered[i], ordered[i + 1]].filter(Boolean) });
+                        i += 2;
+                    }
+                    one = !one;
+                }
+
+                body.innerHTML = rows.map(r => `
+    <div class="carousel-sheet-row ${r.type}">
+      ${r.imgs.map(g => `<img src="${g.src}" alt="${title}">`).join("")}
+    </div>
+  `).join("");
+            }
+
+            function openCarouselSheet(startIndex) {
+                if (!isMobile()) return;
+
+                const overlay = ensureCarouselSheet();
+                buildSheetContent(overlay, startIndex);
+
+                document.body.style.overflow = "hidden"; // bloque scroll page derrière
+                requestAnimationFrame(() => overlay.classList.add("is-open"));
+            }
+
+            function closeCarouselSheet() {
+                const overlay = document.querySelector(".carousel-sheet-overlay");
+                if (!overlay) return;
+
+                overlay.classList.remove("is-open");
+
+                // attendre la fin de l’anim pour éviter “cut”
+                setTimeout(() => {
+                    document.body.style.overflow = "";
+                }, 300);
+            }
+
+            // Click sur image du carrousel => ouvre la sheet
+            track?.addEventListener("click", (e) => {
+                if (!isMobile()) return;
+                const img = e.target.closest(".carousel-slide img");
+                if (!img) return;
+
+                // retrouver l’index cliqué depuis le DOM (slide parent)
+                const slide = img.closest(".carousel-slide");
+                const slides = [...track.querySelectorAll(".carousel-slide")];
+                const clickedIndex = slides.indexOf(slide);
+
+                openCarouselSheet(clickedIndex >= 0 ? clickedIndex : 0);
+            });
+
 
             // ----- [E] Système d’onglets (lazy-hydrate, un seul visible) -----
             const tabsBar = document.getElementById('asideTabs');

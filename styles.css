@@ -784,6 +784,7 @@ model-viewer {
   box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
 }
 
+
 /* petit bouton primaire réutilisable */
 .btn-primary {
   display: inline-flex;
@@ -981,10 +982,6 @@ model-viewer {
 }
 
 
-.project-gallery {
-  padding-bottom: 0;
-}
-
 .ref-image {
   position: relative;
   border-radius: 10px;
@@ -1061,44 +1058,6 @@ model-viewer {
 }
 
 
-.carousel-dots {
-  --dot-size: 10px;
-  --dot-gap: 8px;
-  --dots-visible: 7;
-  /* <= règle ici le nombre de dots visibles */
-
-  position: absolute;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-
-  /* viewport */
-  overflow: hidden;
-  width: calc(var(--dots-visible) * var(--dot-size) + (var(--dots-visible) - 1) * var(--dot-gap));
-  max-width: 90%;
-}
-
-.carousel-dots-track {
-  display: flex;
-  gap: var(--dot-gap);
-  transition: transform .35s ease;
-  /* <= l’animation “slide” des dots */
-  will-change: transform;
-}
-
-.carousel-dot {
-  width: var(--dot-size);
-  height: var(--dot-size);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .7);
-  border: 1px solid rgba(0, 0, 0, .15);
-  cursor: pointer;
-  flex: 0 0 auto;
-}
-
-.carousel-dot.active {
-  background: #18305a;
-}
 
 /* Galerie : une seule ligne, scroll horizontal */
 /* Miniatures : slider horizontal sur une seule ligne */
@@ -2850,7 +2809,7 @@ video {
   /* carousel plein écran, hauteur fixe */
   .carousel {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
   }
 
@@ -2858,5 +2817,100 @@ video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+/* =========================
+   MOBILE - Carousel Sheet (bottom overlay)
+   ========================= */
+
+.carousel-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+  z-index: 12000;
+}
+
+.carousel-sheet-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 96vh;
+  /* demandé: 90% de la hauteur écran */
+  background: #fff;
+  border-radius: 18px 18px 0 0;
+  transform: translateY(100%);
+  transition: transform .28s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.carousel-sheet-overlay.is-open .carousel-sheet {
+  transform: translateY(0);
+}
+
+.carousel-sheet-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: .75rem .75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+}
+
+.carousel-sheet-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  background: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel-sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  /* scroll vertical + scrollbar à droite */
+  -webkit-overflow-scrolling: touch;
+  padding: .75rem;
+}
+
+.carousel-sheet-row {
+  display: grid;
+  gap: .75rem;
+  margin-bottom: .75rem;
+}
+
+.carousel-sheet-row.one {
+  grid-template-columns: 1fr;
+}
+
+.carousel-sheet-row.two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.carousel-sheet-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* On ne veut ce comportement que sur mobile */
+@media (min-width: 769px) {
+  .carousel-sheet-overlay {
+    display: none !important;
   }
 }
