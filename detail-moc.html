@@ -139,6 +139,8 @@
         </button>
       `).join('');
             }
+
+
             // ----- Dots (fenêtre + track animé) -----
             let dotsTrack = null;
 
@@ -490,31 +492,7 @@
         })();
     </script>
 
-    <!-- =========================================================
-     SCRIPT UTILITAIRE — Hauteur uniforme des panneaux
-     ========================================================= -->
-    <script>
-        function equalizeTabHeights() {
-            const tabs = document.querySelectorAll('.tabpanel');
-            let maxHeight = 0;
-            tabs.forEach(tab => {
-                tab.style.height = 'auto';
-                if (!tab.hasAttribute('hidden')) {
-                    const h = tab.offsetHeight;
-                    if (h > maxHeight) maxHeight = h;
-                }
-            });
-            tabs.forEach(tab => tab.style.minHeight = (maxHeight || 0) + 'px');
-        }
-        window.addEventListener('load', equalizeTabHeights);
-        window.addEventListener('resize', equalizeTabHeights);
-        // Optionnel : ré-égaliser quand on change d’onglet
-        document.addEventListener('click', (e) => {
-            if (e.target?.getAttribute?.('role') === 'tab') {
-                setTimeout(equalizeTabHeights, 0);
-            }
-        });
-    </script>
+
 
     <!-- =========================================================
      DÉPENDANCE 3D — Import unique de model-viewer
