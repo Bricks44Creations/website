@@ -1146,7 +1146,7 @@ model-viewer {
   padding-top: .5rem;
   padding-bottom: .8rem;
   margin-bottom: 1rem;
-  position: sticky;
+  position: relative;
   top: 0;
   /* reste visible si l’aside est long */
   z-index: 1;
@@ -2911,9 +2911,34 @@ video {
   object-fit: cover;
 }
 
-/* On ne veut ce comportement que sur mobile */
+/* =========================
+   DESKTOP - Carousel Sheet
+   ========================= */
 @media (min-width: 769px) {
-  .carousel-sheet-overlay {
-    display: none !important;
+  .carousel-sheet {
+    left: 50%;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    width: min(1100px, 92vw);
+    height: 90vh;
+    border-radius: 18px;
+    transform: translate(-50%, -50%) scale(0.98);
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .carousel-sheet-overlay.is-open .carousel-sheet {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  .carousel-sheet-body {
+    padding: 1rem 1.2rem;
+  }
+
+  .carousel-sheet-row {
+    gap: 1rem;
+    margin-bottom: 1rem;
   }
 }
