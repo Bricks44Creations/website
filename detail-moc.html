@@ -565,6 +565,17 @@
         })();
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hero = document.querySelector(".project-hero");
+            const aside = hero?.querySelector(".project-aside");
+
+            if (!aside || aside.children.length === 0) {
+                hero.classList.add("no-aside");
+            }
+        });
+    </script>
+
 
 </body>
 

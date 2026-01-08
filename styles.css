@@ -1128,6 +1128,16 @@ model-viewer {
   gap: 0;
 }
 
+.project-hero.no-aside {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.project-hero.no-aside .project-gallery {
+  max-width: 900px;
+  width: 100%;
+}
+
 
 /* barre d’onglets */
 .tabs {
@@ -1573,6 +1583,7 @@ video {
   transform: scale(1.05);
 }
 
+
 /* Bandeau avec titre */
 .overlay-minifig {
   position: absolute;
@@ -1583,6 +1594,8 @@ video {
   color: #fff;
   padding: 0.5rem;
   text-align: center;
+  border-radius: 12px 12px 0 0;
+  /* haut-gauche, haut-droit, bas-droit, bas-gauche */
 }
 
 .overlay-minifig h2,
