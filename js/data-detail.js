@@ -671,6 +671,7 @@ const dataDetails = [
       dimensions: "",
       buildTime: ""
     },
+    video: "https://www.youtube.com/embed/IUhfalDXWUA?si=f4Lj_bRNNYYSPlPb",
   },
   {
     id: "moc-marvel-45",

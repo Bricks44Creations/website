@@ -41,8 +41,19 @@
       } else if (p.type === "instruction" || (typeof p.id === "string" && p.id.startsWith("instruction"))) {
         baseHref = "detail-instruction.html";
       }
-      card.href = `${baseHref}?id=${p.id}`;
-      card.dataset.date = p.date || "";
+      // --- Lien carte ---
+      const isInstruction =
+        p.type === "instruction" ||
+        (typeof p.id === "string" && p.id.startsWith("instruction"));
+
+      // Si instruction et PDF dispo dans data.js => on ouvre le PDF directement (comme Instructions.html)
+      if (isInstruction && p.href) {
+        card.href = p.href;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+      } else {
+        card.href = `${baseHref}?id=${p.id}`;
+      } card.dataset.date = p.date || "";
       card.dataset.relevance = String(p.relevance ?? 0);
       card.dataset.filter = p.filter || "";
 
