@@ -28,8 +28,12 @@
         <section class="project-hero" aria-label="Présentation du projet">
             <section class="project-gallery" aria-label="Galerie d'images">
                 <div class="carousel" aria-roledescription="carrousel">
+                    <button class="carousel-see-all" type="button">
+                        <span data-key="see_all">Tout voir</span>
+                    </button>
                     <div class="carousel-track" id="carouselTrack"></div>
                 </div>
+
                 <div class="thumbs" id="thumbs"></div>
             </section>
 
@@ -126,11 +130,11 @@
             const thumbs = $('#thumbs');
 
             if (track) {
-                track.innerHTML = gallery.map(g => `
-        <div class="carousel-slide">
-          <img src="${g.src}" alt="${title} - ${g.caption || ''}"/>
-        </div>
-      `).join('');
+                track.innerHTML = gallery.map((g, i) => `
+  <div class="carousel-slide">
+    <img src="${g.src}" alt="${title} - ${g.caption || ''}" data-index="${i}" />
+  </div>
+`).join('');
             }
             if (thumbs) {
                 thumbs.innerHTML = gallery.map((g, i) => `
@@ -336,6 +340,17 @@
                     document.body.style.overflow = "";
                 }, 300);
             }
+
+            // =========================
+            // Bouton "See all" => ouvre le carousel sheet (mobile + desktop)
+            // =========================
+            const seeAllBtn = document.querySelector(".carousel-see-all");
+            seeAllBtn?.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                // ouvre sur l'image actuellement affichée dans le carousel
+                openCarouselSheet(index || 0);
+            });
 
             track?.addEventListener("click", (e) => {
                 const slide = e.target.closest(".carousel-slide");

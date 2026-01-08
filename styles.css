@@ -1056,6 +1056,37 @@ model-viewer {
   opacity: .9;
 }
 
+/* Images cliquables de la galerie */
+.project-gallery img,
+.carousel-slide img,
+.thumbs button,
+.thumbs img {
+  cursor: pointer;
+}
+
+.carousel {
+  position: relative;
+}
+
+/* bouton fixe */
+.carousel-see-all {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 5;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.carousel-see-all:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
 
 /* Galerie : une seule ligne, scroll horizontal */
 /* Miniatures : slider horizontal sur une seule ligne */
