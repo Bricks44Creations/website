@@ -2064,6 +2064,82 @@ const dataDetails = [
   { id: "instruction-4", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "instruction-5", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
   { id: "instruction-6", description: { en: "", fr: "" }, images: { main: "", gallery: [] }, stats: { pieces: "", dimensions: "", buildTime: "" }, link: "", video: "", instructions: "", partsList: "", credits: "" },
+
+  // TECHNICS //
+  {
+    id: "technic-1",
+    rows: [
+      {
+        p: 1,
+        //heading: { fr: "Principe", en: "Principle" },//
+        text: {
+          fr: "Adding a border serves several purposes: \n it hies the building tricks and gives the MOC a more aesthetically pleasing finish, ", en: ""
+        },
+        img: "img/technics/technic-1-8.webp",
+      },
+      {
+        p: 2,
+        text: { fr: "Defining the creation: A border helps visually define the boundaries of the MOC, highlighting the main construction by separating it from the surrounding environment.", en: "" },
+        img: "img/technics/technic-1-6.webp"
+      },
+      {
+        p: 3,
+        text: { fr: "Creating visual contrast: Using black border which is a neutral helps the colorful details of the build stand out.", en: "" },
+        img: "img/technics/technic-1-2.webp"
+      },
+      {
+        p: 4,
+        text: { fr: "Enhancing presentation: A black border gives the MOC a more professional and polished look, especially when displayed at conventions or shared online.It creates a clean and finished frame", en: "" },
+        img: "img/technics/technic-1-7.webp"
+      }
+    ]
+  },
+
+  {
+    id: "technic-2",
+    rows: [
+      {
+        p: 1,
+        //heading: { fr: "", en: "" },//
+        text: { fr: "Texte...", en: "Text..." },
+        img: "img/Technics/column/1.jpg"
+      },
+      {
+        p: 1,
+        text: { fr: "Texte...", en: "Text..." },
+        img: "img/Technics/column/2.jpg"
+      },
+      {
+        p: 2,
+        heading: { fr: "Variantes", en: "Variants" },
+        text: { fr: "Texte...", en: "Text..." },
+        img: "img/Technics/column/3.jpg"
+      }
+    ]
+  },
+
+  {
+    id: "technic-3",
+    rows: [
+      {
+        p: 1,
+        //heading: { fr: "Matériaux", en: "Materials" },//
+        text: { fr: "Texte...", en: "Text..." },
+        img: "img/Technics/beach/1.jpg"
+      },
+      {
+        p: 1,
+        text: { fr: "Texte...", en: "Text..." },
+        img: "img/Technics/beach/2.jpg"
+      },
+      {
+        p: 2,
+        //heading: { fr: "Rendu final", en: "Final result" },//
+        text: { fr: "Texte...", en: "Text..." }, img: "img/Technics/beach/3.jpg"
+      }
+    ]
+  },
+
 ]
 
 

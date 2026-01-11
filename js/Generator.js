@@ -36,8 +36,8 @@
 
       // Hydratation: attributs lus par script.js (tri/filtre)
       let baseHref = "detail-moc.html";
-      if (p.type === "tips" || (typeof p.id === "string" && p.id.startsWith("tips"))) {
-        baseHref = "detail-tip.html";
+      if (p.type === "technics" || (typeof p.id === "string" && p.id.startsWith("technics"))) {
+        baseHref = "detail-technic.html";
       } else if (p.type === "instruction" || (typeof p.id === "string" && p.id.startsWith("instruction"))) {
         baseHref = "detail-instruction.html";
       }
@@ -54,8 +54,11 @@
       } else {
         card.href = `${baseHref}?id=${p.id}`;
       } card.dataset.date = p.date || "";
+
       card.dataset.relevance = String(p.relevance ?? 0);
       card.dataset.filter = p.filter || "";
+      card.dataset.difficulty = p.difficulty ?? 0;
+
 
       if (img) { img.src = p.img || ""; img.alt = p.alt || ""; }
 
@@ -504,13 +507,13 @@
 })();
 
 
-/* ---------- TIPS GENERATOR ---------------------*/
+/* ---------- Technics GENERATOR ---------------------*/
 (function (global) {
   const norm = (s) => (s || "").trim().toLowerCase();
-  const isTipType = (t) => norm(t) === "tips";
+  const isTechnicType = (t) => norm(t) === "technics";
 
   // Localise la date selon la langue courante (comme pour Instructions)
-  function updateTipDates(lang) {
+  function updateTechnicDates(lang) {
     const locale = (lang === "fr") ? "fr-FR" : "en-GB";
     document.querySelectorAll(".MOC-card").forEach(card => {
       const dateISO = card.dataset.date;
@@ -522,16 +525,16 @@
   }
 
   /**
-   * Génère les cartes de tips (nom traduisible + date locale).
+   * Génère les cartes de Technics (nom traduisible + date locale).
    * items: tableau source (ex: window.PROJECTS)
-   * containerId: "tips-grid"
+   * containerId: "Technics-grid"
    * templateId:  "card-template"
    * lang: "fr" | "en"
    */
-  function generateTips({ items = [], containerId, templateId, lang }) {
+  function generateTechnics({ items = [], containerId, templateId, lang }) {
     const src = Array.isArray(items) ? items : [];
     const filtered = src.filter(
-      p => isTipType(p.type) || (typeof p.id === "string" && p.id.startsWith("tips"))
+      p => isTechnicType(p.type) || (typeof p.id === "string" && p.id.startsWith("technics"))
     );
 
     // Réutilise le générateur de cartes générique (gère name.{fr|en}, href, img, data-*)
@@ -543,22 +546,24 @@
     }); /* s’appuie sur CardGenerator.generateCards:contentReference[oaicite:0]{index=0} */
 
     // Localise la date après rendu initial (comme pour Instructions)
-    updateTipDates(lang || global.currentLang || "en");
+    updateTechnicDates(lang || global.currentLang || "en");
   }
 
   // Pour la bascule de langue : met à jour le titre (name.{fr|en}) + la date localisée
-  function updateTipTitlesFromNames(lang) {
+  function updateTechnicTitlesFromNames(lang) {
     global.CardGenerator.updateCardTitlesFromNames(lang); /* même API que les Instructions:contentReference[oaicite:1]{index=1} */
-    updateTipDates(lang);
+    updateTechnicDates(lang);
   }
 
   // Expose l’API
   global.CardGenerator = Object.assign({}, global.CardGenerator, {
-    generateTips,
-    updateTipTitlesFromNames,
-    updateTipDates
+    generateTechnics,
+    updateTechnicTitlesFromNames,
+    updateTechnicDates
   });
 })(window);
+
+
 
 /* ===== HEADER & FOOTER GENERATOR ===== */
 (function () {
@@ -573,7 +578,7 @@
     <nav class="navbar">
       <ul class="menu">
         <li class="has-submenu">
-          <a href="MOC-home.html"><span data-key="MOC">MOC</span><span class="arrow-down">&#9662;</span></a>
+          <a href="MOC-home.html"><span data-key="MOCs">MOCs</span><span class="arrow-down">&#9662;</span></a>
           <ul class="submenu">
             <li><a href="MOC.html?theme=all" data-key="filter_all">Voir tous</a></li>
             <li class="separator"></li>
@@ -587,7 +592,7 @@
         </li>
         <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
         <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
-        <li><a href="tips.html" data-key="tips">Tips</a></li>
+        <li><a href="Technics.html" data-key="technics">Technics</a></li>
         <li class="has-submenu">
           <a href="Conventions.html"><span data-key="conventions">Conventions</span><span class="arrow-down">&#9662;</span></a>
           <ul class="submenu">
@@ -640,7 +645,7 @@
         <li class="separator"></li>
         <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
         <li class="separator"></li>
-        <li><a href="tips.html" data-key="tips">Tips</a></li>
+        <li><a href="Technics.html" data-key="technics">Technics</a></li>
         <li class="separator"></li>
         <li class="mobile-has-submenu">
           <button class="submenu-toggle" aria-expanded="false"><span data-key="conventions">Conventions</span> <span class="arrow-down">&#9662;</span></button>
@@ -677,7 +682,7 @@
           <li><a href="MOC-home.html" data-key="MOC">MOC</a></li>
           <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
           <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
-          <li><a href="tips.html" data-key="tips">Tips</a></li>
+          <li><a href="Technics.html" data-key="Technics">Technics</a></li>
           <li><a href="Conventions.html" data-key="conventions">Conventions</a></li>
         </ul>
       </div>
@@ -699,7 +704,7 @@
       </div>
     </div>
     <p class="copyright" data-key="footer_disclaimer">
-      © 2024-2025 All rights reserved Bricks Creations <br>
+      © 2024-{YEAR} All rights reserved Bricks Creations <br>
       I don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself. <br>
       For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.
     </p>

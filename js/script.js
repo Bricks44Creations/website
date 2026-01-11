@@ -60,8 +60,16 @@ window.addEventListener("click", (e) => {
 function handleSortChoice(link, closeMenus = true) {
   const criteria = link.dataset.sort;
   const isMinifigs = !!document.getElementById("figures-container");
+
+  // On considère “Instructions” si des options de tri difficulté existent sur la page
+  const isInstructionsPage = !isMinifigs && !!document.querySelector(
+    '#sort-options a[data-sort^="difficulty"], #sort-modal a[data-sort^="difficulty"]'
+  );
+
   if (isMinifigs && typeof sortMinifig === "function") {
     sortMinifig(criteria);
+  } else if (isInstructionsPage && typeof sortInstruction === "function") {
+    sortInstruction(criteria);
   } else {
     sortMOC(criteria);
   }
@@ -190,12 +198,69 @@ function sortMinifig(criteria) {
   items.forEach(el => grid.appendChild(el));
 }
 
+function sortInstruction(criteria) {
+  const grid = document.querySelector(".MOC-grid");
+  if (!grid) return;
+
+  if (criteria) currentSortCriteria = criteria;
+
+  const items = Array.from(grid.querySelectorAll(".MOC-card"));
+  const collator = new Intl.Collator(currentLang, { sensitivity: "base", numeric: true });
+
+  items.sort((a, b) => {
+    const nameA = getTranslatedName(a);
+    const nameB = getTranslatedName(b);
+    const difficultyA = parseInt(a.dataset.difficulty || 0, 10);
+    const difficultyB = parseInt(b.dataset.difficulty || 0, 10);
+
+    switch (currentSortCriteria) {
+      case "name-asc": return collator.compare(nameA, nameB);
+      case "name-desc": return collator.compare(nameB, nameA);
+      case "difficulty-asc": return difficultyA - difficultyB;
+      case "difficulty-desc": return difficultyB - difficultyA;
+      default: return 0;
+    }
+  });
+
+  grid.innerHTML = "";
+  items.forEach(item => grid.appendChild(item));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sortBtn = document.getElementById("sort-btn");
+  const sortModal = document.getElementById("sort-modal");
+  const closeSortModal = document.querySelector(".close-sort-modal");
+
+  // Ouvrir la modale sur mobile
+  sortBtn?.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      sortModal.style.display = "flex";
+    }
+  });
+
+  // Fermer toutes les modales avec les boutons ×
+  document.querySelectorAll(".close-sort-modal").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const modal = e.target.closest(".sort-modal");
+      if (modal) modal.style.display = "none";
+      document.body.style.overflow = ""; // pour réactiver le scroll
+    });
+  });
+
+  // Fermer si clic à l’extérieur du contenu
+  sortModal?.addEventListener("click", (e) => {
+    if (e.target === sortModal) {
+      sortModal.style.display = "none";
+    }
+  });
+});
 
 
 const translations = {
   en: {
     current_language: "English",
-    MOC: "MOC",
+    MOC: "MOCs",
     MOC_city: "City",
     MOC_jp: "Jurassic Park",
     MOC_marvel: "Marvel",
@@ -204,7 +269,7 @@ const translations = {
     MOC_others: "Others",
     MOC_vignettes: "Vignettes",
     instructions: "Instructions",
-    tips: "Tips",
+    technics: "Technics",
     minifigs: "Minifigs",
     home: "Home",
     conventions: "Conventions",
@@ -241,6 +306,8 @@ const translations = {
     sort_name_desc: "Name Z-A",
     sort_date_desc: "Date (newest → oldest)",
     sort_date_asc: "Date (oldest → newest)",
+    sort_difficulty_asc: "Difficulty (easy → hard)",
+    sort_difficulty_desc: "Difficulty (hard → easy)",
     sort_relevance: "Relevance",
     filter_by_prefix: "Filter by: ",
     filter_all_label: "Filter by: All",
@@ -252,12 +319,12 @@ const translations = {
     ref_location: "Location",
     ref_movie: "Movie / Show",
     ref_characters: "Characters",
-    footer_disclaimer: "© 2024-2025 All rights reserved Bricks Creations \nI don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself.\nFor the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that.\nLEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.",
+    footer_disclaimer: "© 2024-{YEAR} All rights reserved Bricks Creations \nI don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself.\nFor the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that.\nLEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.",
   },
 
   fr: {
     current_language: "Français",
-    MOC: "MOC",
+    MOC: "MOCs",
     MOC_city: "Ville",
     MOC_jp: "Jurassic Park",
     MOC_marvel: "Marvel",
@@ -266,8 +333,8 @@ const translations = {
     MOC_others: "Autres",
     MOC_vignettes: "Vignettes",
     instructions: "Instructions",
-    tips: "Astuces",
     minifigs: "Minifigurines",
+    technics: "Techniques",
     home: "Accueil",
     languages: "Langues",
     conventions: "Expositions",
@@ -304,6 +371,8 @@ const translations = {
     sort_date_desc: "Date (récent → ancien)",
     sort_date_asc: "Date (ancien → récent)",
     sort_relevance: "Pertinence",
+    sort_difficulty_asc: "Difficulté (facile → difficile)",
+    sort_difficulty_desc: "Difficulté (difficile → facile)",
     filter_by_prefix: "Filtrer par : ",
     filter_all_label: "Filtrer par : Tous",
     filter_all: "Voir tous",
@@ -314,7 +383,7 @@ const translations = {
     ref_location: "Lieu",
     ref_movie: "Film / Série",
     ref_characters: "Personnages",
-    footer_disclaimer: "© 2024-2025 Tous droits réservés Bricks Creations \nJe ne travaille pas pour LEGO®, je ne suis pas corrompu par LEGO®, j’achète mes LEGO® moi-même.\nPour le reste, les propriétaires des marques mentionnées sur le site en restent les seuls propriétaires et c’est très bien ainsi.\nLEGO® est une marque déposée du groupe LEGO, qui ne sponsorise, n’autorise ni n’approuve ce site."
+    footer_disclaimer: "© 2024-{YEAR} Tous droits réservés Bricks Creations \nJe ne travaille pas pour LEGO®, je ne suis pas corrompu par LEGO®, j’achète mes LEGO® moi-même.\nPour le reste, les propriétaires des marques mentionnées sur le site en restent les seuls propriétaires et c’est très bien ainsi.\nLEGO® est une marque déposée du groupe LEGO, qui ne sponsorise, n’autorise ni n’approuve ce site."
   }
 };
 
@@ -338,7 +407,10 @@ function setLanguage(lang) {
       let text = translations[currentLang][key];
       // Si c’est le footer, transformer \n en <br>
       if (key === "footer_disclaimer") {
-        text = text.replace(/\n/g, "<br>");
+        const currentYear = new Date().getFullYear();
+        text = text
+          .replace("{YEAR}", currentYear)
+          .replace(/\n/g, "<br>");
       }
       el.innerHTML = text;
     }
@@ -359,8 +431,19 @@ function setLanguage(lang) {
   });
 
   // Ré-appliquer le tri courant pour refléter la langue choisie
-  sortMOC();
+  // Ré-appliquer le tri courant pour refléter la langue choisie (selon la page)
+  const isMinifigs = !!document.getElementById("figures-container");
+  const isInstructionsPage = !isMinifigs && !!document.querySelector(
+    '#sort-options a[data-sort^="difficulty"], #sort-modal a[data-sort^="difficulty"]'
+  );
 
+  if (isMinifigs && typeof sortMinifig === "function") {
+    sortMinifig();
+  } else if (isInstructionsPage && typeof sortInstruction === "function") {
+    sortInstruction();
+  } else {
+    sortMOC();
+  }
   // --- AJOUT : persister la langue
   saveLang(lang);
   updateDetailTexts(lang); // <<< ajoute cette ligne
@@ -952,6 +1035,129 @@ function resizeCardTitles() {
   });
 }
 
+
+(function () {
+  const $ = (s) => document.querySelector(s);
+  const curLang = (window.currentLang || "fr");
+
+  const params = new URLSearchParams(location.search);
+  const technicId = params.get("id");
+
+  const PROJECTS = (window.PROJECTS || window.project || []);
+  const DETAILS = (window.dataDetails || []);
+
+  const p = PROJECTS.find(x => x.id === technicId) || {};
+  const d = DETAILS.find(x => x.id === technicId) || {};
+
+  // --- Titre ---
+  const title =
+    (p.name && (p.name[curLang] || p.name.en || p.name.fr)) ||
+    (d.title && (d.title[curLang] || d.title.en || d.title.fr)) ||
+    (technicId || "");
+  $("#page-title").textContent = title;
+
+
+  // --- Contenu (rows) ---
+  const rows = Array.isArray(d.rows) ? d.rows : [];
+  const wrap = $("#technic-content");
+  if (!wrap) return;
+
+  if (!rows.length) {
+    wrap.innerHTML = `<p style="opacity:.7">Aucun contenu pour cette technique.</p>`;
+    return;
+  }
+
+  // util: texte dans la langue
+  const pickLang = (obj) => {
+    if (!obj) return "";
+    if (typeof obj === "string") return obj;
+    return obj[curLang] || obj.en || obj.fr || "";
+  };
+
+  // On regroupe par paragraphe (p)
+  let currentP = null;
+  let paragraphEl = null;
+  let globalRowIndex = 0;
+
+  rows.forEach((r) => {
+    const pIndex = (typeof r.p === "number") ? r.p : 1;
+
+    // Nouveau paragraphe si p change
+    if (pIndex !== currentP) {
+      currentP = pIndex;
+
+      paragraphEl = document.createElement("section");
+      paragraphEl.className = "technic-paragraph";
+
+      const heading = pickLang(r.heading);
+      if (heading) {
+        const h = document.createElement("h2");
+        h.className = "technic-paragraph-title";
+        h.textContent = heading;
+        paragraphEl.appendChild(h);
+      }
+
+      wrap.appendChild(paragraphEl);
+    }
+
+    // Ligne (texte + image alternée)
+    const row = document.createElement("div");
+    row.className = "technic-row" + (globalRowIndex % 2 === 1 ? " reverse" : "");
+
+    const textCol = document.createElement("div");
+    textCol.className = "technic-text";
+
+    const txt = pickLang(r.text);
+    if (txt) {
+      const pEl = document.createElement("p");
+      pEl.textContent = txt;
+      textCol.appendChild(pEl);
+    }
+
+    const imgCol = document.createElement("div");
+    imgCol.className = "technic-image";
+
+    if (r.img) {
+      const img = document.createElement("img");
+      img.src = r.img;
+      img.alt = pickLang(r.alt) || title;
+      img.loading = "lazy";
+      imgCol.appendChild(img);
+
+      const cap = pickLang(r.caption);
+      if (cap) {
+        const c = document.createElement("div");
+        c.className = "technic-caption";
+        c.textContent = cap;
+        imgCol.appendChild(c);
+      }
+    }
+
+    row.appendChild(textCol);
+    row.appendChild(imgCol);
+
+    paragraphEl.appendChild(row);
+    globalRowIndex++;
+  });
+
+})();
+function syncTechnicImageHeights(minPx = 140) {
+  document.querySelectorAll(".technic-row").forEach(row => {
+    const text = row.querySelector(".technic-text");
+    const imgCol = row.querySelector(".technic-image");
+    const img = imgCol?.querySelector("img");
+    if (!text || !imgCol || !img) return;
+
+    const h = Math.max(minPx, Math.ceil(text.getBoundingClientRect().height));
+    imgCol.style.height = h + "px";
+    img.style.height = "100%";
+    img.style.width = "100%";
+    img.style.objectFit = img.style.objectFit || "contain";
+  });
+}
+
+window.addEventListener("load", () => syncTechnicImageHeights(140));
+window.addEventListener("resize", () => syncTechnicImageHeights(140));
 
 // Exécuter au chargement et au redimensionnement
 window.addEventListener("load", resizeCardTitles);
