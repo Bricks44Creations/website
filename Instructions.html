@@ -36,6 +36,63 @@
 
         <div class="separator"></div>
 
+        <!-- TRI / FILTRE -->
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+            <!-- TRI -->
+            <div class="dropdown-tri" id="sort-dropdown">
+                <button class="dropbtn-tri" id="sort-btn">
+                    <span id="sort-label" data-key="sort_difficulty_asc">Trier par : Nom A-Z</span>
+                    <span class="arrow-down">&#9662;</span>
+                </button>
+                <div class="dropdown-content-tri" id="sort-options">
+                    <a href="#" data-sort="name-asc" data-key="sort_name_asc">Nom A-Z</a>
+                    <a href="#" data-sort="name-desc" data-key="sort_name_desc">Nom Z-A</a>
+                    <a href="#" data-sort="difficulty-asc" data-key="sort_difficulty_asc">Difficulté (facile →
+                        difficile)</a>
+                    <a href="#" data-sort="difficulty-desc" data-key="sort_difficulty_desc">Difficulté (difficile →
+                        facile)</a>
+                </div>
+            </div>
+
+            <!-- FILTRE -->
+            <div class="dropdown-tri" id="filter-dropdown">
+                <button id="filter-btn" class="dropbtn-tri">
+                    <span id="filter-label" data-key="filter_all_label">Filtrer par : Tous</span>
+                    <span class="arrow-down">&#9662;</span>
+                </button>
+                <div id="filter-options" class="dropdown-content-tri"></div>
+            </div>
+        </div>
+
+        <!-- Modal tri (mobile) -->
+        <div id="sort-modal" class="sort-modal">
+            <div class="sort-modal-content">
+                <button class="close-sort-modal" aria-label="Fermer">×</button>
+                <a href="#" data-sort="name-asc" data-key="sort_name_asc">Nom A-Z</a>
+                <a href="#" data-sort="name-desc" data-key="sort_name_desc">Nom Z-A</a>
+                <a href="#" data-sort="difficulty-asc" data-key="sort_difficulty_asc">Difficulté (facile →
+                    difficile)</a>
+                <a href="#" data-sort="difficulty-desc" data-key="sort_difficulty_desc">Difficulté (difficile →
+                    facile)</a>
+            </div>
+        </div>
+
+        <!-- Modal FILTRE (mobile) -->
+        <div id="filter-modal" class="sort-modal">
+            <div class="sort-modal-content">
+                <button class="close-sort-modal" aria-label="Fermer">×</button>
+
+                <!-- Liste des cases -->
+                <div id="filter-list" class="checkbox-list"></div>
+
+                <!-- Boutons (mêmes styles que la modale tri) -->
+                <a href="#" id="reset-filters" data-key="action_reset_filters">Réinitialiser les filtres</a>
+                <a href="#" id="apply-filters" data-key="action_apply_filters">Appliquer les filtres</a>
+
+
+            </div>
+        </div>
+
         <section class="MOC-grid" id="MOC-grid"></section>
 
         <template id="card-template">
@@ -51,18 +108,11 @@
 
     <!-- FOOTER -->
 
-
     <!-- Scripts -->
-    <!-- 1) Données -->
     <script src="js/data.js"></script>
-
-    <!-- 2) Générateurs communs (MOC + minifigs + instructions) -->
     <script src="js/Generator.js"></script>
-
-    <!-- 3) Script commun (menu, i18n, tri, etc.) -->
     <script src="js/script.js"></script>
 
-    <!-- 4) Spécifique à la page Instructions -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // 1) Source des données
@@ -82,7 +132,11 @@
                 templateId: "card-template",
                 lang: window.currentLang || "en"
             });
-
+            // ✅ AJOUT ICI
+            if (typeof buildfilterFilterUI === "function") {
+                buildfilterFilterUI();
+                applyfilterFilter();
+            }
             // 4) Recâbler chaque carte vers le PDF provenant de data.js (champ href)
             try {
                 const grid = document.getElementById("MOC-grid");
@@ -110,15 +164,17 @@
             }
         });
 
+
         // Bascule de langue (on conserve ton comportement existant)
         (function () {
             const prev = window.setLanguage;
             window.setLanguage = function (lang) {
                 prev?.(lang);
                 window.CardGenerator.updateInstructionTitlesFromNames(lang);
-                if (typeof sortMOC === "function") sortMOC();
+                if (typeof sortInstructions === "function") sortInstructions();
             };
-            window.CardGenerator.updateInstructionTitlesFromNames(window.currentLang || "en");
+
+
         })();
     </script>
 

@@ -2973,3 +2973,78 @@ video {
     margin-bottom: 1rem;
   }
 }
+
+/* ==============================
+   TECHNICS DETAIL (detail-technic)
+   ============================== */
+
+.technic-paragraph {
+  margin: 22px 0;
+}
+
+.technic-paragraph-title {
+  margin: 0 0 14px 0;
+}
+
+.technic-row {
+  display: flex;
+  gap: 22px;
+  align-items: stretch;
+  margin: 16px 0;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  box-shadow: 0.3s ease;
+}
+
+
+.technic-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.technic-text {
+  flex: 1 1 0;
+}
+
+.technic-text p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.technic-image {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 50px;
+  /* <- sécurité (à ajuster) */
+  display: flex;
+  object-fit: contain;
+}
+
+.technic-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* <- au lieu de height:auto */
+  border-radius: 14px;
+}
+
+.technic-caption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .technic-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .technic-row,
+  .technic-row.reverse {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -41,7 +41,7 @@
       <!-- MOC (ALL) -->
       <section aria-labelledby="sec-latest-all" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
-          <h2 id="sec-latest-all">MOC</h2>
+          <h2 id="sec-latest-all">MOCs</h2>
         </div>
         <div class="MOC-grid" id="grid-latest-all"></div>
         <div class="section-actions">
@@ -79,7 +79,7 @@
       <!-- MOC Jurassic Park -->
       <section aria-labelledby="sec-latest-jp" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
-          <h2 id="sec-latest-jp">MOC Jurassic Park</h2>
+          <h2 id="sec-latest-jp">MOCs Jurassic Park</h2>
         </div>
         <div class="MOC-grid" id="grid-latest-jp"></div>
         <div class="section-actions">
@@ -91,7 +91,7 @@
       <!-- MOC Marvel -->
       <section aria-labelledby="sec-latest-marvel" class="grid-3 section-card" data-limit="2">
         <div class="section-head">
-          <h2 id="sec-latest-marvel">MOC Marvel</h2>
+          <h2 id="sec-latest-marvel">MOCs Marvel</h2>
         </div>
         <div class="MOC-grid" id="grid-latest-marvel"></div>
         <div class="section-actions">
@@ -100,15 +100,15 @@
       </section>
     </div>
 
-    <!-- Tips -->
-    <section aria-labelledby="sec-latest-tips" class="grid-3 section-card" data-limit="3">
+    <!-- Technics-->
+    <section aria-labelledby="sec-latest-technics" class="grid-3 section-card" data-limit="3">
       <div class="section-head">
-        <h2 id="sec-latest-tips">Tips</h2>
+        <h2 id="sec-latest-technics">Technics</h2>
       </div>
 
-      <div class="MOC-grid" id="grid-latest-tips"></div>
+      <div class="MOC-grid" id="grid-latest-technics"></div>
       <div class="section-actions">
-        <a class="btn-ghost" href="Tips-home.html" data-key="see_all">Voir plus</a>
+        <a class="btn-ghost" href="Technics.html" data-key="see_all">Voir plus</a>
       </div>
     </section>
     </div>
@@ -162,9 +162,9 @@
       renderSection('grid-latest-all', p => norm(p.type) === 'moc');
       renderSection('grid-latest-minifigs', p => norm(p.type) === 'minifig', true);
 
-      // Rangée 2 : Instructions + Tips
+      // Rangée 2 : Instructions + Technics
       renderSection('grid-latest-instructions', p => norm(p.type) === 'instruction' || (typeof p.id === 'string' && p.id.startsWith('instruction')));
-      renderSection('grid-latest-tips', p => norm(p.type) === 'tips');
+      renderSection('grid-latest-technics', p => norm(p.type) === 'technics');
 
       // Sections : Marvel + Jurassic park (côte à côte)
       renderSection('grid-latest-jp', p => norm(p.type) === 'moc' && norm(p.theme) === 'jurassic-park');
