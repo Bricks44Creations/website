@@ -1089,16 +1089,17 @@ function resizeCardTitles() {
 function syncTechnicImageHeights(minPx = 140) {
   const isMobile = window.innerWidth <= 768;
 
+  // Sur mobile : on ne force PAS la hauteur, et on nettoie toute hauteur inline déjà posée
+  if (isMobile) {
+    document.querySelectorAll(".technic-row .technic-image").forEach(col => {
+      col.style.height = ""; // important : annule les hauteurs fixées précédemment
+    });
+    return;
+  }
+
   document.querySelectorAll(".technic-row").forEach(row => {
     const imgCol = row.querySelector(".technic-image");
     if (!imgCol) return;
-
-    // ✅ Mobile : on supprime toute hauteur forcée
-    if (isMobile) {
-      imgCol.style.height = "";
-      return;
-    }
-
     const text = row.querySelector(".technic-text");
     const imgs = imgCol.querySelectorAll("img");
     if (!text || imgs.length === 0) return;
@@ -1107,6 +1108,7 @@ function syncTechnicImageHeights(minPx = 140) {
     imgCol.style.height = h + "px";
   });
 }
+
 
 
 function setupTechnicRowsAutoSync(minPx = 140) {
@@ -1147,7 +1149,6 @@ function setupTechnicRowsAutoSync(minPx = 140) {
 
 window.addEventListener("load", () => syncTechnicImageHeights(140));
 window.addEventListener("resize", () => syncTechnicImageHeights(140));
-
 // Exécuter au chargement et au redimensionnement
 window.addEventListener("load", resizeCardTitles);
 window.addEventListener("resize", resizeCardTitles);
