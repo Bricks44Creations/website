@@ -27,37 +27,37 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
         <div class="title">
-            <h1 data-key="technics">Technics</h1>
+            <h1 data-key="title_technics">Technics</h1>
         </div>
         <div class="separator"></div>
 
-        <!-- TRI / FILTRE -->
+        <!-- TRI / FILTRE 
         <div style="display:flex;gap:1rem;flex-wrap:wrap">
-            <!-- TRI -->
+            TRI 
             <div class="dropdown-tri" id="sort-dropdown">
                 <button class="dropbtn-tri" id="sort-btn">
-                    <span id="sort-label" data-key="sort_date_desc">Trier par : Date (récent → ancien)</span>
+                    <span id="sort-label" data-key="sort_date_desc"></span>
                     <span class="arrow-down">&#9662;</span>
                 </button>
                 <div class="dropdown-content-tri" id="sort-options">
-                    <a href="#" data-sort="date-asc" data-key="sort_date_asc">Date (ancien → récent)</a>
-                    <a href="#" data-sort="date-desc" data-key="sort_date_desc">Date (récent → ancien)</a>
-                    <a href="#" data-sort="relevance" data-key="sort_relevance">Pertinence</a>
+                    <a href="#" data-sort="date-asc" data-key="sort_date_asc"></a>
+                    <a href="#" data-sort="date-desc" data-key="sort_date_desc"></a>
+                    <a href="#" data-sort="relevance" data-key="sort_relevance"></a>
                 </div>
             </div>
 
 
         </div>
 
-        <!-- Modal tri (mobile) -->
+        Modal tri (mobile)
         <div id="sort-modal" class="sort-modal">
             <div class="sort-modal-content">
                 <button class="close-sort-modal" aria-label="Fermer">×</button>
-                <a href="#" data-sort="date-asc" data-key="sort_date_asc">Date (ancien → récent)</a>
-                <a href="#" data-sort="date-desc" data-key="sort_date_desc">Date (récent → ancien)</a>
-                <a href="#" data-sort="relevance" data-key="sort_relevance">Pertinence</a>
+                <a href="#" data-sort="date-asc" data-key="sort_date_asc"></a>
+                <a href="#" data-sort="date-desc" data-key="sort_date_desc"></a>
+                <a href="#" data-sort="relevance" data-key="sort_relevance"></a>
             </div>
-        </div>
+        </div>-->
 
 
         <!-- Template Card -->
@@ -82,38 +82,20 @@
     <script src="js/data.js"></script>
     <script src="js/Generator.js"></script>
     <script src="js/script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            CardGenerator.generateTechnics({
-                items: window.PROJECTS,          // ton tableau global
-                containerId: "technics-grid",        // l’ID de ta grille
-                templateId: "card-template",     // le <template> de card
-                lang: window.currentLang || "en"
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const src = window.PROJECTS || window.project || [];
-            window.CardGenerator.generateTechnics({
-                items: src,
-                containerId: "technics-grid",
-                templateId: "card-template",
-                lang: window.currentLang || "en"
-            });
-        });
+    <script src="js/translations.js"></script>
 
-        // Bascule de langue
-        (function () {
-            const prev = window.setLanguage;
-            window.setLanguage = function (lang) {
-                prev?.(lang);
-                window.CardGenerator.updateTechnicTitlesFromNames(lang);
-                if (typeof sortMOC === "function") sortMOC();
-            };
-            window.CardGenerator.updateTechnicTitlesFromNames(window.currentLang || "en");
-        })();
+
+    <script>
+        const prev = window.setLanguage;
+        window.setLanguage = function (lang) {
+            prev?.(lang);
+            CardGenerator.updateCardTitlesFromNames?.(lang);
+            CardGenerator.updateMinifigTextsFromNames?.(lang);
+        };
+        CardGenerator.updateCardTitlesFromNames?.(window.currentLang || 'fr');
+        CardGenerator.updateMinifigTextsFromNames?.(window.currentLang || 'fr');
     </script>
+
 </body>
 
 </html>

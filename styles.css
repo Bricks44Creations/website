@@ -3011,23 +3011,31 @@ video {
 .technic-text p {
   margin: 0;
   line-height: 1.7;
+  white-space: pre-line;
 }
 
 .technic-image {
-  position: relative;
   flex: 1 1 0;
   min-height: 50px;
-  /* <- sécurité (à ajuster) */
   display: flex;
-  object-fit: contain;
+  gap: 12px;
+  align-items: stretch;
 }
 
+/* Image générique */
 .technic-image img {
-  position: absolute;
-  width: 100%;
+  flex: 1 1 0;
+  width: 0;
   height: 100%;
-  /* <- au lieu de height:auto */
+  object-fit: contain;
   border-radius: 14px;
+  display: block;
+}
+
+/* Cas 1 seule image dans la colonne : elle prend toute la largeur */
+.technic-image img:only-child {
+  width: 0 !important;
+  flex: 1 1 0 !important;
 }
 
 .technic-caption {
