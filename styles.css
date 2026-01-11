@@ -2978,6 +2978,10 @@ video {
    TECHNICS DETAIL (detail-technic)
    ============================== */
 
+/* ==============================
+   TECHNICS DETAIL (detail-technic)
+   ============================== */
+
 .technic-paragraph {
   margin: 22px 0;
 }
@@ -2986,6 +2990,7 @@ video {
   margin: 0 0 14px 0;
 }
 
+/* ===== ROW ===== */
 .technic-row {
   display: flex;
   gap: 22px;
@@ -2995,17 +3000,17 @@ video {
   padding: 1rem 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  box-shadow: 0.3s ease;
 }
-
 
 .technic-row.reverse {
   flex-direction: row-reverse;
 }
 
+/* ===== TEXTE ===== */
 .technic-text {
   flex: 1 1 0;
+  min-width: 0;
+  /* évite les débordements */
 }
 
 .technic-text p {
@@ -3014,45 +3019,76 @@ video {
   white-space: pre-line;
 }
 
+/* ===== IMAGES (BASE) ===== */
 .technic-image {
   flex: 1 1 0;
-  min-height: 50px;
+  min-width: 0;
+  /* clé anti-débordement en flex */
   display: flex;
   gap: 12px;
   align-items: stretch;
 }
 
-/* Image générique */
-.technic-image img {
-  flex: 1 1 0;
-  width: 0;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 14px;
-  display: block;
-}
-
-/* Cas 1 seule image dans la colonne : elle prend toute la largeur */
-.technic-image img:only-child {
-  width: 0 !important;
-  flex: 1 1 0 !important;
-}
-
-.technic-caption {
-  margin-top: 8px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .technic-hero {
-    grid-template-columns: 1fr;
+/* ======================================================
+   DESKTOP (>= 901px) : ON GARDE TON ANCIEN COMPORTEMENT
+   ====================================================== */
+@media (min-width: 901px) {
+  .technic-image img {
+    flex: 1 1 0;
+    width: 0;
+    /* ancien : OK sur desktop (flex calcule) */
+    height: 100%;
+    /* ancien : l’image suit la hauteur de la row */
+    object-fit: contain;
+    border-radius: 14px;
+    display: block;
   }
+
+  /* Cas 1 image : elle prend tout l'espace */
+  .technic-image img:only-child {
+    width: 0 !important;
+    flex: 1 1 0 !important;
+  }
+}
+
+/* ==========================================
+   MOBILE (<= 900px) : NOUVEAU COMPORTEMENT
+   -> la row GRANDIT et les images s’empilent
+   ========================================== */
+@media (max-width: 900px) {
 
   .technic-row,
   .technic-row.reverse {
     flex-direction: column;
     align-items: stretch;
   }
+
+  .technic-image {
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+  }
+
+  .technic-image img {
+    width: 100% !important;
+    /* plein large */
+    height: auto !important;
+    /* garde ratio -> la row s’agrandit */
+    flex: 0 0 auto !important;
+    object-fit: contain;
+    border-radius: 14px;
+    display: block;
+  }
+
+  /* Cas 1 seule image : on annule le width:0 desktop */
+  .technic-image img:only-child {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+.technic-caption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
