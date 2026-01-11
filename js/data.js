@@ -2466,34 +2466,14 @@ const project = [
     // Liste des techniques //
     {
         id: "technic-1",
-        name: { en: "Build a border around your MOC", fr: "Construire une bordure autour de ton MOC" },
-        href: "Technics/Border.html",
+        name: { en: "Add a border / a frame", fr: "Ajouter une bordure / un cadre" },
         /*date: "2024-10-22", */
         img: "img/Miniatures/border.jpg",
-        alt: "Build a border around your MOC",
+        alt: "Add a border",
         type: "technics",
         theme: "technics"
     },
-    {
-        id: "technic-2",
-        name: { en: "Make a Column with LEGO", fr: "Construire une colonne avec des LEGO" },
-        href: "Technics/Column.html",
-        /*date: "2024-09-27", */
-        img: "img/Miniatures/Column.png",
-        alt: "Make a Column with LEGO",
-        type: "technics",
-        theme: "technics"
-    },
-    {
-        id: "technic-3",
-        name: { en: "Make a Beach with LEGO", fr: "Construire une plage avec des LEGO" },
-        href: "Technics/Beach.html",
-        /*date: "2024-07-14",*/
-        img: "img/Miniatures/beach.png",
-        alt: "Make a Beach with LEGO",
-        type: "technics",
-        theme: "technics"
-    },
+
 
 
 

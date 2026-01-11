@@ -563,6 +563,38 @@
   });
 })(window);
 
+document.addEventListener("DOMContentLoaded", () => {
+  CardGenerator.generateTechnics({
+    items: window.PROJECTS,          // ton tableau global
+    containerId: "technics-grid",        // l’ID de ta grille
+    templateId: "card-template",     // le <template> de card
+    lang: window.currentLang || "en"
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const src = window.PROJECTS || window.project || [];
+  window.CardGenerator.generateTechnics({
+    items: src,
+    containerId: "technics-grid",
+    templateId: "card-template",
+    lang: window.currentLang || "en"
+  });
+});
+
+
+
+// Bascule de langue
+(function () {
+  const prev = window.setLanguage;
+  window.setLanguage = function (lang) {
+    prev?.(lang);
+    window.CardGenerator.updateTechnicTitlesFromNames(lang);
+    if (typeof sortMOC === "function") sortMOC();
+  };
+  window.CardGenerator.updateTechnicTitlesFromNames(window.currentLang || "en");
+
+})();
 
 
 /* ===== HEADER & FOOTER GENERATOR ===== */

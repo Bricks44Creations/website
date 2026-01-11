@@ -257,135 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const translations = {
-  en: {
-    current_language: "English",
-    MOC: "MOCs",
-    MOC_city: "City",
-    MOC_jp: "Jurassic Park",
-    MOC_marvel: "Marvel",
-    MOC_medieval: "Medieval",
-    MOC_ww: "Wizarding World",
-    MOC_others: "Others",
-    MOC_vignettes: "Vignettes",
-    instructions: "Instructions",
-    technics: "Technics",
-    minifigs: "Minifigs",
-    home: "Home",
-    conventions: "Conventions",
-    languages: "Languages",
-    convention_bousies: "Bousies",
-    convention_escaudoeuvres: "Escaudoeuvres",
-    convention_divion: "Divion",
-    see_all: "See all",
-    quick_links: "Quick links",
-    social_contacts: "Social | Contacts",
-    youtube: "YouTube ",
-    instagram: "Instagram ",
-    tiktok: "TikTok ",
-    email: "Email ",
-    more_from_me: "More from me",
-    who_am_i: "Who am I ?",
-    op_city: "City",
-    op_jp: "Jurassic Park",
-    op_filter: "filter",
-    op_medieval: "Medieval",
-    op_ww: "Wizarding World",
-    op_others: "Others",
-    op_vignettes: "Vignettes",
-    search: "Search",
-    tab_ref: "References",
-    tab_3d: "3D",
-    tab_video: "Video",
-    tab_notice: "Instructions",
-    search_placeholder: "Type to search...",
-    filter: "Filter",
-    sort_by: "Sort by",
-    sort_label_prefix: "Sort by: ",
-    sort_name_asc: "Name A-Z",
-    sort_name_desc: "Name Z-A",
-    sort_date_desc: "Date (newest → oldest)",
-    sort_date_asc: "Date (oldest → newest)",
-    sort_difficulty_asc: "Difficulty (easy → hard)",
-    sort_difficulty_desc: "Difficulty (hard → easy)",
-    sort_relevance: "Relevance",
-    filter_by_prefix: "Filter by: ",
-    filter_all_label: "Filter by: All",
-    action_apply_filters: "Apply filters",
-    action_reset_filters: "Reset filters",
-    filter_all: "See all",
-    action_clear_all: "Clear all",
-    action_close: "Close",
-    ref_location: "Location",
-    ref_movie: "Movie / Show",
-    ref_characters: "Characters",
-    footer_disclaimer: "© 2024-{YEAR} All rights reserved Bricks Creations \nI don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself.\nFor the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that.\nLEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.",
-  },
 
-  fr: {
-    current_language: "Français",
-    MOC: "MOCs",
-    MOC_city: "Ville",
-    MOC_jp: "Jurassic Park",
-    MOC_marvel: "Marvel",
-    MOC_medieval: "Médiéval",
-    MOC_ww: "Monde des sorciers",
-    MOC_others: "Autres",
-    MOC_vignettes: "Vignettes",
-    instructions: "Instructions",
-    minifigs: "Minifigurines",
-    technics: "Techniques",
-    home: "Accueil",
-    languages: "Langues",
-    conventions: "Expositions",
-    convention_bousies: "Bousies",
-    convention_escaudoeuvres: "Escaudoeuvres",
-    convention_divion: "Divion",
-    see_all: "Voir plus",
-    quick_links: "Liens rapides",
-    social_contacts: "Réseaux sociaux | Contacts",
-    youtube: "YouTube ",
-    instagram: "Instagram ",
-    tiktok: "TikTok ",
-    email: "Email ",
-    more_from_me: "En savoir plus sur moi",
-    who_am_i: "Qui suis-je ?",
-    op_city: "Ville",
-    op_jp: "Jurassic Park",
-    op_filter: "filter",
-    op_medieval: "Médiéval",
-    op_ww: "Monde des sorciers",
-    op_others: "Autres",
-    op_vignettes: "Vignettes",
-    search: "Rechercher",
-    tab_ref: "Références",
-    tab_3d: "3D",
-    tab_video: "Vidéo",
-    tab_notice: "Notice",
-    search_placeholder: "Tapez pour rechercher...",
-    filter: "Filtrer",
-    sort_by: "Trier par",
-    sort_label_prefix: "Trier par : ",
-    sort_name_asc: "Nom A-Z",
-    sort_name_desc: "Nom Z-A",
-    sort_date_desc: "Date (récent → ancien)",
-    sort_date_asc: "Date (ancien → récent)",
-    sort_relevance: "Pertinence",
-    sort_difficulty_asc: "Difficulté (facile → difficile)",
-    sort_difficulty_desc: "Difficulté (difficile → facile)",
-    filter_by_prefix: "Filtrer par : ",
-    filter_all_label: "Filtrer par : Tous",
-    filter_all: "Voir tous",
-    action_clear_all: "Effacer tout",
-    action_close: "Fermer",
-    action_apply_filters: "Appliquer les filtres",
-    action_reset_filters: "Réinitialiser les filtres",
-    ref_location: "Lieu",
-    ref_movie: "Film / Série",
-    ref_characters: "Personnages",
-    footer_disclaimer: "© 2024-{YEAR} Tous droits réservés Bricks Creations \nJe ne travaille pas pour LEGO®, je ne suis pas corrompu par LEGO®, j’achète mes LEGO® moi-même.\nPour le reste, les propriétaires des marques mentionnées sur le site en restent les seuls propriétaires et c’est très bien ainsi.\nLEGO® est une marque déposée du groupe LEGO, qui ne sponsorise, n’autorise ni n’approuve ce site."
-  }
-};
 
 /* ========= PERSISTENCE LANGUE (ajout) ========= */
 function saveLang(lang) {
@@ -447,6 +319,8 @@ function setLanguage(lang) {
   // --- AJOUT : persister la langue
   saveLang(lang);
   updateDetailTexts(lang); // <<< ajoute cette ligne
+  window.updateTechnicDetailTexts?.(lang);
+
 } /* ← c’est bien cette fonction que tu avais déjà, enrichie pour sauver la langue :contentReference[oaicite:0]{index=0} */
 
 // ------- MAJ des textes de detail-moc quand on change de langue -------
@@ -475,6 +349,9 @@ function updateDetailTexts(lang) {
     const desc =
       (d.description && (d.description[lang] || d.description.en || d.description.fr)) || '';
     descEl.textContent = desc;
+  }
+  if (window.innerWidth > 768) {
+    requestAnimationFrame(() => syncTechnicImageHeights(140));
   }
 }
 
@@ -1038,7 +915,6 @@ function resizeCardTitles() {
 
 (function () {
   const $ = (s) => document.querySelector(s);
-  const curLang = (window.currentLang || "fr");
 
   const params = new URLSearchParams(location.search);
   const technicId = params.get("id");
@@ -1049,112 +925,225 @@ function resizeCardTitles() {
   const p = PROJECTS.find(x => x.id === technicId) || {};
   const d = DETAILS.find(x => x.id === technicId) || {};
 
-  // --- Titre ---
-  const title =
-    (p.name && (p.name[curLang] || p.name.en || p.name.fr)) ||
-    (d.title && (d.title[curLang] || d.title.en || d.title.fr)) ||
-    (technicId || "");
-  $("#page-title").textContent = title;
-
-
-  // --- Contenu (rows) ---
   const rows = Array.isArray(d.rows) ? d.rows : [];
   const wrap = $("#technic-content");
   if (!wrap) return;
 
-  if (!rows.length) {
-    wrap.innerHTML = `<p style="opacity:.7">Aucun contenu pour cette technique.</p>`;
-    return;
-  }
-
-  // util: texte dans la langue
-  const pickLang = (obj) => {
+  // util: texte dans la langue (sans dépendre d'un curLang figé)
+  const pickLang = (lang, obj) => {
     if (!obj) return "";
     if (typeof obj === "string") return obj;
-    return obj[curLang] || obj.en || obj.fr || "";
+    return obj[lang] || obj.en || obj.fr || "";
   };
 
-  // On regroupe par paragraphe (p)
-  let currentP = null;
-  let paragraphEl = null;
-  let globalRowIndex = 0;
+  // On garde les références des éléments translatables, pour ne mettre à jour QUE les textes
+  const nodes = {
+    titleEl: $("#page-title"),
+    titleSources: { projectName: p.name, detailTitle: d.title, fallback: technicId || "" },
+    headings: [], // { el, src }
+    texts: [],    // { el, src }
+    captions: [], // { el, src }
+    alts: []      // { img, src }
+  };
 
-  rows.forEach((r) => {
-    const pIndex = (typeof r.p === "number") ? r.p : 1;
+  // --- RENDER INITIAL (une seule fois, sans logique de langue figée) ---
+  if (!rows.length) {
+    wrap.innerHTML = `<p style="opacity:.7">Aucun contenu pour cette technique.</p>`;
+  } else {
+    let currentP = null;
+    let paragraphEl = null;
+    let globalRowIndex = 0;
 
-    // Nouveau paragraphe si p change
-    if (pIndex !== currentP) {
-      currentP = pIndex;
+    rows.forEach((r) => {
+      const pIndex = (typeof r.p === "number") ? r.p : 1;
 
-      paragraphEl = document.createElement("section");
-      paragraphEl.className = "technic-paragraph";
+      // Nouveau paragraphe si p change
+      if (pIndex !== currentP) {
+        currentP = pIndex;
 
-      const heading = pickLang(r.heading);
-      if (heading) {
-        const h = document.createElement("h2");
-        h.className = "technic-paragraph-title";
-        h.textContent = heading;
-        paragraphEl.appendChild(h);
+        paragraphEl = document.createElement("section");
+        paragraphEl.className = "technic-paragraph";
+
+        // Heading (créé une seule fois)
+        if (r.heading) {
+          const h = document.createElement("h2");
+          h.className = "technic-paragraph-title";
+          paragraphEl.appendChild(h);
+          nodes.headings.push({ el: h, src: r.heading });
+        }
+
+        wrap.appendChild(paragraphEl);
       }
 
-      wrap.appendChild(paragraphEl);
-    }
+      // Ligne (structure identique à ton existant)
+      const row = document.createElement("div");
+      row.className = "technic-row" + (globalRowIndex % 2 === 1 ? " reverse" : "");
 
-    // Ligne (texte + image alternée)
-    const row = document.createElement("div");
-    row.className = "technic-row" + (globalRowIndex % 2 === 1 ? " reverse" : "");
+      const textCol = document.createElement("div");
+      textCol.className = "technic-text";
 
-    const textCol = document.createElement("div");
-    textCol.className = "technic-text";
-
-    const txt = pickLang(r.text);
-    if (txt) {
-      const pEl = document.createElement("p");
-      pEl.textContent = txt;
-      textCol.appendChild(pEl);
-    }
-
-    const imgCol = document.createElement("div");
-    imgCol.className = "technic-image";
-
-    if (r.img) {
-      const img = document.createElement("img");
-      img.src = r.img;
-      img.alt = pickLang(r.alt) || title;
-      img.loading = "lazy";
-      imgCol.appendChild(img);
-
-      const cap = pickLang(r.caption);
-      if (cap) {
-        const c = document.createElement("div");
-        c.className = "technic-caption";
-        c.textContent = cap;
-        imgCol.appendChild(c);
+      if (r.text) {
+        const pEl = document.createElement("p");
+        textCol.appendChild(pEl);
+        nodes.texts.push({ el: pEl, src: r.text });
       }
-    }
 
-    row.appendChild(textCol);
-    row.appendChild(imgCol);
+      const imgCol = document.createElement("div");
+      imgCol.className = "technic-image";
 
-    paragraphEl.appendChild(row);
-    globalRowIndex++;
-  });
+      if (r.img) {
+        const imgs = Array.isArray(r.img) ? r.img : [r.img];
 
+        imgs.forEach((it) => {
+          const src = (typeof it === "string") ? it : it?.src;
+          if (!src) return;
+
+          const img = document.createElement("img");
+          img.src = src;
+          img.loading = "lazy";
+          imgCol.appendChild(img);
+          img.addEventListener("load", () => syncTechnicImageHeights(140));
+
+
+          // Alt (si tu veux un alt global r.alt)
+          if (r.alt) nodes.alts.push({ img, src: r.alt });
+        });
+
+        // Caption (inchangé)
+        if (r.caption) {
+          const c = document.createElement("div");
+          c.className = "technic-caption";
+          imgCol.appendChild(c);
+          nodes.captions.push({ el: c, src: r.caption });
+        }
+      }
+
+
+      row.appendChild(textCol);
+      row.appendChild(imgCol);
+      paragraphEl.appendChild(row);
+
+      globalRowIndex++;
+    });
+  }
+
+  // --- UPDATE TEXT ONLY (aucun innerHTML = "", aucune recréation d'img) ---
+  function updateTechnicTexts(lang) {
+    const curLang =
+      lang ||
+      (typeof currentLang !== "undefined" ? currentLang : null) ||
+      window.currentLang ||
+      "fr";
+
+    // Title
+    const title =
+      (nodes.titleSources.projectName && pickLang(curLang, nodes.titleSources.projectName)) ||
+      (nodes.titleSources.detailTitle && pickLang(curLang, nodes.titleSources.detailTitle)) ||
+      nodes.titleSources.fallback;
+
+    if (nodes.titleEl) nodes.titleEl.textContent = title;
+
+    // Headings
+    nodes.headings.forEach(({ el, src }) => {
+      const t = pickLang(curLang, src);
+      // Si vide, on cache le heading sans détruire le DOM
+      el.textContent = t;
+      el.style.display = t ? "" : "none";
+    });
+
+    // Paragraph texts
+    nodes.texts.forEach(({ el, src }) => {
+      el.textContent = pickLang(curLang, src);
+    });
+
+    // Captions
+    nodes.captions.forEach(({ el, src }) => {
+      const t = pickLang(curLang, src);
+      el.textContent = t;
+      el.style.display = t ? "" : "none";
+    });
+
+    // Alt (ne change pas l'image, seulement l'attribut)
+    nodes.alts.forEach(({ img, src }) => {
+      img.alt = pickLang(curLang, src) || title;
+    });
+
+    requestAnimationFrame(() => syncTechnicImageHeights(140));
+
+  }
+
+  // 1) update initial
+  updateTechnicTexts(
+    (typeof currentLang !== "undefined" ? currentLang : null) ||
+    window.currentLang ||
+    "fr"
+
+  );
+
+  setupTechnicRowsAutoSync(140);
+
+  // 2) hook public appelé par setLanguage(lang)
+  window.updateTechnicDetailTexts = (lang) => updateTechnicTexts(lang);
 })();
+
 function syncTechnicImageHeights(minPx = 140) {
+  const isMobile = window.innerWidth <= 768;
+
   document.querySelectorAll(".technic-row").forEach(row => {
-    const text = row.querySelector(".technic-text");
     const imgCol = row.querySelector(".technic-image");
-    const img = imgCol?.querySelector("img");
-    if (!text || !imgCol || !img) return;
+    if (!imgCol) return;
+
+    // ✅ Mobile : on supprime toute hauteur forcée
+    if (isMobile) {
+      imgCol.style.height = "";
+      return;
+    }
+
+    const text = row.querySelector(".technic-text");
+    const imgs = imgCol.querySelectorAll("img");
+    if (!text || imgs.length === 0) return;
 
     const h = Math.max(minPx, Math.ceil(text.getBoundingClientRect().height));
     imgCol.style.height = h + "px";
-    img.style.height = "100%";
-    img.style.width = "100%";
-    img.style.objectFit = img.style.objectFit || "contain";
   });
 }
+
+
+function setupTechnicRowsAutoSync(minPx = 140) {
+  const rows = document.querySelectorAll(".technic-row");
+  if (!rows.length) return;
+
+  const sync = () => syncTechnicImageHeights(minPx);
+
+  // 1) Re-sync quand le texte change de hauteur (fonts, wrapping, etc.)
+  const ro = new ResizeObserver(() => sync());
+  rows.forEach(row => {
+    const text = row.querySelector(".technic-text");
+    if (text) ro.observe(text);
+  });
+
+  // 2) Re-sync après chargement fonts (important si font swap)
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(sync).catch(() => { });
+  }
+
+  // 3) Re-sync quand les images finissent de décoder (par sécurité)
+  rows.forEach(row => {
+    row.querySelectorAll(".technic-image img").forEach(img => {
+      if (img.complete) return;
+      img.addEventListener("load", sync, { once: true });
+    });
+  });
+
+  // 4) Cas navigateur qui restaure une page depuis le cache (bfcache)
+  window.addEventListener("pageshow", sync);
+
+  // Sync initial
+  sync();
+}
+
+
+
 
 window.addEventListener("load", () => syncTechnicImageHeights(140));
 window.addEventListener("resize", () => syncTechnicImageHeights(140));

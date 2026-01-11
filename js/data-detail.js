@@ -2070,82 +2070,54 @@ const dataDetails = [
     id: "technic-1",
     rows: [
       {
-        p: 1,
         //heading: { fr: "Principe", en: "Principle" },//
         text: {
-          fr: "Adding a border serves several purposes: \n it hies the building tricks and gives the MOC a more aesthetically pleasing finish, ", en: ""
+          fr: "Sur certains MOCs, j'ajoute des bordures noires. \n\nDans certains cas, cela peut servir à cacher les imperfections de structures, comme sur les deux MOCs ci contre qui cache la structure vide et apporte une vraie finition esthétique.",
+          en: "On some MOCs, I add black borders. \n\nIn some cases, this can be used to hide structural imperfections, as on the two MOCs shown here, which conceal the empty structure and provide a truly aesthetic finish."
         },
-        img: "img/technics/technic-1-8.webp",
+        img: [
+          "img/technics/technic-1-1.webp",
+          "img/technics/technic-1-8.webp",
+        ],
       },
       {
-        p: 2,
-        text: { fr: "Defining the creation: A border helps visually define the boundaries of the MOC, highlighting the main construction by separating it from the surrounding environment.", en: "" },
-        img: "img/technics/technic-1-6.webp"
+        text: {
+          fr: "Parfois, cela peut aussi apporter du volume à un sol qui semblait plat ou sans relief, et ajuster une dimension plus professionnelle à une création basique.",
+          en: "Sometimes, it can also add volume to a floor that seemed flat or featureless, and adjust a more professional dimension to a basic creation."
+        },
+        img: "img/technics/technic-1-7.webp",
       },
       {
-        p: 3,
-        text: { fr: "Creating visual contrast: Using black border which is a neutral helps the colorful details of the build stand out.", en: "" },
-        img: "img/technics/technic-1-2.webp"
+        text: {
+          fr: "En plus de l'aspect esthétique, je me sers parfois des bordures d'un point de vue fonctionnel, par exemple ci-contre, où la bordure noire permet de maintenir les différentes parties du MOC en place",
+          en: "In addition to their aesthetic appeal, I sometimes use borders for functional purposes; for example, as seen here, the black border helps to hold the different parts of the MOC in place."
+        },
+
+        img: [
+          "img/technics/technic-1-2.webp",
+          "img/technics/technic-1-3.webp"
+        ],
       },
       {
-        p: 4,
-        text: { fr: "Enhancing presentation: A black border gives the MOC a more professional and polished look, especially when displayed at conventions or shared online.It creates a clean and finished frame", en: "" },
-        img: "img/technics/technic-1-7.webp"
+        text: {
+          fr: "Une bordure noire confère au MOC une allure plus professionnelle et soignée, notamment lors de salons ou de partages en ligne. Elle crée un cadre net et élégant. \n\nLEGO même utilise parfois des bordures, notamment pour des sets de présentations comme les sets Architecture.",
+          en: "A black border gives the MOC a more professional and polished look, especially at trade shows or when sharing online. It creates a clean and elegant frame. \n\nLEGO itself sometimes uses borders, particularly for presentation sets like the Architecture sets."
+        },
+        img: [
+          "img/technics/technic-1-9.webp",
+          "img/technics/technic-1-10.webp"
+        ],
       }
     ]
   },
-
-  {
-    id: "technic-2",
-    rows: [
-      {
-        p: 1,
-        //heading: { fr: "", en: "" },//
-        text: { fr: "Texte...", en: "Text..." },
-        img: "img/Technics/column/1.jpg"
-      },
-      {
-        p: 1,
-        text: { fr: "Texte...", en: "Text..." },
-        img: "img/Technics/column/2.jpg"
-      },
-      {
-        p: 2,
-        heading: { fr: "Variantes", en: "Variants" },
-        text: { fr: "Texte...", en: "Text..." },
-        img: "img/Technics/column/3.jpg"
-      }
-    ]
-  },
-
-  {
-    id: "technic-3",
-    rows: [
-      {
-        p: 1,
-        //heading: { fr: "Matériaux", en: "Materials" },//
-        text: { fr: "Texte...", en: "Text..." },
-        img: "img/Technics/beach/1.jpg"
-      },
-      {
-        p: 1,
-        text: { fr: "Texte...", en: "Text..." },
-        img: "img/Technics/beach/2.jpg"
-      },
-      {
-        p: 2,
-        //heading: { fr: "Rendu final", en: "Final result" },//
-        text: { fr: "Texte...", en: "Text..." }, img: "img/Technics/beach/3.jpg"
-      }
-    ]
-  },
-
 ]
 
 
 window.dataDetails = (typeof dataDetails !== 'undefined') ? dataDetails : window.dataDetails;
 
-
+window.PROJECTS = project;
+window.PROJECTS = (typeof project !== 'undefined') ? project : window.PROJECTS;
+window.PROJECTS = (typeof project !== "undefined") ? project : (window.PROJECTS || []);
 
 
 
