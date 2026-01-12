@@ -647,15 +647,16 @@ if ('serviceWorker' in navigator) {
   const cardsEl = document.getElementById('cards');
   function cardTemplate(e) {
     const el = document.createElement('article');
-    el.className = 'card';
+    // Card "expo" (affiche portrait) inspirée du style des cards (MOC)
+    el.className = 'card expo-card';
     el.innerHTML = `
     <div class="poster"><img src="${e.poster}" alt="Affiche ${e.city}"></div>
     <div class="meta">
       <h3>${e.city}</h3>
       <div class="sub">${e.date}</div>
       <div class="actions">
-        <a class="btn" href="${e.link}" target="_blank" rel="noopener">Voir la page</a>
         <button class="btn" data-goto="${e.id}">Voir sur la carte</button>
+        <a class="btn" href="convention-detail?id=${encodeURIComponent(e.id)}">Voir la page</a>
       </div>
     </div>`;
     return el;
@@ -878,6 +879,7 @@ if ('serviceWorker' in navigator) {
   }
 
 })();
+
 function highlightCard(id) {
   cardsEl.querySelectorAll('.card').forEach(c => c.style.outline = 'none');
   const idx = (window.EXPO || []).findIndex(x => x.id === id);
@@ -897,6 +899,7 @@ function highlightCard(id) {
     }
   }
 }
+
 
 function resizeCardTitles() {
   document.querySelectorAll(".MOC-card h3 span").forEach(span => {
@@ -1152,5 +1155,9 @@ window.addEventListener("resize", () => syncTechnicImageHeights(140));
 // Exécuter au chargement et au redimensionnement
 window.addEventListener("load", resizeCardTitles);
 window.addEventListener("resize", resizeCardTitles);
+
+
+
+
 
 

@@ -2534,9 +2534,9 @@ window.EXPO = [
         link: './Conventions/Bousies.html'
     },
     {
-        id: 'preseau-2019', city: 'Préseau', date: '14/09/2019', year: 2019, lat: 50.283, lon: 3.58,
-        poster: 'img/Expo/preseau_affiche.png',
-        link: './Conventions/Preseau.html'
+        id: 'escaudoeuvres-2019', city: 'Escaudoeuvres', date: '14/09/2019', year: 2019, lat: 50.283, lon: 3.58,
+        poster: 'img/Expo/escaudoeuvres_affiche.png',
+        link: './Conventions/escaudoeuvres.html'
     },
     {
         id: 'divion-2022', city: 'Divion', date: '26/02/2022', year: 2022, lat: 50.47, lon: 2.506,
