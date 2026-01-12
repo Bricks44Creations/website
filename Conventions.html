@@ -34,13 +34,13 @@
     <!-- CONTENU PRINCIPAL -->
     <div class="main-content">
         <div class="title">
-            <h1 data-key="conventions">CONVENTIONS</h1>
+            <h1 data-key="title_conventions">CONVENTIONS</h1>
         </div>
         <div class="separator"></div>
 
         <div class="left-right">
             <!-- Contrôles -->
-            <div style="display:flex;gap:1rem;flex-wrap:wrap; margin-bottom:1.5rem;">
+            <div class="filter-bar">
                 <!-- TRI (si besoin) -->
                 <!-- FILTRE ANNÉES -->
                 <div class="dropdown-tri" id="year-filter-dropdown">
@@ -80,35 +80,36 @@
             </div>
 
             <!-- Layout carte + cards -->
-            <main class="layout">
+            <main class="layout expo-layout">
+                <!-- Colonne gauche : carte -->
                 <div class="panel map-wrap">
                     <div id="map"></div>
                 </div>
 
-                <div class="panel" style="padding:12px">
-                    <div class="cards" id="cards"></div>
+                <!-- Colonne droite : cards expos -->
+                <div class="panel-expo">
+                    <div id="cards" class="cards cards_expo" aria-label="Liste des expositions"></div>
                 </div>
+
+
             </main>
         </div>
     </div>
 
     <!-- FOOTER -->
 
-    <!-- ===== Scripts (ordre corrigé) ===== -->
-    <!-- 1) Données EXPO (définit window.EXPO) -->
+    <!-- ===== Scripts (à garder dans l'ordre) ===== -->
     <script src="js/data.js"></script>
     <script src="js/Generator.js"></script>
     <script src="js/translations.js"></script>
 
-    <!-- 2) Leaflet JS (avant tout appel à L.*) -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-    <!-- 3) Script du site (contient le bloc “EXPO PAGE (Conventions)”) -->
-    <script src="js/script.js"></script>
-    <!-- Scripts existants -->
+    <script src="js/script.js">
 
-    <!-- (Retirés : js/administrativeHeadquarters.js et le script inline initMap(...) qui doublonnaient) -->
+    </script>
+
 </body>
 
 </html>

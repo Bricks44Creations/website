@@ -2084,39 +2084,7 @@ video {
   outline: 2px solid #F3BD99
 }
 
-.search {
-  display: flex;
-  gap: 8px;
-  width: min(680px, 100%)
-}
 
-.search input {
-  flex: 1;
-  min-width: 200px;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, .12);
-  border-radius: 12px;
-  padding: 10px 12px
-}
-
-.search button {
-  background: #18305a;
-  border: none;
-  color: #fff;
-  border-radius: 12px;
-  padding: 10px 12px;
-  font-weight: 700;
-  cursor: pointer
-}
-
-.layout {
-  max-width: 1200px;
-  margin: 0 auto 2rem;
-  padding: 0 18px;
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 16px
-}
 
 @media (max-width: 980px) {
   .layout {
@@ -2128,9 +2096,20 @@ video {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, .06);
   border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .08)
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
 }
 
+
+.panel-expo {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  border-radius: 14px;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-left: 2rem;
+
+}
 
 #map {
   border-radius: inherit;
@@ -2147,15 +2126,14 @@ video {
   color: #fff
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px
-}
-
 @media (max-width: 700px) {
   .cards {
     grid-template-columns: 1fr
+  }
+
+  .panel-expo {
+    overflow: visible;
+    padding-left: 0;
   }
 }
 
@@ -2186,8 +2164,9 @@ video {
 .poster img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block
+  object-fit: contain;
+  /* garder l'image entière */
+  display: block;
 }
 
 .tag {
@@ -2248,7 +2227,6 @@ video {
 
 /* rend le panneau carte sticky */
 .map-wrap {
-  position: sticky;
   border: 2px solid #18305a;
   /* l'élément colle au viewport */
 }
@@ -2271,21 +2249,40 @@ video {
 }
 
 
-.panel .cards {
-  /* même hauteur visuelle que la carte */
-  max-height: min(72vh, 500px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  /* n'entraîne pas la page */
-  scroll-behavior: smooth;
-  /* smooth pour les scrolls JS */
-  padding-right: 4px;
-  /* un poil d'espace pour la scrollbar */
+/* La card s'adapte à la hauteur de l'affiche */
+.expo-card {
+  grid-template-rows: auto auto;
+}
+
+/* L'image remplit le cadre 5:7 */
+.expo-card .poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* remplit sans bandes */
+  object-position: center;
+}
+
+.cards_expo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  gap: 1.5rem;
+}
+
+/* Affiche 5:7 */
+.cards_expo .expo-card .poster {
+  aspect-ratio: 5 / 7;
+  height: 280px;
+  background: #fff;
+}
+
+#cards.cards .card+.card {
+  margin-top: 0;
 }
 
 /* s’assure que la carte reste en place quand la page défile */
 .map-wrap {
-  position: sticky;
   top: 12px;
   /* manquait: distance depuis le haut du viewport */
 }
