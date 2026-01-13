@@ -682,7 +682,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <li class="mobile-has-submenu">
           <button class="submenu-toggle" aria-expanded="false"><span data-key="conventions">Conventions</span> <span class="arrow-down">&#9662;</span></button>
           <ul class="mobile-submenu">
-<li><a href="detail-conventions.html?id=bousies-2018" data-key="convention_bousies">Bousies</a></li>
+            <li><a href="detail-conventions.html?id=bousies-2018" data-key="convention_bousies">Bousies</a></li>
             <li><a href="detail-conventions.html?id=escaudoeuvres-2019" data-key="convention_Preseau">Escaudoeuvres</a></li>
             <li><a href="detail-conventions.html?id=divion-2022" data-key="convention_divion">Divion</a></li>
           </ul>
