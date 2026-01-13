@@ -654,10 +654,10 @@ if ('serviceWorker' in navigator) {
     <div class="meta">
       <h3>${e.city}</h3>
       <div class="sub">${e.date}</div>
-      <div class="actions">
-        <button class="btn" data-goto="${e.id}">Voir sur la carte</button>
-        <a class="btn" href="convention-detail?id=${encodeURIComponent(e.id)}">Voir la page</a>
-      </div>
+<div class="actions">
+  <button class="btn" data-goto="${e.id}" data-key="expo_view_map"></button>
+<a class="btn" href="detail-conventions.html?id=${encodeURIComponent(e.id)}" data-key="expo_view_page"></a>
+</div>
     </div>`;
     return el;
   }
@@ -678,11 +678,11 @@ if ('serviceWorker' in navigator) {
     highlightCard(id);
   }
   function highlightCard(id) {
-    cardsEl.querySelectorAll('.card').forEach(c => c.style.outline = 'none');
+    cardsEl.querySelectorAll('.card').forEach(c => c.style.boxShadow = 'none');
     const idx = (window.EXPO || []).findIndex(x => x.id === id);
     if (idx >= 0) {
       const card = cardsEl.children[idx];
-      card.style.outline = '2px solid #F3BD99';
+      card.style.boxShadow = 'inset 0 0 0 2px #F3BD99';
 
       // scroll centré dans le conteneur scrollable (la colonne de droite)
       const cardRect = card.getBoundingClientRect();
@@ -881,11 +881,11 @@ if ('serviceWorker' in navigator) {
 })();
 
 function highlightCard(id) {
-  cardsEl.querySelectorAll('.card').forEach(c => c.style.outline = 'none');
+  cardsEl.querySelectorAll('.card').forEach(c => c.style.boxShadow = 'none');
   const idx = (window.EXPO || []).findIndex(x => x.id === id);
   if (idx >= 0) {
     const card = cardsEl.children[idx];
-    card.style.outline = '2px solid #F3BD99';
+    card.style.boxShadow = '2px solid #F3BD99';
 
     if (window.innerWidth > 768) {
       // Desktop : comportement d’origine (scroll dans la colonne)

@@ -50,6 +50,9 @@ const translations = {
         ref_movie: "Movie / Show",
         ref_characters: "Characters",
 
+        expo_view_map: "View on map",
+        expo_view_page: "View page",
+
         filter: "Filter",
         sort_by: "Sort by",
         sort_label_prefix: "Sort by: ",
@@ -122,6 +125,9 @@ const translations = {
         ref_movie: "Film / Série",
         ref_characters: "Personnages",
         search_placeholder: "Tapez pour rechercher...",
+
+        expo_view_map: "Voir sur la carte",
+        expo_view_page: "Voir la page",
 
         filter: "Filtrer",
         sort_by: "Trier par",
