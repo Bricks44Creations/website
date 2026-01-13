@@ -331,6 +331,15 @@ function updateDetailTexts(lang) {
 
   const params = new URLSearchParams(location.search);
   const mocId = params.get('id');
+
+  // ===== PATCH CONVENTIONS (detail-conventions.html) =====
+  // Si EXPO existe, on est sur une page "Conventions" -> titre = "City Year"
+  const EXPO = (window.EXPO || []);
+  const expo = EXPO.find(e => e.id === mocId);
+  if (expo) {
+    h1.textContent = expo.year ? `${expo.city} ${expo.year}` : (expo.city || mocId);
+    return;
+  }
   if (!mocId) return;
 
   const PROJECTS = (window.PROJECTS || window.project || []);
@@ -647,7 +656,7 @@ if ('serviceWorker' in navigator) {
   const cardsEl = document.getElementById('cards');
   function cardTemplate(e) {
     const el = document.createElement('article');
-    // Card "expo" (affiche portrait) inspirée du style des cards (MOC)
+    // Card "expo" (affiche portrait) 
     el.className = 'card expo-card';
     el.innerHTML = `
     <div class="poster"><img src="${e.poster}" alt="Affiche ${e.city}"></div>

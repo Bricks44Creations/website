@@ -2113,6 +2113,73 @@ const dataDetails = [
 ]
 
 
+window.EXPO_GALLERIES = {
+  "bousies-2018": [
+    { src: "img/Expo/bousies/1.jpg", caption: "1" }
+  ],
+  "escaudoeuvres-2019": [
+    { src: "img/Expo/escaudoeuvres/1.jpg", caption: "1" },
+    { src: "img/Expo/escaudoeuvres/2.jpg", caption: "2" },
+    { src: "img/Expo/escaudoeuvres/3.jpg", caption: "3" }
+  ],
+  "divion-2022": [
+    { src: "img/Expo/divion/1.jpg", caption: "1" },
+    { src: "img/Expo/divion/2.jpg", caption: "2" },
+    { src: "img/Expo/divion/3.jpg", caption: "3" },
+    { src: "img/Expo/divion/4.jpg", caption: "4" },
+    { src: "img/Expo/divion/5.jpg", caption: "5" },
+    { src: "img/Expo/divion/6.jpg", caption: "6" },
+    { src: "img/Expo/divion/7.jpg", caption: "7" },
+    { src: "img/Expo/divion/8.jpg", caption: "8" },
+    { src: "img/Expo/divion/9.jpg", caption: "9" },
+    { src: "img/Expo/divion/10.jpg", caption: "10" },
+    { src: "img/Expo/divion/11.jpg", caption: "11" },
+    { src: "img/Expo/divion/12.jpg", caption: "12" },
+    { src: "img/Expo/divion/13.jpg", caption: "13" },
+    { src: "img/Expo/divion/14.jpg", caption: "14" },
+    { src: "img/Expo/divion/15.jpg", caption: "15" },
+    { src: "img/Expo/divion/16.jpg", caption: "16" },
+    { src: "img/Expo/divion/17.jpg", caption: "17" },
+    { src: "img/Expo/divion/18.jpg", caption: "18" },
+    { src: "img/Expo/divion/19.jpg", caption: "19" },
+    { src: "img/Expo/divion/20.jpg", caption: "20" },
+    { src: "img/Expo/divion/21.jpg", caption: "21" },
+    { src: "img/Expo/divion/22.jpg", caption: "22" },
+    { src: "img/Expo/divion/23.jpg", caption: "23" },
+    { src: "img/Expo/divion/24.jpg", caption: "24" },
+    { src: "img/Expo/divion/25.jpg", caption: "25" },
+    { src: "img/Expo/divion/26.jpg", caption: "26" },
+    { src: "img/Expo/divion/27.jpg", caption: "27" },
+    { src: "img/Expo/divion/28.jpg", caption: "28" },
+    { src: "img/Expo/divion/29.jpg", caption: "29" },
+    { src: "img/Expo/divion/30.jpg", caption: "30" },
+    { src: "img/Expo/divion/31.jpg", caption: "31" },
+    { src: "img/Expo/divion/32.jpg", caption: "32" },
+    { src: "img/Expo/divion/33.jpg", caption: "33" },
+    { src: "img/Expo/divion/34.jpg", caption: "34" },
+    { src: "img/Expo/divion/35.jpg", caption: "35" },
+    { src: "img/Expo/divion/36.jpg", caption: "36" },
+    { src: "img/Expo/divion/37.jpg", caption: "37" },
+    { src: "img/Expo/divion/38.jpg", caption: "38" },
+    { src: "img/Expo/divion/39.jpg", caption: "39" },
+    { src: "img/Expo/divion/40.jpg", caption: "40" },
+    { src: "img/Expo/divion/41.jpg", caption: "41" },
+    { src: "img/Expo/divion/42.jpg", caption: "42" },
+    { src: "img/Expo/divion/43.jpg", caption: "43" },
+    { src: "img/Expo/divion/44.jpg", caption: "44" },
+    { src: "img/Expo/divion/45.jpg", caption: "45" },
+    { src: "img/Expo/divion/46.jpg", caption: "46" },
+    { src: "img/Expo/divion/47.jpg", caption: "47" },
+    { src: "img/Expo/divion/48.jpg", caption: "48" },
+    { src: "img/Expo/divion/49.jpg", caption: "49" },
+    { src: "img/Expo/divion/50.jpg", caption: "50" },
+    { src: "img/Expo/divion/51.jpg", caption: "51" },
+    { src: "img/Expo/divion/52.jpg", caption: "52" },
+    { src: "img/Expo/divion/53.jpg", caption: "53" }
+
+  ]
+};
+
 window.dataDetails = (typeof dataDetails !== 'undefined') ? dataDetails : window.dataDetails;
 
 window.PROJECTS = project;

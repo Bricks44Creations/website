@@ -628,9 +628,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <li class="has-submenu">
           <a href="Conventions.html"><span data-key="conventions">Conventions</span><span class="arrow-down">&#9662;</span></a>
           <ul class="submenu">
-            <li><a href="./Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
-            <li><a href="./Conventions/Preseau.html" data-key="convention_Preseau">Preseau</a></li>
-            <li><a href="./Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+            <li><a href="detail-conventions.html?id=bousies-2018" data-key="convention_bousies">Bousies</a></li>
+            <li><a href="detail-conventions.html?id=escaudoeuvres-2019" data-key="convention_Preseau">Escaudoeuvres</a></li>
+            <li><a href="detail-conventions.html?id=divion-2022" data-key="convention_divion">Divion</a></li>
           </ul>
         </li>
       </ul>
@@ -682,9 +682,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <li class="mobile-has-submenu">
           <button class="submenu-toggle" aria-expanded="false"><span data-key="conventions">Conventions</span> <span class="arrow-down">&#9662;</span></button>
           <ul class="mobile-submenu">
-            <li><a href="./Conventions/Bousies.html" data-key="convention_bousies">Bousies</a></li>
-            <li><a href="./Conventions/Preseau.html" data-key="convention_Preseau">Preseau</a></li>
-            <li><a href="./Conventions/Divion.html" data-key="convention_divion">Divion</a></li>
+<li><a href="detail-conventions.html?id=bousies-2018" data-key="convention_bousies">Bousies</a></li>
+            <li><a href="detail-conventions.html?id=escaudoeuvres-2019" data-key="convention_Preseau">Escaudoeuvres</a></li>
+            <li><a href="detail-conventions.html?id=divion-2022" data-key="convention_divion">Divion</a></li>
           </ul>
         </li>
         <li class="big-separator"></li>
