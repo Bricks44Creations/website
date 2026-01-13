@@ -14,15 +14,15 @@ body {
   color: #1f1f1f;
 }
 
+.main-content {
+  flex: 1
+}
 
+
+/*
 @media screen and (min-width: 1024px) and (max-width: 1600px) {
 
-  html,
-  body {
-    zoom: 0.85;
-    font-size: 1.15rem;
-  }
-}
+}*/
 
 
 
@@ -527,6 +527,7 @@ model-viewer {
 .main-content {
   padding: 3rem 10rem 10rem 10rem;
 }
+
 
 /* Espace vertical entre les sections */
 .section-card {
@@ -1830,6 +1831,7 @@ video {
   text-align: left;
 }
 
+
 .footer p {
   text-align: center;
 }
@@ -2108,7 +2110,6 @@ video {
   overflow: scroll;
   overflow-x: hidden;
   padding-left: 2rem;
-
 }
 
 #map {
@@ -2270,11 +2271,35 @@ video {
   gap: 1.5rem;
 }
 
+.btn {
+  width: 120px;
+  /* largeur fixe */
+  min-height: 44px;
+  /* hauteur confortable */
+  padding: 0.5rem 0.75rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  white-space: normal;
+  /* autorise le retour à la ligne */
+  word-break: break-word;
+  /* sécurité mots longs */
+  line-height: 1;
+
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
 /* Affiche 5:7 */
 .cards_expo .expo-card .poster {
   aspect-ratio: 5 / 7;
   height: 280px;
   background: #fff;
+  display: flex;
+  justify-content: center;
 }
 
 #cards.cards .card+.card {
@@ -2289,7 +2314,7 @@ video {
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   align-items: stretch;
   /* aligne les deux colonnes en hauteur */
   height: 50vh;
