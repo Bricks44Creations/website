@@ -32,8 +32,9 @@ body {
 
 
 @media screen and (min-width: 1024px) and (max-width: 1600px) {
+
   html,
-  body{
+  body {
     font-size: 13px;
   }
 }
@@ -570,7 +571,7 @@ model-viewer {
   .section-row {
     grid-template-columns: 1fr 1fr;
     /* deux colonnes égales */
-    align-items: start;
+    align-items: stretch;
   }
 }
 
@@ -639,7 +640,10 @@ model-viewer {
   line-height: 1.4;
 }
 
-
+/* Le span du titre doit être block pour pouvoir prendre une hauteur (1 ou 2 lignes) */
+.MOC-card h3>span:not(.date) {
+  display: block;
+}
 
 .MOC-card h3 .date {
   display: block;
@@ -819,7 +823,7 @@ model-viewer {
   grid-template-columns: 1fr;
   /* <- plus 1fr 1fr */
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Ordre : d’abord Instructions, ensuite Vidéo */
@@ -2102,7 +2106,7 @@ video {
 
 
 
-@media __PROTECT_16__{
+@media __PROTECT_16__ {
   .layout {
     grid-template-columns: 1fr
   }
