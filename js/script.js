@@ -4,21 +4,25 @@ function closeAllDropdowns() {
   document.querySelectorAll('.dropdown-content-tri').forEach(dd => dd.classList.remove('show'));
   document.querySelectorAll('.dropbtn-tri .arrow-down').forEach(arrow => arrow.classList.remove('rotate'));
 }
-document.addEventListener('DOMContentLoaded', function () {
+
+
+// ======== INITIALISATION UI (regroupée) ========
+function initUIOnDOMContentLoaded() {
+  // --- Burger / sidebar mobile
   const burgerBtn = document.getElementById('burger-btn');
   const sidebar = document.getElementById('mobile-sidebar');
   const closeBtn = document.getElementById('close-sidebar');
   const overlay = document.getElementById('overlay');
 
   function openSidebar() {
-    sidebar.classList.remove('hidden');
-    overlay.classList.remove('hidden');
+    sidebar?.classList.remove('hidden');
+    overlay?.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
 
   function closeSidebar() {
-    sidebar.classList.add('hidden');
-    overlay.classList.add('hidden');
+    sidebar?.classList.add('hidden');
+    overlay?.classList.add('hidden');
     document.body.style.overflow = '';
   }
 
@@ -30,13 +34,66 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', () => {
       const submenu = button.nextElementSibling;
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', !isExpanded);
-      submenu.style.display = isExpanded ? 'none' : 'flex';
+      button.setAttribute('aria-expanded', String(!isExpanded));
+      if (submenu) submenu.style.display = isExpanded ? 'none' : 'flex';
     });
   });
-});
 
+  // --- Sort modal (mobile)
+  const sortBtn = document.getElementById("sort-btn");
+  const sortModal = document.getElementById("sort-modal");
 
+  sortBtn?.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768 && sortModal) {
+      e.preventDefault();
+      sortModal.style.display = "flex";
+    }
+  });
+
+  document.querySelectorAll(".close-sort-modal").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const modal = e.target.closest(".sort-modal");
+      if (modal) modal.style.display = "none";
+      document.body.style.overflow = "";
+    });
+  });
+
+  sortModal?.addEventListener("click", (e) => {
+    if (e.target === sortModal) {
+      sortModal.style.display = "none";
+    }
+  });
+
+  // --- Langue (options + localStorage)
+  document.querySelectorAll(".lang-option").forEach(option => {
+    option.addEventListener("click", (e) => {
+      e.preventDefault();
+      const lang = e.target.getAttribute("data-lang");
+      if (lang) setLanguage(lang);
+    });
+  });
+
+  const saved = loadLang();
+  if (saved) currentLang = saved;
+
+  // Définir langue par défaut (ou sauvegardée)
+  setLanguage(currentLang);
+
+  // --- Filtre (si présent)
+  buildfilterFilterUI();
+  applyfilterFilter();
+
+  // --- Synchronisations titres (après premier rendu)
+  setupTitleSyncObservers();
+  // On attend la stabilité du layout : fonts + resizeCardTitles au load (voir listener window.load),
+  // mais ici on fait une première passe "soft" au cas où.
+  requestAnimationFrame(() => {
+    resizeCardTitles();
+    syncAllCardTitles();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initUIOnDOMContentLoaded);
 
 // --- TRI MOC ---
 const sortBtn = document.getElementById("sort-btn");
@@ -144,37 +201,6 @@ function sortMOC(criteria) {
   items.forEach(item => grid.appendChild(item));
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const sortBtn = document.getElementById("sort-btn");
-  const sortModal = document.getElementById("sort-modal");
-  const closeSortModal = document.querySelector(".close-sort-modal");
-
-  // Ouvrir la modale sur mobile
-  sortBtn?.addEventListener("click", (e) => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      sortModal.style.display = "flex";
-    }
-  });
-
-  // Fermer toutes les modales avec les boutons ×
-  document.querySelectorAll(".close-sort-modal").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      const modal = e.target.closest(".sort-modal");
-      if (modal) modal.style.display = "none";
-      document.body.style.overflow = ""; // pour réactiver le scroll
-    });
-  });
-
-  // Fermer si clic à l’extérieur du contenu
-  sortModal?.addEventListener("click", (e) => {
-    if (e.target === sortModal) {
-      sortModal.style.display = "none";
-    }
-  });
-});
-
-
 function sortMinifig(criteria) {
   const grid = document.querySelector("#figures-container");
   if (!grid) return;
@@ -225,39 +251,6 @@ function sortInstruction(criteria) {
   grid.innerHTML = "";
   items.forEach(item => grid.appendChild(item));
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const sortBtn = document.getElementById("sort-btn");
-  const sortModal = document.getElementById("sort-modal");
-  const closeSortModal = document.querySelector(".close-sort-modal");
-
-  // Ouvrir la modale sur mobile
-  sortBtn?.addEventListener("click", (e) => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      sortModal.style.display = "flex";
-    }
-  });
-
-  // Fermer toutes les modales avec les boutons ×
-  document.querySelectorAll(".close-sort-modal").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      const modal = e.target.closest(".sort-modal");
-      if (modal) modal.style.display = "none";
-      document.body.style.overflow = ""; // pour réactiver le scroll
-    });
-  });
-
-  // Fermer si clic à l’extérieur du contenu
-  sortModal?.addEventListener("click", (e) => {
-    if (e.target === sortModal) {
-      sortModal.style.display = "none";
-    }
-  });
-});
-
-
-
 
 /* ========= PERSISTENCE LANGUE (ajout) ========= */
 function saveLang(lang) {
@@ -316,6 +309,13 @@ function setLanguage(lang) {
   } else {
     sortMOC();
   }
+
+  requestAnimationFrame(() => {
+    // 1) Ajuster la taille de police si besoin
+    resizeCardTitles();
+    // 2) Puis synchroniser les paddings des titres (section-row + MOC-grid)
+    syncAllCardTitles();
+  });
   // --- AJOUT : persister la langue
   saveLang(lang);
   updateDetailTexts(lang); // <<< ajoute cette ligne
@@ -363,26 +363,6 @@ function updateDetailTexts(lang) {
     requestAnimationFrame(() => syncTechnicImageHeights(140));
   }
 }
-
-/* ====== Initialisation langue : charger localStorage (ajout) ====== */
-document.addEventListener("DOMContentLoaded", () => {
-  // Gestion clic sur options langue (desktop + mobile)
-  document.querySelectorAll(".lang-option").forEach(option => {
-    option.addEventListener("click", (e) => {
-      e.preventDefault();
-      const lang = e.target.getAttribute("data-lang");
-      setLanguage(lang);
-    });
-  });
-
-  // === AJOUT : définir la langue depuis localStorage si dispo
-  const saved = loadLang();
-  if (saved) currentLang = saved;
-
-  // Définir langue par défaut (ou sauvegardée)
-  setLanguage(currentLang);
-}); /* ← ce bloc existait déjà, on y ajoute juste la lecture du stockage :contentReference[oaicite:1]{index=1} */
-
 
 // ======== FILTRE  ========
 
@@ -594,12 +574,6 @@ closeFilterLink?.addEventListener("click", (e) => { e.preventDefault(); closeFil
 clearfilterFilters?.addEventListener("click", (e) => {
   e.preventDefault();
   clearAllfilter();
-});
-
-// Init + MAJ si changement de langue
-document.addEventListener("DOMContentLoaded", () => {
-  buildfilterFilterUI();
-  applyfilterFilter();
 });
 
 /* --- Surcharge window.setLanguage pour filtre Marvel (existant) --- */
@@ -911,7 +885,12 @@ function highlightCard(id) {
 
 
 function resizeCardTitles() {
-  document.querySelectorAll(".MOC-card h3 span").forEach(span => {
+  document.querySelectorAll(".MOC-card h3 span:not(.date)").forEach(span => {
+
+    // ✅ IMPORTANT : sur index (section-row), on ne réduit pas la taille de police,
+    // sinon ça supprime le wrap et le padding ne se déclenche jamais.
+    if (span.closest(".section-row")) return;
+
     let parentWidth = span.parentElement.offsetWidth - 20; // marge de sécurité
     let fontSize = 16; // taille max de base (en px)
 
@@ -1156,17 +1135,246 @@ function setupTechnicRowsAutoSync(minPx = 140) {
   sync();
 }
 
+/* ========= SYNC HAUTEUR TITRES PAR SECTION-ROW ========= */
+/* ========= SYNC TITRES : AJOUT PADDING UNIQUEMENT AUX TITRES 1-LIGNE ========= */
+function syncSectionRowCardTitleHeights() {
+  const rows = document.querySelectorAll(".section-row");
+  if (!rows.length) return;
+
+  rows.forEach(row => {
+    const titleSpans = Array.from(
+      row.querySelectorAll(".MOC-card h3 > span:not(.date)")
+    );
+
+    if (!titleSpans.length) return;
+
+    // Reset (important si changement langue / resize)
+    titleSpans.forEach(s => {
+      s.style.paddingTop = "";
+      s.style.paddingBottom = "";
+    });
+
+    // Mesure hauteur max de la row
+    let maxH = 0;
+    titleSpans.forEach(s => {
+      const h = s.getBoundingClientRect().height;
+      if (h > maxH) maxH = h;
+    });
+
+    // Si tout le monde a la même hauteur => personne ne wrap
+    // donc on ne fait rien
+    const hasWrappingTitle = titleSpans.some(
+      s => s.getBoundingClientRect().height < maxH
+    );
+
+    if (!hasWrappingTitle) return;
+
+    // BONUS: équivalent d’une "ligne fantôme" répartie (1/2 haut + 1/2 bas)
+    const extra = 23;
+    const paddingTop = Math.floor(extra / 2);
+    const paddingBottom = Math.ceil(extra / 2);
+
+    // Appliquer le padding UNIQUEMENT aux titres courts (1 ligne)
+    titleSpans.forEach(s => {
+      const h = s.getBoundingClientRect().height;
+
+      // ceux qui sont déjà grands (2 lignes) -> on ne touche pas
+      if (h >= maxH) return;
+
+      // ceux qui sont plus courts -> on ajoute la ligne fantôme répartie
+      s.style.paddingTop = `${paddingTop}px`;
+      s.style.paddingBottom = `${paddingBottom}px`;
+    });
+  });
+}
+
+/* ========= SYNC TITRES PAR LIGNE (MOC-GRID) ========= */
+/* Même logique que .section-row : si au moins un titre wrap sur une ligne,
+   on ajoute un padding haut/bas aux titres 1-ligne de cette même rangée. */
+function syncMOCGridCardTitleHeights() {
+  const grids = document.querySelectorAll(".MOC-grid");
+  if (!grids.length) return;
+
+  grids.forEach(grid => {
+    const cards = Array.from(grid.querySelectorAll(".MOC-card"));
+    if (!cards.length) return;
+
+    // Regrouper les cards par "ligne" visuelle (flex-wrap) via leur top
+    // (tolérance pour éviter les micro-différences de sub-pixels)
+    const rows = new Map();
+    const tol = 2;
+
+    cards.forEach(card => {
+      const top = Math.round(card.getBoundingClientRect().top);
+
+      // trouver une clé existante proche (±tol)
+      let key = null;
+      for (const k of rows.keys()) {
+        if (Math.abs(k - top) <= tol) { key = k; break; }
+      }
+      if (key === null) key = top;
+
+      if (!rows.has(key)) rows.set(key, []);
+      rows.get(key).push(card);
+    });
+
+    // Pour chaque rangée, appliquer la même règle que sur index.html
+    rows.forEach(rowCards => {
+      const titleSpans = rowCards
+        .map(c => c.querySelector(".MOC-card h3 > span:not(.date), h3 > span:not(.date)"))
+        .filter(Boolean);
+
+      if (!titleSpans.length) return;
+
+      // Reset
+      titleSpans.forEach(s => {
+        s.style.paddingTop = "";
+        s.style.paddingBottom = "";
+      });
+
+      // Mesure hauteur max dans la rangée
+      let maxH = 0;
+      titleSpans.forEach(s => {
+        const h = s.getBoundingClientRect().height;
+        if (h > maxH) maxH = h;
+      });
+
+      // S'il n'y a aucun wrap (tout pareil), on ne touche pas
+      const hasWrappingTitle = titleSpans.some(
+        s => s.getBoundingClientRect().height < maxH
+      );
+      if (!hasWrappingTitle) return;
+
+      // "Ligne fantôme" répartie (comme section-row)
+      const extra = 23;
+      const paddingTop = Math.floor(extra / 2);
+      const paddingBottom = Math.ceil(extra / 2);
+
+      // Ajouter uniquement aux titres courts (1 ligne)
+      titleSpans.forEach(s => {
+        const h = s.getBoundingClientRect().height;
+        if (h >= maxH) return;
+        s.style.paddingTop = `${paddingTop}px`;
+        s.style.paddingBottom = `${paddingBottom}px`;
+      });
+    });
+  });
+}
+
+
+// Appelle les deux synchronisations de titres sans dupliquer la logique
+function syncAllCardTitles() {
+  syncSectionRowCardTitleHeights();
+  syncMOCGridCardTitleHeights();
+}
+
+// --- Helper: relance le recalcul des tailles/paddings après injection dynamique de cartes ---
+function runTitleSyncSoon() {
+  // double rAF = attendre que le navigateur applique le layout
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (typeof resizeCardTitles === "function") resizeCardTitles();
+      if (typeof syncAllCardTitles === "function") syncAllCardTitles();
+    });
+  });
+}
+
+// --- Patch: après génération de cartes (Generator.js), resynchroniser les titres
+(function patchCardGeneratorForTitleSync() {
+  const cg = window.CardGenerator;
+  if (!cg || patchCardGeneratorForTitleSync._done) return;
+  patchCardGeneratorForTitleSync._done = true;
+
+  const wrap = (fnName) => {
+    const prev = cg[fnName];
+    if (typeof prev !== "function") return;
+    cg[fnName] = function (...args) {
+      const res = prev.apply(this, args);
+      runTitleSyncSoon();
+      return res;
+    };
+  };
+
+  // Index.html utilise generateCards + generateMinifigs (et d'autres pages aussi)
+  wrap("generateCards");
+  wrap("generateMinifigs");
+  wrap("generateInstructions");
+  wrap("generateTechnics");
+})();
 
 
 
-window.addEventListener("load", () => syncTechnicImageHeights(140));
-window.addEventListener("resize", () => syncTechnicImageHeights(140));
-// Exécuter au chargement et au redimensionnement
-window.addEventListener("load", resizeCardTitles);
-window.addEventListener("resize", resizeCardTitles);
 
 
 
 
+// Observe les changements DOM qui ajoutent/retirent des cartes, pour resynchroniser
+// après génération (Generator.js), tri, filtre, etc.
+function setupTitleSyncObservers() {
+  // évite doublons
+  if (setupTitleSyncObservers._installed) return;
+  setupTitleSyncObservers._installed = true;
+
+  let t = null;
+  const schedule = () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      // 1) ajuste la taille de police, 2) sync paddings
+      resizeCardTitles();
+      syncAllCardTitles();
+    }, 60);
+  };
+
+  const mo = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      // Si des nodes ajoutés contiennent des cartes, on resync
+      if (m.addedNodes && m.addedNodes.length) {
+        for (const n of m.addedNodes) {
+          if (n.nodeType !== 1) continue;
+          const el = /** @type {Element} */ (n);
+          if (el.classList?.contains("MOC-card") || el.querySelector?.(".MOC-card")) {
+            schedule();
+            return;
+          }
+        }
+      }
+      // si on enlève des cartes (filtre/tri), resync aussi
+      if (m.removedNodes && m.removedNodes.length) {
+        schedule();
+        return;
+      }
+    }
+  });
+
+  mo.observe(document.body, { childList: true, subtree: true });
+
+  // Si les fonts se chargent après coup, on resync
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(() => schedule()).catch(() => { });
+  }
+}
+// ======== Synchronisations globales (load + resize) ========
+window.addEventListener("load", () => {
+  // Stabilise la typo avant de mesurer les hauteurs
+  resizeCardTitles();
+  // Synchronise titres (section-row + MOC-grid) quand le layout est final
+  requestAnimationFrame(syncAllCardTitles);
+  // Technique detail (si présent)
+  syncTechnicImageHeights(140);
+});
+
+let _globalResizeTimer = null;
+window.addEventListener("resize", () => {
+  clearTimeout(_globalResizeTimer);
+  _globalResizeTimer = setTimeout(() => {
+    syncTechnicImageHeights(140);
+    resizeCardTitles();
+    requestAnimationFrame(syncAllCardTitles);
+  }, 120);
+});
 
 
+// Dernière passe quand tout est chargé (images/fonts) : utile pour index.html (cartes en sections)
+window.addEventListener("load", () => {
+  try { runTitleSyncSoon(); } catch (e) { }
+});
