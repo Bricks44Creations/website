@@ -1880,9 +1880,15 @@ video {
   margin: 0.4rem 0;
 }
 
-.quick-links a,
-.footer-links a {
+.quick-links a {
   color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a {
+  color: #18305a;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
