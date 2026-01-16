@@ -1164,6 +1164,26 @@ model-viewer {
   margin-top: 0;
 }
 
+.about-me-links {
+  list-style: none;
+  padding: 0;
+}
+
+.about-me-links li {
+  margin: 0;
+}
+
+.about-me-links a{
+  color: #18305a;
+    text-decoration: none;
+  font-weight: 500;
+}
+
+.about-me-links i{
+  color: #18305a;
+}
+
+
 
 /* ===== Aside en onglets ===== */
 .project-aside {
@@ -1881,12 +1901,13 @@ video {
 }
 
 .quick-links a,
-.footer-links a {
+.footer-links a  {
   color: white;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
+
 
 .quick-links a:hover,
 .footer-links a:hover {
