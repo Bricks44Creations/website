@@ -2318,6 +2318,10 @@ video {
   grid-template-rows: auto auto;
 }
 
+.cards_expo .expo-card .poster img {
+  display: block;
+}
+
 /* L'image remplit le cadre 5:7 */
 .expo-card .poster img {
   width: 100%;
@@ -2330,9 +2334,43 @@ video {
 .cards_expo {
   display: flex;
   flex-wrap: wrap;
-  justify-items: center;
+  justify-content: center;
+  /* centre les cards */
   gap: 1.5rem;
 }
+
+.cards_expo .expo-card .poster {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* <-- manque ici */
+}
+
+/* ===== EXPO : centrer les cards sur mobile ===== */
+@media (max-width: 768px) {
+  .cards_expo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* ✅ centre horizontalement */
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cards_expo .card-expo {
+    margin-left: auto;
+    margin-right: auto;
+    /* ✅ force le centrage si largeur fixe */
+  }
+}
+
+@media (max-width: 768px) {
+  .map-wrap {
+    margin-bottom: 16px;
+    /* ✅ espace sous la map */
+  }
+}
+
 
 .btn {
   width: 7.5rem;
