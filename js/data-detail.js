@@ -1821,11 +1821,31 @@ const dataDetails = [
 
   //City//
   {
+    id: "moc-city-2",
+    locations: "Grand Central Terminal, New York",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-city-2-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-city-2-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-city-2-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-city-2-4.webp", caption: "Détail 4" },
+      ],
+      reference: "img/MOC/moc-city-2-ref.webp",
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
+  {
     id: "moc-city-1",
     locations: "Park Avenue, New York",
     description: { en: "", fr: "" },
     images: {
       gallery: [
+        { src: "img/MOC/moc-city-1-6.webp", caption: "Détail 6" },
         { src: "img/MOC/moc-city-1-1.webp", caption: "Détail 1" },
         { src: "img/MOC/moc-city-1-2.webp", caption: "Détail 2" },
         { src: "img/MOC/moc-city-1-3.webp", caption: "Détail 3" },
@@ -1840,6 +1860,7 @@ const dataDetails = [
       buildTime: ""
     },
   },
+
 
   //Medieval//
   {
