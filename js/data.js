@@ -2533,7 +2533,7 @@ window.EXPO = [
         poster: 'img/Expo/bousies_affiche.webp',
     },
     {
-        id: 'escaudoeuvres-2019', city: 'Escaudoeuvres', date: '14/09/2019', year: 2019, lat: 50.283, lon: 3.58,
+        id: 'escaudoeuvres-2019', city: 'Escaudoeuvres', date: '05/10/2019', year: 2019, lat: 50.283, lon: 3.58,
         poster: 'img/Expo/escaudoeuvres_affiche.webp',
     },
     {
