@@ -712,16 +712,16 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="footer-column footer-useful-links">
         <h3 data-key="quick_links">Quick Links</h3>
         <ul class="quick-links">
-          <li><a href="index.html" data-key="home">Home</a></li>
-          <li><a href="MOC-home.html" data-key="MOC">MOC</a></li>
-          <li><a href="Instructions.html" data-key="instructions">Instructions</a></li>
-          <li><a href="Minifigs.html" data-key="minifigs">Minifigs</a></li>
-          <li><a href="Technics.html" data-key="Technics">Technics</a></li>
-          <li><a href="Conventions.html" data-key="conventions">Conventions</a></li>
+          <li><a href="index.html" data-key="home"></a></li>
+          <li><a href="MOC-home.html" data-key="MOC"></a></li>
+          <li><a href="Instructions.html" data-key="instructions"></a></li>
+          <li><a href="Minifigs.html" data-key="minifigs"></a></li>
+          <li><a href="Technics.html" data-key="Technics"></a></li>
+          <li><a href="Conventions.html" data-key="conventions"></a></li>
         </ul>
       </div>
       <div class="footer-column footer-info">
-        <h3 data-key="social_contacts">Social Medias | Contacts</h3>
+        <h3 data-key="social_contacts"></h3>
         <ul class="footer-links">
           <li><a href="https://www.youtube.com/@BricksCreations" target="_blank" rel="noopener noreferrer"><span data-key="youtube">YouTube </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
           <li><a href="https://www.instagram.com/bricks44creations" target="_blank"><span data-key="instagram">Instagram </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
@@ -730,10 +730,16 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>
       </div>
       <div class="footer-column footer-useful-links">
-        <h3 data-key="more_from_me">More from me</h3>
+        <h3 data-key="more_from_me"></h3>
         <ul class="footer-links">
-          <li><a href="More_about_me.html" data-key="who_am_i">Who am I ?</a></li>
-          <li><a href="index.html" target="_blank" rel="noopener noreferrer" data-key="my_website">My Website</a></li>
+          <li><a href="More_about_me.html" data-key="who_am_i"></a></li>
+          <li><a href="index.html" target="_blank" rel="noopener noreferrer" data-key="my_website"></a></li>
+        </ul>
+      </div>
+      <div class="footer-column footer-useful-links">
+        <h3 data-key="legal_notices"></h3>
+        <ul class="footer-links">
+          <li><a href="Legal_notices.html" data-key="legal_notices"></a></li>
         </ul>
       </div>
     </div>
