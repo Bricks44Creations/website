@@ -1270,6 +1270,12 @@ model-viewer {
   border: 0;
 }
 
+#tab-3d model-viewer {
+  min-height: 420px;
+}
+
+/* plus “responsive” */
+
 /* Responsive */
 @media (max-width: 1064px) {
   .project-hero {
