@@ -75,6 +75,51 @@ const translations = {
         action_apply_filters: "Apply filters",
         action_reset_filters: "Reset filters",
 
+        about_title: "About Bricks Creations",
+        about_section_what: `
+            <h2>What is Bricks Creations?</h2>
+            <p>
+                <strong>Bricks Creations</strong> is a creative project born from a long-lasting passion for LEGO®.
+                Through my creations, the goal is to imagine coherent universes, or to <em>recreate iconic scenes</em>,
+                with special attention to details and atmosphere. <br><br>
+            </p>
+            <p>
+                As a <em>mechanical design engineer</em>, I find in LEGO® what I also love in my job:
+                designing, structuring, and bringing ideas to life.
+                Each project is therefore thought of like a diorama,
+                working on scenery, volumes, and composition.
+            </p>
+        `,
+        about_section_universe: `
+            <h2>My LEGO universe</h2>
+            <ul>
+                <li>
+                    🎬 <strong>Movie scene recreations</strong>:
+                    Marvel, Jurassic Park, Harry Potter, Pirates of the Caribbean, The Lord of the Rings…
+                </li>
+                <li>
+                    🌌 <strong>Different worlds</strong>:
+                    City, Medieval, Jurassic Park, ...
+                </li>
+                <li>
+                    🔍 <strong>Big focus on details</strong>:
+                    Rocks, vegetation, textures, scale, and visual consistency
+                </li>
+            </ul>
+        `,
+        about_section_share: `
+            <h2>Share, exhibit, tell stories</h2>
+            <p>
+                Bricks Creations isn’t just building for the sake of building.
+                I enjoy <strong>sharing</strong> my projects on social media, documenting their evolution,
+                and sometimes presenting them at <strong>exhibitions</strong>.
+            </p>
+            <p>
+                Each creation tells a story — whether it’s a legendary movie scene
+                or a fully imagined universe.
+            </p>
+        `,
+
         Présentation_du_site: "Presentation of the site",
         Conditions_d_utilisation: "Terms of service",
         Services_proposes: "Services offered",
@@ -230,6 +275,52 @@ const translations = {
         action_apply_filters: "Appliquer les filtres",
         action_reset_filters: "Réinitialiser les filtres",
 
+        about_title: "À propos de Bricks Creations",
+        about_section_what: `
+            <h2>Qu&apos;est-ce que Bricks Creations ?</h2>
+            <p>
+                <strong>Bricks Creations</strong> est un projet créatif né d’une passion de longue date pour les LEGO®.
+                À travers mes créations, l’objectif est d’imaginer des univers cohérents, ou de <em>recréer des scènes
+                    emblématiques</em>, avec une attention particulière portée aux détails
+                et à l’ambiance. <br><br>
+            </p>
+            <p>
+                De formation <em>ingénieur en conception mécanique</em>,
+                je retrouve dans les LEGO® ce que j’aime aussi dans mon métier :
+                concevoir, structurer et donner forme à des idées.
+                Chaque projet est ainsi pensé comme un diorama,
+                en travaillant les décors, les volumes et la composition.
+            </p>
+        `,
+        about_section_universe: `
+            <h2>Mon univers LEGO</h2>
+            <ul>
+                <li>
+                    🎬 <strong>Reproductions de scènes de films</strong> :
+                    Marvel, Jurassic Park, Harry Potter, Pirates des Caraïbes, Le Seigneur des Anneaux…
+                </li>
+                <li>
+                    🌌 <strong>Différents univers</strong> :
+                    City, Médiéval, Jurasic Park, ...
+                </li>
+                <li>
+                    🔍 <strong>Gros focus sur les détails</strong> :
+                    Rochers, végétation, textures, échelle et cohérence visuelle
+                </li>
+            </ul>
+        `,
+        about_section_share: `
+            <h2>Partager, exposer, raconter</h2>
+            <p>
+                Bricks Creations, ce n’est pas juste construire pour construire.
+                J’aime <strong>partager</strong> mes projets sur les réseaux, documenter leur évolution
+                et parfois les présenter en <strong>exposition</strong>.
+            </p>
+            <p>
+                Chaque création raconte une histoire — que ce soit une scène mythique du cinéma
+                ou un univers entièrement imaginé.
+            </p>
+        `,
         Présentation_du_site: "Présentation du site",
         Conditions_d_utilisation: "Conditions d’utilisation",
         Services_proposes: "Services Proposés",
