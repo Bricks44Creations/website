@@ -35,6 +35,7 @@ const translations = {
         who_am_i: "Who am I ?",
         my_website: "My website",
         legal_notices: "Legal notices",
+        a_propos: "About the website",
         op_city: "City",
         op_jp: "Jurassic Park",
         op_filter: "filter",
@@ -51,6 +52,11 @@ const translations = {
         ref_location: "Location",
         ref_movie: "Movie / Show",
         ref_characters: "Characters",
+
+        Présentation_du_site: "Presentation of the site",
+        Conditions_d_utilisation: "Terms of service",
+        Services_proposes: "Services offered",
+        Droits_d_auteur: "Copyright and Intellectual Property",
 
         expo_view_map: "View on map",
         expo_view_page: "View page",
@@ -113,6 +119,7 @@ const translations = {
         who_am_i: "Qui suis-je ?",
         legal_notices: "Mentions légales",
         my_website: "Mon site",
+        a_propos: "À propos du site",
         op_city: "Ville",
         op_jp: "Jurassic Park",
         op_filter: "filter",
@@ -129,6 +136,11 @@ const translations = {
         ref_movie: "Film / Série",
         ref_characters: "Personnages",
         search_placeholder: "Tapez pour rechercher...",
+
+        Présentation_du_site: "Présentation du site",
+        Conditions_d_utilisation: "Conditions d’utilisation",
+        Services_proposes: "Services Proposés",
+        Droits_d_auteur: "Droits d’auteur et propriété intellectuelle",
 
         expo_view_map: "Voir sur la carte",
         expo_view_page: "Voir la page",

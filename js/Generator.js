@@ -737,7 +737,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>
       </div>
       <div class="footer-column footer-useful-links">
-        <h3 data-key="legal_notices"></h3>
+        <h3 data-key="a_propos"></h3>
         <ul class="footer-links">
           <li><a href="legal_notices.html" data-key="legal_notices"></a></li>
         </ul>
