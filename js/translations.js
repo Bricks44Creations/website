@@ -51,6 +51,7 @@ const translations = {
         ref_location: "Location",
         ref_movie: "Movie / Show",
         ref_characters: "Characters",
+        openNoticePdf: "Open the notice (PDF)",
 
         expo_year_prefix: "Years: ",
         expo_city_prefix: "Cities: ",
@@ -257,6 +258,8 @@ const translations = {
         ref_location: "Lieu",
         ref_movie: "Film / Série",
         ref_characters: "Personnages",
+        openNoticePdf: "Ouvrir la notice (PDF)",
+
 
         expo_year_prefix: "Années : ",
         expo_city_prefix: "Villes : ",
