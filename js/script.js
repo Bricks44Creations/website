@@ -273,9 +273,8 @@ function setLanguage(lang) {
       // Si c’est le footer, transformer \n en <br>
       if (key === "footer_disclaimer") {
         const currentYear = new Date().getFullYear();
-        text = text
-          .replace("{YEAR}", currentYear)
-          .replace(/\n/g, "<br>");
+        text = text.replace("{YEAR}", currentYear);
+        text = text.replace(/\n/g, "<br>"); // UNIQUEMENT ici
       }
       el.innerHTML = text;
     }
