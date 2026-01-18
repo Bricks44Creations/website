@@ -12,7 +12,7 @@ const project = [
         relevance: 5,
         filter: "Avengers : Infinity War",
         movie: "Avengers : Infinity War",
-        img: "img/Miniatures/Wakanda_battle.jpg",
+        img: "img/Miniatures/Wakanda_battle.webp",
         alt: "Wakanda battle",
         type: "MOC",
         theme: "marvel",
@@ -31,7 +31,7 @@ const project = [
         relevance: 10,
         filter: "Doctor Strange",
         movie: "Doctor Strange",
-        img: "img/Miniatures/Sanctum_Sanctorum_modular.jpg",
+        img: "img/Miniatures/Sanctum_Sanctorum_modular.webp",
         alt: "Sanctum Sanctorm",
         type: "MOC",
         theme: "marvel",
@@ -50,7 +50,7 @@ const project = [
         relevance: 3,
         filter: "Iron man",
         movie: "Iron man",
-        img: "img/Miniatures/Tony_Stark's_garage.jpg",
+        img: "img/Miniatures/Tony_Stark's_garage.webp",
         alt: "Tony Stark's garage",
         type: "MOC",
         theme: "marvel",
@@ -69,7 +69,7 @@ const project = [
         relevance: 3,
         filter: "Falcon and The Winter Soldier",
         movie: "Falcon and The Winter Soldier",
-        img: "img/Miniatures/Chase_of_the_Flag_Smashers.jpg",
+        img: "img/Miniatures/Chase_of_the_Flag_Smashers.webp",
         alt: "Chase of the Flag Smashers",
         type: "MOC",
         theme: "marvel",
@@ -88,7 +88,7 @@ const project = [
         relevance: 1,
         filter: "Falcon and The Winter Soldier",
         movie: "Falcon and The Winter Soldier",
-        img: "img/Miniatures/John_Walker_builds_a_new_shield.jpg",
+        img: "img/Miniatures/John_Walker_builds_a_new_shield.webp",
         alt: "John Walker builds a new shield",
         type: "MOC",
         theme: "marvel",
@@ -107,7 +107,7 @@ const project = [
         relevance: 3,
         filter: "Falcon and The Winter Soldier",
         movie: "Falcon and The Winter Soldier",
-        img: "img/Miniatures/Buccaneer_Bay.jpg",
+        img: "img/Miniatures/Buccaneer_Bay.webp",
         alt: "Buccaneer Bay",
         type: "MOC",
         theme: "marvel",
@@ -126,7 +126,7 @@ const project = [
         relevance: 2,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/Avengers_travel_back_in_time.jpg",
+        img: "img/Miniatures/Avengers_travel_back_in_time.webp",
         alt: "Avengers travel back in time",
         type: "MOC",
         theme: "marvel",
@@ -145,7 +145,7 @@ const project = [
         relevance: 4,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/Captain_America_VS_Captain_America.jpg",
+        img: "img/Miniatures/Captain_America_VS_Captain_America.webp",
         alt: "Captain America VS Captain America",
         type: "MOC",
         theme: "marvel",
@@ -164,7 +164,7 @@ const project = [
         relevance: 2,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/Captain_America_Returns_the_Infinity_Stones.jpg",
+        img: "img/Miniatures/Captain_America_Returns_the_Infinity_Stones.webp",
         alt: "Captain America Returns the Infinity Stones",
         type: "MOC",
         theme: "marvel",
@@ -183,7 +183,7 @@ const project = [
         relevance: 2,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/Thor_Gives_Asgard_to_Valkyrie.jpg",
+        img: "img/Miniatures/Thor_Gives_Asgard_to_Valkyrie.webp",
         alt: "Thor Gives Asgard to Valkyrie",
         type: "MOC",
         theme: "marvel",
@@ -202,7 +202,7 @@ const project = [
         relevance: 2,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/Steve_Rogers_Gives_Shield_to_Sam_Wilson.jpg",
+        img: "img/Miniatures/Steve_Rogers_Gives_Shield_to_Sam_Wilson.webp",
         alt: "Steve Rogers Gives Shield to Sam Wilson",
         type: "MOC",
         theme: "marvel",
@@ -221,7 +221,7 @@ const project = [
         relevance: 2,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/You_have_the_little_one.jpg",
+        img: "img/Miniatures/You_have_the_little_one.webp",
         alt: "You have the little one",
         type: "MOC",
         theme: "marvel",
@@ -240,7 +240,7 @@ const project = [
         relevance: 1,
         filter: "Iron man 3",
         movie: "Iron man 3",
-        img: "img/Miniatures/Iron_Patriot.jpg",
+        img: "img/Miniatures/Iron_Patriot.webp",
         alt: "Iron Patriot",
         type: "MOC",
         theme: "marvel",
@@ -259,7 +259,7 @@ const project = [
         relevance: 3,
         filter: "Spiderman : Homecoming",
         movie: "Spiderman : Homecoming",
-        img: "img/Miniatures/Spiderman_trapped_in_a_warehouse.jpg",
+        img: "img/Miniatures/Spiderman_trapped_in_a_warehouse.webp",
         alt: "Spiderman trapped in a warehouse",
         type: "MOC",
         theme: "marvel",
@@ -278,7 +278,7 @@ const project = [
         relevance: 1,
         filter: "Thor : Ragnarok",
         movie: "Thor : Ragnarok",
-        img: "img/Miniatures/Shady_Acres_Care_Home.jpg",
+        img: "img/Miniatures/Shady_Acres_Care_Home.webp",
         alt: "Shady Acres Care Home",
         type: "MOC",
         theme: "marvel",
@@ -297,7 +297,7 @@ const project = [
         relevance: 4,
         filter: "Black Panther",
         movie: "Black Panther",
-        img: "img/Miniatures/Museum_heist.jpg",
+        img: "img/Miniatures/Museum_heist.webp",
         alt: "Museum heist",
         type: "MOC",
         theme: "marvel",
@@ -316,7 +316,7 @@ const project = [
         relevance: 2,
         filter: "Wandavision",
         movie: "Wandavision",
-        img: "img/Miniatures/Wanda_VS_Agatha.jpg",
+        img: "img/Miniatures/Wanda_VS_Agatha.webp",
         alt: "Wanda VS Agatha",
         type: "MOC",
         theme: "marvel",
@@ -335,7 +335,7 @@ const project = [
         relevance: 2,
         filter: "Wandavision",
         movie: "Wandavision",
-        img: "img/Miniatures/Monica_Rambeau_VS_Wanda.jpg",
+        img: "img/Miniatures/Monica_Rambeau_VS_Wanda.webp",
         alt: "Monica Rambeau VS Wanda",
         type: "MOC",
         theme: "marvel",
@@ -354,7 +354,7 @@ const project = [
         relevance: 3,
         filter: "Agents of SHIELD",
         movie: "Agents of SHIELD",
-        img: "img/Miniatures/The_lighthouse.jpg",
+        img: "img/Miniatures/The_lighthouse.webp",
         alt: "Agents of SHIELD : the Lighthouse",
         type: "MOC",
         theme: "marvel",
@@ -373,7 +373,7 @@ const project = [
         relevance: 4,
         filter: "Shang-chi",
         movie: "Shang-chi",
-        img: "img/Miniatures/Shang_chi_skyscrapers_fight.jpg",
+        img: "img/Miniatures/Shang_chi_skyscrapers_fight.webp",
         alt: "Shang Chi skyscraper's fight",
         type: "MOC",
         theme: "marvel",
@@ -392,7 +392,7 @@ const project = [
         relevance: 2,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/Thanos_armor.jpg",
+        img: "img/Miniatures/Thanos_armor.webp",
         alt: "Thanos' armor",
         type: "MOC",
         theme: "marvel",
@@ -411,7 +411,7 @@ const project = [
         relevance: 1,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/Loki_Finds_Infinity_Stones.jpg",
+        img: "img/Miniatures/Loki_Finds_Infinity_Stones.webp",
         alt: "Loki Finds Infinity Stones",
         type: "MOC",
         theme: "marvel",
@@ -430,7 +430,7 @@ const project = [
         relevance: 3,
         filter: "Hawkeye",
         movie: "Hawkeye",
-        img: "img/Miniatures/Clint_Kate_Christmas.jpg",
+        img: "img/Miniatures/Clint_Kate_Christmas.webp",
         alt: "Clint Barton and Kate Bishop's Christmas",
         type: "MOC",
         theme: "marvel",
@@ -449,7 +449,7 @@ const project = [
         relevance: 3,
         filter: "Falcon and The Winter Soldier",
         movie: "Falcon and The Winter Soldier",
-        img: "img/Miniatures/Sokovian_memorial.jpg",
+        img: "img/Miniatures/Sokovian_memorial.webp",
         alt: "Sokovian Memorial",
         type: "MOC",
         theme: "marvel",
@@ -468,7 +468,7 @@ const project = [
         relevance: 3,
         filter: "Falcon and The Winter Soldier",
         movie: "Falcon and The Winter Soldier",
-        img: "img/Miniatures/Sam_Wilson_Training.jpg",
+        img: "img/Miniatures/Sam_Wilson_Training.webp",
         alt: "Sam Wilson Training",
         type: "MOC",
         theme: "marvel",
@@ -487,7 +487,7 @@ const project = [
         relevance: 2,
         filter: "Spiderman : Far from home",
         movie: "Spiderman : Far from home",
-        img: "img/Miniatures/spiderman_in_holland.jpg",
+        img: "img/Miniatures/spiderman_in_holland.webp",
         alt: "Spiderman in Holland",
         type: "MOC",
         theme: "marvel",
@@ -506,7 +506,7 @@ const project = [
         relevance: 3,
         filter: "Spiderman : Far from home",
         movie: "Spiderman : Far from home",
-        img: "img/Miniatures/spiderman_vs_mysterio.jpg",
+        img: "img/Miniatures/spiderman_vs_mysterio.webp",
         alt: "Spiderman VS Mysterio",
         type: "MOC",
         theme: "marvel",
@@ -525,7 +525,7 @@ const project = [
         relevance: 2,
         filter: "Doctor Strange in the multiverse of madness",
         movie: "Doctor Strange in the multiverse of madness",
-        img: "img/Miniatures/dreamwalking.jpg",
+        img: "img/Miniatures/dreamwalking.webp",
         alt: "Wanda dreamwalking",
         type: "MOC",
         theme: "marvel",
@@ -544,7 +544,7 @@ const project = [
         relevance: 3,
         filter: "Agatha: All along",
         movie: "Agatha: All along",
-        img: "img/Miniatures/Witches road.jpg",
+        img: "img/Miniatures/Witches road.webp",
         alt: "Agatha on the Witches' road",
         type: "MOC",
         theme: "marvel",
@@ -563,7 +563,7 @@ const project = [
         relevance: 2,
         filter: "Moon Knight",
         movie: "Moon Knight",
-        img: "img/Miniatures/taweret's boat.jpg",
+        img: "img/Miniatures/taweret's boat.webp",
         alt: "Taweret's Boat",
         type: "MOC",
         theme: "marvel",
@@ -582,7 +582,7 @@ const project = [
         relevance: 10,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/Endgame final battle.jpg",
+        img: "img/Miniatures/Endgame final battle.webp",
         alt: "Endgame final battle",
         type: "MOC",
         theme: "marvel",
@@ -601,7 +601,7 @@ const project = [
         relevance: 4,
         filter: "Thor : Ragnarok",
         movie: "Thor : Ragnarok",
-        img: "img/Miniatures/thor escapes.jpg",
+        img: "img/Miniatures/thor escapes.webp",
         alt: "Thor VS Surtur",
         type: "MOC",
         theme: "marvel",
@@ -620,7 +620,7 @@ const project = [
         relevance: 5,
         filter: "Captain America : First Avenger",
         movie: "Captain America : First Avenger",
-        img: "img/Miniatures/Steve Rogers transformation scene.jpg",
+        img: "img/Miniatures/Steve Rogers transformation scene.webp",
         alt: "Steve Rogers transformation scene",
         type: "MOC",
         theme: "marvel",
@@ -639,7 +639,7 @@ const project = [
         relevance: 5,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/pompeii.jpg",
+        img: "img/Miniatures/pompeii.webp",
         alt: "Loki & Mobius in Pompeii",
         type: "MOC",
         theme: "marvel",
@@ -658,7 +658,7 @@ const project = [
         relevance: 5,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/Black widow death scene.jpg",
+        img: "img/Miniatures/Black widow death scene.webp",
         alt: "Black Widow death scene",
         type: "MOC",
         theme: "marvel",
@@ -677,7 +677,7 @@ const project = [
         relevance: 3,
         filter: "Deadpool & Wolverine",
         movie: "Deadpool & Wolverine",
-        img: "img/Miniatures/deadpool.jpg",
+        img: "img/Miniatures/deadpool.webp",
         alt: "Deadpool 3 opening scene",
         type: "MOC",
         theme: "marvel",
@@ -695,7 +695,7 @@ const project = [
         relevance: 4,
         filter: "Iron man 2",
         movie: "Iron man 2",
-        img: "img/Miniatures/Natalie Rushman.jpg",
+        img: "img/Miniatures/Natalie Rushman.webp",
         alt: "Iron man 2 boxing ring",
         type: "MOC",
         theme: "marvel",
@@ -714,7 +714,7 @@ const project = [
         relevance: 4,
         filter: "Avengers",
         movie: "Avengers",
-        img: "img/Miniatures/hulk.jpg",
+        img: "img/Miniatures/hulk.webp",
         alt: "Hulk VS Leviathan",
         type: "MOC",
         theme: "marvel",
@@ -733,7 +733,7 @@ const project = [
         relevance: 3,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/god of stories.jpg",
+        img: "img/Miniatures/god of stories.webp",
         alt: "Loki, God of stories",
         type: "MOC",
         theme: "marvel",
@@ -752,7 +752,7 @@ const project = [
         relevance: 4,
         filter: "Black Panther : Wakanda Forever",
         movie: "Black Panther : Wakanda Forever",
-        img: "img/Miniatures/wakanda throne.jpg",
+        img: "img/Miniatures/wakanda throne.webp",
         alt: "Shuri meets Killmonger",
         type: "MOC",
         theme: "marvel",
@@ -771,7 +771,7 @@ const project = [
         relevance: 5,
         filter: "Moon Knight",
         movie: "Moon Knight",
-        img: "img/Miniatures/moon knight (2).jpg",
+        img: "img/Miniatures/moon knight (2).webp",
         alt: "Tomb of Alexander the Great",
         type: "MOC",
         theme: "marvel",
@@ -790,7 +790,7 @@ const project = [
         relevance: 3,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/timely (2).jpg",
+        img: "img/Miniatures/timely (2).webp",
         alt: "Loki meets Victor Timely (2)",
         type: "MOC",
         theme: "marvel",
@@ -809,7 +809,7 @@ const project = [
         relevance: 4,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/Ouroboros.jpg",
+        img: "img/Miniatures/Ouroboros.webp",
         alt: "Ouroboros meets Loki",
         type: "MOC",
         theme: "marvel",
@@ -828,7 +828,7 @@ const project = [
         relevance: 3,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/He who remains.jpg",
+        img: "img/Miniatures/He who remains.webp",
         alt: "Citadel of He Who Remains",
         type: "MOC",
         theme: "marvel",
@@ -847,7 +847,7 @@ const project = [
         relevance: 4,
         filter: "Guardians of the Galaxy vol.3",
         movie: "Guardians of the Galaxy vol.3",
-        img: "img/Miniatures/GOTG3.jpg",
+        img: "img/Miniatures/GOTG3.webp",
         alt: "GOTG3 Final fight",
         type: "MOC",
         theme: "marvel",
@@ -866,7 +866,7 @@ const project = [
         relevance: 3,
         filter: "Secret Invasion",
         movie: "Secret Invasion",
-        img: "img/Miniatures/secret invasion.jpg",
+        img: "img/Miniatures/secret invasion.webp",
         alt: "Copying human identities",
         type: "MOC",
         theme: "marvel",
@@ -885,7 +885,7 @@ const project = [
         relevance: 2,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/timely (1).jpg",
+        img: "img/Miniatures/timely (1).webp",
         alt: "Loki meets Victor Timely (1)",
         type: "MOC",
         theme: "marvel",
@@ -904,7 +904,7 @@ const project = [
         relevance: 3,
         filter: "Doctor Strange",
         movie: "Doctor Strange",
-        img: "img/Miniatures/Stairs.jpg",
+        img: "img/Miniatures/Stairs.webp",
         alt: "Sanctum Sanctorum",
         type: "MOC",
         theme: "marvel",
@@ -923,7 +923,7 @@ const project = [
         relevance: 2,
         filter: "Shang-chi",
         movie: "Shang-chi",
-        img: "img/Miniatures/shangchi.jpg",
+        img: "img/Miniatures/shangchi.webp",
         alt: "Shang-chi VS Wenwu",
         type: "MOC",
         theme: "marvel",
@@ -942,7 +942,7 @@ const project = [
         relevance: 3,
         filter: "Iron Heart",
         movie: "Iron Heart",
-        img: "img/Miniatures/iron heart.jpg",
+        img: "img/Miniatures/iron heart.webp",
         alt: "Iron heart reveal",
         type: "MOC",
         theme: "marvel",
@@ -961,7 +961,7 @@ const project = [
         relevance: 3,
         filter: "Iron man 3",
         movie: "Iron man 3",
-        img: "img/Miniatures/snow.jpg",
+        img: "img/Miniatures/snow.webp",
         alt: "Tony in the snow",
         type: "MOC",
         theme: "marvel",
@@ -980,7 +980,7 @@ const project = [
         relevance: 4,
         filter: "Doctor Strange",
         movie: "Doctor Strange",
-        img: "img/Miniatures/doctorstrange.jpg",
+        img: "img/Miniatures/doctorstrange.webp",
         alt: "Doctor strange meets Mordo",
         type: "MOC",
         theme: "marvel",
@@ -999,7 +999,7 @@ const project = [
         relevance: 2,
         filter: "Captain America : First Avenger",
         movie: "Captain America : First Avenger",
-        img: "img/Miniatures/steve.jpg",
+        img: "img/Miniatures/steve.webp",
         alt: "Steve 1st fight",
         type: "MOC",
         theme: "marvel",
@@ -1018,7 +1018,7 @@ const project = [
         relevance: 2,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/timetravel.jpg",
+        img: "img/Miniatures/timetravel.webp",
         alt: "Tony discovers time travel",
         type: "MOC",
         theme: "marvel",
@@ -1037,7 +1037,7 @@ const project = [
         relevance: 2,
         filter: "Avengers : Endgame",
         movie: "Avengers : Endgame",
-        img: "img/Miniatures/morgan.jpg",
+        img: "img/Miniatures/morgan.webp",
         alt: "Morgan Stark",
         type: "MOC",
         theme: "marvel",
@@ -1056,7 +1056,7 @@ const project = [
         relevance: 3,
         filter: "Doctor Strange in the multiverse of madness",
         movie: "Doctor Strange in the multiverse of madness",
-        img: "img/Miniatures/spaghettis.jpg",
+        img: "img/Miniatures/spaghettis.webp",
         alt: "Red Richards turn into spaghetti",
         type: "MOC",
         theme: "marvel",
@@ -1075,7 +1075,7 @@ const project = [
         relevance: 4,
         filter: "Doctor Strange in the multiverse of madness",
         movie: "Doctor Strange in the multiverse of madness",
-        img: "img/Miniatures/illuminati.jpg",
+        img: "img/Miniatures/illuminati.webp",
         alt: "The Illuminati",
         type: "MOC",
         theme: "marvel",
@@ -1094,7 +1094,7 @@ const project = [
         relevance: 2,
         filter: "Thor : Love and Thunder",
         movie: "Thor : Love and Thunder",
-        img: "img/Miniatures/thor with GOTG.jpg",
+        img: "img/Miniatures/thor with GOTG.webp",
         alt: "Thor with Guardians",
         type: "MOC",
         theme: "marvel",
@@ -1113,7 +1113,7 @@ const project = [
         relevance: 3,
         filter: "Doctor Strange",
         movie: "Doctor Strange",
-        img: "img/Miniatures/everest.jpg",
+        img: "img/Miniatures/everest.webp",
         alt: "Strange at mount Everest",
         type: "MOC",
         theme: "marvel",
@@ -1132,7 +1132,7 @@ const project = [
         relevance: 3,
         filter: "Spiderman : No way home",
         movie: "Spiderman : No way home",
-        img: "img/Miniatures/my back.jpg",
+        img: "img/Miniatures/my back.webp",
         alt: "Spiderman My back ! scene",
         type: "MOC",
         theme: "marvel",
@@ -1151,7 +1151,7 @@ const project = [
         relevance: 3,
         filter: "Iron man",
         movie: "Iron man",
-        img: "img/Miniatures/mark1.jpg",
+        img: "img/Miniatures/mark1.webp",
         alt: "Tony build Mark I",
         type: "MOC",
         theme: "marvel",
@@ -1170,7 +1170,7 @@ const project = [
         relevance: 3,
         filter: "Spiderman : No way home",
         movie: "Spiderman : No way home",
-        img: "img/Miniatures/Spiderman VS Electro.jpg",
+        img: "img/Miniatures/Spiderman VS Electro.webp",
         alt: "Spiderman VS Electro",
         type: "MOC",
         theme: "marvel",
@@ -1189,7 +1189,7 @@ const project = [
         relevance: 3,
         filter: "Spiderman : No way home",
         movie: "Spiderman : No way home",
-        img: "img/Miniatures/JJJ.jpg",
+        img: "img/Miniatures/JJJ.webp",
         alt: "J. Jonah Jameson",
         type: "MOC",
         theme: "marvel",
@@ -1208,7 +1208,7 @@ const project = [
         relevance: 3,
         filter: "Eternals",
         movie: "Eternals",
-        img: "img/Miniatures/eternals.jpg",
+        img: "img/Miniatures/eternals.webp",
         alt: "Eternals opening scene",
         type: "MOC",
         theme: "marvel",
@@ -1227,7 +1227,7 @@ const project = [
         relevance: 2,
         filter: "Thor",
         movie: "Thor",
-        img: "img/Miniatures/asgard.jpg",
+        img: "img/Miniatures/asgard.webp",
         alt: "Microscale Asgard",
         type: "MOC",
         theme: "marvel",
@@ -1246,7 +1246,7 @@ const project = [
         relevance: 1,
         filter: "Wandavision",
         movie: "Wandavision",
-        img: "img/Miniatures/Wandavision ep2.jpg",
+        img: "img/Miniatures/Wandavision ep2.webp",
         alt: "Wandavision ep2",
         type: "MOC",
         theme: "marvel",
@@ -1265,7 +1265,7 @@ const project = [
         relevance: 2,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/loki tva.jpg",
+        img: "img/Miniatures/loki tva.webp",
         alt: "Capture of Loki by TVA",
         type: "MOC",
         theme: "marvel",
@@ -1284,7 +1284,7 @@ const project = [
         relevance: 3,
         filter: "Loki",
         movie: "Loki",
-        img: "img/Miniatures/void.jpg",
+        img: "img/Miniatures/void.webp",
         alt: "Loki in the void",
         type: "MOC",
         theme: "marvel",
@@ -1303,7 +1303,7 @@ const project = [
         relevance: 1,
         filter: "Iron man 2",
         movie: "Iron man 2",
-        img: "img/Miniatures/Iron man monaco.jpg",
+        img: "img/Miniatures/Iron man monaco.webp",
         alt: "Iron man VS Ivan Vanko",
         type: "MOC",
         theme: "marvel",
@@ -1322,7 +1322,7 @@ const project = [
         relevance: 4,
         filter: "Black Panther",
         movie: "Black Panther",
-        img: "img/Miniatures/Killmonger death.jpg",
+        img: "img/Miniatures/Killmonger death.webp",
         alt: "Killmonger death",
         type: "MOC",
         theme: "marvel",
@@ -1341,7 +1341,7 @@ const project = [
         relevance: 3,
         filter: "Avengers : Infinity War",
         movie: "Avengers : Infinity War",
-        img: "img/Miniatures/thor arrives in wakanda.jpg",
+        img: "img/Miniatures/thor arrives in wakanda.webp",
         alt: "Thor arrives in Wakanda",
         type: "MOC",
         theme: "marvel",
@@ -1360,7 +1360,7 @@ const project = [
         relevance: 2,
         filter: "Iron man",
         movie: "Iron man",
-        img: "img/Miniatures/arc reactor.jpg",
+        img: "img/Miniatures/arc reactor.webp",
         alt: "Arc reactor",
         type: "MOC",
         theme: "marvel",
@@ -1379,7 +1379,7 @@ const project = [
         relevance: 1,
         filter: "The amazing Spiderman 2",
         movie: "The amazing Spiderman 2",
-        img: "img/Miniatures/TASM2.jpg",
+        img: "img/Miniatures/TASM2.webp",
         alt: "TASM2 ending scene",
         type: "MOC",
         theme: "marvel",
@@ -1398,7 +1398,7 @@ const project = [
         relevance: 1,
         filter: "Captain Marvel",
         movie: "Captain Marvel",
-        img: "img/Miniatures/skrull transformation.jpg",
+        img: "img/Miniatures/skrull transformation.webp",
         alt: "Skrull transformation",
         type: "MOC",
         theme: "marvel",
@@ -1417,7 +1417,7 @@ const project = [
         relevance: 3,
         filter: "Black Panther",
         movie: "Black Panther",
-        img: "img/Miniatures/Ancestral plane.jpg",
+        img: "img/Miniatures/Ancestral plane.webp",
         alt: "Ancestral plane",
         type: "MOC",
         theme: "marvel",
@@ -1436,7 +1436,7 @@ const project = [
         relevance: 3,
         filter: "Captain America : The Winter soldier",
         movie: "Captain America : The Winter soldier",
-        img: "img/Miniatures/arnim zola.jpg",
+        img: "img/Miniatures/arnim zola.webp",
         alt: "Arnim Zola",
         type: "MOC",
         theme: "marvel",
@@ -1458,7 +1458,7 @@ const project = [
         date: "2024-09-27",
         relevance: 3,
         filter: "Building",
-        img: "img/Miniatures/McDonald's.jpg",
+        img: "img/Miniatures/McDonald's.webp",
         alt: "McDonald's Restaurant",
         type: "MOC",
         theme: "jurassic-park",
@@ -1477,7 +1477,7 @@ const project = [
         date: "2024-09-05",
         relevance: 3,
         filter: "Building",
-        img: "img/Miniatures/QQS restaurant.jpg",
+        img: "img/Miniatures/QQS restaurant.webp",
         alt: "QQS Restaurant",
         type: "MOC",
         theme: "jurassic-park",
@@ -1496,7 +1496,7 @@ const project = [
         date: "2024-09-02",
         relevance: 3,
         filter: "Building",
-        img: "img/Miniatures/gift shop.jpg",
+        img: "img/Miniatures/gift shop.webp",
         alt: "Gift Shop",
         type: "MOC",
         theme: "jurassic-park",
@@ -1515,7 +1515,7 @@ const project = [
         date: "2024-08-30",
         relevance: 4,
         filter: "Landscape",
-        img: "img/Miniatures/aviary.jpg",
+        img: "img/Miniatures/aviary.webp",
         alt: "The Aviary",
         type: "MOC",
         theme: "jurassic-park",
@@ -1534,7 +1534,7 @@ const project = [
         date: "2024-08-25",
         relevance: 5,
         filter: "Landscape",
-        img: "img/Miniatures/mosasaurus.jpg",
+        img: "img/Miniatures/mosasaurus.webp",
         alt: "The Mosasaurus (2)",
         type: "MOC",
         theme: "jurassic-park",
@@ -1554,7 +1554,7 @@ const project = [
         date: "2022-05-15",
         relevance: 4,
         filter: "Landscape",
-        img: "img/Miniatures/monorail.jpg",
+        img: "img/Miniatures/monorail.webp",
         alt: "Motorized Monorail",
         type: "MOC",
         theme: "jurassic-park",
@@ -1574,7 +1574,7 @@ const project = [
         date: "2021-03-10",
         relevance: 3,
         filter: "Building",
-        img: "img/Miniatures/bowling.jpg",
+        img: "img/Miniatures/bowling.webp",
         alt: "The Bowling",
         type: "MOC",
         theme: "jurassic-park",
@@ -1594,7 +1594,7 @@ const project = [
         date: "2021-03-07",
         relevance: 5,
         filter: "Landscape",
-        img: "img/Miniatures/t-rex.jpg",
+        img: "img/Miniatures/t-rex.webp",
         alt: "T-rex enclosure",
         type: "MOC",
         theme: "jurassic-park",
@@ -1614,7 +1614,7 @@ const project = [
         date: "2021-03-27",
         relevance: 3,
         filter: "Building",
-        img: "img/Miniatures/subway restaurant.png",
+        img: "img/Miniatures/subway restaurant.webp",
         alt: "Subway Restaurant",
         type: "MOC",
         theme: "jurassic-park",
@@ -1633,7 +1633,7 @@ const project = [
         date: "2020-12-25",
         relevance: 1,
         filter: "Building",
-        img: "img/Miniatures/coffee chain 1.jpg",
+        img: "img/Miniatures/coffee chain 1.webp",
         alt: "Coffee Chain Restaurant",
         type: "MOC",
         theme: "jurassic-park",
@@ -1652,7 +1652,7 @@ const project = [
         date: "2020-03-29",
         relevance: 2,
         filter: "Building",
-        img: "img/Miniatures/Restaurant.jpg",
+        img: "img/Miniatures/Restaurant.webp",
         alt: "Headquarter & Restaurant",
         type: "MOC",
         theme: "jurassic-park",
@@ -1671,7 +1671,7 @@ const project = [
         date: "2020-01-04",
         relevance: 1,
         filter: "Landscape",
-        img: "img/Miniatures/Laboratory.jpg",
+        img: "img/Miniatures/Laboratory.webp",
         alt: "A laboratory in the jungle",
         type: "MOC",
         theme: "jurassic-park",
@@ -1690,7 +1690,7 @@ const project = [
         date: "2020-01-03",
         relevance: 2,
         filter: "Landscape",
-        img: "img/Miniatures/Fouilles.jpg",
+        img: "img/Miniatures/Fouilles.webp",
         alt: "Archaeological excavations",
         type: "MOC",
         theme: "jurassic-park",
@@ -1712,7 +1712,7 @@ const project = [
         date: "2023-02-12",
         relevance: 3,
         filter: "Building",
-        img: "img/Miniatures/medieval.jpg",
+        img: "img/Miniatures/medieval.webp",
         alt: "Building House",
         type: "MOC",
         theme: "medieval",
@@ -1733,7 +1733,7 @@ const project = [
         date: "2023-04-30",
         relevance: 3,
         filter: "",
-        img: "img/Miniatures/Park Avenue.jpg",
+        img: "img/Miniatures/Park Avenue.webp",
         alt: "Park Avenue",
         type: "MOC",
         theme: "city",
@@ -1754,7 +1754,7 @@ const project = [
         date: "2023-04-30",
         relevance: 3,
         filter: "Fantastic Beasts: The Crimes of Grindelwald",
-        img: "img/Miniatures/protego diabolica.png",
+        img: "img/Miniatures/protego diabolica.webp",
         alt: "Protego Diabolica",
         type: "MOC",
         theme: "wizarding-world",
@@ -1773,7 +1773,7 @@ const project = [
         date: "2020-10-26",
         relevance: 3,
         filter: "",
-        img: "img/Miniatures/hogwarts.jpg",
+        img: "img/Miniatures/hogwarts.webp",
         alt: "Microscale Hogwarts",
         type: "MOC",
         theme: "wizarding-world",
@@ -1794,7 +1794,7 @@ const project = [
         date: "2024-08-10",
         relevance: 3,
         filter: "",
-        img: "img/Miniatures/paris 2024.png",
+        img: "img/Miniatures/paris 2024.webp",
         alt: "Paris 2024 athletics track",
         type: "MOC",
         theme: "others",
@@ -1813,7 +1813,7 @@ const project = [
         date: "2024-10-25",
         relevance: 3,
         filter: "",
-        img: "img/Miniatures/percy jackson.jpg",
+        img: "img/Miniatures/percy jackson.webp",
         alt: "Percy Jackson and the Olympians",
         type: "MOC",
         theme: "Others",
@@ -1832,7 +1832,7 @@ const project = [
         date: "2023-08-12",
         relevance: 3,
         filter: "",
-        img: "img/Miniatures/F1.png",
+        img: "img/Miniatures/F1.webp",
         alt: "Alpine A523 & Ferrari SF23",
         type: "MOC",
         theme: "Others",
@@ -1851,7 +1851,7 @@ const project = [
         date: "2023-02-12",
         relevance: 3,
         filter: "",
-        img: "img/Miniatures/explorer.jpg",
+        img: "img/Miniatures/explorer.webp",
         alt: "Explorer in the jungle",
         type: "MOC",
         theme: "Others",
@@ -1870,7 +1870,7 @@ const project = [
         date: "2021-10-30",
         relevance: 3,
         filter: "",
-        img: "img/Miniatures/gladiator.jpg",
+        img: "img/Miniatures/gladiator.webp",
         alt: "Gladiators",
         type: "MOC",
         theme: "Others",
@@ -1889,7 +1889,7 @@ const project = [
         date: "2017-05-27",
         relevance: 1,
         filter: "",
-        img: "img/Miniatures/pirate fortress.JPG",
+        img: "img/Miniatures/pirate fortress.webp",
         alt: "A pirates fortress under attack",
         type: "MOC",
         theme: "Others",
@@ -1908,7 +1908,7 @@ const project = [
         date: "2017-04-11",
         relevance: 1,
         filter: "",
-        img: "img/Miniatures/greek temple.jpg",
+        img: "img/Miniatures/greek temple.webp",
         alt: "A submerged greek temple",
         type: "MOC",
         theme: "Others",
@@ -1921,23 +1921,23 @@ const project = [
         id: "minifig-1",
         name: "Tony Stark",
         film: "Avengers : Endgame",
-        image: "img/Minifig/Stark-1-face.png",
-        hoverImage: "img/Minifig/Stark-1-34.png", // image au survol
+        image: "img/Minifig/Stark-1-face.webp",
+        hoverImage: "img/Minifig/Stark-1-34.webp", // image au survol
         parts: [
             {
                 name: "Tesseract",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=19729&idColor=15#T=C&C=15",
-                image: "img/Minifig/parts/19729.png"
+                image: "img/Minifig/parts/19729.webp"
             },
             {
                 name: "Hair",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=98385#T=S&C=69&O={%22color%22:69,%22iconly%22:0}",
-                image: "img/Minifig/parts/98385.png"
+                image: "img/Minifig/parts/98385.webp"
             },
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3239c01&idColor=85&name=Dark%20Bluish%20Gray%20Torso%20Jacket,%20White%20Shirt,%20Red%20Tie%20with%20White%20Spots,%20Sand%20Blue%20Vest%20Pattern%20/%20Dark%20Bluish%20Gray%20Arms%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=I&C=85",
-                image: "img/Minifig/parts/973pb3239c01.png"
+                image: "img/Minifig/parts/973pb3239c01.webp"
             },
         ],
         type: "minifig",
@@ -1948,23 +1948,23 @@ const project = [
     {//Howard Stark//
         name: "Howard Stark",
         film: "Avengers : Endgame",
-        image: "img/Minifig/Howard-face.png",
-        hoverImage: "img/Minifig/Howard-34.png", // image au survol
+        image: "img/Minifig/Howard-face.webp",
+        hoverImage: "img/Minifig/Howard-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb0323c01&idColor=85#T=I&C=85",
-                image: "img/Minifig/parts/973pb0323c01.png"
+                image: "img/Minifig/parts/973pb0323c01.webp"
             },
             {
                 name: "Hair",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=99930#T=S&C=120&O={%22color%22:120,%22iconly%22:0}",
-                image: "img/Minifig/parts/99930.png"
+                image: "img/Minifig/parts/99930.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb1493&name=Minifigure,%20Head%20Moustache%20Brown%20Bushy%20Large,%20Brown%20Eyebrows,%20White%20Pupils%20Pattern%20(SW%20Trooper)&category=%5BMinifigure,%20Head%5D#T=C",
-                image: "img/Minifig/parts/3626pb1493.png"
+                image: "img/Minifig/parts/3626pb1493.webp"
             }
         ],
         type: "minifig",
@@ -1975,23 +1975,23 @@ const project = [
     {//Namora//
         name: "Namora",
         film: "Black Panther : Wakanda Forever",
-        image: "img/Minifig/Namora-face.png",
-        hoverImage: "img/Minifig/Namora-34.png", // image au survol
+        image: "img/Minifig/Namora-face.webp",
+        hoverImage: "img/Minifig/Namora-34.webp", // image au survol
         parts: [
             {
                 name: "Hat",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=69951pb01&idColor=39#T=C&C=39",
-                image: "img/Minifig/parts/69951pb01.png"
+                image: "img/Minifig/parts/69951pb01.webp"
             },
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2770c01&name=Torso%20SW%20Aayla%20Secura%20Pattern%202%20/%20Dark%20Brown%20Arm%20Left%20/%20Dark%20Azure%20Arm%20Right%20/%20Dark%20Azure%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=I",
-                image: "img/Minifig/parts/973pb2770c01.png"
+                image: "img/Minifig/parts/973pb2770c01.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb1858&idColor=153#T=C&C=153",
-                image: "img/Minifig/parts/3626pb1858.png"
+                image: "img/Minifig/parts/3626pb1858.webp"
             }
         ],
         type: "minifig",
@@ -2002,23 +2002,23 @@ const project = [
     {//Shuri//
         name: "Shuri",
         film: "Black Panther : Wakanda Forever",
-        image: "img/Minifig/Shuri-1-face.png",
-        hoverImage: "img/Minifig/Shuri-1-34.png", // image au survol
+        image: "img/Minifig/Shuri-1-face.webp",
+        hoverImage: "img/Minifig/Shuri-1-34.webp", // image au survol
         parts: [
             {
                 name: "Hood",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=74528&idColor=1#T=C&C=1",
-                image: "img/Minifig/parts/74528.png"
+                image: "img/Minifig/parts/74528.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2893&idColor=88#T=C&C=88",
-                image: "img/Minifig/parts/3626pb2893.png"
+                image: "img/Minifig/parts/3626pb2893.webp"
             },
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2533&idColor=1#T=C&C=1",
-                image: "img/Minifig/parts/973pb2533.png"
+                image: "img/Minifig/parts/973pb2533.webp"
             }
         ],
         type: "minifig",
@@ -2029,23 +2029,23 @@ const project = [
     {//Defender Strange//
         name: "Defender Strange",
         film: "Doctor Strange 2",
-        image: "img/Minifig/Defender-strange-face.png",
-        hoverImage: "img/Minifig/Defender-strange-34.png", // image au survol
+        image: "img/Minifig/Defender-strange-face.webp",
+        hoverImage: "img/Minifig/Defender-strange-34.webp", // image au survol
         parts: [
             {
                 name: "Hair",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=17630&name=Minifigure,%20Hair%20Straight%20Cut%20and%20Short%20Ponytail&category=%5BMinifigure,%20Hair%5D#T=C",
-                image: "img/Minifig/parts/17630.png"
+                image: "img/Minifig/parts/17630.webp"
             },
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2498c01&idColor=11#T=I&C=11",
-                image: "img/Minifig/parts/973pb2498c01.png"
+                image: "img/Minifig/parts/973pb2498c01.webp"
             },
             {
                 name: "Legs",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0579&idColor=11#T=C&C=11",
-                image: "img/Minifig/parts/970c00pb0579.png"
+                image: "img/Minifig/parts/970c00pb0579.webp"
             }
         ],
         type: "minifig",
@@ -2056,23 +2056,23 @@ const project = [
     {//Heracles//
         name: "Heracles",
         film: "Thor : Love and Thunder",
-        image: "img/Minifig/Hercules-face.png",
-        hoverImage: "img/Minifig/Hercules-34.png", // image au survol
+        image: "img/Minifig/Hercules-face.webp",
+        hoverImage: "img/Minifig/Hercules-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1470c01&idColor=150#T=I&C=150",
-                image: "img/Minifig/parts/973pb1470c01.png"
+                image: "img/Minifig/parts/973pb1470c01.webp"
             },
             {
                 name: "Armor",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=11438&name=Minifigure%20Armor%20Shoulder%20Pads%20with%20Ridges&category=%5BMinifigure,%20Body%20Wear%5D#T=S&C=80&O={%22color%22:80,%22iconly%22:0}",
-                image: "img/Minifig/parts/11438.png"
+                image: "img/Minifig/parts/11438.webp"
             },
             {
                 name: "Legs",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0729&idColor=80#T=C&C=80",
-                image: "img/Minifig/parts/970c00pb0729.png"
+                image: "img/Minifig/parts/970c00pb0729.webp"
             }
         ],
         type: "minifig",
@@ -2083,23 +2083,23 @@ const project = [
     {//Thor//
         name: "Thor",
         film: "Thor : Love and Thunder",
-        image: "img/Minifig/Thor-1-face.png",
-        hoverImage: "img/Minifig/Thor-1-34.png", // image au survol
+        image: "img/Minifig/Thor-1-face.webp",
+        hoverImage: "img/Minifig/Thor-1-34.webp", // image au survol
         parts: [
             {
                 name: "Cape Cloth",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=34724&name=Minifigure%20Cape%20Cloth,%20Stepped%20Cutout%20On%20One%20Side&category=%5BMinifigure,%20Body%20Wear%5D#T=C&C=7",
-                image: "img/Minifig/parts/34724.png"
+                image: "img/Minifig/parts/34724.webp"
             },
             {
                 name: "Cape Cloth",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=37046&idColor=48#T=S&C=7&O={%22color%22:7,%22iconly%22:0}",
-                image: "img/Minifig/parts/37046.png"
+                image: "img/Minifig/parts/37046.webp"
             },
             {
                 name: "Hood",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=30381&name=Minifigure,%20Headgear%20Hood&category=%5BMinifigure,%20Headgear%5D#T=C&C=63",
-                image: "img/Minifig/parts/30381.png"
+                image: "img/Minifig/parts/30381.webp"
             }
         ],
         type: "minifig",
@@ -2110,23 +2110,23 @@ const project = [
     {//Baast//
         name: "Baast",
         film: "Thor : Love and Thunder",
-        image: "img/Minifig/Baast-face.png",
-        hoverImage: "img/Minifig/Baast-34.png", // image au survol
+        image: "img/Minifig/Baast-face.webp",
+        hoverImage: "img/Minifig/Baast-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3107c01&idColor=11#T=S&C=11&O={%22color%22:11,%22iconly%22:0}",
-                image: "img/Minifig/parts/973pb3107c01.png"
+                image: "img/Minifig/parts/973pb3107c01.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2893&idColor=88#T=C&C=88",
-                image: "img/Minifig/parts/3626pb2893.png"
+                image: "img/Minifig/parts/3626pb2893.webp"
             },
             {
                 name: "Legs",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Minifig/parts/970c00pb0898.png"
+                image: "img/Minifig/parts/970c00pb0898.webp"
             }
         ],
         type: "minifig",
@@ -2137,23 +2137,23 @@ const project = [
     {//Zeus//
         name: "Zeus",
         film: "Thor : Love and Thunder",
-        image: "img/Minifig/Zeus-face.png",
-        hoverImage: "img/Minifig/Zeus-34.png", // image au survol
+        image: "img/Minifig/Zeus-face.webp",
+        hoverImage: "img/Minifig/Zeus-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb2210&idColor=115#T=C&C=115",
-                image: "img/Minifig/parts/973pb2210.png"
+                image: "img/Minifig/parts/973pb2210.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb1998&name=Minifigure,%20Head%20Dual%20Sided%20Dark%20Tan%20Moustache%20and%20Beard%20with%20Gray%20Pattern,%20Sad%20/%20Angry%20Pattern%20(SW%20Luke%20Skywalker)&category=%5BMinifigure,%20Head%5D#T=C&C=90",
-                image: "img/Minifig/parts/3626pb1998.png"
+                image: "img/Minifig/parts/3626pb1998.webp"
             },
             {
                 name: "Legs",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00pb0763&idColor=1#T=C&C=1",
-                image: "img/Minifig/parts/970c00pb0763.png"
+                image: "img/Minifig/parts/970c00pb0763.webp"
             }
         ],
         type: "minifig",
@@ -2164,23 +2164,23 @@ const project = [
     {//Love//
         name: "Love",
         film: "Thor : Love and Thunder",
-        image: "img/Minifig/Love-face.png",
-        hoverImage: "img/Minifig/Love-34.png", // image au survol
+        image: "img/Minifig/Love-face.webp",
+        hoverImage: "img/Minifig/Love-34.webp", // image au survol
         parts: [
             {
                 name: "Hood",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=15428&idColor=39#T=C&C=39",
-                image: "img/Minifig/parts/15428.png"
+                image: "img/Minifig/parts/15428.webp"
             },
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4418c01&idColor=89#T=I&C=89",
-                image: "img/Minifig/parts/973pb4418c01.png"
+                image: "img/Minifig/parts/973pb4418c01.webp"
             },
             {
                 name: "Hair",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=21777&name=Minifigure,%20Hair%20Female%20Ponytail%20with%20Tied%20Sections&category=%5BMinifigure,%20Hair%5D#T=C&C=120",
-                image: "img/Minifig/parts/21777.png"
+                image: "img/Minifig/parts/21777.webp"
             }
         ],
         type: "minifig",
@@ -2191,23 +2191,23 @@ const project = [
     {//Billy Maximoff//
         name: "Billy Maximoff",
         film: "WandaVision",
-        image: "img/Minifig/Billy-Maximoff-face.png",
-        hoverImage: "img/Minifig/Billy-Maximoff-34.png", // image au survol
+        image: "img/Minifig/Billy-Maximoff-face.webp",
+        hoverImage: "img/Minifig/Billy-Maximoff-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3665c01&idColor=63#T=I&C=63",
-                image: "img/Minifig/parts/973pb3665c01.png"
+                image: "img/Minifig/parts/973pb3665c01.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2734&name=Minifigure,%20Head%20Dual%20Sided%20Child%20Dark%20Brown%20Eyebrows,%20Medium%20Nougat%20Chin%20Dimple,%20Neutral%20Open%20Mouth%20with%20Buck%20Teeth%20/%20Sleeping%20with%20Eyebrows%20Raised%20Pattern&category=%5BMinifigure,%20Head%5D#T=C&C=90",
-                image: "img/Minifig/parts/3626pb2734.png"
+                image: "img/Minifig/parts/3626pb2734.webp"
             },
             {
                 name: "Hair",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=69558pb01&idColor=120#T=C&C=120",
-                image: "img/Minifig/parts/69558pb01.png"
+                image: "img/Minifig/parts/69558pb01.webp"
             }
         ],
         type: "minifig",
@@ -2219,23 +2219,23 @@ const project = [
     {//Ego//
         name: "Ego",
         film: "Guardians of the Galaxy",
-        image: "img/Minifig/Ego-face.png",
-        hoverImage: "img/Minifig/Ego-34.png", // image au survol
+        image: "img/Minifig/Ego-face.webp",
+        hoverImage: "img/Minifig/Ego-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1988c01&idColor=2#T=I&C=2",
-                image: "img/Minifig/parts/973pb1988c01.png"
+                image: "img/Minifig/parts/973pb1988c01.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2166&idColor=90#T=C&C=90",
-                image: "img/Minifig/parts/3626pb2166.png"
+                image: "img/Minifig/parts/3626pb2166.webp"
             },
             {
                 name: "Cape Cloth",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=18202&name=Minifigure%20Cape%20Cloth,%20Tattered,%20Fur%20Effect%20(Hun%20Warrior%20Cape)&category=%5BMinifigure,%20Body%20Wear%5D#T=C&C=88",
-                image: "img/Minifig/parts/18202.png"
+                image: "img/Minifig/parts/18202.webp"
             }
         ],
         type: "minifig",
@@ -2246,23 +2246,23 @@ const project = [
     {//Malekith//
         name: "Malekith",
         film: "Thor : The dark world",
-        image: "img/Minifig/Malekith-face.png",
-        hoverImage: "img/Minifig/Malekith-34.png", // image au survol
+        image: "img/Minifig/Malekith-face.webp",
+        hoverImage: "img/Minifig/Malekith-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb3060c01&idColor=11#T=I&C=11",
-                image: "img/Minifig/parts/973pb3060c01.png"
+                image: "img/Minifig/parts/973pb3060c01.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb0899&idColor=90#T=C&C=90",
-                image: "img/Minifig/parts/3626pb0899.png"
+                image: "img/Minifig/parts/3626pb0899.webp"
             },
             {
                 name: "Hair",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=93230pb04#T=C&C=11",
-                image: "img/Minifig/parts/93230pb04.png"
+                image: "img/Minifig/parts/93230pb04.webp"
             }
         ],
         type: "minifig",
@@ -2273,23 +2273,23 @@ const project = [
     {//M'Baku//
         name: "M'Baku",
         film: "Black Panther",
-        image: "img/Minifig/Mbaku-face.png",
-        hoverImage: "img/Minifig/Mbaku-34.png", // image au survol
+        image: "img/Minifig/Mbaku-face.webp",
+        hoverImage: "img/Minifig/Mbaku-34.webp", // image au survol
         parts: [
             {
                 name: "Minifig",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?id=219238#T=I",
-                image: "img/Minifig/parts/sh0846.png"
+                image: "img/Minifig/parts/sh0846.webp"
             },
             {
                 name: "Arms",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=981982pb241&idColor=88#T=I&C=88",
-                image: "img/Minifig/parts/981982pb241.png"
+                image: "img/Minifig/parts/981982pb241.webp"
             },
             {
                 name: "Skirt",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=24721&idColor=85#T=C&C=85",
-                image: "img/Minifig/parts/24721.png"
+                image: "img/Minifig/parts/24721.webp"
             }
         ],
         type: "minifig",
@@ -2300,23 +2300,23 @@ const project = [
     {//Eddie Brock//
         name: "Eddie Brock",
         film: "Spiderman : No way home",
-        image: "img/Minifig/Venom-face.png",
-        hoverImage: "img/Minifig/Venom-34.png", // image au survol
+        image: "img/Minifig/Venom-face.webp",
+        hoverImage: "img/Minifig/Venom-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb4482c01&idColor=1&name=White%20Torso%20Shirt,%20Light%20Nougat%20Neck,%20Buttons,%20Dark%20Bluish%20Gray%20and%20Tark%20Tan%20Floral%20Pattern%20/%20Light%20Nougat%20Arms%20with%20White%20Short%20Sleeves,%20Floral%20Pattern%20/%20Light%20Nougat%20Hands&category=%5BMinifigure,%20Torso%20Assembly,%20Decor.%5D#T=S&C=1&O={%22color%22:1,%22iconly%22:0}",
-                image: "img/Minifig/parts/973pb4482c01.png"
+                image: "img/Minifig/parts/973pb4482c01.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2869&name=Minifigure,%20Head%20Dual%20Sided%20Dark%20Brown%20Eyebrows,%20Black%20Stubble,%20Slight%20Grin%20/%20Scowl%20with%20Gritted%20Teeth%20Pattern&category=%5BMinifigure,%20Head%5D#T=C&C=90",
-                image: "img/Minifig/parts/3626pb2869.png"
+                image: "img/Minifig/parts/3626pb2869.webp"
             },
             {
                 name: "Legs",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=970c00#T=S&C=63&O={%22color%22:%2263%22,%22iconly%22:0}",
-                image: "img/Minifig/parts/970c00.png"
+                image: "img/Minifig/parts/970c00.webp"
             }
         ],
         type: "minifig",
@@ -2327,23 +2327,23 @@ const project = [
     {//The collector//
         name: "The Collector",
         film: "Guardians of the Galaxy",
-        image: "img/Minifig/Collector-face.png",
-        hoverImage: "img/Minifig/Collector-34.png", // image au survol
+        image: "img/Minifig/Collector-face.webp",
+        hoverImage: "img/Minifig/Collector-34.webp", // image au survol
         parts: [
             {
                 name: "Torso",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=973pb1184c01&idColor=11#T=I&C=11",
-                image: "img/Minifig/parts/973pb1184c01.png"
+                image: "img/Minifig/parts/973pb1184c01.webp"
             },
             {
                 name: "Head",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=3626pb2003&idColor=90#T=C&C=90",
-                image: "img/Minifig/parts/3626pb2003.png"
+                image: "img/Minifig/parts/3626pb2003.webp"
             },
             {
                 name: "Cape cloth",
                 link: "https://www.bricklink.com/v2/catalog/catalogitem.page?P=19951&idColor=1#T=C&C=1",
-                image: "img/Minifig/parts/19951.png"
+                image: "img/Minifig/parts/19951.webp"
             }
         ],
         type: "minifig",
@@ -2364,7 +2364,7 @@ const project = [
         key: "project_Agatha_on_the_Witches_road",
         date: "2024-10-09",
         difficulty: 3,
-        img: "img/Miniatures/Wood table.png",
+        img: "img/Miniatures/Wood table.webp",
         alt: "Wood table",
         type: "instruction",
         theme: "",
@@ -2382,7 +2382,7 @@ const project = [
         key: "project_Taweret_Boat",
         date: "2024-10-08",
         difficulty: 1,
-        img: "img/Miniatures/Mcdo Logo.png",
+        img: "img/Miniatures/Mcdo Logo.webp",
         alt: "Mcdo Logo",
         type: "instruction",
         theme: "",
@@ -2400,7 +2400,7 @@ const project = [
         key: "project_Endgame_final_battle",
         date: "2024-08-09",
         difficulty: 1,
-        img: "img/Miniatures/Subway Logo.png",
+        img: "img/Miniatures/Subway Logo.webp",
         alt: "Subway Logo",
         type: "instruction",
         theme: "",
@@ -2418,7 +2418,7 @@ const project = [
         key: "project_Thor_VS_Surtur",
         date: "2024-08-09",
         difficulty: 1,
-        img: "img/Miniatures/Drone far from home.png",
+        img: "img/Miniatures/Drone far from home.webp",
         alt: "Drone far from home",
         type: "instruction",
         filter: "Marvel",
@@ -2436,7 +2436,7 @@ const project = [
         key: "project_Steve_Rogers_transformation_scene",
         date: "2024-08-07",
         difficulty: 3,
-        img: "img/Miniatures/throne.png",
+        img: "img/Miniatures/throne.webp",
         alt: "Wakanda Throne",
         type: "instruction",
         filter: "Marvel",
@@ -2453,7 +2453,7 @@ const project = [
         href: "img/instructions/Innovation center Instructions - Bricks Creations.pdf",
         date: "2024-08-04",
         difficulty: 5,
-        img: "img/Miniatures/Innovation center.png",
+        img: "img/Miniatures/Innovation center.webp",
         alt: "Innovation center",
         type: "instruction",
         theme: "",
@@ -2468,7 +2468,7 @@ const project = [
         id: "technic-1",
         name: { en: "Add a border / a frame", fr: "Ajouter une bordure / un cadre" },
         /*date: "2024-10-22", */
-        img: "img/Miniatures/border.jpg",
+        img: "img/Miniatures/border.webp",
         alt: "Add a border",
         type: "technics",
         theme: "technics"
