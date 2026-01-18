@@ -51,7 +51,7 @@ const translations = {
         ref_location: "Location",
         ref_movie: "Movie / Show",
         ref_characters: "Characters",
-        openNoticePdf: "Open the notice (PDF)",
+        openNoticePdf: "Open the instructions (PDF)",
 
         expo_year_prefix: "Years: ",
         expo_city_prefix: "Cities: ",
