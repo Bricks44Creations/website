@@ -2530,15 +2530,15 @@ document.addEventListener('keydown', (e) => {
 window.EXPO = [
     {
         id: 'bousies-2018', city: 'Bousies', date: '03/02/2018', year: 2018, lat: 50.151, lon: 3.62,
-        poster: 'img/Expo/bousies_affiche.png',
+        poster: 'img/Expo/bousies_affiche.webp',
     },
     {
         id: 'escaudoeuvres-2019', city: 'Escaudoeuvres', date: '14/09/2019', year: 2019, lat: 50.283, lon: 3.58,
-        poster: 'img/Expo/escaudoeuvres_affiche.png',
+        poster: 'img/Expo/escaudoeuvres_affiche.webp',
     },
     {
         id: 'divion-2022', city: 'Divion', date: '26/02/2022', year: 2022, lat: 50.47, lon: 2.506,
-        poster: 'img/Expo/divion_affiche.png',
+        poster: 'img/Expo/divion_affiche.webp',
     }
 ];
 window.PROJECTS = project;

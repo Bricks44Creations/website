@@ -667,13 +667,42 @@ if ('serviceWorker' in navigator) {
       const card = cardsEl.children[idx];
       card.style.boxShadow = 'inset 0 0 0 2px #F3BD99';
 
-      // scroll centré dans le conteneur scrollable (la colonne de droite)
-      const cardRect = card.getBoundingClientRect();
-      const listRect = cardsEl.getBoundingClientRect();
-      const offset = (cardRect.top - listRect.top) - (listRect.height / 2 - cardRect.height / 2);
-      cardsEl.scrollBy({ top: offset, behavior: 'smooth' });
+      // --- Auto-scroll pour s'assurer que la carte est VRAIMENT visible en entier ---
+      // Sur Conventions.html, c'est .panel-expo qui scrolle (overflow: scroll), pas #cards.
+      const scrollContainer = card.closest('.panel-expo') || cardsEl;
+
+      const ensureFullyVisible = (container, target, margin = 16) => {
+        const cRect = container.getBoundingClientRect();
+        const tRect = target.getBoundingClientRect();
+
+        // Si le conteneur ne scrolle pas (mobile: overflow visible), on délègue au scroll de page.
+        const canScroll = (container.scrollHeight - container.clientHeight) > 2;
+        if (!canScroll) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+
+        let nextTop = container.scrollTop;
+
+        // Target au-dessus de la zone visible
+        if (tRect.top < cRect.top + margin) {
+          nextTop -= (cRect.top + margin) - tRect.top;
+        }
+        // Target en-dessous de la zone visible
+        else if (tRect.bottom > cRect.bottom - margin) {
+          nextTop += tRect.bottom - (cRect.bottom - margin);
+        }
+
+        // Clamp
+        nextTop = Math.max(0, Math.min(nextTop, container.scrollHeight - container.clientHeight));
+        container.scrollTo({ top: nextTop, behavior: 'smooth' });
+      };
+
+      // rAF: laisse le temps au boxShadow / layout de s'appliquer avant de mesurer.
+      requestAnimationFrame(() => ensureFullyVisible(scrollContainer, card));
     }
   }
+
 
   // 3) Filtres (années + recherche)
   // 3) Filtres (années + villes + recherche)
