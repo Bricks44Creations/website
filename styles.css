@@ -1670,6 +1670,7 @@ video {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   display: inline-block;
+  cursor: pointer;
 }
 
 
@@ -1755,26 +1756,7 @@ video {
   transform: scale(1.1);
 }
 
-/* Lightbox */
-.lightbox-minifig {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.lightbox-minifig img {
-  max-width: 85%;
-  max-height: 85%;
-  border-radius: 0.75rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
+/* Lightbox : voir section globale (.lightbox) plus bas */
 
 
 .overlay-minifig {
@@ -2900,60 +2882,50 @@ video {
 }
 
 
-/* Lightbox Minifig */
-.lightbox-minifig {
-  position: fixed;
-  inset: 0;
-  display: none;
-  /* affichée en JS (display:flex) */
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 10000;
-}
+/* -----------------------------
+   Minifigs : utiliser la meme lightbox que detail-moc
+   (.lightbox + .open + .close) mais avec 2 images cote a cote
+   ----------------------------- */
 
-.lightbox-content {
+
+/* Contenu lightbox pour minifigs (n'affecte pas les autres usages) */
+.lightbox .lightbox-content {
   position: relative;
-  max-width: min(90vw, 56.25rem);
+  max-width: min(92vw, 70rem);
   max-height: 90vh;
   display: grid;
   place-items: center;
 }
 
-.lightbox-content img {
-  max-width: 100%;
-  max-height: 90vh;
+/* 2 images cote a cote sur fond blanc */
+.lightbox .lightbox-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: center;
+  background: #fff;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+/* Chaque image : fond blanc + mini ombre */
+.lightbox .lightbox-pair img {
+  width: 100%;
   height: auto;
-  width: auto;
-  display: block;
-  border-radius: 0.625rem;
+  max-height: 80vh;
+  object-fit: contain;
   background: #fff;
-  /* pour que la croix noire reste lisible en bord clair */
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Croix de fermeture (noire), posée sur l'image en haut à droite */
-.lightbox-close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  line-height: 2rem;
-  text-align: center;
-  font-size: 1.625rem;
-  font-weight: 700;
-  color: #000;
-  /* croix noire */
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #000;
-  /* liseré noir */
-  border-radius: 50%;
-  cursor: pointer;
-  user-select: none;
-}
-
-.lightbox-close:hover {
-  background: #fff;
+/* Mobile : empiler les 2 vues */
+@media (max-width: 768px) {
+  .lightbox .lightbox-pair {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================
@@ -2985,7 +2957,8 @@ video {
    MOBILE - Carousel Sheet (bottom overlay)
    ========================= */
 
-.carousel-sheet-overlay {
+.carousel-sheet-overlay,
+.minifigs-sheet-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, .55);
@@ -2995,12 +2968,14 @@ video {
   z-index: 12000;
 }
 
-.carousel-sheet-overlay.is-open {
+.carousel-sheet-overlay.is-open,
+.minifigs-sheet-overlay.is-open {
   opacity: 1;
   pointer-events: auto;
 }
 
-.carousel-sheet {
+.carousel-sheet,
+.minifigs-sheet {
   position: absolute;
   left: 0;
   right: 0;
@@ -3016,11 +2991,13 @@ video {
   overflow: hidden;
 }
 
-.carousel-sheet-overlay.is-open .carousel-sheet {
+.carousel-sheet-overlay.is-open .carousel-sheet,
+.minifigs-sheet-overlay.is-open .minifigs-sheet {
   transform: translateY(0);
 }
 
-.carousel-sheet-header {
+.carousel-sheet-header,
+.minifigs-sheet-header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -3028,7 +3005,8 @@ video {
   border-bottom: 1px solid rgba(0, 0, 0, .08);
 }
 
-.carousel-sheet-close {
+.carousel-sheet-close,
+.minifigs-sheet-close {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 62.4375rem;
@@ -3039,12 +3017,20 @@ video {
   cursor: pointer;
 }
 
-.carousel-sheet-body {
+.carousel-sheet-body,
+.minifigs-sheet-body {
   flex: 1;
   overflow-y: auto;
   /* scroll vertical + scrollbar à droite */
   -webkit-overflow-scrolling: touch;
   padding: .75rem;
+}
+
+/* Minifigs : 2 images empilées verticalement */
+.minifigs-sheet-body {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
 }
 
 .carousel-sheet-row {
@@ -3061,7 +3047,8 @@ video {
   grid-template-columns: 1fr 1fr;
 }
 
-.carousel-sheet-body img {
+.carousel-sheet-body img,
+.minifigs-sheet-body img {
   width: 100%;
   height: auto;
   display: block;
@@ -3069,11 +3056,25 @@ video {
   object-fit: cover;
 }
 
+/* Les photos de minifigs doivent rester entières */
+.minifigs-sheet-body img {
+  object-fit: contain;
+  background: #fff;
+}
+
+/* Minifigs : garder la figurine entière */
+.minifigs-sheet-body img {
+  object-fit: contain;
+  background: #fff;
+}
+
 /* =========================
    DESKTOP - Carousel Sheet
    ========================= */
 @media (min-width: 769px) {
-  .carousel-sheet {
+
+  .carousel-sheet,
+  .minifigs-sheet {
     left: 50%;
     top: 50%;
     right: auto;
@@ -3086,13 +3087,21 @@ video {
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
-  .carousel-sheet-overlay.is-open .carousel-sheet {
+  .carousel-sheet-overlay.is-open .carousel-sheet,
+  .minifigs-sheet-overlay.is-open .minifigs-sheet {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
 
   .carousel-sheet-body {
     padding: 1rem 1.2rem;
+  }
+
+  /* Minifigs : 2 images côte à côte (desktop uniquement) */
+  .minifigs-sheet-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
   .carousel-sheet-row {
