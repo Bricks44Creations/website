@@ -123,42 +123,49 @@
     return v[lang] || v.en || v.fr || fallback;
   }
 
-  function ensureLightbox() {
-    let lb = document.querySelector(".lightbox-minifig");
-    if (!lb) {
-      lb = document.createElement("div");
-      lb.className = "lightbox-minifig";
+  // Minifigs : meme "bottom sheet" que detail-moc/detail-conventions (ouvre depuis le bas, plein largeur)
+  // Différence : on affiche exactement 2 images, empilées (une sous l'autre).
+  function ensureMinifigsSheet() {
+    let overlay = document.querySelector(".minifigs-sheet-overlay");
+    if (overlay) return overlay;
 
-      // conteneur relatif pour pouvoir positionner la croix sur l'image
-      const content = document.createElement("div");
-      content.className = "lightbox-content";
+    overlay = document.createElement("div");
+    overlay.className = "minifigs-sheet-overlay";
+    overlay.innerHTML = `
+      <div class="minifigs-sheet" role="dialog" aria-modal="true" aria-label="Minifig">
+        <div class="minifigs-sheet-header">
+          <button class="minifigs-sheet-close" type="button" aria-label="Fermer">×</button>
+        </div>
+        <div class="minifigs-sheet-body">
+          <img class="minifigs-sheet-img-default" alt="">
+          <img class="minifigs-sheet-img-hover" alt="">
+        </div>
+      </div>
+    `;
 
-      const img = document.createElement("img");
+    const close = () => {
+      overlay.classList.remove("is-open");
+      setTimeout(() => {
+        document.body.style.overflow = "";
+      }, 300);
+    };
 
-      // bouton de fermeture (croix noire)
-      const closeBtn = document.createElement("button");
-      closeBtn.className = "lightbox-close";
-      closeBtn.setAttribute("aria-label", "Fermer");
-      closeBtn.textContent = "×";
+    // fermer si clic sur le voile
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) close();
+    });
+    // fermer bouton
+    overlay.querySelector(".minifigs-sheet-close")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      close();
+    });
+    // fermer ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
 
-      // événements
-      closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        lb.style.display = "none";
-      });
-
-      // clic sur l'overlay ferme aussi
-      lb.addEventListener("click", () => { lb.style.display = "none"; });
-
-      // empêcher le clic sur l'image de remonter si tu veux garder la croix comme action principale
-      content.addEventListener("click", (e) => e.stopPropagation());
-
-      content.appendChild(img);
-      content.appendChild(closeBtn);
-      lb.appendChild(content);
-      document.body.appendChild(lb);
-    }
-    return lb;
+    document.body.appendChild(overlay);
+    return overlay;
   }
 
 
@@ -187,8 +194,9 @@
     // Strictement les minifigs
     items = items.filter(p => isMinifigType(p.type));
 
-    const lightbox = ensureLightbox();
-    const lightboxImg = lightbox.querySelector("img");
+    const sheet = ensureMinifigsSheet();
+    const sheetImgDefault = sheet.querySelector(".minifigs-sheet-img-default");
+    const sheetImgHover = sheet.querySelector(".minifigs-sheet-img-hover");
 
     // Remplir le <select> s'il est fourni
     let filterSelect = null;
@@ -277,12 +285,18 @@
           </div>
         `;
 
-        // interactivité image (lightbox + hover swap)
+        // interactivité image (bottom sheet + hover swap)
         const mainImgElem = card.querySelector(".main-image img");
         if (mainImgElem) {
           mainImgElem.addEventListener("click", () => {
-            lightboxImg.src = mainImgElem.getAttribute("data-default");
-            lightbox.style.display = "flex";
+            const defSrc = mainImgElem.getAttribute("data-default");
+            const hovSrc = mainImgElem.getAttribute("data-hover") || defSrc;
+            if (sheetImgDefault) sheetImgDefault.src = defSrc;
+            if (sheetImgHover) sheetImgHover.src = hovSrc;
+
+            // meme comportement que detail-moc/detail-conventions (.is-open)
+            document.body.style.overflow = "hidden";
+            requestAnimationFrame(() => sheet.classList.add("is-open"));
           });
           mainImgElem.addEventListener("mouseenter", () => {
             const hoverSrc = mainImgElem.getAttribute("data-hover") || mainImgElem.getAttribute("data-default");
