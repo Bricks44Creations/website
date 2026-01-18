@@ -417,25 +417,67 @@
                 notice: () => {
                     const noticePdf = d.instructions || data.instructions || d.link || data.link || '';
                     const noticeTab = document.getElementById('tab-notice');
+
+                    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
                     let viewer = document.getElementById('notice-viewer');
                     let frame = document.getElementById('notice-iframe');
-                    if (!viewer && noticeTab) {
-                        viewer = document.createElement('div');
-                        viewer.id = 'notice-viewer';
-                        viewer.className = 'pdf-viewer';
-                        viewer.hidden = true;
-                        frame = document.createElement('iframe');
-                        frame.id = 'notice-iframe';
-                        frame.title = 'Notice PDF';
-                        frame.setAttribute('loading', 'lazy');
-                        viewer.appendChild(frame);
-                        noticeTab.appendChild(viewer);
+
+                    // Zone “mobile button” (créée si besoin)
+                    let mobileBox = document.getElementById('notice-mobile');
+                    if (!mobileBox && noticeTab) {
+                        mobileBox = document.createElement('div');
+                        mobileBox.id = 'notice-mobile';
+                        mobileBox.className = 'notice-mobile';
+                        noticeTab.appendChild(mobileBox);
                     }
-                    if (noticePdf && frame && viewer) {
-                        frame.src = `${noticePdf}#view=FitH`;
-                        viewer.hidden = false;
+
+                    // Sécurité : si pas de PDF, on cache tout
+                    if (!noticePdf) {
+                        if (viewer) viewer.hidden = true;
+                        if (mobileBox) mobileBox.hidden = true;
+                        return;
+                    }
+
+                    if (isMobile) {
+                        // ✅ MOBILE : pas d’iframe (sinon rendu “Ouvrir” moche)
+                        if (viewer) viewer.hidden = true;
+
+                        if (mobileBox) {
+                            mobileBox.hidden = false;
+                            mobileBox.innerHTML = `
+        <a class="btn-primary notice-open" href="${noticePdf}" target="_blank" rel="noopener noreferrer" data-key="openNoticePdf">
+          Ouvrir la notice (PDF)
+        </a>
+      `;
+                        }
+                    } else {
+                        // ✅ DESKTOP : iframe OK
+                        if (mobileBox) mobileBox.hidden = true;
+
+                        // Si l’iframe n’existe pas (fallback)
+                        if (!viewer && noticeTab) {
+                            viewer = document.createElement('div');
+                            viewer.id = 'notice-viewer';
+                            viewer.className = 'pdf-viewer';
+                            viewer.hidden = true;
+
+                            frame = document.createElement('iframe');
+                            frame.id = 'notice-iframe';
+                            frame.title = 'Notice PDF';
+                            frame.setAttribute('loading', 'lazy');
+
+                            viewer.appendChild(frame);
+                            noticeTab.appendChild(viewer);
+                        }
+
+                        if (frame && viewer) {
+                            frame.src = `${noticePdf}#view=FitH`;
+                            viewer.hidden = false;
+                        }
                     }
                 }
+
             };
 
             // Affiche un seul panneau, hydrate si nécessaire
@@ -501,12 +543,10 @@
         })();
     </script>
 
-
-
     <!-- =========================================================
      DÉPENDANCE 3D — Import unique de model-viewer
      ========================================================= -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     </script>
 
     <script>

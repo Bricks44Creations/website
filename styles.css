@@ -895,6 +895,24 @@ model-viewer {
   }
 }
 
+/* Notice PDF — mobile: bouton au lieu d'un iframe */
+.notice-mobile {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.notice-mobile .notice-open {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Optionnel: sécurité si jamais l'iframe s'affiche quand même */
+@media (max-width: 768px) {
+  #tab-notice .pdf-viewer {
+    display: none !important;
+  }
+}
+
 /* Vidéo */
 .project-video .video-wrapper {
   position: relative;
