@@ -53,6 +53,7 @@ body {
   background: #18305a;
   padding: 1.2rem 2rem;
   color: white;
+  z-index: 9999;
 }
 
 /* --- Header sticky --- */
@@ -2505,6 +2506,10 @@ video {
   color: #fff !important;
 }
 
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 500 !important;
+}
 
 
 /* Bouton/legend interne carte si tu en ajoutes */
