@@ -34,39 +34,34 @@
     <!-- CONTENU PRINCIPAL -->
     <div class="main-content">
         <div class="title">
-            <h1 data-key="title_conventions">CONVENTIONS</h1>
+            <h1 data-key="title_conventions"></h1>
         </div>
         <div class="separator"></div>
 
         <div class="left-right">
             <!-- Contrôles -->
             <div class="filter-bar">
-                <!-- TRI (si besoin) -->
-                <!-- FILTRE ANNÉES -->
-                <div class="dropdown-tri" id="year-filter-dropdown">
-                    <button id="year-filter-btn" class="dropbtn-tri">
-                        <span id="year-filter-label">Années : Toutes</span>
+                <!-- TRI PAR ANNÉE -->
+                <div class="dropdown-tri" id="year-sort-dropdown">
+                    <button id="year-sort-btn" class="dropbtn-tri">
+                        <span id="year-sort-label" data-key="expo_sort_year_desc"></span>
                         <span class="arrow-down">&#9662;</span>
                     </button>
-                    <div id="year-filter-options" class="dropdown-content-tri"></div>
+                    <div id="year-sort-options" class="dropdown-content-tri">
+                        <a href="#" data-sort="year-desc" data-key="expo_sort_year_desc"></a>
+                        <a href="#" data-sort="year-asc" data-key="expo_sort_year_asc"></a>
+                    </div>
                 </div>
 
                 <!-- FILTRE VILLES -->
-                <div class="dropdown-tri" id="city-filter-dropdown">
-                    <button id="city-filter-btn" class="dropbtn-tri">
-                        <span id="city-filter-label">Villes : Toutes</span>
-                        <span class="arrow-down">&#9662;</span>
-                    </button>
-                    <div id="city-filter-options" class="dropdown-content-tri"></div>
-                </div>
+
             </div>
-            <!-- Modales mobile (une par filtre) -->
-            <div id="year-filter-modal" class="sort-modal">
+            <!-- Modales mobile -->
+            <div id="year-sort-modal" class="sort-modal">
                 <div class="sort-modal-content">
                     <button class="close-sort-modal" aria-label="Fermer">×</button>
-                    <div id="year-filter-list" class="checkbox-list"></div>
-                    <a href="#" id="year-reset" class="btn-clear"></a>
-                    <a href="#" id="year-apply" class="btn-close"></a>
+                    <a href="#" data-sort="year-desc" data-key="expo_sort_year_desc"></a>
+                    <a href="#" data-sort="year-asc" data-key="expo_sort_year_asc"></a>
                 </div>
             </div>
 
