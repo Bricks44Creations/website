@@ -67,7 +67,6 @@ body {
 
 
 
-
 .burger {
   background: none;
   border: none;
@@ -1173,13 +1172,13 @@ model-viewer {
   margin: 0;
 }
 
-.about-me-links a{
+.about-me-links a {
   color: #18305a;
-    text-decoration: none;
+  text-decoration: none;
   font-weight: 500;
 }
 
-.about-me-links i{
+.about-me-links i {
   color: #18305a;
 }
 
@@ -1901,7 +1900,7 @@ video {
 }
 
 .quick-links a,
-.footer-links a  {
+.footer-links a {
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -3152,4 +3151,14 @@ video {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   opacity: 0.8;
+}
+
+.about-me-links li {
+  margin-left: 0;
+  margin-bottom: 0.4rem;
+}
+
+.about-me-links i {
+  margin-top: 0;
+  margin-right: 0.6rem;
 }
