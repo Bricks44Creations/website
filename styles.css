@@ -2316,7 +2316,7 @@ video {
 .cards_expo {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: auto;
   /* centre les cards */
   gap: 1.5rem;
 }
