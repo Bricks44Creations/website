@@ -52,9 +52,14 @@ const translations = {
         ref_movie: "Movie / Show",
         ref_characters: "Characters",
 
-
+        expo_year_prefix: "Years: ",
+        expo_city_prefix: "Cities: ",
+        expo_all: "All",
         expo_view_map: "View on map",
         expo_view_page: "View page",
+
+        expo_sort_year_desc: "Year (newest → oldest)",
+        expo_sort_year_asc: "Year (oldest → newest)",
 
         filter: "Filter",
         sort_by: "Sort by",
@@ -253,9 +258,14 @@ const translations = {
         ref_movie: "Film / Série",
         ref_characters: "Personnages",
 
-
+        expo_year_prefix: "Années : ",
+        expo_city_prefix: "Villes : ",
+        expo_all: "Toutes",
         expo_view_map: "Voir sur la carte",
         expo_view_page: "Voir la page",
+
+        expo_sort_year_desc: "Année (récent → ancien)",
+        expo_sort_year_asc: "Année (ancien → récent)",
 
         filter: "Filtrer",
         sort_by: "Trier par",

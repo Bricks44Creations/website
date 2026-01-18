@@ -631,10 +631,11 @@ if ('serviceWorker' in navigator) {
     const el = document.createElement('article');
     // Card "expo" (affiche portrait) 
     el.className = 'card expo-card';
+    el.dataset.id = e.id;
     el.innerHTML = `
     <div class="poster"><img src="${e.poster}" alt="Affiche ${e.city}"></div>
     <div class="meta">
-      <h3>${e.city}</h3>
+      <h3>${e.city}${e.year ? ` ${e.year}` : ''}</h3>
       <div class="sub">${e.date}</div>
 <div class="actions">
   <button class="btn" data-goto="${e.id}" data-key="expo_view_map"></button>
@@ -642,6 +643,19 @@ if ('serviceWorker' in navigator) {
 </div>
     </div>`;
     return el;
+  }
+
+  // Applique les traductions aux éléments dynamiques (recréés après tri/filtre)
+  // Sans relancer setLanguage() (qui peut déclencher des tris sur d'autres pages).
+  function applyTranslationsIn(root) {
+    if (!root || typeof translations === 'undefined') return;
+    const dict = translations[currentLang] || {};
+    root.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (key && dict[key]) {
+        el.innerHTML = dict[key];
+      }
+    });
   }
   function renderCards(list) {
     cardsEl.innerHTML = '';
@@ -652,6 +666,10 @@ if ('serviceWorker' in navigator) {
         gotoOnMap(id);
       });
     });
+
+    // IMPORTANT: après un tri/filtre, les cards sont reconstruites, donc il faut
+    // ré-injecter les textes traduits des boutons "Voir sur la carte" / "Voir la page".
+    applyTranslationsIn(cardsEl);
   }
   function gotoOnMap(id) {
     const e = (window.EXPO || []).find(x => x.id === id); if (!e) return;
@@ -661,9 +679,8 @@ if ('serviceWorker' in navigator) {
   }
   function highlightCard(id) {
     cardsEl.querySelectorAll('.card').forEach(c => c.style.boxShadow = 'none');
-    const idx = (window.EXPO || []).findIndex(x => x.id === id);
-    if (idx >= 0) {
-      const card = cardsEl.children[idx];
+    const card = cardsEl.querySelector(`.card[data-id="${CSS.escape(String(id))}"]`);
+    if (card) {
       card.style.boxShadow = 'inset 0 0 0 2px #F3BD99';
 
       // --- Auto-scroll pour s'assurer que la carte est VRAIMENT visible en entier ---
@@ -703,18 +720,18 @@ if ('serviceWorker' in navigator) {
   }
 
 
-  // 3) Filtres (années + recherche)
-  // 3) Filtres (années + villes + recherche)
+  // 3) Tri (année) + filtre (villes + recherche)
   const EXPO = (window.EXPO || []).slice(); // copie
   EXPO.forEach(addExpoMarker);
-  renderCards(EXPO);
+  // rendu initial : tri par année (récent → ancien)
+  // (les filtres sont appliqués via applyFilters() dès qu'ils existent)
 
   const q = document.getElementById('q');
   const doSearch = document.getElementById('doSearch');
 
-  // --- états sélectionnés
-  let selectedYears = new Set();
+  // --- état
   let selectedCities = new Set();
+  let currentYearSort = 'year-desc'; // année (récent → ancien)
 
   // --- utilitaires UI checkboxes
   function makeCheckbox(idBase, label) {
@@ -742,18 +759,14 @@ if ('serviceWorker' in navigator) {
   }
 
   // --- sources uniques
-  const years = [...new Set(EXPO.map(e => e.year))].sort((a, b) => b - a);
   const cities = [...new Set(EXPO.map(e => e.city))].sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
 
-  // --- éléments Années
-  const yearBtn = document.getElementById('year-filter-btn');
-  const yearArrow = yearBtn?.querySelector('.arrow-down');
-  const yearMenu = document.getElementById('year-filter-options');
-  const yearLabel = document.getElementById('year-filter-label');
-  const yearModal = document.getElementById('year-filter-modal');
-  const yearList = document.getElementById('year-filter-list');
-  const yearApply = document.getElementById('year-apply');
-  const yearReset = document.getElementById('year-reset');
+  // --- éléments TRI Année
+  const yearSortBtn = document.getElementById('year-sort-btn');
+  const yearSortArrow = yearSortBtn?.querySelector('.arrow-down');
+  const yearSortLabel = document.getElementById('year-sort-label');
+  const yearSortMenu = document.getElementById('year-sort-options');
+  const yearSortModal = document.getElementById('year-sort-modal');
 
   // --- éléments Villes
   const cityBtn = document.getElementById('city-filter-btn');
@@ -782,7 +795,7 @@ if ('serviceWorker' in navigator) {
       menuEl.appendChild(actions);
       // listeners
       menuEl.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener('change', onChange));
-      btnApply.addEventListener('click', (e) => { e.preventDefault(); menuEl.classList.remove('show'); yearArrow?.classList.remove('rotate'); cityArrow?.classList.remove('rotate'); applyFilters(); });
+      btnApply.addEventListener('click', (e) => { e.preventDefault(); menuEl.classList.remove('show'); yearSortArrow?.classList.remove('rotate'); cityArrow?.classList.remove('rotate'); applyFilters(); });
       btnReset.addEventListener('click', (e) => { e.preventDefault(); menuEl.querySelectorAll('input[type="checkbox"]').forEach(i => i.checked = false); onChange(); });
     }
     if (listEl) {
@@ -798,37 +811,87 @@ if ('serviceWorker' in navigator) {
     menuEl?.querySelectorAll('input[type="checkbox"]:checked').forEach(i => set.add(i.value));
     labelEl && syncLabel(labelEl, prefix, [...set]);
   }
-  function onYearChange() {
-    updateSelectedFrom(yearMenu, selectedYears, yearLabel, 'Années : ');
-    applyFilters(); // tri direct
-  }
   function onCityChange() {
     updateSelectedFrom(cityMenu, selectedCities, cityLabel, 'Villes : ');
     applyFilters(); // tri direct
   }
 
   // --- construction
-  buildFilter(yearMenu, yearList, years, 'year', onYearChange);
   buildFilter(cityMenu, cityList, cities, 'city', onCityChange);
+
+  // --- UI TRI Année (comme MOC)
+  function setYearSortLabelFromKey(key) {
+    if (!yearSortLabel) return;
+    // Le setLanguage() global mettra aussi à jour via data-key.
+    yearSortLabel.setAttribute('data-key', key);
+    yearSortLabel.textContent = translations?.[currentLang]?.[key] || yearSortLabel.textContent;
+  }
+  // label par défaut
+  setYearSortLabelFromKey('expo_sort_year_desc');
+
+  function openYearSortUI() {
+    if (window.innerWidth <= 768 && yearSortModal) {
+      yearSortModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+    const wasOpen = yearSortMenu?.classList.contains('show');
+    closeAllDropdowns();
+    if (!wasOpen) {
+      yearSortMenu?.classList.add('show');
+      yearSortArrow?.classList.add('rotate');
+    }
+  }
+
+  yearSortBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openYearSortUI();
+  });
+
+  function closeYearSortModal() {
+    if (!yearSortModal) return;
+    yearSortModal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  yearSortModal?.addEventListener('click', (e) => {
+    if (e.target === yearSortModal) closeYearSortModal();
+  });
+  yearSortModal?.querySelector('.close-sort-modal')?.addEventListener('click', closeYearSortModal);
+
+  function handleYearSortChoice(link, closeMenus = true) {
+    const criteria = link?.dataset?.sort;
+    if (criteria === 'year-asc' || criteria === 'year-desc') {
+      currentYearSort = criteria;
+    }
+    const key = link?.getAttribute('data-key');
+    if (key) setYearSortLabelFromKey(key);
+
+    if (closeMenus) {
+      yearSortMenu?.classList.remove('show');
+      yearSortArrow?.classList.remove('rotate');
+      closeYearSortModal();
+    }
+    applyFilters();
+  }
+
+  document.querySelectorAll('#year-sort-options a, #year-sort-modal a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      handleYearSortChoice(a);
+    });
+  });
 
   // --- open/close dropdowns + modales (mobile ≤768px)
   function toggleDropdown(btn, menu, arrow) {
-    if (window.innerWidth <= 768 && (btn.id.includes('year') ? yearModal : cityModal)) {
-      (btn.id.includes('year') ? yearModal : cityModal).style.display = 'flex';
+    if (window.innerWidth <= 768 && cityModal) {
+      cityModal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       return;
     }
     menu?.classList.toggle('show');
     arrow?.classList.toggle('rotate', menu?.classList.contains('show'));
   }
-  yearBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const wasOpen = yearMenu?.classList.contains('show');
-    closeAllDropdowns(); // ferme tout
-    if (!wasOpen) {
-      toggleDropdown(yearBtn, yearMenu, yearArrow);
-    }
-  });
   cityBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     const wasOpen = cityMenu?.classList.contains('show');
@@ -844,14 +907,6 @@ if ('serviceWorker' in navigator) {
   });
   // modales mobile : appliquer / réinitialiser / fermer (×)
   function closeModal(modal) { modal.style.display = 'none'; document.body.style.overflow = ''; }
-  yearApply?.addEventListener('click', (e) => {
-    e.preventDefault(); // sync depuis la modale vers le dropdown
-    yearMenu?.querySelectorAll('input[type="checkbox"]').forEach(i => {
-      const twin = [...yearList.querySelectorAll('input')].find(j => j.value === i.value); if (twin) i.checked = twin.checked;
-    });
-    onYearChange(); closeModal(yearModal); applyFilters();
-  });
-  yearReset?.addEventListener('click', (e) => { e.preventDefault(); yearList?.querySelectorAll('input').forEach(i => i.checked = false); });
   cityApply?.addEventListener('click', (e) => {
     e.preventDefault();
     cityMenu?.querySelectorAll('input[type="checkbox"]').forEach(i => {
@@ -860,7 +915,6 @@ if ('serviceWorker' in navigator) {
     onCityChange(); closeModal(cityModal); applyFilters();
   });
   cityReset?.addEventListener('click', (e) => { e.preventDefault(); cityList?.querySelectorAll('input').forEach(i => i.checked = false); });
-  yearModal?.querySelector('.close-sort-modal')?.addEventListener('click', () => closeModal(yearModal));
   cityModal?.querySelector('.close-sort-modal')?.addEventListener('click', () => closeModal(cityModal));
 
   // --- recherche
@@ -870,17 +924,22 @@ if ('serviceWorker' in navigator) {
   // --- filtrage principal
   function applyFilters() {
     const text = (q?.value || '').trim().toLowerCase();
-    const yrs = [...selectedYears];
     const cts = [...selectedCities];
 
     const filtered = EXPO.filter(e => {
-      const okYear = yrs.length ? yrs.includes(String(e.year)) || yrs.includes(e.year) : true;
       const okCity = cts.length ? cts.includes(e.city) : true;
       const okText = text ? (e.title?.toLowerCase().includes(text) || e.city.toLowerCase().includes(text)) : true;
-      return okYear && okCity && okText;
+      return okCity && okText;
     });
 
-    renderCards(filtered);
+    // Tri année
+    const sorted = filtered.slice().sort((a, b) => {
+      const ya = Number(a.year) || 0;
+      const yb = Number(b.year) || 0;
+      return (currentYearSort === 'year-asc') ? (ya - yb) : (yb - ya);
+    });
+
+    renderCards(sorted);
 
     // maj marqueurs
     markers.forEach((m, id) => {
@@ -889,27 +948,10 @@ if ('serviceWorker' in navigator) {
     });
   }
 
+  // rendu initial (tri par défaut)
+  applyFilters();
+
 })();
-
-function highlightCard(id) {
-  cardsEl.querySelectorAll('.card').forEach(c => c.style.boxShadow = 'none');
-  const idx = (window.EXPO || []).findIndex(x => x.id === id);
-  if (idx >= 0) {
-    const card = cardsEl.children[idx];
-    card.style.boxShadow = '2px solid #F3BD99';
-
-    if (window.innerWidth > 768) {
-      // Desktop : comportement d’origine (scroll dans la colonne)
-      const cardRect = card.getBoundingClientRect();
-      const listRect = cardsEl.getBoundingClientRect();
-      const offset = (cardRect.top - listRect.top) - (listRect.height / 2 - cardRect.height / 2);
-      cardsEl.scrollBy({ top: offset, behavior: 'smooth' });
-    } else {
-      // Mobile : pas de scroll interne ; on fait défiler la page
-      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-}
 
 
 function resizeCardTitles() {
