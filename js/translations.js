@@ -52,6 +52,7 @@ const translations = {
         ref_movie: "Movie / Show",
         ref_characters: "Characters",
         openNoticePdf: "Open the instructions (PDF)",
+        a_propos_de_moi: "About Bricks Creations",
 
         expo_year_prefix: "Years: ",
         expo_city_prefix: "Cities: ",
@@ -259,6 +260,7 @@ const translations = {
         ref_movie: "Film / Série",
         ref_characters: "Personnages",
         openNoticePdf: "Ouvrir la notice (PDF)",
+        a_propos_de_moi: "À propos de Bricks Creations",
 
 
         expo_year_prefix: "Années : ",
