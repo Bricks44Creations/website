@@ -52,7 +52,7 @@ const translations = {
         ref_movie: "Movie / Show",
         ref_characters: "Characters",
         openNoticePdf: "Open the instructions (PDF)",
-        a_propos_de_moi: "About Bricks Creations",
+        a_propos_de_moi: "About BrickV3rse",
 
         expo_year_prefix: "Years: ",
         expo_city_prefix: "Cities: ",
@@ -82,11 +82,11 @@ const translations = {
         action_apply_filters: "Apply filters",
         action_reset_filters: "Reset filters",
 
-        about_title: "About Bricks Creations",
+        about_title: "About BrickV3rse",
         about_section_what: `
-            <h2>What is Bricks Creations?</h2>
+            <h2>What is BrickV3rse ?</h2>
             <p>
-                <strong>Bricks Creations</strong> is a creative project born from a long-lasting passion for LEGO®.
+                <strong>BrickV3rse</strong> is a creative project born from a long-lasting passion for LEGO®.
                 Through my creations, the goal is to imagine coherent universes, or to <em>recreate iconic scenes</em>,
                 with special attention to details and atmosphere. <br><br>
             </p>
@@ -117,7 +117,7 @@ const translations = {
         about_section_share: `
             <h2>Share, exhibit, tell stories</h2>
             <p>
-                Bricks Creations isn’t just building for the sake of building.
+                BrickV3rse isn’t just building for the sake of building.
                 I enjoy <strong>sharing</strong> my projects on social media, documenting their evolution,
                 and sometimes presenting them at <strong>exhibitions</strong>.
             </p>
@@ -141,10 +141,10 @@ const translations = {
                 the identity of those responsible for this website:
             </p>
             <ul>
-                <li><strong>Publisher:</strong> Bricks Creations (personal website)</li>
+                <li><strong>Publisher:</strong> BrickV3rse (personal website)</li>
                 <li><strong>Contact email:</strong> stix.bricks@gmail.com</li>
-                <li><strong>Publication manager:</strong> Bricks Creations</li>
-                <li><strong>Webmaster:</strong> Bricks Creations</li>
+                <li><strong>Publication manager:</strong> BrickV3rse</li>
+                <li><strong>Webmaster:</strong> BrickV3rse</li>
                 <li><strong>Hosting:</strong> GitHub Pages – pages.github.com</li>
             </ul>
         `,
@@ -204,7 +204,7 @@ const translations = {
                 the French courts.
             </p>
         `,
-        footer_disclaimer: "© 2024-{YEAR} All rights reserved Bricks Creations \nI don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself.\nFor the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that.\nLEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.",
+        footer_disclaimer: "© 2024-{YEAR} All rights reserved BrickV3rse \nI don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself.\nFor the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that.\nLEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.",
     },
 
     fr: {
@@ -260,7 +260,7 @@ const translations = {
         ref_movie: "Film / Série",
         ref_characters: "Personnages",
         openNoticePdf: "Ouvrir la notice (PDF)",
-        a_propos_de_moi: "À propos de Bricks Creations",
+        a_propos_de_moi: "À propos de BrickV3rse",
 
 
         expo_year_prefix: "Années : ",
@@ -290,11 +290,11 @@ const translations = {
         action_apply_filters: "Appliquer les filtres",
         action_reset_filters: "Réinitialiser les filtres",
 
-        about_title: "À propos de Bricks Creations",
+        about_title: "À propos de BrickV3rse",
         about_section_what: `
-            <h2>Qu&apos;est-ce que Bricks Creations ?</h2>
+            <h2>Qu&apos;est-ce que BrickV3rse ?</h2>
             <p>
-                <strong>Bricks Creations</strong> est un projet créatif né d’une passion de longue date pour les LEGO®.
+                <strong>BrickV3rse</strong> est un projet créatif né d’une passion de longue date pour les LEGO®.
                 À travers mes créations, l’objectif est d’imaginer des univers cohérents, ou de <em>recréer des scènes
                     emblématiques</em>, avec une attention particulière portée aux détails
                 et à l’ambiance. <br><br>
@@ -327,7 +327,7 @@ const translations = {
         about_section_share: `
             <h2>Partager, exposer, raconter</h2>
             <p>
-                Bricks Creations, ce n’est pas juste construire pour construire.
+                BrickV3rse, ce n’est pas juste construire pour construire.
                 J’aime <strong>partager</strong> mes projets sur les réseaux, documenter leur évolution
                 et parfois les présenter en <strong>exposition</strong>.
             </p>
@@ -350,10 +350,10 @@ const translations = {
                 les visiteurs de l’identité des responsables du site :
             </p>
             <ul>
-                <li><strong>Éditeur :</strong> Bricks Creations (site personnel)</li>
+                <li><strong>Éditeur :</strong> BrickV3rse (site personnel)</li>
                 <li><strong>Email de contact :</strong> stix.bricks@gmail.com</li>
-                <li><strong>Responsable de la publication :</strong> Bricks Creations</li>
-                <li><strong>Webmaster :</strong> Bricks Creations</li>
+                <li><strong>Responsable de la publication :</strong> BrickV3rse</li>
+                <li><strong>Webmaster :</strong> BrickV3rse</li>
                 <li><strong>Hébergeur :</strong> GitHub Pages – pages.github.com</li>
             </ul>
         `,
@@ -419,6 +419,6 @@ const translations = {
                 exclusive des juridictions françaises.
             </p>
         `,
-        footer_disclaimer: "© 2024-{YEAR} Tous droits réservés Bricks Creations \nJe ne travaille pas pour LEGO®, je ne suis pas corrompu par LEGO®, j’achète mes LEGO® moi-même.\nPour le reste, les propriétaires des marques mentionnées sur le site en restent les seuls propriétaires et c’est très bien ainsi.\nLEGO® est une marque déposée du groupe LEGO, qui ne sponsorise, n’autorise ni n’approuve ce site."
+        footer_disclaimer: "© 2024-{YEAR} Tous droits réservés BrickV3rse \nJe ne travaille pas pour LEGO®, je ne suis pas corrompu par LEGO®, j’achète mes LEGO® moi-même.\nPour le reste, les propriétaires des marques mentionnées sur le site en restent les seuls propriétaires et c’est très bien ainsi.\nLEGO® est une marque déposée du groupe LEGO, qui ne sponsorise, n’autorise ni n’approuve ce site."
     }
 };

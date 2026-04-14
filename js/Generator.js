@@ -621,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <button class="burger" id="burger-btn" aria-label="Ouvrir le menu">☰</button>
     <div class="logo-text">
       <a href="index.html"><img src="img/logo_actuel.png" alt="Logo" /></a>
-      <a href="index.html"><h1 data-key="site_title">Bricks Creations</h1></a>
+      <a href="index.html"><h1 data-key="site_title">BrickV3rse</h1></a>
     </div>
     <nav class="navbar">
       <ul class="menu">
@@ -737,9 +737,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="footer-column footer-info">
         <h3 data-key="social_contacts"></h3>
         <ul class="footer-links">
-          <li><a href="https://www.youtube.com/@BricksCreations" target="_blank" rel="noopener noreferrer"><span data-key="youtube">YouTube </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-          <li><a href="https://www.instagram.com/bricks44creations" target="_blank"><span data-key="instagram">Instagram </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
-          <li><a href="https://www.tiktok.com/@brickscreations" target="_blank" rel="noopener noreferrer"><span data-key="tiktok">TikTok </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.youtube.com/@brickv3rse" target="_blank" rel="noopener noreferrer"><span data-key="youtube">YouTube </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/brickv3rse" target="_blank"><span data-key="instagram">Instagram </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.tiktok.com/@brickv3rse" target="_blank" rel="noopener noreferrer"><span data-key="tiktok">TikTok </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
           <li><a href="mailto:stix.bricks@gmail.com" target="_blank" rel="noopener noreferrer"><span data-key="email">Email </span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
         </ul>
       </div>
@@ -758,7 +758,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
     <p class="copyright" data-key="footer_disclaimer">
-      © 2024-{YEAR} All rights reserved Bricks Creations <br>
+      © 2024-{YEAR} All rights reserved BrickV3rse <br>
       I don't work for LEGO®, I am not corrupted by LEGO®, I buy my LEGO® myself. <br>
       For the rest, the owners of the respective brands mentioned on the site remain the owners and it is very well like that. LEGO® is a registered trademark of The LEGO Group which does not sponsor, authorize or endorse this site.
     </p>
