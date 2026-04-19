@@ -2067,6 +2067,7 @@ const dataDetails = [
         { src: "img/MOC/moc-others-8-5.webp", caption: "Détail 5" },
         { src: "img/MOC/moc-others-8-6.webp", caption: "Détail 6" },
       ],
+      reference: "img/MOC/moc-others-8-ref.webp",
     },
     stats: {
       pieces: "",
