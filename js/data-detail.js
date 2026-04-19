@@ -2055,6 +2055,25 @@ const dataDetails = [
       buildTime: ""
     },
   },
+    {
+    id: "moc-others-8",
+    description: { en: "", fr: "" },
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-8-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-8-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-8-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-8-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-8-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-others-8-6.webp", caption: "Détail 6" },
+      ],
+    },
+    stats: {
+      pieces: "",
+      dimensions: "",
+      buildTime: ""
+    },
+  },
 
 
   //Figurines//
