@@ -1853,6 +1853,24 @@ const project = [
         tag: "",
         favoris: false,
     },
+    {//Malaysia//
+        id: "moc-others-9",
+        name: {
+            fr: "Malaisie",
+            en: "Malaysia",
+        },
+        key: "project_Malaysia",
+        label: "Malaysia",
+        date: "2026-05-03",
+        relevance: 3,
+        filter: "",
+        img: "img/Miniatures/malaysia.webp",
+        alt: "SF26",
+        type: "MOC",
+        theme: "Others",
+        tag: "",
+        favoris: false,
+    },
 
     //Liste des figurines //
     {//Tony Stark//

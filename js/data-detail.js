@@ -588,7 +588,7 @@ const dataDetails = [
       dimensions: "",
       buildTime: ""
     },
-    instructions: "img/instructions/Drone Far From Home - Bricks Creations.pdf",
+    instructions: "img/instructions/Drone Far From Home - BrickV3rse.pdf",
   },
   {
     id: "moc-marvel-49",
@@ -731,7 +731,7 @@ const dataDetails = [
       dimensions: "",
       buildTime: ""
     },
-    instructions: "img/instructions/Wooden table Instructions - Bricks Creations.pdf",
+    instructions: "img/instructions/Wooden table Instructions - BrickV3rse.pdf",
   },
   {
     id: "moc-marvel-42",
@@ -847,7 +847,7 @@ const dataDetails = [
       dimensions: "",
       buildTime: ""
     },
-    instructions: "img/instructions/Wakanda Throne Instructions - Bricks Creations.pdf",
+    instructions: "img/instructions/Wakanda Throne Instructions - BrickV3rse.pdf",
     model3d: "img/3d/wakanda-throne2.glb",
   },
   {
@@ -1571,7 +1571,7 @@ const dataDetails = [
       dimensions: "",
       buildTime: ""
     },
-    instructions: "img/instructions/McDonald’s Logo Instructions - Bricks Creations.pdf",
+    instructions: "img/instructions/McDonald’s Logo Instructions - BrickV3rse.pdf",
 
   },
   {
@@ -1730,7 +1730,7 @@ const dataDetails = [
       dimensions: "",
       buildTime: ""
     },
-    instructions: "img/instructions/Subway Logo Instructions - Bricks Creations.pdf",
+    instructions: "img/instructions/Subway Logo Instructions - BrickV3rse.pdf",
   },
   {
     id: "moc-jurassic-park-4",
@@ -2055,7 +2055,7 @@ const dataDetails = [
       buildTime: ""
     },
   },
-    {
+  {
     id: "moc-others-8",
     description: { en: "", fr: "" },
     images: {
@@ -2074,6 +2074,29 @@ const dataDetails = [
       dimensions: "",
       buildTime: ""
     },
+  },
+  {
+    id: "moc-others-9",
+    locations: "Kuala Lumpur, Malaysia",
+    images: {
+      gallery: [
+        { src: "img/MOC/moc-others-9-1.webp", caption: "Détail 1" },
+        { src: "img/MOC/moc-others-9-2.webp", caption: "Détail 2" },
+        { src: "img/MOC/moc-others-9-3.webp", caption: "Détail 3" },
+        { src: "img/MOC/moc-others-9-4.webp", caption: "Détail 4" },
+        { src: "img/MOC/moc-others-9-5.webp", caption: "Détail 5" },
+        { src: "img/MOC/moc-others-9-6.webp", caption: "Détail 6" },
+        { src: "img/MOC/moc-others-9-7.webp", caption: "Détail 7" },
+      ],
+      reference: "img/MOC/moc-others-9-ref.webp",
+    },
+    stats: {
+      pieces: { en: "", fr: "" },
+      dimensions: "",
+      buildTime: ""
+    },
+    instructions: "img/instructions/Petronas Tower Instructions - BrickV3rse.pdf",
+    model3d: "img/3d/Petronas_tower.glb",
   },
 
 
